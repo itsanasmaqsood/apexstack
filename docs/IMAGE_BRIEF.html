@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ApexStack Image Brief</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  background: #08090A; color: #E3E3E3; margin: 0 auto; max-width: 880px;
+  padding: 56px 24px 140px;
+  font: 16px/1.65 "Fira Sans", ui-sans-serif, system-ui, sans-serif;
+}
+h1 { font-size: clamp(30px, 5vw, 40px); line-height: 1.12; color: #fff; margin: 0 0 10px; letter-spacing: -0.5px; }
+h2 { font-size: clamp(22px, 3.4vw, 27px); color: #fff; margin: 60px 0 14px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.14); letter-spacing: -0.3px; }
+h3 { font-size: 18px; color: #B4CC04; margin: 36px 0 8px; }
+p { margin: 12px 0; }
+ul { margin: 12px 0; padding-left: 20px; }
+li { margin: 7px 0; }
+strong { color: #fff; font-weight: 600; }
+code { background: rgba(255,255,255,0.09); color: #D4F005; padding: 2px 6px; border-radius: 3px; font-size: 0.88em; }
+hr { border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 44px 0; }
+blockquote {
+  position: relative; margin: 16px 0; padding: 20px 20px 20px 22px;
+  background: #101112; border-left: 3px solid #B4CC04; border-radius: 0 4px 4px 0;
+}
+blockquote p { margin: 0; padding-right: 96px; color: #C9C9C9; font-size: 15px; }
+.copy {
+  position: absolute; top: 12px; right: 12px; cursor: pointer;
+  background: #B4CC04; color: #000; border: 0; border-radius: 3px;
+  padding: 6px 12px; font: 500 12px/1 inherit;
+  transition: background 0.15s ease;
+}
+.copy:hover { background: #D4F005; }
+.copy:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.copy[data-done="1"] { background: #fff; }
+@media (max-width: 640px) {
+  blockquote p { padding-right: 0; padding-top: 30px; }
+}
+</style>
+</head><body>
+<h1>ApexStack Image Brief</h1>
+<p>Every image slot on the site, led by <strong>the exact words that appear on or beside it</strong>. The picture has to illustrate that sentence — that is the whole point. An image that could sit under any heading is the wrong image.</p>
+<p><strong>Rules for every generated image:</strong></p>
+<ul>
+<li><strong>No people.</strong> No faces, hands, figures or silhouettes.</li>
+<li><strong>No text, letters, numbers or logos inside the picture.</strong> Anything an AI writes comes out misspelt, and the site lays its own real text on top.</li>
+<li><strong>Brand palette only:</strong> near-black <code>#08090A</code>, lime <code>#B4CC04</code>, hot lime <code>#D4F005</code>, plus greys and white. <strong>No blue, purple, orange or teal</strong> — that mix is what currently makes the homepage look like a different company's site.</li>
+<li><strong>Dark.</strong> Every one of these sits on a near-black page.</li>
+<li><strong>Send PNG or JPG at the exact pixel size given.</strong> I handle conversion and compression.</li>
+</ul>
+<p>Sizes are already doubled for retina.</p>
+<hr>
+<h2>Priority 1 — the five "One Team. The Whole Stack." cards</h2>
+<p>Rendered 416px tall. The <strong>white heading sits over the top-left corner</strong>, so the top third of each image must stay dark and quiet. Two are already done.</p>
+<h3>1. AI Products &amp; Agents — <code>900 × 832</code></h3>
+<p><strong>The words on it:</strong> <em>"AI Products &amp; Agents — Production AI features, autonomous agents and model integration"</em></p>
+<p>The picture has to say <strong>autonomous</strong> and <strong>in production</strong> — not "robot".</p>
+<blockquote><button class="copy" type="button">Copy prompt</button><p>A dark isometric 3D render of a decision tree made physical: a single glowing lime-green path entering at the top, branching through a series of gate-like slabs, and leaving as several separate lit paths at the bottom. Matte charcoal gates, lime green light travelling along the routes. Near-black background, upper-left third empty and dark. Precise, engineered, calm. No text, no people, no robots.</p></blockquote>
+<h3>2. Web &amp; Mobile Applications — <code>740 × 832</code></h3>
+<p><strong>The words on it:</strong> <em>"Web apps, iOS and Android, shipped to the stores"</em></p>
+<p>The key word is <strong>shipped</strong>. Two form factors, finished, out the door.</p>
+<blockquote><button class="copy" type="button">Copy prompt</button><p>A dark isometric 3D render of two blank glass panels of different proportions, one tall and narrow and one wider, standing upright side by side on a dark surface, each outlined with thin lime-green edge light. Surfaces are empty frosted glass, no interface, no icons. Near-black background, soft lime pool of light at their base. Portrait. No text, no people.</p></blockquote>
+<h3>3. Cloud, DevOps &amp; APIs — <code>740 × 832</code></h3>
+<p><strong>The words on it:</strong> <em>"Infrastructure, CI/CD pipelines and integration layers"</em></p>
+<p>The word is <strong>pipeline</strong> — something flows through, continuously.</p>
+<blockquote><button class="copy" type="button">Copy prompt</button><p>A dark isometric 3D render of a vertical stack of server-like slabs connected by pipes running between them, with a continuous ribbon of lime-green light flowing down through the connections from top to bottom. Matte dark grey hardware, near-black background, faint haze. Upper third mostly empty black. No text, no people.</p></blockquote>
+<hr>
+<h2>Priority 2 — full-bleed backgrounds</h2>
+<p>Copy sits directly on these, so they must be <strong>very dark and low contrast through the middle</strong> or the text becomes unreadable.</p>
+<h3>4. Section background, desktop — <code>3700 × 2088</code></h3>
+<blockquote><button class="copy" type="button">Copy prompt</button><p>An almost entirely black abstract background: a vast isometric grid plane receding into fog, faint lime-green grid lines barely visible, a soft lime glow low on the horizon. Extremely low contrast, the central band nearly pure black. Atmospheric, empty, no focal object. Ultra-wide. No text, no people.</p></blockquote>
+<h3>5. Section background, mobile — <code>750 × 1176</code></h3>
+<blockquote><button class="copy" type="button">Copy prompt</button><p>The same scene recomposed vertically: near-black isometric grid plane receding into fog, faint lime-green lines, soft lime horizon glow low in frame. The middle band almost pure black. Portrait. No text, no people.</p></blockquote>
+<h3>6. Video thumbnail — <code>2268 × 1146</code></h3>
+<blockquote><button class="copy" type="button">Copy prompt</button><p>A dark cinematic wide shot of an angular lime-green crystalline structure glowing softly in deep black space, volumetric fog, single-source lime lighting. Composed with empty dark space around the centre. Sixteen by nine. No text, no play button, no people.</p></blockquote>
+<hr>
+<h2>Priority 3 — the five delivery-stage banners</h2>
+<p>These are <strong>not interchangeable</strong>. They are the five stages of how you work, in order, and each image must obviously be a <em>different</em> stage. Same treatment across all five so they read as one sequence: same camera angle, same materials, same lime accent, only the subject changes.</p>
+<p>All five: <code>2073 × 552</code>, ultra-wide letterbox, <strong>nothing in the dead centre</strong> (text sits there).</p>
+<h3>7. Discovery &amp; Problem Definition — <code>2073 × 552</code></h3>
+<blockquote><button class="copy" type="button">Copy prompt</button><p>Ultra-wide dark isometric render: a scattered field of small dim grey blocks on the left gradually resolving into a single clearly-lit lime-green block on the right. Deep black background, faint grid floor. The centre of the frame stays empty and dark. Minimal. No text, no people.</p></blockquote>
+<h3>8. Architecture &amp; Technical Strategy — <code>2073 × 552</code></h3>
+<blockquote><button class="copy" type="button">Copy prompt</button><p>Ultra-wide dark isometric render: a precise wireframe blueprint of a layered structure drawn in thin lime-green lines over black, partially built into solid matte charcoal blocks at one end. Technical, measured, empty through the centre. No text, no people.</p></blockquote>
+<h3>9. Product &amp; Experience Design — <code>2073 × 552</code></h3>
+<blockquote><button class="copy" type="button">Copy prompt</button><p>Ultra-wide dark isometric render: a series of blank frosted-glass panels arranged in a receding row, each outlined in thin lime-green light, suggesting screens in sequence. Surfaces completely empty, no interface, no icons. Deep black, centre of frame dark. No text, no people.</p></blockquote>
+<h3>10. Engineering &amp; Delivery — <code>2073 × 552</code></h3>
+<blockquote><button class="copy" type="button">Copy prompt</button><p>Ultra-wide dark isometric render: a modular structure being assembled from interlocking cubes, some locked in place and glowing lime-green at the seams, others still floating in position nearby. Matte charcoal, deep black background, empty centre. No text, no people.</p></blockquote>
+<h3>11. Deployment, Scale &amp; Support — <code>2073 × 552</code></h3>
+<blockquote><button class="copy" type="button">Copy prompt</button><p>Ultra-wide dark isometric render: one lit lime-green block at the left multiplying into an even grid of identical lit blocks extending to the right and fading into fog. Sense of replication and scale. Deep black, dark through the centre. No text, no people.</p></blockquote>
+<hr>
+<h2>Priority 4 — the two service cards</h2>
+<h3>12. Product Engineering — <code>1464 × 1350</code></h3>
+<p><strong>The words on it:</strong> <em>"Product Engineering — Project or Retainer · Dedicated Team · Global Delivery"</em></p>
+<blockquote><button class="copy" type="button">Copy prompt</button><p>A dark isometric 3D render of a solid modular structure built from interlocking matte charcoal cubes, lime-green light glowing from the seams between them, standing centred on a dark plane with a soft shadow. Substantial, built, finished. Near-square. No text, no people.</p></blockquote>
+<h3>13. Design &amp; Brand — <code>1464 × 1350</code></h3>
+<p><strong>The words on it:</strong> <em>"Design &amp; Brand — Standalone or Bundled · In-House Studio · Global Delivery"</em></p>
+<p>Must read as clearly the <em>softer</em> sibling of number 12: same world, different material.</p>
+<blockquote><button class="copy" type="button">Copy prompt</button><p>A dark isometric 3D render of layered translucent panels floating in loose formation, edges catching lime-green light, softer and more open than a solid block. Matte dark background, gentle shadow. Near-square. No text, no people.</p></blockquote>
+<hr>
+<h2>Priority 5 — remaining slots</h2>
+<p>I have not confirmed the exact heading sitting on these. Send me a screenshot of each and I will write the prompt from its copy rather than guess.</p>
+<ul>
+<li><strong>14. Wide course card</strong> — <code>1746 × 1722</code></li>
+<li><strong>15. Testimonial strip</strong> — <code>1517 × 270</code></li>
+<li><strong>16 to 18. Three tall cards</strong> — <code>980 × 1252</code> each</li>
+</ul>
+<hr>
+<h2>Do NOT generate these</h2>
+<h3>The fifteen technology tiles — real logos only</h3>
+<p>Under <em>"Production tools, not experiments"</em> these are the <strong>actual technology logos</strong>, in order:</p>
+<p><code>TypeScript</code> <code>React</code> <code>Next.js</code> <code>Node.js</code> <code>Python</code> <code>PostgreSQL</code> <code>Redis</code> <code>Docker</code> <code>Kubernetes</code> <code>AWS</code> <code>Terraform</code> <code>GitHub Actions</code> <code>React Native</code> <code>GraphQL</code> <code>OpenTelemetry</code></p>
+<p>An AI-generated shape here would replace a real logo with a meaningless one and make the section dishonest. Every one is published as an official SVG on the project's own brand page. <strong>Tell me to fetch them and I will</strong> — they are free to use and I can pull all fifteen automatically.</p>
+<h3>Partner logos — <code>1000 × 340</code> transparent PNG, seven of them</h3>
+<p>Logo slots, currently blank. Only fill with partners or clients who have agreed to be named. An invented logo is a fabricated endorsement. If you have fewer than seven, send what is real and I will resize the strip; if none, I will remove it.</p>
+<h3>Team photos — <code>800 × 800</code> square, three of them</h3>
+<p>Real photographs, face centred, plain dark background. Two of the three are currently undersized, 400 by 400 and 460 by 460, and render soft. This is the one place on the site where a real person belongs.</p>
+<hr>
+<h2>How to send them</h2>
+<p>One at a time. Paste the file path and the number, for example <em>"number 3, D:\Project\Apexstack\web images\file.png"</em>, and I will convert it, wire it in and deploy.</p>
+<p><strong>Numbers 1, 2 and 3 change the homepage most.</strong> Then 4 and 5. Everything after that is polish.</p>
+<script>
+document.querySelectorAll(".copy").forEach(function (button) {
+  button.addEventListener("click", function () {
+    var text = button.nextElementSibling.textContent;
+    navigator.clipboard.writeText(text).then(function () {
+      button.textContent = "Copied";
+      button.dataset.done = "1";
+      setTimeout(function () {
+        button.textContent = "Copy prompt";
+        delete button.dataset.done;
+      }, 1500);
+    });
+  });
+});
+</script>
+</body></html>

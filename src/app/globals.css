@@ -1,0 +1,231 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+ * ApexStack design system.
+ *
+ * The original site is Tailwind v3; this project is Tailwind v4, so the theme
+ * below pins the v3 scale values the site actually depends on (radii, the
+ * gray ramp) rather than inheriting v4's defaults.
+ */
+
+@theme {
+  /* Fonts -- Fira Sans is the whole site; Figtree appears in a few embeds. */
+  --font-fira-sans: var(--font-fira-sans-var), "Fira Sans", sans-serif;
+  --font-figtree: var(--font-figtree-var), "Figtree", sans-serif;
+  --font-sans: var(--font-fira-sans-var), "Fira Sans", sans-serif;
+
+  /* Brand */
+  --color-lime-brand: #b4cc04;
+  --color-ink: #08090a;
+
+  /* Surfaces sampled from the live page */
+  --color-surface-900: #08090a;
+  --color-surface-800: #121212;
+  --color-surface-700: #141414;
+  --color-surface-600: #1c1c1c;
+  --color-surface-500: #343535;
+  --color-mist-100: #f5f5f5;
+  --color-mist-200: #f0f0f0;
+
+  /* v3 radius scale (v4 renames these and shifts the values) */
+  --radius-sm: 0.125rem;
+  --radius-DEFAULT: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+
+  /* v3 gray ramp -- the site's muted text is exactly these hexes */
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+
+  /* Marquee keyframes carried over from the original stylesheet */
+  --animate-marquee: marquee 70s linear infinite;
+  --animate-marquee-left: marquee-left 60s linear infinite;
+  --animate-marquee-right: marquee-right 60s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-100%);
+  }
+}
+
+@keyframes marquee-left {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translate(-50%);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /*
+   * The original leaves the page canvas at its browser default -- white, black
+   * text, Figtree as the base family. Several sections (Mentors, Courses, and
+   * the mobile "Master Tools" deck) set no background of their own and read as
+   * white purely because of this. Painting the body dark would break them.
+   */
+  body {
+    background-color: #fff;
+    color: #000;
+    font-family: var(--font-figtree);
+  }
+
+  /*
+   * Tailwind v4 defaults `border` to currentColor; v3 defaulted to a light
+   * gray. The source markup leans on that v3 default in a few places, so
+   * restore it here.
+   */
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-gray-200, #e5e7eb);
+  }
+}
+
+@layer utilities {
+  /* Hides the scrollbar on the horizontal card rails (mentors, videos, community). */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 70s linear infinite;
+    will-change: transform;
+  }
+  .marquee-left {
+    display: flex;
+    width: fit-content;
+    animation: marquee-left 60s linear infinite;
+    will-change: transform;
+  }
+  .marquee-right {
+    display: flex;
+    width: fit-content;
+    animation: marquee-right 60s linear infinite;
+    will-change: transform;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Component classes lifted verbatim from the original stylesheet.
+ * Cards are desaturated until hovered; on mobile they are always in colour.
+ * ------------------------------------------------------------------------ */
+
+/*
+ * The original ships each of these as `transition: filter .3s ease,
+ * -webkit-filter .3s ease`. Lightning CSS strips the `-webkit-` alias for this
+ * project's browser targets, so the computed `transition-property` reads
+ * `filter` rather than `filter, -webkit-filter`. Identical behaviour -- the
+ * prefixed form has been a no-op alias since 2015 -- so it is left off.
+ */
+.skill-card {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+.skill-card:hover {
+  filter: grayscale(0%);
+}
+
+.icon-box {
+  background-color: #343535;
+  transition: background-color 0.3s ease;
+}
+.skill-card:hover .icon-box {
+  background-color: #b4cc04;
+}
+
+.tool-card img {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+.tool-card:hover img {
+  filter: grayscale(0%);
+}
+
+.course-card {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+.course-card:hover {
+  filter: grayscale(0%);
+}
+
+/*
+ * Curriculum session images carry `transition-all duration-700 ease-in-out` in
+ * the markup, but this rule is more specific (0,1,1 vs 0,1,0) and wins, so the
+ * real transition is 0.3s ease -- verified against the live site's computed
+ * style. The card also reveals colour on hover, independently of the
+ * scroll-driven active state, which sets `filter` inline and outranks both.
+ */
+.curriculum-card img {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+.curriculum-card:hover img {
+  filter: grayscale(0%);
+}
+
+@media (max-width: 767px) {
+  .skill-card,
+  .course-card {
+    filter: grayscale(0%) !important;
+  }
+}
+
+@media (min-width: 1450px) {
+  .skill-card {
+    height: 570px !important;
+  }
+}
+
+/* Audience section -- art-directed background swaps at md. */
+.journey-bg-mobile {
+  background-image: url("/home/newwhom.webp");
+}
+@media (min-width: 768px) {
+  .journey-bg-mobile {
+    background-image: url("/home/newwho.webp");
+  }
+}
+.journey-height {
+  height: 600px !important;
+}
+@media (min-width: 1450px) {
+  .journey-height {
+    height: 650px !important;
+  }
+}
+@media (min-width: 1550px) {
+  .journey-height {
+    height: 790px !important;
+  }
+}

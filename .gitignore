@@ -1,0 +1,90 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+.next/
+out/
+build/
+dist/
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Vercel
+.vercel
+
+# Local settings (not project config)
+.claude/settings.local.json
+
+# User-specific skills (not part of the template)
+.claude/skills/customize/
+.claude/skills/release/
+
+# Local temp files
+temp/
+.originkit/
+
+# Stray screenshots
+vercel-tokens.png
+
+# Playwright MCP debug output
+.playwright-mcp/
+
+# Image optimiser temp files
+*.opt
+*.opt.discard
+
+# Screenshot captures used to build the work-sites carousel
+site-*.jpeg
+
+
+# (identity check)
+
+# AI tooling config and clone-template scaffolding (local only)
+.claude/
+.codex/
+.cursor/
+.continue/
+.augment/
+.gemini/
+.opencode/
+.amazonq/
+.aider.conf.yml
+.clinerules
+
+# Internal research and design references (archived outside the repo)
+docs/research/
+docs/design-references/
+docs/WHAT-WE-NEED-FROM-YOU.md
+audit-used.txt
+.windsurf/
+
+# Upstream template artefacts
+.github/
+CHANGELOG.md
+LICENSE
