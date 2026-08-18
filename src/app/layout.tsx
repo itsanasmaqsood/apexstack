@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { Analytics } from "@vercel/analytics/next";
 import TabAttention from "@/components/TabAttention";
 import { pageMetadata } from "@/lib/metadata";
 import { SITE_URL as ORIGIN } from "@/lib/site";
@@ -87,6 +88,9 @@ export default function RootLayout({
             hidden, and restores both the moment it is visible again. Mounted
             here so it covers every route, not just the homepage. */}
         <TabAttention />
+        {/* Vercel Web Analytics. Renders a script tag only in production;
+            no-ops in development, so local page views are never counted. */}
+        <Analytics />
       </body>
     </html>
   );

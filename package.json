@@ -2,7 +2,7 @@
   "name": "apexstack-site",
   "version": "1.0.0",
   "private": true,
-  "description": "ApexStack \u2014 digital product engineering site",
+  "description": "ApexStack — digital product engineering site",
   "license": "MIT",
   "engines": {
     "node": ">=24"
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",
+    "@vercel/analytics": "^2.0.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^13.1.0",
