@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
 import PageLayout from "@/components/PageLayout";
+import ProductStory from "@/components/ProductStory";
 import Section, { Eyebrow, SectionHeading } from "@/components/Section";
 import { bookingLinkProps } from "@/data/company";
 import { PRODUCT_STORY } from "@/data/product-story";
@@ -258,26 +259,7 @@ export default async function ProductPage({
             <SectionHeading theme="light" className="mb-8">
               {product.name} in full
             </SectionHeading>
-            <div className="max-w-3xl space-y-5">
-              {story
-                .split(/(?<=[.!?])\s+(?=[A-Z])/)
-                .reduce<string[]>((paras, sentence, i) => {
-                  // Store listings arrive as one long run of text. Grouping into
-                  // threes gives readable paragraphs without rewriting a word.
-                  const index = Math.floor(i / 3);
-                  paras[index] = `${paras[index] ?? ""} ${sentence}`.trim();
-                  return paras;
-                }, [])
-                .filter(Boolean)
-                .map((paragraph) => (
-                  <p
-                    key={paragraph.slice(0, 40)}
-                    className="text-black/70 text-sm md:text-base leading-relaxed"
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-            </div>
+            <ProductStory name={product.name} story={story} />
           </Section>
         )}
 
