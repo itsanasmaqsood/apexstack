@@ -22,7 +22,8 @@ export type BlogCategory =
   | "MVP & Startups"
   | "Automation & Internal Tools"
   | "AI Engineering"
-  | "Legacy Modernisation";
+  | "Legacy Modernisation"
+  | "Design & Brand";
 
 /**
  * Order is the buyer's order, not ours. "Choosing a Partner" leads because it
@@ -37,6 +38,7 @@ export const BLOG_CATEGORIES: readonly BlogCategory[] = [
   "Automation & Internal Tools",
   "AI Engineering",
   "Legacy Modernisation",
+  "Design & Brand",
 ] as const;
 
 /** A paragraph. The workhorse block. */
@@ -139,6 +141,15 @@ export interface BlogPost {
 
   /** ISO date, `YYYY-MM-DD`. Drives ordering and `datePublished`. */
   published: string;
+
+  /**
+   * Pins the post to the top of the blog index, above the category clusters.
+   *
+   * Date ordering alone cannot express "read this one first": the orientation
+   * post is older than most of what it introduces, so it sinks. Exactly one
+   * post should carry this.
+   */
+  pinned?: boolean;
 
   /** ISO date. Set when the post is materially revised, never on a typo fix. */
   updated?: string;

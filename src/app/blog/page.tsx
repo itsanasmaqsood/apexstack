@@ -8,6 +8,7 @@ import { ACCENT } from "@/components/BlogBody";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
 import {
+  PINNED_POST,
   POSTS,
   POST_COUNT,
   formatPostDate,
@@ -52,6 +53,8 @@ const CATEGORY_INTRO: Record<string, string> = {
     "Shipping AI features that hold up under real users — architecture, evaluation, and what they cost to run.",
   "Legacy Modernisation":
     "Replacing systems that still earn their keep, without the rewrite that never lands.",
+  "Design & Brand":
+    "Identity, interface and landing pages: the work that decides whether a good product reads as a credible one.",
 };
 
 export default function BlogIndexPage() {
@@ -113,6 +116,38 @@ export default function BlogIndexPage() {
           ))}
         </nav>
       </Section>
+
+      {/* The orientation post. Pinned rather than sorted to the top: it is
+          older than most of what it introduces, so any date ordering buries
+          the one post a first-time reader should open first. */}
+      {PINNED_POST && (
+        <Section theme="dark" padding="py-10">
+          <Link
+            href={`/blog/${PINNED_POST.slug}`}
+            className="group block border border-white/25 rounded-[2px] p-7 md:p-9 hover:border-white/50 transition-colors"
+          >
+            <span
+              className="text-xs font-medium tracking-[0.12em] uppercase"
+              style={{ color: ACCENT }}
+            >
+              Start here
+            </span>
+            <h2 className="text-white text-[24px] md:text-[30px] font-medium leading-[1.25] mt-3 mb-4 group-hover:opacity-85 transition-opacity">
+              {PINNED_POST.title}
+            </h2>
+            <p className="text-[rgba(207,207,207,0.8)] text-base leading-[1.7] max-w-3xl mb-5">
+              {PINNED_POST.excerpt}
+            </p>
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-white/45">
+              <time dateTime={PINNED_POST.published}>
+                {formatPostDate(PINNED_POST.published)}
+              </time>
+              <span aria-hidden="true">·</span>
+              <span>{readingMinutes(PINNED_POST)} min read</span>
+            </div>
+          </Link>
+        </Section>
+      )}
 
       {BLOG_CATEGORIES.map((category) => {
         const posts = postsInCategory(category);
