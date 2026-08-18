@@ -23,6 +23,7 @@ import { post as aiFeaturesThatMakeStartupMvpsFail } from "@/data/blog/posts/ai-
 import { post as aiFirstMvpDevelopment } from "@/data/blog/posts/ai-first-mvp-development";
 import { post as aiFirstProductStudio } from "@/data/blog/posts/ai-first-product-studio";
 import { post as aiGeneratedCodeMistakesPitfallsBugFree } from "@/data/blog/posts/ai-generated-code-mistakes-pitfalls-bug-free";
+import { post as aiIslamReligiousQaAppCaseStudy } from "@/data/blog/posts/ai-islam-religious-qa-app-case-study";
 import { post as aiMvpDevelopmentForStartups } from "@/data/blog/posts/ai-mvp-development-for-startups";
 import { post as aiMvpFintechWhatToBuildWhatToSkip } from "@/data/blog/posts/ai-mvp-fintech-what-to-build-what-to-skip";
 import { post as aiProductDevelopmentAgency } from "@/data/blog/posts/ai-product-development-agency";
@@ -34,7 +35,9 @@ import { post as aiSaasDevelopmentForStartups } from "@/data/blog/posts/ai-saas-
 import { post as aiStartupMvpCost } from "@/data/blog/posts/ai-startup-mvp-cost";
 import { post as aiWorkflowStartupDevelopment } from "@/data/blog/posts/ai-workflow-startup-development";
 import { post as alternativesToHiringCtoEarlyStageStartup } from "@/data/blog/posts/alternatives-to-hiring-cto-early-stage-startup";
+import { post as amyAiPersonalFinanceAppCaseStudy } from "@/data/blog/posts/amy-ai-personal-finance-app-case-study";
 import { post as apexstack46WeekMvpProcessWhatHappens } from "@/data/blog/posts/apexstack-4-6-week-mvp-process-what-happens";
+import { post as babybitesMealPlannerAppCaseStudy } from "@/data/blog/posts/babybites-meal-planner-app-case-study";
 import { post as bestAgencyHireVibeCodingStartupMvp } from "@/data/blog/posts/best-agency-hire-vibe-coding-startup-mvp";
 import { post as bestAgencyVibeCodingStartupMvp } from "@/data/blog/posts/best-agency-vibe-coding-startup-mvp";
 import { post as bestAiDevelopmentAgenciesPreSeedStartups } from "@/data/blog/posts/best-ai-development-agencies-pre-seed-startups";
@@ -67,9 +70,11 @@ import { post as ctoAsAServiceAiStartup } from "@/data/blog/posts/cto-as-a-servi
 import { post as cursorClaudeVsHiringDevAgency } from "@/data/blog/posts/cursor-claude-vs-hiring-dev-agency";
 import { post as customCrmVsSalesforceVsHubspot } from "@/data/blog/posts/custom-crm-vs-salesforce-vs-hubspot";
 import { post as deRiskingASoftwareRewrite } from "@/data/blog/posts/de-risking-a-software-rewrite";
+import { post as decorlyAiRoomRedesignAppCaseStudy } from "@/data/blog/posts/decorly-ai-room-redesign-app-case-study";
 import { post as fastestWayToBuildStartupPrototype } from "@/data/blog/posts/fastest-way-to-build-startup-prototype";
 import { post as fixedPriceVsTimeAndMaterials } from "@/data/blog/posts/fixed-price-vs-time-and-materials";
 import { post as foundingEngineerForAiStartup } from "@/data/blog/posts/founding-engineer-for-ai-startup";
+import { post as halalScannerFoodVerificationAppCaseStudy } from "@/data/blog/posts/halal-scanner-food-verification-app-case-study";
 import { post as hireAiAgentDeveloperForStartup } from "@/data/blog/posts/hire-ai-agent-developer-for-startup";
 import { post as hireAiDevelopersForYourStartup } from "@/data/blog/posts/hire-ai-developers-for-your-startup";
 import { post as hireVibeCoderForStartup } from "@/data/blog/posts/hire-vibe-coder-for-startup";
@@ -88,6 +93,7 @@ import { post as howToWriteASoftwareBrief } from "@/data/blog/posts/how-to-write
 import { post as howToWriteProductBriefDevelopersUnderstand } from "@/data/blog/posts/how-to-write-product-brief-developers-understand";
 import { post as inHouseTeamVsAgencyVsFreelancers } from "@/data/blog/posts/in-house-team-vs-agency-vs-freelancers";
 import { post as integratingLegacySystemsWithModernSaas } from "@/data/blog/posts/integrating-legacy-systems-with-modern-saas";
+import { post as iqraQuranAppCaseStudy } from "@/data/blog/posts/iqra-quran-app-case-study";
 import { post as launchMvpIn2Weeks } from "@/data/blog/posts/launch-mvp-in-2-weeks";
 import { post as legacySystemModernisationCost } from "@/data/blog/posts/legacy-system-modernisation-cost";
 import { post as llmFeatureProductionCost } from "@/data/blog/posts/llm-feature-production-cost";
@@ -105,8 +111,11 @@ import { post as mvpDevelopmentTimeline } from "@/data/blog/posts/mvp-developmen
 import { post as mvpScopingChecklist } from "@/data/blog/posts/mvp-scoping-checklist";
 import { post as noCodeVsVibeCodingVsDevAgency } from "@/data/blog/posts/no-code-vs-vibe-coding-vs-dev-agency";
 import { post as nonTechnicalFounderBuildAppAiAgency } from "@/data/blog/posts/non-technical-founder-build-app-ai-agency";
+import { post as nutrinudgeAiNutritionAppCaseStudy } from "@/data/blog/posts/nutrinudge-ai-nutrition-app-case-study";
 import { post as offTheShelfVsCustomSoftware } from "@/data/blog/posts/off-the-shelf-vs-custom-software";
 import { post as offshoreSoftwareDevelopmentWhatGoesWrong } from "@/data/blog/posts/offshore-software-development-what-goes-wrong";
+import { post as pdfSuperappCaseStudy } from "@/data/blog/posts/pdf-superapp-case-study";
+import { post as plantcareProAppCaseStudy } from "@/data/blog/posts/plantcare-pro-app-case-study";
 import { post as postMvpDevelopmentRetainer } from "@/data/blog/posts/post-mvp-development-retainer";
 import { post as postMvpRetainerHowFoundersKeepShipping } from "@/data/blog/posts/post-mvp-retainer-how-founders-keep-shipping";
 import { post as prdGeneratorAiStartup } from "@/data/blog/posts/prd-generator-ai-startup";
@@ -114,14 +123,21 @@ import { post as productionReadyMvpDevelopmentService } from "@/data/blog/posts/
 import { post as prototypeToProduction } from "@/data/blog/posts/prototype-to-production";
 import { post as questionsToAskBeforeSigningDevelopmentAgency } from "@/data/blog/posts/questions-to-ask-before-signing-development-agency";
 import { post as ragVsFineTuningVsPromptEngineering } from "@/data/blog/posts/rag-vs-fine-tuning-vs-prompt-engineering";
+import { post as regainFocusAppBlockerCaseStudy } from "@/data/blog/posts/regain-focus-app-blocker-case-study";
+import { post as safechoiceConversationalFoodJournalCaseStudy } from "@/data/blog/posts/safechoice-conversational-food-journal-case-study";
+import { post as safemamaPregnancySafetyAppCaseStudy } from "@/data/blog/posts/safemama-pregnancy-safety-app-case-study";
+import { post as salafimatchMatrimonyPlatformCaseStudy } from "@/data/blog/posts/salafimatch-matrimony-platform-case-study";
 import { post as shipMvpInWeeksAi } from "@/data/blog/posts/ship-mvp-in-weeks-ai";
 import { post as shippingAiFeaturesToProduction } from "@/data/blog/posts/shipping-ai-features-to-production";
 import { post as signsMvpScopeIsTooBig } from "@/data/blog/posts/signs-mvp-scope-is-too-big";
 import { post as signsYouNeedARebrand } from "@/data/blog/posts/signs-you-need-a-rebrand";
+import { post as sitevoiceTakingOverAnAiGeneratedCodebaseCaseStudy } from "@/data/blog/posts/sitevoice-taking-over-an-ai-generated-codebase-case-study";
 import { post as softwareMaintenanceCost } from "@/data/blog/posts/software-maintenance-cost";
 import { post as startupMvpBuilder } from "@/data/blog/posts/startup-mvp-builder";
 import { post as stranglerFigVsBigBangRewrite } from "@/data/blog/posts/strangler-fig-vs-big-bang-rewrite";
 import { post as takingOverAnExistingCodebase } from "@/data/blog/posts/taking-over-an-existing-codebase";
+import { post as tallerGrowthCompanionAppCaseStudy } from "@/data/blog/posts/taller-growth-companion-app-case-study";
+import { post as taqwaLockMindfulAppBlockerCaseStudy } from "@/data/blog/posts/taqwa-lock-mindful-app-blocker-case-study";
 import { post as technicalDueDiligence } from "@/data/blog/posts/technical-due-diligence";
 import { post as thingsToIncludeInMvpAgenciesSkip } from "@/data/blog/posts/things-to-include-in-mvp-agencies-skip";
 import { post as topNoCodeMvpBuilders } from "@/data/blog/posts/top-no-code-mvp-builders";
@@ -129,12 +145,13 @@ import { post as uiUxDesignAgencyForStartups } from "@/data/blog/posts/ui-ux-des
 import { post as vibeCodingAgency } from "@/data/blog/posts/vibe-coding-agency";
 import { post as vibeCodingForStartups } from "@/data/blog/posts/vibe-coding-for-startups";
 import { post as vibeCodingVsTraditionalDevelopment } from "@/data/blog/posts/vibe-coding-vs-traditional-development";
-import { post as whatIsADiscoveryPhase } from "@/data/blog/posts/what-is-a-discovery-phase";
 import { post as whatFullStackMobileAppDevelopmentIncludes } from "@/data/blog/posts/what-full-stack-mobile-app-development-includes";
+import { post as whatIsADiscoveryPhase } from "@/data/blog/posts/what-is-a-discovery-phase";
 import { post as whatIsVibeCoding } from "@/data/blog/posts/what-is-vibe-coding";
 import { post as whatVibeCodingStudioActuallyDoes } from "@/data/blog/posts/what-vibe-coding-studio-actually-does";
 import { post as whoOwnsTheCode } from "@/data/blog/posts/who-owns-the-code";
 import { post as whySoftwareProjectsFail } from "@/data/blog/posts/why-software-projects-fail";
+import { post as zypaOnDemandDeliveryPlatformCaseStudy } from "@/data/blog/posts/zypa-on-demand-delivery-platform-case-study";
 
 /** Newest first. Ties broken alphabetically so the order is stable across builds. */
 export const POSTS: readonly BlogPost[] = [
@@ -147,6 +164,7 @@ export const POSTS: readonly BlogPost[] = [
   aiFirstMvpDevelopment,
   aiFirstProductStudio,
   aiGeneratedCodeMistakesPitfallsBugFree,
+  aiIslamReligiousQaAppCaseStudy,
   aiMvpDevelopmentForStartups,
   aiMvpFintechWhatToBuildWhatToSkip,
   aiProductDevelopmentAgency,
@@ -158,7 +176,9 @@ export const POSTS: readonly BlogPost[] = [
   aiStartupMvpCost,
   aiWorkflowStartupDevelopment,
   alternativesToHiringCtoEarlyStageStartup,
+  amyAiPersonalFinanceAppCaseStudy,
   apexstack46WeekMvpProcessWhatHappens,
+  babybitesMealPlannerAppCaseStudy,
   bestAgencyHireVibeCodingStartupMvp,
   bestAgencyVibeCodingStartupMvp,
   bestAiDevelopmentAgenciesPreSeedStartups,
@@ -191,9 +211,11 @@ export const POSTS: readonly BlogPost[] = [
   cursorClaudeVsHiringDevAgency,
   customCrmVsSalesforceVsHubspot,
   deRiskingASoftwareRewrite,
+  decorlyAiRoomRedesignAppCaseStudy,
   fastestWayToBuildStartupPrototype,
   fixedPriceVsTimeAndMaterials,
   foundingEngineerForAiStartup,
+  halalScannerFoodVerificationAppCaseStudy,
   hireAiAgentDeveloperForStartup,
   hireAiDevelopersForYourStartup,
   hireVibeCoderForStartup,
@@ -212,13 +234,13 @@ export const POSTS: readonly BlogPost[] = [
   howToWriteProductBriefDevelopersUnderstand,
   inHouseTeamVsAgencyVsFreelancers,
   integratingLegacySystemsWithModernSaas,
+  iqraQuranAppCaseStudy,
   launchMvpIn2Weeks,
   legacySystemModernisationCost,
   llmFeatureProductionCost,
   lovableAlternativesForStartupsProduction,
   mistakesNonTechnicalFoundersHiringDevAgency,
   mobileAppMvpNonTechnicalFoundersHonestGuide,
-  whatFullStackMobileAppDevelopmentIncludes,
   monolithToMicroservices,
   mvpDevelopmentAgencyIndia,
   mvpDevelopmentCost,
@@ -230,8 +252,11 @@ export const POSTS: readonly BlogPost[] = [
   mvpScopingChecklist,
   noCodeVsVibeCodingVsDevAgency,
   nonTechnicalFounderBuildAppAiAgency,
+  nutrinudgeAiNutritionAppCaseStudy,
   offTheShelfVsCustomSoftware,
   offshoreSoftwareDevelopmentWhatGoesWrong,
+  pdfSuperappCaseStudy,
+  plantcareProAppCaseStudy,
   postMvpDevelopmentRetainer,
   postMvpRetainerHowFoundersKeepShipping,
   prdGeneratorAiStartup,
@@ -239,14 +264,21 @@ export const POSTS: readonly BlogPost[] = [
   prototypeToProduction,
   questionsToAskBeforeSigningDevelopmentAgency,
   ragVsFineTuningVsPromptEngineering,
+  regainFocusAppBlockerCaseStudy,
+  safechoiceConversationalFoodJournalCaseStudy,
+  safemamaPregnancySafetyAppCaseStudy,
+  salafimatchMatrimonyPlatformCaseStudy,
   shipMvpInWeeksAi,
   shippingAiFeaturesToProduction,
   signsMvpScopeIsTooBig,
   signsYouNeedARebrand,
+  sitevoiceTakingOverAnAiGeneratedCodebaseCaseStudy,
   softwareMaintenanceCost,
   startupMvpBuilder,
   stranglerFigVsBigBangRewrite,
   takingOverAnExistingCodebase,
+  tallerGrowthCompanionAppCaseStudy,
+  taqwaLockMindfulAppBlockerCaseStudy,
   technicalDueDiligence,
   thingsToIncludeInMvpAgenciesSkip,
   topNoCodeMvpBuilders,
@@ -254,11 +286,13 @@ export const POSTS: readonly BlogPost[] = [
   vibeCodingAgency,
   vibeCodingForStartups,
   vibeCodingVsTraditionalDevelopment,
+  whatFullStackMobileAppDevelopmentIncludes,
   whatIsADiscoveryPhase,
   whatIsVibeCoding,
   whatVibeCodingStudioActuallyDoes,
   whoOwnsTheCode,
   whySoftwareProjectsFail,
+  zypaOnDemandDeliveryPlatformCaseStudy,
 ].sort((a, b) =>
   a.published === b.published
     ? a.title.localeCompare(b.title)

@@ -55,6 +55,8 @@ const CATEGORY_INTRO: Record<string, string> = {
     "Replacing systems that still earn their keep, without the rewrite that never lands.",
   "Design & Brand":
     "Identity, interface and landing pages: the work that decides whether a good product reads as a credible one.",
+  "Case Studies":
+    "Products we have shipped, and what each one cost us to get right. Written from the code, not from a brief.",
 };
 
 export default function BlogIndexPage() {

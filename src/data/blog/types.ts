@@ -23,7 +23,8 @@ export type BlogCategory =
   | "Automation & Internal Tools"
   | "AI Engineering"
   | "Legacy Modernisation"
-  | "Design & Brand";
+  | "Design & Brand"
+  | "Case Studies";
 
 /**
  * Order is the buyer's order, not ours. "Choosing a Partner" leads because it
@@ -39,6 +40,7 @@ export const BLOG_CATEGORIES: readonly BlogCategory[] = [
   "AI Engineering",
   "Legacy Modernisation",
   "Design & Brand",
+  "Case Studies",
 ] as const;
 
 /** A paragraph. The workhorse block. */
