@@ -12,7 +12,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Contact ApexStack — Book a Discovery Call",
   description:
-    "Talk to the engineers who would build your product. Tell us the business problem and we will tell you what it would take — reply within 24 hours.",
+    "Talk to the engineers who would build your product. Tell us the business problem and we will explain what it would take to move forward.",
   path: "/contact",
 });
 
@@ -42,7 +42,7 @@ const WHAT_HAPPENS = [
   },
   {
     step: "02",
-    title: "We reply within 24 hours",
+    title: "A practical reply",
     body: "Either with questions, a suggested call, or an honest note that we are not the right fit for this one.",
   },
   {

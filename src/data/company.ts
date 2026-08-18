@@ -45,8 +45,8 @@ export const COMPANY = {
     { days: "Sunday", hours: "Closed" },
   ],
 
-  /** First-response commitment shown across the site. */
-  responseTime: "within 24 hours",
+  /** Honest response language used anywhere a timing statement is required. */
+  responseTime: "as promptly as we can",
 } as const;
 
 export const SOCIALS = [

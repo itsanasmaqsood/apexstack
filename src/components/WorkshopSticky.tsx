@@ -47,7 +47,7 @@ export default function WorkshopSticky() {
             <div className="h-12 w-px bg-white/70 hidden md:block"></div>
             <div className="flex flex-col items-start">
               <p className="text-xl font-medium text-white font-fira-sans">No cost, no obligation</p>
-              <p className="text-sm text-gray-300 mt-1 font-fira-sans">We reply within 24 hours</p>
+              <p className="text-sm text-gray-300 mt-1 font-fira-sans">Tell us what you need to validate</p>
             </div>
           </div>
         </div>

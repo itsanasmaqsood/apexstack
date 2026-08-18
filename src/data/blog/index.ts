@@ -129,6 +129,7 @@ import { post as vibeCodingAgency } from "@/data/blog/posts/vibe-coding-agency";
 import { post as vibeCodingForStartups } from "@/data/blog/posts/vibe-coding-for-startups";
 import { post as vibeCodingVsTraditionalDevelopment } from "@/data/blog/posts/vibe-coding-vs-traditional-development";
 import { post as whatIsADiscoveryPhase } from "@/data/blog/posts/what-is-a-discovery-phase";
+import { post as whatFullStackMobileAppDevelopmentIncludes } from "@/data/blog/posts/what-full-stack-mobile-app-development-includes";
 import { post as whatIsVibeCoding } from "@/data/blog/posts/what-is-vibe-coding";
 import { post as whatVibeCodingStudioActuallyDoes } from "@/data/blog/posts/what-vibe-coding-studio-actually-does";
 import { post as whoOwnsTheCode } from "@/data/blog/posts/who-owns-the-code";
@@ -215,6 +216,7 @@ export const POSTS: readonly BlogPost[] = [
   lovableAlternativesForStartupsProduction,
   mistakesNonTechnicalFoundersHiringDevAgency,
   mobileAppMvpNonTechnicalFoundersHonestGuide,
+  whatFullStackMobileAppDevelopmentIncludes,
   monolithToMicroservices,
   mvpDevelopmentAgencyIndia,
   mvpDevelopmentCost,

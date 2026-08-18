@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useId, useState } from "react";
+import { track } from "@vercel/analytics";
+import { useCallback, useId, useState } from "react";
 
+import { TurnstileWidget } from "@/components/TurnstileWidget";
+import { COMPANY } from "@/data/company";
 import { CORE_ENGINEERING, CREATIVE_SERVICES } from "@/data/services";
 
 /**
@@ -47,7 +50,8 @@ const EMPTY: FormValues = {
 
 const BUDGETS = [
   "Not sure yet",
-  "Under $10,000",
+  "$1,000 – $5,000",
+  "$5,000 – $10,000",
   "$10,000 – $25,000",
   "$25,000 – $50,000",
   "$50,000 – $100,000",
@@ -101,6 +105,10 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Partial<Record<keyof FormValues, string>>>({});
   const [status, setStatus] = useState<Status>("idle");
   const [serverMessage, setServerMessage] = useState<string>("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const handleTurnstileToken = useCallback((token: string) => setTurnstileToken(token), []);
 
   function update<K extends keyof FormValues>(key: K, value: FormValues[K]) {
     setValues((previous) => ({ ...previous, [key]: value }));
@@ -121,6 +129,11 @@ export default function ContactForm() {
       first?.focus();
       return;
     }
+    if (!turnstileSiteKey || !turnstileToken) {
+      setStatus("error");
+      setServerMessage("Please complete the security check before sending your enquiry.");
+      return;
+    }
 
     setStatus("submitting");
     setServerMessage("");
@@ -128,16 +141,26 @@ export default function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, turnstileToken }),
       });
-      if (!response.ok) throw new Error(`Request failed with ${response.status}`);
+      const result = (await response.json()) as { error?: string };
+      if (!response.ok) throw new Error(result.error || `Request failed with ${response.status}`);
       setStatus("success");
       setValues(EMPTY);
-    } catch {
+      setTurnstileToken("");
+      track("Contact Enquiry Sent", {
+        service: values.service,
+        budget: values.budget || "Not provided",
+      });
+    } catch (error) {
       setStatus("error");
+      setTurnstileResetKey((current) => current + 1);
       setServerMessage(
-        "We could not send that just now. Please email us directly and we will pick it up.",
+        error instanceof Error
+          ? error.message
+          : `We could not send that. Please email ${COMPANY.email}.`,
       );
+      track("Contact Enquiry Failed");
     }
   }
 
@@ -152,8 +175,8 @@ export default function ContactForm() {
           Thanks — that has reached us.
         </h3>
         <p className="text-white/70 text-sm md:text-base mb-6 max-w-xl">
-          We read every enquiry ourselves. Expect a reply {"within 24 hours"}, usually from
-          the engineer who would work on your project. If it is urgent, email us directly.
+          We read every enquiry ourselves and will review the details you shared. A confirmation
+          has also been sent to your email address.
         </p>
         <button
           type="button"
@@ -394,6 +417,25 @@ export default function ContactForm() {
         )}
       </div>
 
+      {turnstileSiteKey ? (
+        <TurnstileWidget
+          siteKey={turnstileSiteKey}
+          resetKey={turnstileResetKey}
+          onTokenChange={handleTurnstileToken}
+        />
+      ) : (
+        <p
+          role="status"
+          className="border border-amber-300/30 bg-amber-300/5 rounded-[2px] px-4 py-3 text-sm text-amber-100"
+        >
+          Online enquiries are temporarily unavailable. Please email{" "}
+          <a className="underline underline-offset-4" href={`mailto:${COMPANY.email}`}>
+            {COMPANY.email}
+          </a>
+          .
+        </p>
+      )}
+
       {status === "error" && (
         <div
           role="alert"
@@ -406,13 +448,13 @@ export default function ContactForm() {
       <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
         <button
           type="submit"
-          disabled={status === "submitting"}
+          disabled={status === "submitting" || !turnstileSiteKey}
           className="bg-[#B4CC04] hover:bg-[#D4F005] disabled:opacity-60 disabled:cursor-not-allowed text-black font-medium px-8 py-3 rounded-[2px] transition-all duration-300 ease-in-out shadow-lg text-base whitespace-nowrap"
         >
           {status === "submitting" ? "Sending…" : "Send Enquiry"}
         </button>
         <p className="text-sm text-white/40">
-          We reply {"within 24 hours"}, usually from an engineer.
+          Starter engagements can begin at US$1,000 when the scope is tightly defined.
         </p>
       </div>
     </form>

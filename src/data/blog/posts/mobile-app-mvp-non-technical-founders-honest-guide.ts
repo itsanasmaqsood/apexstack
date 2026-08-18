@@ -75,7 +75,7 @@ export const post: BlogPost = {
         },
         {
           type: "p",
-          text: "a development agency that does mobile. the highest cost option but the most accountability. a good agency owns the product decisions alongside you, not just the code. they scope the MVP, make the tradeoffs, and ship something you can put in the App Store with confidence. at ApexStack, mobile MVPs in React Native are a regular part of our work, 4-6 weeks, starting at $6,500.",
+          text: "A development agency can provide more accountability when it owns product decisions alongside the code. The proposal should define the MVP, make the trade-offs visible and include the release responsibilities. At ApexStack, a tightly scoped first engagement can start at US$1,000; that is not a blanket price for a complete production mobile app.",
         },
       ],
     },
@@ -101,7 +101,7 @@ export const post: BlogPost = {
       blocks: [
         {
           type: "p",
-          text: "app store review takes time. Apple's review process averages 24-48 hours for a straightforward app and can take longer if reviewers have questions. Google Play is faster but still not instant.",
+          text: "App-store review takes time and neither platform guarantees immediate approval. Reviewers can ask questions or require changes, so the release plan needs room for feedback rather than treating submission as the launch date.",
         },
         {
           type: "p",

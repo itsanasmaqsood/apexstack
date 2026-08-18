@@ -72,10 +72,9 @@ const CLAUSES: LegalClause[] = [
     paragraphs: [
       "We do not sell personal information, and we do not share it for advertising purposes.",
       "We share information only with service providers who process it on our behalf in order to run the business — for example email delivery, customer relationship management, analytics and cloud hosting. These providers act on our instructions and are bound by confidentiality obligations.",
+      "The website uses Vercel for hosting and privacy-conscious web analytics. When online enquiries are enabled, the contact form uses Resend for email delivery and Cloudflare Turnstile to prevent automated abuse.",
       "We may also disclose information where we are required to by law, or to establish, exercise or defend legal claims.",
     ],
-    pending:
-      "The specific processors we use will be listed here once the email, CRM and analytics stack is finalised.",
   },
   {
     heading: "International transfers",
