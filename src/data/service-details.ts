@@ -353,7 +353,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
 
   "cloud-devops": {
     problem:
-      "Deployments are manual and stressful, nobody is confident about what is running in production, and the cloud bill grows without anyone able to explain why.",
+      "Deployments are manual and stressful, nobody is confident about what is running in production, and ownership across the cloud application stack is unclear.",
     challenges: [
       "Releases that require a person and a runbook",
       "Infrastructure configured by hand and impossible to reproduce",
@@ -361,14 +361,14 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       "Cloud spend growing faster than usage",
     ],
     approach: [
-      "Infrastructure becomes code, version controlled alongside the application, so environments are reproducible and changes are reviewable.",
+      "We map ownership across the application stack first, then bring customer-controlled infrastructure into versioned configuration so environments are reproducible and changes are reviewable.",
       "Delivery is automated end to end, with verification before merge, so releasing becomes routine.",
       "We instrument for the questions you will actually ask at 2am, then right-size against real usage data.",
     ],
     outcomes: [
       "Releases that are routine rather than events",
       "Environments reproducible from source",
-      "Incidents detected before customers report them",
+      "Monitoring designed to surface incidents without waiting for customer reports",
       "Cloud spend understood and controlled",
     ],
     technologies: ["AWS", "Azure", "Google Cloud", "Docker", "Kubernetes", "Terraform", "GitHub Actions", "Grafana"],
@@ -379,7 +379,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: "Can you reduce our cloud bill?",
-        a: "Often significantly. Most over-spend comes from over-provisioning, forgotten resources and storage tiers nobody revisited. We start with an audit.",
+        a: "Sometimes, but the answer depends on measured usage and the existing estate. We begin with an audit of workload costs, resource lifecycle and capacity before recommending changes.",
       },
       {
         q: "Do we need Kubernetes?",

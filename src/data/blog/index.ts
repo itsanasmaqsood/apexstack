@@ -60,6 +60,7 @@ import { post as buildingAiChatbotForProductWithoutCto } from "@/data/blog/posts
 import { post as buildingSaasMvpWhatFoundersGetWrong } from "@/data/blog/posts/building-saas-mvp-what-founders-get-wrong";
 import { post as businessProcessAutomationCost } from "@/data/blog/posts/business-process-automation-cost";
 import { post as choosingATechStackForYourMvp } from "@/data/blog/posts/choosing-a-tech-stack-for-your-mvp";
+import { post as cloudApplicationStackManagementProvider } from "@/data/blog/posts/cloud-application-stack-management-provider";
 import { post as cloudCostOptimisation } from "@/data/blog/posts/cloud-cost-optimisation";
 import { post as complianceRequirementsForCustomSoftware } from "@/data/blog/posts/compliance-requirements-for-custom-software";
 import { post as ctoAsAServiceAiStartup } from "@/data/blog/posts/cto-as-a-service-ai-startup";
@@ -183,6 +184,7 @@ export const POSTS: readonly BlogPost[] = [
   buildingSaasMvpWhatFoundersGetWrong,
   businessProcessAutomationCost,
   choosingATechStackForYourMvp,
+  cloudApplicationStackManagementProvider,
   cloudCostOptimisation,
   complianceRequirementsForCustomSoftware,
   ctoAsAServiceAiStartup,

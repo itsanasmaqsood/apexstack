@@ -95,7 +95,7 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
     title: "Cloud Infrastructure & DevOps Services | ApexStack",
     h1: "Cloud Infrastructure & DevOps Services",
     description:
-      "Infrastructure as code, CI/CD pipelines, monitoring and cost control. Deploys that are boring on purpose, so releasing on a Friday stops being a decision.",
+      "Cloud application stack management, infrastructure as code, CI/CD, monitoring and cost control with explicit operating boundaries and reviewable changes.",
   },
   "api-development": {
     title: "API Development & Systems Integration | ApexStack",
