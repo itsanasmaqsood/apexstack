@@ -69,6 +69,7 @@ import { post as complianceRequirementsForCustomSoftware } from "@/data/blog/pos
 import { post as ctoAsAServiceAiStartup } from "@/data/blog/posts/cto-as-a-service-ai-startup";
 import { post as cursorClaudeVsHiringDevAgency } from "@/data/blog/posts/cursor-claude-vs-hiring-dev-agency";
 import { post as customCrmVsSalesforceVsHubspot } from "@/data/blog/posts/custom-crm-vs-salesforce-vs-hubspot";
+import { post as dailyRiseWellnessAppCaseStudy } from "@/data/blog/posts/daily-rise-wellness-app-case-study";
 import { post as deRiskingASoftwareRewrite } from "@/data/blog/posts/de-risking-a-software-rewrite";
 import { post as decorlyAiRoomRedesignAppCaseStudy } from "@/data/blog/posts/decorly-ai-room-redesign-app-case-study";
 import { post as fastestWayToBuildStartupPrototype } from "@/data/blog/posts/fastest-way-to-build-startup-prototype";
@@ -110,6 +111,7 @@ import { post as mvpDevelopmentStudioForStartups } from "@/data/blog/posts/mvp-d
 import { post as mvpDevelopmentTimeline } from "@/data/blog/posts/mvp-development-timeline";
 import { post as mvpScopingChecklist } from "@/data/blog/posts/mvp-scoping-checklist";
 import { post as noCodeVsVibeCodingVsDevAgency } from "@/data/blog/posts/no-code-vs-vibe-coding-vs-dev-agency";
+import { post as nodrahwebWhatsappSaasCaseStudy } from "@/data/blog/posts/nodrahweb-whatsapp-saas-case-study";
 import { post as nonTechnicalFounderBuildAppAiAgency } from "@/data/blog/posts/non-technical-founder-build-app-ai-agency";
 import { post as nutrinudgeAiNutritionAppCaseStudy } from "@/data/blog/posts/nutrinudge-ai-nutrition-app-case-study";
 import { post as offTheShelfVsCustomSoftware } from "@/data/blog/posts/off-the-shelf-vs-custom-software";
@@ -210,6 +212,7 @@ export const POSTS: readonly BlogPost[] = [
   ctoAsAServiceAiStartup,
   cursorClaudeVsHiringDevAgency,
   customCrmVsSalesforceVsHubspot,
+  dailyRiseWellnessAppCaseStudy,
   deRiskingASoftwareRewrite,
   decorlyAiRoomRedesignAppCaseStudy,
   fastestWayToBuildStartupPrototype,
@@ -251,6 +254,7 @@ export const POSTS: readonly BlogPost[] = [
   mvpDevelopmentTimeline,
   mvpScopingChecklist,
   noCodeVsVibeCodingVsDevAgency,
+  nodrahwebWhatsappSaasCaseStudy,
   nonTechnicalFounderBuildAppAiAgency,
   nutrinudgeAiNutritionAppCaseStudy,
   offTheShelfVsCustomSoftware,
