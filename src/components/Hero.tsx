@@ -143,31 +143,51 @@ export default function Hero() {
                 <div className="text-white text-sm md:text-base font-medium">Global, Remote-First</div>
               </div>
             </div>
-            {/*
-              Proof, above the fold, and deliberately spread across the whole
-              business rather than one product. App and platform counts come
-              straight from the catalogues; the download figure is the one number
-              the founders supplied. Nothing here is estimated.
-            */}
-            <div className="w-full grid grid-cols-3 mt-14 md:mt-20 text-white">
-              {[
-                { figure: `${PRODUCT_COUNT} Apps`, caption: "Live on iOS & Android" },
-                { figure: `${PORTFOLIO_COUNT} Platforms`, caption: "Web products in production" },
-                { figure: "150,000+", caption: "Downloads on our top app" },
-              ].map((stat, i) => (
-                <div
-                  key={stat.figure}
-                  className={`px-3 md:px-6 ${i > 0 ? "border-l border-white/15" : ""}`}
-                >
-                  <div className="text-lg md:text-2xl font-normal leading-tight">
-                    {stat.figure}
-                  </div>
-                  <div className="text-[13px] md:text-base text-gray-400 mt-1.5 leading-snug">
-                    {stat.caption}
-                  </div>
+          </div>
+        </div>
+      </div>
+
+      {/*
+        Proof, moved out of the hero and below the fold.
+
+        It used to sit inside the `h-screen` block, so on a laptop it competed
+        with the headline and the call to action for the one screen a first-time
+        visitor sees. Numbers are more persuasive after the claim than beside it.
+
+        Placing it outside that block rather than pushing it down with margin is
+        deliberate: a margin that clears the fold at 900px tall does not clear it
+        at 1200px. Sitting after a 100vh element puts it below the fold at every
+        viewport height by construction.
+
+        Counts come straight from the catalogues; the download figure is the one
+        number the founders supplied. Nothing here is estimated.
+      */}
+      <div className="w-full bg-[#08090A]" style={{ borderTop: "1px solid rgba(255, 255, 255, 0.2)" }}>
+        <div
+          className="w-[90%] md:w-auto mx-auto md:mx-[153px]"
+          style={{
+            borderLeft: "1px solid rgba(255, 255, 255, 0.2)",
+            borderRight: "1px solid rgba(255, 255, 255, 0.2)",
+          }}
+        >
+          <div className="w-full grid grid-cols-3 text-white py-10 md:py-12 px-4 md:px-[60px]">
+            {[
+              { figure: `${PRODUCT_COUNT} Apps`, caption: "Live on iOS & Android" },
+              { figure: `${PORTFOLIO_COUNT} Platforms`, caption: "Web products in production" },
+              { figure: "150,000+", caption: "Downloads on our top app" },
+            ].map((stat, i) => (
+              <div
+                key={stat.figure}
+                className={`px-3 md:px-6 ${i > 0 ? "border-l border-white/15" : ""}`}
+              >
+                <div className="text-lg md:text-2xl font-normal leading-tight">
+                  {stat.figure}
                 </div>
-              ))}
-            </div>
+                <div className="text-[13px] md:text-base text-gray-400 mt-1.5 leading-snug">
+                  {stat.caption}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
