@@ -31,16 +31,23 @@ import SpotlightReveal from "@/components/originkit/ui/image-spotlight";
 const DESKTOP_HERO = "/brand/hero-corridor.webp";
 
 /**
- * The same artwork, cover-cropped to the 750x1062 portrait slot and darkened by
- * the same 0.60 gain, so the two breakpoints match.
+ * The same artwork, cropped for the mobile hero and darkened by the same 0.60
+ * gain so the two breakpoints match.
  *
- * Cropped from the RIGHT edge, not the centre. This frame is lit at both sides
- * and near-black through the middle, so a centre crop produced a 2 KB file that
- * was almost entirely black. The right edge carries the curved span, the
- * columns and the steps, and keeps the top dark where the navbar and headline
- * sit over it.
+ * AUTHORED AT THE CONTAINER'S ASPECT, 780x1440 (0.542:1), because the mobile
+ * hero box is `h-[720px]` at full width — 390x720 on a common phone, the same
+ * 0.542. The previous 750x1062 crop was 0.706, so `object-cover` scaled it to
+ * height and threw away 23% of its width, 59px off each side, cutting through
+ * the structure it had been composed around. Matching the aspect means the
+ * browser crops nothing.
  *
- * The previous mobile artwork is still at `/brand/hero-mobile.webp` and
+ * Taken from the right of the frame, not the centre. This corridor is lit at
+ * both edges and near-black through the middle, so a centred crop encodes to a
+ * 3KB rectangle of almost pure black. The right side carries the curved span,
+ * the columns and the steps, and still leaves the top-left dark where the
+ * navbar and headline sit over it.
+ *
+ * Earlier mobile artwork is still at `/brand/hero-mobile.webp` and
  * `/brand/hero-wave-mobile.webp`.
  */
 const MOBILE_HERO = "/brand/hero-corridor-mobile.webp";
@@ -67,7 +74,7 @@ export default function Hero() {
         */}
         <picture className="absolute inset-0 md:hidden">
           <source media="(min-width: 768px)" srcSet={DESKTOP_HERO} />
-          <img src={MOBILE_HERO} alt="" aria-hidden="true" loading="eager" fetchPriority="high" width={750} height={1062} className="h-full w-full object-cover object-center" />
+          <img src={MOBILE_HERO} alt="" aria-hidden="true" loading="eager" fetchPriority="high" width={780} height={1440} className="h-full w-full object-cover object-center" />
         </picture>
 
         {/*
