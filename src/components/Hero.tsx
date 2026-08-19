@@ -16,31 +16,34 @@ import SpotlightReveal from "@/components/originkit/ui/image-spotlight";
  * desktop visitor downloads both files: `display:none` on the `<picture>` does
  * not prevent the fetch, which is the whole reason that `<source>` exists.
  *
- * The artwork is a lime particle wave, pre-darkened to 62% on the way into
+ * The artwork is a brutalist corridor, pre-darkened to 60% on the way into
  * webp. That step matters: `SpotlightReveal` works by laying a near-black veil
  * over the image and lifting it around the cursor, so a source with bright
  * highlights stays readable through the veil and the reveal reads as a smudge
- * instead of a light. Dropping the gain first gives the spotlight somewhere to
- * travel.
+ * instead of a light. This frame has lit openings at both edges, which is
+ * exactly what would punch through; dropping the gain first gives the spotlight
+ * somewhere to travel.
  *
- * Earlier artwork is still at `/brand/hero-desktop.webp` and
- * `/brand/hero-structure.webp`, both untouched. Reverting is a one-line change
- * to this constant.
+ * Earlier artwork is still at `/brand/hero-desktop.webp`,
+ * `/brand/hero-structure.webp` and `/brand/hero-wave.webp`, all untouched.
+ * Reverting is a one-line change to this constant.
  */
-const DESKTOP_HERO = "/brand/hero-wave.webp";
+const DESKTOP_HERO = "/brand/hero-corridor.webp";
 
 /**
  * The same artwork, cover-cropped to the 750x1062 portrait slot and darkened by
- * the same 0.62 gain, so the two breakpoints match.
+ * the same 0.60 gain, so the two breakpoints match.
  *
- * This is a separate file rather than the desktop image with CSS cropping: a
- * 2.22:1 source in a portrait box would either letterbox or crop to a narrow
- * vertical strip of it. Cropping at encode time also means a phone downloads
- * 30 KB instead of the desktop file's 57 KB.
+ * Cropped from the RIGHT edge, not the centre. This frame is lit at both sides
+ * and near-black through the middle, so a centre crop produced a 2 KB file that
+ * was almost entirely black. The right edge carries the curved span, the
+ * columns and the steps, and keeps the top dark where the navbar and headline
+ * sit over it.
  *
- * The previous mobile artwork is still at `/brand/hero-mobile.webp`.
+ * The previous mobile artwork is still at `/brand/hero-mobile.webp` and
+ * `/brand/hero-wave-mobile.webp`.
  */
-const MOBILE_HERO = "/brand/hero-wave-mobile.webp";
+const MOBILE_HERO = "/brand/hero-corridor-mobile.webp";
 
 export default function Hero() {
   return (
