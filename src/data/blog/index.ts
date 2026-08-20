@@ -43,6 +43,7 @@ import { post as bestAgencyVibeCodingStartupMvp } from "@/data/blog/posts/best-a
 import { post as bestAiDevelopmentAgenciesPreSeedStartups } from "@/data/blog/posts/best-ai-development-agencies-pre-seed-startups";
 import { post as bestDevelopmentAgenciesNonTechnicalFounders } from "@/data/blog/posts/best-development-agencies-non-technical-founders";
 import { post as bestLogoDesignAgencyForStartups } from "@/data/blog/posts/best-logo-design-agency-for-startups";
+import { post as bestMvpDevelopmentAgencyNonTechnicalFounders } from "@/data/blog/posts/best-mvp-development-agency-non-technical-founders";
 import { post as bestMvpDevelopmentCompanies } from "@/data/blog/posts/best-mvp-development-companies";
 import { post as bestMvpDevelopmentStudioFounders2026 } from "@/data/blog/posts/best-mvp-development-studio-founders-2026";
 import { post as bestMvpDevelopmentStudiosNonTechnicalFounders } from "@/data/blog/posts/best-mvp-development-studios-non-technical-founders";
@@ -99,6 +100,7 @@ import { post as launchMvpIn2Weeks } from "@/data/blog/posts/launch-mvp-in-2-wee
 import { post as legacySystemModernisationCost } from "@/data/blog/posts/legacy-system-modernisation-cost";
 import { post as llmFeatureProductionCost } from "@/data/blog/posts/llm-feature-production-cost";
 import { post as lovableAlternativesForStartupsProduction } from "@/data/blog/posts/lovable-alternatives-for-startups-production";
+import { post as lovableVsBoltVsAgency } from "@/data/blog/posts/lovable-vs-bolt-vs-agency";
 import { post as mistakesNonTechnicalFoundersHiringDevAgency } from "@/data/blog/posts/mistakes-non-technical-founders-hiring-dev-agency";
 import { post as mobileAppMvpNonTechnicalFoundersHonestGuide } from "@/data/blog/posts/mobile-app-mvp-non-technical-founders-honest-guide";
 import { post as monolithToMicroservices } from "@/data/blog/posts/monolith-to-microservices";
@@ -186,6 +188,7 @@ export const POSTS: readonly BlogPost[] = [
   bestAiDevelopmentAgenciesPreSeedStartups,
   bestDevelopmentAgenciesNonTechnicalFounders,
   bestLogoDesignAgencyForStartups,
+  bestMvpDevelopmentAgencyNonTechnicalFounders,
   bestMvpDevelopmentCompanies,
   bestMvpDevelopmentStudioFounders2026,
   bestMvpDevelopmentStudiosNonTechnicalFounders,
@@ -242,6 +245,7 @@ export const POSTS: readonly BlogPost[] = [
   legacySystemModernisationCost,
   llmFeatureProductionCost,
   lovableAlternativesForStartupsProduction,
+  lovableVsBoltVsAgency,
   mistakesNonTechnicalFoundersHiringDevAgency,
   mobileAppMvpNonTechnicalFoundersHonestGuide,
   monolithToMicroservices,
