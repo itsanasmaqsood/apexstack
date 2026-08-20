@@ -77,7 +77,7 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
     title: "Custom CRM & ERP Development Services | ApexStack",
     h1: "Custom CRM & ERP Development Services",
     description:
-      "CRM and ERP systems shaped around your operation instead of forcing it into someone else's template. Built to integrate, extend and stay usable as you grow.",
+      "Custom CRM and ERP integration and development with explicit data ownership, supported interfaces, reconciliation and a practical handover path.",
   },
   "web-development": {
     title: "Web Application Development Services | ApexStack",

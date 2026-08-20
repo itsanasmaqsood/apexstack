@@ -69,6 +69,7 @@ import { post as cloudCostOptimisation } from "@/data/blog/posts/cloud-cost-opti
 import { post as complianceRequirementsForCustomSoftware } from "@/data/blog/posts/compliance-requirements-for-custom-software";
 import { post as ctoAsAServiceAiStartup } from "@/data/blog/posts/cto-as-a-service-ai-startup";
 import { post as cursorClaudeVsHiringDevAgency } from "@/data/blog/posts/cursor-claude-vs-hiring-dev-agency";
+import { post as crmErpAccountingIntegrationScope } from "@/data/blog/posts/crm-erp-accounting-integration-scope";
 import { post as customCrmVsSalesforceVsHubspot } from "@/data/blog/posts/custom-crm-vs-salesforce-vs-hubspot";
 import { post as dailyRiseWellnessAppCaseStudy } from "@/data/blog/posts/daily-rise-wellness-app-case-study";
 import { post as deRiskingASoftwareRewrite } from "@/data/blog/posts/de-risking-a-software-rewrite";
@@ -214,6 +215,7 @@ export const POSTS: readonly BlogPost[] = [
   complianceRequirementsForCustomSoftware,
   ctoAsAServiceAiStartup,
   cursorClaudeVsHiringDevAgency,
+  crmErpAccountingIntegrationScope,
   customCrmVsSalesforceVsHubspot,
   dailyRiseWellnessAppCaseStudy,
   deRiskingASoftwareRewrite,

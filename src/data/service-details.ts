@@ -248,12 +248,12 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     approach: [
       "We model the process as it really works, then build the smallest system that supports it — or heavily tailor an existing platform where that is genuinely cheaper.",
       "Migration is rehearsed with a tested rollback before anything happens to live data.",
-      "Reporting is built in rather than exported, so the numbers come from one place.",
+      "For integrations, we name the system of record for each business fact and build reconciliation and exception handling into the workflow.",
     ],
     outcomes: [
-      "One source of truth across the operation",
-      "Reporting available continuously, not at month end",
-      "Data entered once",
+      "A named system of record for each core business fact",
+      "Reconciliation and exception handling built into connected workflows",
+      "Duplicate entry reduced where supported interfaces permit it",
       "A migration with a rehearsed path back",
     ],
     technologies: ["TypeScript", "Node.js", "PostgreSQL", "React", "Next.js", "REST APIs", "Docker", "AWS"],
@@ -264,11 +264,11 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: "How risky is migrating off our current system?",
-        a: "Managed properly, low. We rehearse the migration against a copy, verify the data, and keep a rollback path until you are confident.",
+        a: "Risk depends on the data, integrations and how much the business relies on the current system. We rehearse against a representative copy, verify agreed records and define a rollback or containment path before cutover.",
       },
       {
         q: "Can it integrate with our accounting or payroll software?",
-        a: "Yes, provided those systems expose an interface. We map every required integration during discovery, because that is what drives the timeline.",
+        a: "It may be possible when the product provides a supported API, connector or export for the required workflow. We verify the available interface, permissions, limits and failure behaviour before including the integration in scope.",
       },
     ],
     related: ["enterprise-software", "automation", "custom-software-development"],
