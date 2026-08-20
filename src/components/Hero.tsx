@@ -16,31 +16,41 @@ import SpotlightReveal from "@/components/originkit/ui/image-spotlight";
  * desktop visitor downloads both files: `display:none` on the `<picture>` does
  * not prevent the fetch, which is the whole reason that `<source>` exists.
  *
- * The artwork is a lime particle wave, pre-darkened to 62% on the way into
+ * The artwork is a brutalist corridor, pre-darkened to 60% on the way into
  * webp. That step matters: `SpotlightReveal` works by laying a near-black veil
  * over the image and lifting it around the cursor, so a source with bright
  * highlights stays readable through the veil and the reveal reads as a smudge
- * instead of a light. Dropping the gain first gives the spotlight somewhere to
- * travel.
+ * instead of a light. This frame has lit openings at both edges, which is
+ * exactly what would punch through; dropping the gain first gives the spotlight
+ * somewhere to travel.
  *
- * Earlier artwork is still at `/brand/hero-desktop.webp` and
- * `/brand/hero-structure.webp`, both untouched. Reverting is a one-line change
- * to this constant.
+ * Earlier artwork is still at `/brand/hero-desktop.webp`,
+ * `/brand/hero-structure.webp` and `/brand/hero-wave.webp`, all untouched.
+ * Reverting is a one-line change to this constant.
  */
-const DESKTOP_HERO = "/brand/hero-wave.webp";
+const DESKTOP_HERO = "/brand/hero-corridor.webp";
 
 /**
- * The same artwork, cover-cropped to the 750x1062 portrait slot and darkened by
- * the same 0.62 gain, so the two breakpoints match.
+ * The same artwork, cropped for the mobile hero and darkened by the same 0.60
+ * gain so the two breakpoints match.
  *
- * This is a separate file rather than the desktop image with CSS cropping: a
- * 2.22:1 source in a portrait box would either letterbox or crop to a narrow
- * vertical strip of it. Cropping at encode time also means a phone downloads
- * 30 KB instead of the desktop file's 57 KB.
+ * AUTHORED AT THE CONTAINER'S ASPECT, 780x1440 (0.542:1), because the mobile
+ * hero box is `h-[720px]` at full width — 390x720 on a common phone, the same
+ * 0.542. The previous 750x1062 crop was 0.706, so `object-cover` scaled it to
+ * height and threw away 23% of its width, 59px off each side, cutting through
+ * the structure it had been composed around. Matching the aspect means the
+ * browser crops nothing.
  *
- * The previous mobile artwork is still at `/brand/hero-mobile.webp`.
+ * Taken from the right of the frame, not the centre. This corridor is lit at
+ * both edges and near-black through the middle, so a centred crop encodes to a
+ * 3KB rectangle of almost pure black. The right side carries the curved span,
+ * the columns and the steps, and still leaves the top-left dark where the
+ * navbar and headline sit over it.
+ *
+ * Earlier mobile artwork is still at `/brand/hero-mobile.webp` and
+ * `/brand/hero-wave-mobile.webp`.
  */
-const MOBILE_HERO = "/brand/hero-wave-mobile.webp";
+const MOBILE_HERO = "/brand/hero-corridor-mobile.webp";
 
 export default function Hero() {
   return (
@@ -64,7 +74,7 @@ export default function Hero() {
         */}
         <picture className="absolute inset-0 md:hidden">
           <source media="(min-width: 768px)" srcSet={DESKTOP_HERO} />
-          <img src={MOBILE_HERO} alt="" aria-hidden="true" loading="eager" fetchPriority="high" width={750} height={1062} className="h-full w-full object-cover object-center" />
+          <img src={MOBILE_HERO} alt="" aria-hidden="true" loading="eager" fetchPriority="high" width={780} height={1440} className="h-full w-full object-cover object-center" />
         </picture>
 
         {/*
@@ -140,31 +150,51 @@ export default function Hero() {
                 <div className="text-white text-sm md:text-base font-medium">Global, Remote-First</div>
               </div>
             </div>
-            {/*
-              Proof, above the fold, and deliberately spread across the whole
-              business rather than one product. App and platform counts come
-              straight from the catalogues; the download figure is the one number
-              the founders supplied. Nothing here is estimated.
-            */}
-            <div className="w-full grid grid-cols-3 mt-14 md:mt-20 text-white">
-              {[
-                { figure: `${PRODUCT_COUNT} Apps`, caption: "Live on iOS & Android" },
-                { figure: `${PORTFOLIO_COUNT} Platforms`, caption: "Web products in production" },
-                { figure: "150,000+", caption: "Downloads on our top app" },
-              ].map((stat, i) => (
-                <div
-                  key={stat.figure}
-                  className={`px-3 md:px-6 ${i > 0 ? "border-l border-white/15" : ""}`}
-                >
-                  <div className="text-lg md:text-2xl font-normal leading-tight">
-                    {stat.figure}
-                  </div>
-                  <div className="text-[13px] md:text-base text-gray-400 mt-1.5 leading-snug">
-                    {stat.caption}
-                  </div>
+          </div>
+        </div>
+      </div>
+
+      {/*
+        Proof, moved out of the hero and below the fold.
+
+        It used to sit inside the `h-screen` block, so on a laptop it competed
+        with the headline and the call to action for the one screen a first-time
+        visitor sees. Numbers are more persuasive after the claim than beside it.
+
+        Placing it outside that block rather than pushing it down with margin is
+        deliberate: a margin that clears the fold at 900px tall does not clear it
+        at 1200px. Sitting after a 100vh element puts it below the fold at every
+        viewport height by construction.
+
+        Counts come straight from the catalogues; the download figure is the one
+        number the founders supplied. Nothing here is estimated.
+      */}
+      <div className="w-full bg-[#08090A]" style={{ borderTop: "1px solid rgba(255, 255, 255, 0.2)" }}>
+        <div
+          className="w-[90%] md:w-auto mx-auto md:mx-[153px]"
+          style={{
+            borderLeft: "1px solid rgba(255, 255, 255, 0.2)",
+            borderRight: "1px solid rgba(255, 255, 255, 0.2)",
+          }}
+        >
+          <div className="w-full grid grid-cols-3 text-white py-10 md:py-12 px-4 md:px-[60px]">
+            {[
+              { figure: `${PRODUCT_COUNT} Apps`, caption: "Live on iOS & Android" },
+              { figure: `${PORTFOLIO_COUNT} Platforms`, caption: "Web products in production" },
+              { figure: "150,000+", caption: "Downloads on our top app" },
+            ].map((stat, i) => (
+              <div
+                key={stat.figure}
+                className={`px-3 md:px-6 ${i > 0 ? "border-l border-white/15" : ""}`}
+              >
+                <div className="text-lg md:text-2xl font-normal leading-tight">
+                  {stat.figure}
                 </div>
-              ))}
-            </div>
+                <div className="text-[13px] md:text-base text-gray-400 mt-1.5 leading-snug">
+                  {stat.caption}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 
-import ScrambleText from "@/components/originkit/ui/scrambletext";
 import { bookingLinkProps } from "@/data/company";
 import { useEffect, useState } from "react";
 
@@ -67,38 +66,19 @@ export default function Navbar() {
                       <a
                         key={link.label}
                         href={link.href}
-                        className="group text-base font-normal px-3 py-2 cursor-pointer relative z-10 whitespace-nowrap [&>div]:!w-auto [&>div]:!h-auto [&>div]:!inline-flex [&>div>p]:!inline [&>div>span]:!inline [&_span]:!whitespace-nowrap"
+                        className="group text-base font-normal px-3 py-2 cursor-pointer relative z-10 whitespace-nowrap"
                         target={link.external ? "_blank" : undefined}
                         rel={link.external ? "noopener noreferrer" : undefined}
                       >
                         {/*
-                          ScrambleText owns the label. `enterAnimation.mode` is
-                          "none" because a nav item should not perform on page
-                          load; the effect belongs to hover, where the diffusion
-                          mode scrambles the characters nearest the cursor and
-                          settles them again.
-
-                          Its root is a full-size centred flex box built for a
-                          standalone Framer frame, so the `!` variants collapse it
-                          to an inline label. `font={{}}` is required — unset, the
-                          component's defaults impose Inter at 120px.
+                          Plain text. This was a ScrambleText that shuffled the
+                          characters nearest the cursor on hover; it read as a
+                          glitch rather than an affordance, and it re-rendered
+                          every character of every nav item on pointer move.
                         */}
-                        <ScrambleText
-                          words={link.label}
-                          tag="span"
-                          color="#FFFFFFB3"
-                          font={{}}
-                          enterAnimation={{ mode: "none" }}
-                          hoverAnimation={{
-                            type: "diffusion",
-                            lines: "oneLine",
-                            radius: 3,
-                            collapse: true,
-                            collapseTime: 0.5,
-                            glitchChars: "abcdefghijklmnopqrstuvwxyz",
-                            glitchShuffle: true,
-                          }}
-                        />
+                        <span className="text-white/70 group-hover:text-white transition-colors">
+                          {link.label}
+                        </span>
                       </a>
                     ))}
                   </div>
