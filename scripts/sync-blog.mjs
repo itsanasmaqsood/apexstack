@@ -10,8 +10,7 @@
  * WHAT IT DOES TO THE COPY, and nothing beyond it:
  *   - swaps the brand, including the domain and two slugs that carried the old
  *     name;
- *   - removes em and en dashes, resolving each by clause rather than by
- *     find-and-replace, because a comma in the wrong place makes a splice;
+ *   - preserves the published wording and punctuation;
  *   - reads the structure Apple and the CMS already published (headings, lists,
  *     tables, FAQ blocks) into this repo's `BlogPost` shape.
  *
@@ -73,71 +72,7 @@ function rebrand(s) {
     .replace(/dream launch/gi, "ApexStack");
 }
 
-/* ------------------------------------------------------------------ dashes */
-
-const CLAUSE_STARTERS = new Set(
-  ("i you he she it we they that this there these those his her their your our my its " +
-    "and but so because which who what when where why how no not never nobody nothing " +
-    "everyone everything most many some if then now here one two three a an the")
-    .split(" "),
-);
-const PRONOUN_SUBJ = new Set(
-  "i you he she it we they that this there nobody everyone".split(" "),
-);
-const VERBISH =
-  /^(is|are|was|were|will|would|can|could|should|do|does|did|has|have|had|isn't|aren't|wasn't|don't|doesn't|didn't|won't|can't|means|makes|gets|goes|comes|takes|needs|wants|looks|feels|costs|ships|builds|works|happens|becomes|turns|keeps|stays|starts|ends)\b/i;
-
-/** A comma before an independent clause is a splice, so those become full stops. */
-function isIndependent(after) {
-  const w = after.trim().split(/\s+/);
-  if (w.length < 3) return false;
-  const first = w[0].toLowerCase().replace(/[^a-z']/g, "");
-  if (PRONOUN_SUBJ.has(first)) return true;
-  if (/^(i|you|he|she|it|we|they|that|there)'(s|re|ll|ve|d|m)$/.test(first)) return true;
-  if (!CLAUSE_STARTERS.has(first)) return false;
-  const rest = w.slice(1).join(" ");
-  return (
-    VERBISH.test(rest) ||
-    /\b(is|are|was|were|will|would|can|could|should|do|does|did|has|have|had)\b/i.test(
-      w.slice(1, 4).join(" "),
-    )
-  );
-}
-
-/** A dash introducing an enumeration or a gloss reads as a colon. */
-function introducesList(after) {
-  const seg = (after.split(/(?<=[.!?])\s/)[0] || after).trim();
-  if (/^(what|which|who|how|why|where|when)\b/i.test(seg)) return true;
-  const commas = (seg.match(/,/g) || []).length;
-  return commas >= 1 && /\b(and|or)\b/.test(seg) && seg.length < 200;
-}
-
-function dedash(input) {
-  if (!input) return input;
-  let s = input;
-  // Numeric and currency ranges keep a hyphen: "4-6 weeks", "$6.5k-$20k".
-  s = s.replace(/(\d[\d.,]*[a-zA-Z%]{0,3})\s*[–—]\s*(\$?\d)/g, "$1-$2");
-  s = s.replace(/(\$\d[\d.,]*[a-zA-Z]{0,3})\s*[–—]\s*(\$?\d)/g, "$1-$2");
-  s = s.replace(/\s+[–—]\s+/g, (m, off, str) => {
-    const after = str.slice(off + m.length);
-    if (/[,;:.!?]$/.test(str.slice(0, off))) return " ";
-    if (introducesList(after)) return ": ";
-    if (isIndependent(after)) return ". __CAP__";
-    return ", ";
-  });
-  s = s.replace(/([a-zA-Z)\]"'])[–—]([a-zA-Z("'])/g, "$1, $2");
-  s = s.replace(/\s*[–—]\s*/g, ", ");
-  s = s.replace(/__CAP__(\S)/g, (m, c) => c.toUpperCase());
-  return s
-    .replace(/,\s*,/g, ",")
-    .replace(/\s+,/g, ",")
-    .replace(/,\s*\./g, ".")
-    .replace(/\.\s*\./g, ".")
-    .replace(/\s{2,}/g, " ")
-    .trim();
-}
-
-const fix = (s) => dedash(rebrand(s));
+const fix = rebrand;
 
 /* ---------------------------------------------------------------- classify */
 
