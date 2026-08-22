@@ -65,7 +65,7 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
     title: "AI Product & AI Agent Development Services | ApexStack",
     h1: "AI Product & AI Agent Development Services",
     description:
-      "AI features and autonomous agents that survive production: retrieval that returns the right context, evaluation you can trust, guardrails before launch.",
+      "AI products and agents with evaluation against agreed cases, controlled data access, observable costs and explicit human-review boundaries.",
   },
   automation: {
     title: "Business Process Automation Services | ApexStack",

@@ -174,7 +174,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       "Agents get explicit boundaries, fallback behaviour and human review points, so failure is contained rather than silent.",
     ],
     outcomes: [
-      "AI features that hold up on real data rather than curated demos",
+      "AI behaviour tested against representative cases rather than curated demos alone",
       "Output quality measurable, so changes can be judged",
       "Inference cost modelled and monitored",
       "Clear boundaries on what the system is allowed to do unattended",
@@ -183,15 +183,15 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     faqs: [
       {
         q: "Will you tell us if AI is the wrong answer?",
-        a: "Yes, and we often do. A retrieval system or a rules engine is frequently more reliable and cheaper for the problem described.",
+        a: "Yes. We begin by comparing the proposed AI workflow with simpler retrieval, rules or conventional software approaches and document the trade-offs before selecting one.",
       },
       {
         q: "Can the model use our internal data?",
-        a: "Yes, through a retrieval layer over your own content, with access controls respected so users only ever see what they are entitled to.",
+        a: "It may, when the data source, permissions and provider controls fit the use case. We map access and retrieval so the application does not grant a user broader access than the source system allows.",
       },
       {
-        q: "How do you stop it producing wrong answers?",
-        a: "Grounding in your data, evaluation against cases you define as correct, guardrails on what it can act on, and human review where the cost of being wrong is high.",
+        q: "How do you reduce harmful or incorrect outputs?",
+        a: "No team can guarantee that a generative model will never be wrong. We test against agreed cases, constrain data and actions, provide fallback behaviour, and add human review where the consequence of an error is high.",
       },
     ],
     related: ["custom-software-development", "automation", "api-development"],

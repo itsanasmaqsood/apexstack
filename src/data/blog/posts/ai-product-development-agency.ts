@@ -2,312 +2,277 @@ import type { BlogPost } from "@/data/blog/types";
 
 export const post: BlogPost = {
   slug: "ai-product-development-agency",
-  title: "AI Product Development Agency | LLM Integrations & Custom Pipelines",
-  seoTitle: "AI Product Development Agency",
-  description: "Stop wasting months chasing AI product delivery.",
-  excerpt: "we don't start with discovery calls that lead to more discovery. we start with this question: what is the one ai-powered thing you need live in the next 30 days to keep your story alive?",
-  category: "AI Engineering",
+  title: "How to Choose an AI Product Development Agency",
+  seoTitle: "AI Product Development Agency: Buyer Checklist",
+  description:
+    "Compare AI product development agencies by evaluation evidence, data controls, production ownership, operating costs and handover—not demos.",
+  excerpt:
+    "A buyer's checklist for testing whether an AI product partner can move from a promising model demo to an evaluated, operable product your team can own.",
+  category: "Choosing a Partner",
   primaryKeyword: "ai product development agency",
   secondaryKeywords: [
-    "how do you handle data privacy and security with llm integrations",
-    "what if my product idea is just a rough concept",
-    "can you work with our existing in house engineering team",
-    "what is your typical pricing for an ai mvp",
+    "ai product development services",
+    "ai product engineering partner",
+    "llm product development",
+    "ai agency evaluation checklist",
   ],
   published: "2026-07-28",
+  updated: "2026-08-22",
   authorId: "leadership-01",
   serviceSlug: "ai-development",
-  keyTakeaway: "they integrate an api, call it a day, and hand you back a glorified wrapper around gpt that doesn't do anything specific to your workflow. you paid six figures for a feature you could have built in a weekend, if you only had time.",
+  keyTakeaway:
+    "Choose an AI product development agency by the evidence it can produce for your workflow: a representative evaluation set, measured quality and failure modes, documented data handling, cost and latency observations, human review boundaries, production monitoring and a usable handover. A polished model demo or a list of framework names does not show that the resulting product will behave acceptably on your users' data.",
   sections: [
     {
-      heading: "The short version",
+      heading: "What should an AI product development agency actually own?",
       blocks: [
         {
           type: "p",
-          text: "fourth freelancer ghosted. the agency quote just landed: $100k for a 6-month build.",
+          text: "An AI product agency should connect model behaviour to a complete user and business workflow. The work normally includes defining the task, preparing representative test cases, choosing and integrating models, designing the surrounding product, connecting authorised data, measuring output, containing failure, deploying the application and making it operable after launch.",
         },
         {
           type: "p",
-          text: "your demo day is in 8 weeks. your pilot customer wants something to test next month.",
+          text: "That does not mean one supplier must perform every activity. Your internal team may own the product, data platform, security review or cloud account. The scope should name each boundary and acceptance artefact so evaluation, application engineering and operations do not fall between separate teams.",
         },
         {
-          type: "p",
-          text: "the clock is the only thing moving.",
-        },
-        {
-          type: "p",
-          text: "this is where 'building' stops being a verb and becomes a threat. momentum is evaporating. your story to investors is about to get thin. the pressure isn't just to have a product, it's to have it now, deployed, at a real URL you can show someone today.",
-        },
-        {
-          type: "p",
-          text: "this is what we fix.",
-        },
-        {
-          type: "p",
-          text: "we are apexstack, an ai product development agency for founders who need a live product, not another promise.",
-        },
-        {
-          type: "p",
-          text: "we don't start with discovery calls that lead to more discovery. we start with this question: what is the one ai-powered thing you need live in the next 30 days to keep your story alive?",
+          type: "callout",
+          text: "Ask the agency to demonstrate how one important user action travels from input and authorised context through model output, product response, review, logging and recovery. That thin slice reveals more than a broad feature list.",
         },
       ],
     },
     {
-      heading: "why founders choose specialized ai agencies over general dev shops",
+      heading: "What evaluation evidence should you request?",
       blocks: [
         {
           type: "p",
-          text: "general dev shops hear 'ai' and think chatbot.",
+          text: "Model quality is specific to the task and the data it will encounter. Before comparing model names or architecture diagrams, agree what acceptable behaviour means for representative cases, important edge cases and failures that require human review or a safe fallback.",
         },
         {
-          type: "p",
-          text: "they integrate an api, call it a day, and hand you back a glorified wrapper around gpt that doesn't do anything specific to your workflow. you paid six figures for a feature you could have built in a weekend, if you only had time.",
-        },
-        {
-          type: "p",
-          text: "the real problem isn't the ai. it's the product around it.",
-        },
-        {
-          type: "p",
-          text: "a real ai product development agency understands the integration is the easy part. the hard part is the architecture that makes it reliable, the workflow that makes it indispensable, and the deployment that makes it usable today.",
-        },
-        {
-          type: "p",
-          text: "i learned this the hard way early on. we took on a project for a photographer booking platform in singapore. the ai-powered matching was clever. the ui was beautiful.",
-        },
-        {
-          type: "p",
-          text: "it failed completely. photographers used the platform to find clients, then moved the relationship off-platform because availability couldn't be standardized. the ai was a vitamin, not a painkiller.",
-        },
-        {
-          type: "p",
-          text: "that $10,000 lesson cost us in reputation, but it rewired our entire process. we stopped asking 'can we build this ai feature?' and started asking 'will this workflow survive first contact with a real user?'",
-        },
-        {
-          type: "p",
-          text: "the difference is specialization. a specialized ai agency knows the failure modes: hallucinations in production, cost explosions from naive api calls, the latency that kills a ui. they've already paid those tuition fees. a generalist shop learns them on your dime.",
-        },
-        {
-          type: "p",
-          text: "the founder with a ticking clock doesn't have budget for tuition. they need a partner who's already graduated.",
-        },
-      ],
-    },
-    {
-      heading: "our llm-agnostic approach: openai, claude, gemini & custom models",
-      blocks: [
-        {
-          type: "p",
-          text: "i get this pitch all the time: 'we're experts in openai.'",
-        },
-        {
-          type: "p",
-          text: "that's not expertise. that's vendor lock-in dressed up as a strategy.",
-        },
-        {
-          type: "p",
-          text: "we are llm-agnostic. we default to no default. the first technical decision is always which model, or combination of models, is the right tool for the specific job. is it cost? is it context length? is it reasoning? is it speed?",
-        },
-        {
-          type: "p",
-          text: "for a norway-based b2b saas founder, we built an autonomous lead scoring and outreach agent. we used grok fast for the initial icp scoring because it was cheap and fast for the first filter. then we used grok for deeper context pull post-qualification. finally, we used llama for the dm generation because its tone was more natural for that platform.",
-        },
-        {
-          type: "p",
-          text: "three models. one pipeline. cost controlled, quality tuned.",
-        },
-        {
-          type: "p",
-          text: "the choice isn't philosophical. it's financial and functional. for another client, we used fine-tuned openai because their data was highly structured and the output format was rigid. for a content pipeline, we used claude for its long-context summarization of youtube transcripts.",
-        },
-        {
-          type: "p",
-          text: "this is the agency difference. we aren't selling you on our partnership with a lab. we're architecting a system with the right components for your outcome, not theirs.",
-        },
-        {
-          type: "p",
-          text: "it means when a new model drops next month, we can slot it in where it makes sense. your product isn't stuck in 2023's tech stack.",
-        },
-      ],
-    },
-    {
-      heading: "building beyond the chatbot: custom ai pipelines for real workflows",
-      blocks: [
-        {
-          type: "p",
-          text: "a chatbot is a feature. a pipeline is a product.",
-        },
-        {
-          type: "p",
-          text: "most ai products die because they're features bolted onto an old workflow. a custom pipeline rebuilds the workflow itself around the ai.",
-        },
-        {
-          type: "p",
-          text: "take the aeo content pipeline we built for a us family office. the ask was a 'content brain.'",
-        },
-        {
-          type: "p",
-          text: "what we built was an autonomous pipeline: ahrefs integration for seo topic discovery, youtube transcript ingestion and distillation via claude, automated drafting, scheduling, and deployment via a cron job. it writes and deploys competitive seo content without human input.",
-        },
-        {
-          type: "p",
-          text: "the ai isn't a tool the team uses. it's the team.",
-        },
-        {
-          type: "p",
-          text: "or take humanno, an ai rfp automation product. it wasn't a smart text box. it was a full pipeline: ingestion of a 200-page rfp, extraction of key requirements, mapping to a library of past responses, drafting of compliant sections, and generation of a submission-ready document with tracked changes.",
-        },
-        {
-          type: "p",
-          text: "the value wasn't in the llm call. it was in the twenty steps of data plumbing, formatting, and business logic we built before and after that call.",
-        },
-        {
-          type: "p",
-          text: "this is the work that separates an ai product development agency from an api integration shop. anyone can call gpt-4. very few can design, build, and deploy the orchestration layer that turns that call into a business result.",
-        },
-        {
-          type: "p",
-          text: "our recent work on aprex shows this. it's a precision productivity tool with a custom d3.js knowledge graph. the ai isn't a chat interface; it's the connective tissue between nodes in the graph. the command palette, the zen mode, the version history engine, all are informed by ai to reduce friction, not to be the showpiece.",
-        },
-        {
-          type: "p",
-          text: "the product is the pipeline. the ai just powers it.",
-        },
-      ],
-    },
-    {
-      heading: "from stuck to shipped: a timeline for pre-seed to seed founders",
-      blocks: [
-        {
-          type: "p",
-          text: "your runway is 12 months. you've already burned 4.",
-        },
-        {
-          type: "p",
-          text: "a traditional agency timeline is a death sentence. 6 weeks of discovery. 12 weeks of build. 2 weeks of 'qa.'",
-        },
-        {
-          type: "p",
-          text: "our timeline is built for survival.",
-        },
-        {
-          type: "p",
-          text: "it starts with a blueprint. for $1,500, we deliver a full technical spec, architecture diagram, and phased rollout plan in 5 days. not a vague proposal, a buildable document. we've done this for a simulation engine mobile app for an sf founder. 40+ screens fully mapped before a single line of code. it took 3 months to close the deal because we killed two of his dead ideas in the blueprint phase. the third one worked.",
-        },
-        {
-          type: "p",
-          text: "week 1 is a working prototype. not a figma mockup, a live, clickable prototype on a real url. for the fintech mvp, this was day one. $6,500 total project. 14 screens. shipped production-ready in under 48 hours. the post-launch onboarding fix we suggested increased retention 15% without touching a single feature.",
-        },
-        {
-          type: "p",
-          text: "weeks 2-4 are the mvp build. this is where our studio build retainer ($12,000-$20,000/month) kicks in. full team. daily syncs. deployed daily to a staging environment you can touch. for mosaic, the ai storytelling app for kids, this was 7 weeks from zero to launched on ios and android in the us and india. flutter app, node.js api, openai/dall-e/google tts integration, stripe, firebase, coppa compliance. done.",
-        },
-        {
-          type: "p",
-          text: "week 5 onward is refinement. this is where you shift from 'we're building' to 'we're scaling.' we hand over the keys and shift to a momentum retainer ($3,500/month) for maintenance, iterations, and scaling support, or you take it fully in-house.",
-        },
-        {
-          type: "p",
-          text: "the deliverable at each stage isn't a report. it's a live url. the psychological shift is everything. you go from pitching a future to demoing a present.",
-        },
-      ],
-    },
-    {
-      heading: "the apexstack difference: ai product execution for non-technical founders",
-      blocks: [
-        {
-          type: "p",
-          text: "you're the ceo. you have the vision, the market fit, the early revenue. you don't have a cto, and your last dev hire didn't work out.",
-        },
-        {
-          type: "p",
-          text: "you don't need a tech lead. you need a product execution partner.",
-        },
-        {
-          type: "p",
-          text: "that means we translate your business logic into system architecture. you say 'the user needs to feel confident the ai is accurate.' we build confidence indicators, human-in-the-loop checkpoints, and explainability layers. you say 'this needs to work for our enterprise pilot.' we build the audit trails, role-based access, and data isolation.",
-        },
-        {
-          type: "p",
-          text: "we become your temporary, hyper-competent technical co-founder. the proof is in the cleanup work.",
-        },
-        {
-          type: "p",
-          text: "we had a client come to us with a 6-month-old, 400+ file codebase entirely generated by an ai developer tool. it was a house of cards. for $3,500, we did a vibe-coded cleanup. found 4 hardcoded api keys, 3 parallel auth implementations, zero database indexes, and 5 hallucinated npm packages that didn't exist.",
-        },
-        {
-          type: "p",
-          text: "we fixed it. we didn't judge.",
-        },
-        {
-          type: "p",
-          text: "the apexstack difference is that we care about the outcome, not just the output. we are the team you message at 11pm when you've made a mistake. like the bangalore client who did. we got on a call at midnight. the team was pulled in the next morning. a production-ready build was on vercel with a loom walkthrough delivered by evening.",
-        },
-        {
-          type: "p",
-          text: "he replied in 11 minutes. he stayed. he referred two more clients.",
-        },
-        {
-          type: "p",
-          text: "this is what high-agency partnership looks like. it's in our dna. it's why non-technical founders choose us. the technology is complex. the partnership shouldn't be.",
-        },
-      ],
-    },
-    {
-      heading: "case studies: ai products built for investors & early customers",
-      blocks: [
-        {
-          type: "p",
-          text: "the portfolio speaks for itself. you can browse our full case studies, but here are the highlights burned into our memory:",
-        },
-        {
-          type: "list",
-          items: [
-            "bounce daily: india's #1 ev scooter rental app. $200m raised. we rebuilt the entire react native app from scratch, 50+ screens, 100+ production components. shipped ios and android across three major cities. kyc conversion lifted from 45% to 65%. day-0 renewal rate from 71% to 85%.",
-            "mizu ai: automation builder mvp for andrej. founder quote: \"they built a solid foundation i can actually scale from.\" that's the goal.",
-            "igneet labs: built from early stage through to exit with prajwal tomar. company exited for $5m.",
-            "autonomous agents: from the aeo content pipeline to the lead scoring agent, these aren't demos. they are business processes running on autopilot, today.",
+          type: "table",
+          caption: "AI product evaluation evidence",
+          head: ["Evidence", "What it should answer", "Warning sign"],
+          rows: [
+            [
+              "Evaluation set",
+              "Does it represent real inputs, edge cases and unacceptable outcomes?",
+              "Only hand-picked demonstration prompts",
+            ],
+            [
+              "Scoring method",
+              "Which outcomes are checked automatically and which require informed human judgement?",
+              "One unexplained accuracy percentage",
+            ],
+            [
+              "Baseline",
+              "Is the proposed system better than the current process, a simpler rule or a smaller model?",
+              "No comparison with a non-AI alternative",
+            ],
+            [
+              "Failure analysis",
+              "Which errors occur, how serious are they and what happens to the user next?",
+              "Failures discussed only as hallucinations",
+            ],
+            [
+              "Regression gate",
+              "What must pass when a prompt, model, retrieval source or tool changes?",
+              "Production changes made from informal spot checks",
+            ],
+            [
+              "Traceability",
+              "Can an authorised operator connect an output to the application version, model configuration and source context?",
+              "Logs with no version or request correlation",
+            ],
           ],
         },
         {
           type: "p",
-          text: "the pattern is never about the technology first. it's about the business result: a higher conversion rate, a faster launch, a solid foundation, an exit.",
+          text: "The evaluation set is a maintained product asset, not a one-off presentation. The scope should say who owns it, who can approve a change to acceptance thresholds and how production feedback becomes a reviewed test case without silently teaching the system from every user interaction.",
+        },
+      ],
+    },
+    {
+      heading: "How should the agency handle data and model-provider controls?",
+      blocks: [
+        {
+          type: "p",
+          text: "Begin with a data-flow map. It should show what enters the product, what context is retrieved, which provider or model receives it, what is stored, how long it is retained and which identities can read or change each part. Provider controls vary by product, endpoint, account configuration and region, so current terms and settings must be verified for the chosen deployment rather than copied from a generic policy summary.",
+        },
+        {
+          type: "list",
+          items: [
+            "Classify personal, confidential, regulated and customer-controlled data before it reaches a prompt or retrieval index",
+            "Use separate non-human identities and least-privilege access for application, retrieval and operational work",
+            "Keep secrets outside prompts, source code and unrestricted traces",
+            "Apply the user's existing document and record permissions when retrieving context",
+            "Define retention, deletion and redaction rules for prompts, outputs, feedback and evaluation examples",
+            "Test instructions embedded in retrieved or uploaded content as untrusted input rather than authority",
+            "Record the human approval boundary before the system takes a consequential external action",
+          ],
         },
         {
           type: "p",
-          text: "your ai product development agency should be judged on the outcomes it ships, not the prompts it writes.",
+          text: "Do not accept 'we anonymise the data' as a complete answer. Ask which fields are removed or transformed, where that happens, what can still be inferred, whether the original is retained and how the transformed output is tested for the product task.",
+        },
+      ],
+    },
+    {
+      heading: "Does a model-agnostic architecture remove vendor lock-in?",
+      blocks: [
+        {
+          type: "p",
+          text: "A clean model interface can reduce coupling, but it does not make providers interchangeable. Models differ in instruction following, tool use, structured output, context handling, safety behaviour, latency, price and regional availability. Prompts and evaluation thresholds tuned for one model may regress when another is substituted.",
         },
         {
           type: "p",
-          text: "so the question isn't whether you can build your ai product. it's whether you can afford the months of false starts and dead ends trying to build it with the wrong partner.",
+          text: "Ask for portability at the parts that can genuinely be portable: application-owned interfaces, versioned prompts, model configuration outside business logic, provider-specific adapters and an evaluation suite that can compare candidates on the same cases. A provider change should be treated as a measured product change, not a configuration toggle assumed to be safe.",
+        },
+        {
+          type: "list",
+          items: [
+            "Which provider-specific APIs, tools, file stores or safety features does the design depend on?",
+            "Which application behaviours are tested independently of the model?",
+            "Can the team run the same evaluation and cost sample against a second candidate?",
+            "Who approves a model change, and what production fallback exists if the new version regresses?",
+          ],
+        },
+      ],
+    },
+    {
+      heading: "What production evidence should exist before launch?",
+      blocks: [
+        {
+          type: "p",
+          text: "A production-ready claim should be supported by inspectable evidence from the actual product boundary. The exact depth depends on the risk of the workflow, but a buyer should be able to see how the system was tested, released, observed and recovered—not merely that it returned a good answer during a demonstration.",
+        },
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "A versioned architecture and data-flow diagram with named ownership boundaries",
+            "Evaluation results for representative, edge and unacceptable cases, including known limitations",
+            "A redacted trace connecting one user request to retrieved context, model configuration, tool calls and product response",
+            "Observed latency and model usage for a representative workload, with the assumptions behind any cost estimate",
+            "Load, timeout, rate-limit and dependency-failure behaviour for the complete workflow",
+            "Monitoring and alert ownership for product errors, quality signals, latency, usage and spend",
+            "Fallback and human-review behaviour tested for high-consequence or uncertain outputs",
+            "A release record with regression checks, rollback or containment steps and an operator runbook",
+            "A handover pack covering repositories, prompts, evaluations, configurations, accounts, documentation and supplier-access removal",
+          ],
         },
         {
           type: "p",
-          text: "your demo day, your pilot, your fundraising window, they won't wait. let's get the right thing built.",
+          text: "Cost should be measured at workflow level. Model tokens may be one component alongside retrieval, search, storage, document processing, observability, background jobs and human review. Ask for the assumptions and a way to observe actual usage rather than a fixed savings or scale claim.",
+        },
+      ],
+    },
+    {
+      heading: "How do you compare AI product development agencies?",
+      blocks: [
+        {
+          type: "table",
+          caption: "AI agency comparison checklist",
+          head: ["Area", "Question to ask", "Useful evidence"],
+          rows: [
+            [
+              "Product judgement",
+              "What is the smallest workflow that can test the product assumption honestly?",
+              "Prioritised scope with explicit exclusions and success criteria",
+            ],
+            [
+              "Evaluation",
+              "How will we know the AI behaviour is acceptable on our data?",
+              "Representative cases, scoring rubric, baseline and regression gate",
+            ],
+            [
+              "Data controls",
+              "What data reaches which system, under which identity and retention rule?",
+              "Data-flow map, access matrix and current provider-control review",
+            ],
+            [
+              "Full-stack delivery",
+              "Who owns the interface, application logic, integrations, deployment and operation?",
+              "Responsibility matrix and end-to-end thin slice",
+            ],
+            [
+              "Reliability",
+              "What does the product do when the model, retrieval source or tool fails?",
+              "Failure tests, fallback states, alerts and recovery runbook",
+            ],
+            [
+              "Economics",
+              "Which assumptions drive cost and latency per completed workflow?",
+              "Representative measurement with observable production counters",
+            ],
+            [
+              "Handover",
+              "Can our team operate and change this without the agency?",
+              "Owned accounts, repository access, evaluations, runbooks and access-removal plan",
+            ],
+          ],
+        },
+        {
+          type: "p",
+          text: "Give shortlisted teams the same narrow workflow and ask for the same evidence. This makes exclusions and judgement visible. Comparing framework lists, model partnerships or an agency's own unverified success statistics does not answer whether it can build your product responsibly.",
+        },
+      ],
+    },
+    {
+      heading: "Can an AI agency work with an in-house engineering team?",
+      blocks: [
+        {
+          type: "p",
+          text: "Yes, when the boundary is explicit. An external team might own an evaluation harness and one AI workflow while the internal team owns identity, product UI, data infrastructure or deployment. Define repositories, review authority, environments, release responsibility, incident ownership and the artefacts transferred at each stage.",
+        },
+        {
+          type: "p",
+          text: "Avoid a separate AI black box that only the supplier can change. Prompts, evaluation cases, provider configuration and tool contracts are production assets and should follow the same ownership, review and change practices as the rest of the application.",
+        },
+      ],
+    },
+    {
+      heading: "What can a US$1,000 starting engagement cover?",
+      blocks: [
+        {
+          type: "p",
+          text: "At ApexStack, an engagement can start at US$1,000 when the first outcome is tightly constrained. For an AI product, that may suit one workflow definition, an evaluation-plan workshop, a feasibility test against a small approved sample or a technical review of an existing prototype. It is not a blanket price for a complete production AI MVP.",
+        },
+        {
+          type: "p",
+          text: "A useful first phase should reduce a named uncertainty and leave an inspectable artefact: test cases, measured results, a data-flow map, an architecture decision or a prioritised risk list. Authentication, billing, production interfaces, complex retrieval, several integrations, regulated data, mobile applications, administration and ongoing operation can materially expand the quote.",
         },
       ],
     },
   ],
   faqs: [
     {
-      question: "what makes an ai product development agency different from a regular software agency?",
-      answer: "a regular agency builds features. a specialized ai agency builds systems. the complexity isn't in the ui code; it's in the orchestration layer between models, your data, and your business logic. we've pre-paid the tuition on hallucinations, cost spikes, and latency issues that would derail a generalist team, so you don't have to.",
+      question: "What makes an AI product development agency different from a regular software agency?",
+      answer:
+        "The relevant difference is demonstrated capability, not the label. An AI product partner should combine normal product engineering with task-specific evaluation, model and data controls, failure handling and production observation. A regular software team can be the right choice if it can produce that evidence and own the complete workflow.",
     },
     {
-      question: "how do you handle data privacy and security with llm integrations?",
-      answer: "we architect for privacy from day one. this means techniques like data anonymization before api calls, using private endpoints where available (like azure's openai service), and never sending sensitive pii to a third-party model unless absolutely required and contractually covered. we treat your data like it's our own.",
+      question: "How should an AI agency handle data privacy and security?",
+      answer:
+        "It should map the data flow, classify sensitive inputs, verify current provider controls for the chosen account and endpoint, preserve source permissions during retrieval, use least-privilege identities, limit logging and retention, and document deletion and incident responsibilities. The exact controls depend on the data, jurisdiction and product risk.",
     },
     {
-      question: "what if my product idea is just a rough concept?",
-      answer: "that's where we start. our $1,500 blueprint service is designed specifically for this. in 5 days, we turn your concept into a detailed technical spec and architecture plan. we'll pressure-test the idea, identify the core ai workflow, and give you a clear, buildable map forward before you commit to a full build.",
+      question: "Should an AI product use one model provider or several?",
+      answer:
+        "Use the smallest arrangement that meets the measured task requirements. More providers can add resilience or specialist capability, but they also add evaluation, data-governance, operational and cost complexity. Preserve a clean boundary and evaluation suite even when one provider is the sensible starting point.",
     },
     {
-      question: "can you work with our existing in-house engineering team?",
-      answer: "absolutely. we often act as the specialized ai pod within your broader effort. we handle the complex model integrations, pipeline development, and mlops infrastructure, while your team focuses on the core application and business logic. we document everything and ensure a clean handoff.",
+      question: "How do I estimate the cost of an AI product?",
+      answer:
+        "Define the workflow and measure representative usage. Include model input and output, retrieval, document processing, storage, search, background work, monitoring, human review and the surrounding application. A model price table alone cannot estimate the complete product or its build cost.",
     },
     {
-      question: "what is your typical pricing for an ai mvp?",
-      answer: "it varies with complexity, but a typical ai mvp with custom pipelines and multiple integrations falls in our studio build range of $12,000-$20,000 per month, and often ships in 1-2 months. we have closed simpler, focused mvps like a fintech app for $6,500. the best path is to book a call and walk us through your specific needs.",
+      question: "What should we own when the engagement ends?",
+      answer:
+        "The contract should name the repositories, application code, prompts, evaluation data and results, provider and cloud accounts, deployment configuration, documentation, runbooks and design assets you will receive. It should also define licence exceptions and how supplier access is removed or transferred.",
     },
+  ],
+  related: [
+    "ai-product-development-process",
+    "how-to-evaluate-an-llm-feature",
+    "shipping-ai-features-to-production",
   ],
 };
