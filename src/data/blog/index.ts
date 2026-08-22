@@ -146,6 +146,7 @@ import { post as tallerGrowthCompanionAppCaseStudy } from "@/data/blog/posts/tal
 import { post as taqwaLockMindfulAppBlockerCaseStudy } from "@/data/blog/posts/taqwa-lock-mindful-app-blocker-case-study";
 import { post as technicalDueDiligence } from "@/data/blog/posts/technical-due-diligence";
 import { post as thingsToIncludeInMvpAgenciesSkip } from "@/data/blog/posts/things-to-include-in-mvp-agencies-skip";
+import { post as topAiNativeDevelopmentAgenciesEarlyStageStartups2025 } from "@/data/blog/posts/top-ai-native-development-agencies-early-stage-startups-2025";
 import { post as topNoCodeMvpBuilders } from "@/data/blog/posts/top-no-code-mvp-builders";
 import { post as uiUxDesignAgencyForStartups } from "@/data/blog/posts/ui-ux-design-agency-for-startups";
 import { post as vibeCodingAgency } from "@/data/blog/posts/vibe-coding-agency";
@@ -293,6 +294,7 @@ export const POSTS: readonly BlogPost[] = [
   taqwaLockMindfulAppBlockerCaseStudy,
   technicalDueDiligence,
   thingsToIncludeInMvpAgenciesSkip,
+  topAiNativeDevelopmentAgenciesEarlyStageStartups2025,
   topNoCodeMvpBuilders,
   uiUxDesignAgencyForStartups,
   vibeCodingAgency,
