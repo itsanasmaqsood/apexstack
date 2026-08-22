@@ -52,6 +52,7 @@ import { post as bestMvpDevelopmentStudiosSaasStartups2026 } from "@/data/blog/p
 import { post as bestVibeCodingToolsFoundersUse2026 } from "@/data/blog/posts/best-vibe-coding-tools-founders-use-2026";
 import { post as bestWebDesignAgencyForSaas } from "@/data/blog/posts/best-web-design-agency-for-saas";
 import { post as boltNewAlternativesForFoundersProductionApps } from "@/data/blog/posts/bolt-new-alternatives-for-founders-production-apps";
+import { post as boltVsLovableVsHiringDevAgency } from "@/data/blog/posts/bolt-vs-lovable-vs-hiring-dev-agency";
 import { post as buildAiMvpForStartup } from "@/data/blog/posts/build-ai-mvp-for-startup";
 import { post as buildAiProductStartup } from "@/data/blog/posts/build-ai-product-startup";
 import { post as buildAiProductWithoutTechnicalCoFounder } from "@/data/blog/posts/build-ai-product-without-technical-co-founder";
@@ -198,6 +199,7 @@ export const POSTS: readonly BlogPost[] = [
   bestVibeCodingToolsFoundersUse2026,
   bestWebDesignAgencyForSaas,
   boltNewAlternativesForFoundersProductionApps,
+  boltVsLovableVsHiringDevAgency,
   buildAiMvpForStartup,
   buildAiProductStartup,
   buildAiProductWithoutTechnicalCoFounder,
