@@ -583,37 +583,37 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
   // ---------------------------------------------------------------- creative
   "ui-ux-design": {
     problem:
-      "People are not using the thing you built, or they are using it wrongly, and nobody can say precisely why.",
+      "The product needs research, interface design and engineering decisions to stay connected, but the scope does not yet show how one discipline hands evidence to the next.",
     challenges: [
       "Interfaces designed around the data model rather than the task",
       "Complexity concentrated exactly where users are least expert",
       "Edge cases — empty, error, loading, permissions — designed last or not at all",
-      "Design handed over as images engineering has to interpret",
+      "Design handed over without behaviour, accessibility evidence or an implementation review",
     ],
     approach: [
-      "We map the journeys before designing screens, because the hard part is usually the sequence rather than the layout.",
-      "We prototype the interactions that cannot be judged from a static mockup, and we design the states that go wrong.",
-      "Engineering receives a component system, not a folder of files.",
+      "We define the users, priority tasks, constraints and risky assumptions that should shape the scope before designing screens.",
+      "We connect flows and prototypes to component behaviour, responsive states, accessibility notes and acceptance criteria engineering can implement.",
+      "When design and development are bundled, both disciplines work from one backlog and review the implemented product rather than treating Figma delivery as the finish line.",
     ],
     outcomes: [
-      "Fewer support requests about how the product works",
-      "Faster completion of the tasks that matter",
-      "A consistent product as it grows",
-      "A shared design language between design and engineering",
+      "Priority journeys, states and non-goals recorded before implementation",
+      "Reusable component decisions represented in design and code",
+      "Named accessibility scope, checks, findings and retest status",
+      "Acceptance and handover evidence that another capable team can inspect",
     ],
     technologies: ["Figma", "Design systems", "Prototyping", "User research", "WCAG accessibility"],
     faqs: [
       {
         q: "Can you design without building?",
-        a: "Yes. Design and research are available standalone — they are simply more effective when the people designing and building sit in the same team.",
+        a: "Yes. Design and research are available standalone. The scope then defines how decisions, component states and accessibility notes reach your engineering team and how implementation is reviewed.",
       },
       {
         q: "Do you do user research?",
-        a: "Yes, and we would rather do a little of it early than a lot of redesign later.",
+        a: "Yes. We agree the research questions, participant criteria, task scenarios and decisions the findings are meant to inform before selecting the method.",
       },
       {
         q: "Will the design survive engineering?",
-        a: "We hand over a component library with states and behaviour specified, which is what usually gets lost in translation.",
+        a: "The scope can include component states, behaviour, content and data rules, accessibility notes and implementation review. Those artefacts make design intent inspectable, but the working product still needs testing before acceptance.",
       },
     ],
     related: ["web-development", "mobile-app-development", "branding"],

@@ -128,10 +128,10 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
       "Independent technical review, architecture and due diligence. We tell you what will break, what it costs to fix, and what you can safely leave alone.",
   },
   "ui-ux-design": {
-    title: "UI/UX Design Services for Software Products | ApexStack",
-    h1: "UI/UX Design Services for Software Products",
+    title: "UI/UX Design & Product Engineering Services | ApexStack",
+    h1: "UI/UX Design and Product Engineering Services",
     description:
-      "Interface and experience design grounded in research and delivered as a system engineering can build from — including every state that goes wrong.",
+      "Bundle user research, interface design and full-cycle software development with shared acceptance, accessibility and handover evidence.",
   },
   branding: {
     title: "Branding & Brand Identity Design Services | ApexStack",
