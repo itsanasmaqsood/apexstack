@@ -48,6 +48,7 @@ import { post as bestMvpDevelopmentCompanies } from "@/data/blog/posts/best-mvp-
 import { post as bestMvpDevelopmentStudioFounders2026 } from "@/data/blog/posts/best-mvp-development-studio-founders-2026";
 import { post as bestMvpDevelopmentStudiosNonTechnicalFounders } from "@/data/blog/posts/best-mvp-development-studios-non-technical-founders";
 import { post as bestMvpDevelopmentStudiosNonTechnicalFounders1 } from "@/data/blog/posts/best-mvp-development-studios-non-technical-founders-1";
+import { post as bestMvpDevelopmentStudiosNonTechnicalFounders2 } from "@/data/blog/posts/best-mvp-development-studios-non-technical-founders-2";
 import { post as bestMvpDevelopmentStudiosSaasStartups2026 } from "@/data/blog/posts/best-mvp-development-studios-saas-startups-2026";
 import { post as bestVibeCodingToolsFoundersUse2026 } from "@/data/blog/posts/best-vibe-coding-tools-founders-use-2026";
 import { post as bestWebDesignAgencyForSaas } from "@/data/blog/posts/best-web-design-agency-for-saas";
@@ -196,6 +197,7 @@ export const POSTS: readonly BlogPost[] = [
   bestMvpDevelopmentStudioFounders2026,
   bestMvpDevelopmentStudiosNonTechnicalFounders,
   bestMvpDevelopmentStudiosNonTechnicalFounders1,
+  bestMvpDevelopmentStudiosNonTechnicalFounders2,
   bestMvpDevelopmentStudiosSaasStartups2026,
   bestVibeCodingToolsFoundersUse2026,
   bestWebDesignAgencyForSaas,
