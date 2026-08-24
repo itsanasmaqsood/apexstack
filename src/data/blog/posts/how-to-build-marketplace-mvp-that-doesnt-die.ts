@@ -3,143 +3,97 @@ import type { BlogPost } from "@/data/blog/types";
 export const post: BlogPost = {
   slug: "how-to-build-marketplace-mvp-that-doesnt-die",
   title: "How to Build a Marketplace MVP That Doesn't Die at Launch",
-  seoTitle: "How to Build a Marketplace MVP That Doesn't Die at Launch",
-  description: "Marketplace MVPs fail for one reason more than any other.",
-  excerpt: "this is the marketplace problem. it's well-documented and still claims most marketplace MVPs.",
+  seoTitle: "How to Build a Marketplace MVP That Doesn't Die | ApexStack",
+  description: "A practical guide to how to build marketplace mvp that doesnt die, covering scope, evidence, ownership, delivery risk and the next decision for founde",
+  excerpt: "A buyer-focused guide to how to build marketplace mvp that doesnt die: define the decision, request useful evidence and keep the first release accountable.",
   category: "MVP & Startups",
   primaryKeyword: "how to build marketplace mvp that doesnt die",
   secondaryKeywords: [
-    "pick one side first",
-    "manual matching before algorithm",
-    "marketplace mvp needs",
-    "mistake over engineering trust mechanisms",
-    "build at apexstack marketplace mvp",
+    "how to build marketplace mvp that doesnt die checklist",
+    "how to build marketplace mvp that doesnt die scope",
+    "how to build marketplace mvp that doesnt die risks",
   ],
   published: "2026-06-27",
+  updated: "2026-08-24",
   authorId: "leadership-01",
   serviceSlug: "mvp-development",
-  keyTakeaway: "every marketplace has two sides. the instinct is to build for both simultaneously, a full experience for suppliers and a full experience for buyers. the right move is to build deeply for one side and manually serve the other.",
+  keyTakeaway: "Treat the first release as a controlled learning step: one narrow workflow, explicit quality checks and clear ownership after launch. The scope should address the supply-and-demand loop, trust controls, payments and operational exceptions. For the buyer question “How to Build a Marketplace MVP That Doesn't Die at Launch”, define one core workflow, explicit exclusions, acceptance evidence, account ownership and a handover plan before committing to implementation.",
   sections: [
     {
-      heading: "The short version",
+      heading: "What is the practical answer?",
       blocks: [
-        {
-          type: "p",
-          text: "marketplace MVPs fail for one reason more than any other.",
-        },
-        {
-          type: "p",
-          text: "you build for both sides before either side exists.",
-        },
-        {
-          type: "p",
-          text: "you spend three months building the supplier experience and the buyer experience, the matching algorithm, the review system, the payment flow. you launch. nobody shows up. not because the product is bad: because you don't have supply without demand, and you don't have demand without supply, and you've built a platform for a market that doesn't exist yet.",
-        },
-        {
-          type: "p",
-          text: "this is the marketplace problem. it's well-documented and still claims most marketplace MVPs. here's what to do instead.",
-        },
+        { type: "p", text: "Treat the first release as a controlled learning step: one narrow workflow, explicit quality checks and clear ownership after launch. The scope should address the supply-and-demand loop, trust controls, payments and operational exceptions." },
+        { type: "p", text: "Begin with the smallest decision that removes meaningful uncertainty. Define one user journey, the evidence required to accept it and the person who owns each trade-off. A broad feature list cannot replace a clear release boundary." }
       ],
     },
     {
-      heading: "pick one side first",
+      heading: "Which decisions should be made before work begins?",
       blocks: [
+        { type: "p", text: "A written decision record keeps build a marketplace mvp that doesn't die at launch from becoming a chain of assumptions. It should be short enough to review and specific enough that design, engineering and the buyer are discussing the same outcome." },
         {
-          type: "p",
-          text: "every marketplace has two sides. the instinct is to build for both simultaneously, a full experience for suppliers and a full experience for buyers. the right move is to build deeply for one side and manually serve the other.",
-        },
-        {
-          type: "p",
-          text: "the side you build for first is the constrained side, the side that's harder to acquire and without which the marketplace doesn't function. for most marketplaces, that's supply. you can run ads to acquire buyers. you can't manufacture supply that doesn't exist.",
-        },
-        {
-          type: "p",
-          text: "build the supplier-side product first: the onboarding, the listing creation, the availability or inventory management, the payout mechanism. make it genuinely good, good enough that a supplier tells another supplier. then acquire demand manually, before you've built any buyer-side product at all.",
-        },
+          type: "list",
+          ordered: true,
+          items: [
+            "Write down the primary user, their trigger and the outcome the product must support.",
+            "Define what is deliberately excluded from the first release.",
+            "Agree how access, data, failures and exceptions will be handled.",
+            "Make repository, hosting, domain and third-party account ownership explicit.",
+            "Choose acceptance evidence before implementation begins.",
+            "Review the supply-and-demand loop, trust controls, payments and operational exceptions before approving the delivery plan.",
+          ],
+        }
       ],
     },
     {
-      heading: "manual matching before the algorithm",
+      heading: "What evidence should a buyer request?",
       blocks: [
-        {
-          type: "p",
-          text: "the matching algorithm is not an MVP feature. it's a v3 feature at the earliest.",
-        },
-        {
-          type: "p",
-          text: "in your first hundred transactions, you have enough context to match manually: you know your suppliers, you know what buyers are asking for, and you can make the match yourself, by hand, faster than an algorithm built on insufficient data would.",
-        },
-        {
-          type: "p",
-          text: "manual matching also teaches you things an algorithm would hide. which suppliers get re-requested? which buyer requests never get matched and why? where does the match feel right but the transaction still fails? those patterns are what eventually become the algorithm. you can't discover them by building the algorithm first.",
-        },
-        {
-          type: "p",
-          text: "the operational cost of manual matching in early days is real. it doesn't scale. it's not supposed to. it exists to generate the transactions and the data that let you build the scaled version with confidence.",
-        },
+        { type: "p", text: "Request artefacts that can survive a change of personnel: an agreed scope, decision log, acceptance checks, account map and handover notes." },
+        { type: "p", text: "Where a tool or platform is central, verify export, account access and operating responsibilities in the actual setup. A demonstration is useful only when it exercises the important path and its failure states; it should also show how the plan addresses the supply-and-demand loop, trust controls, payments and operational exceptions." }
       ],
     },
     {
-      heading: "what your marketplace MVP actually needs",
+      heading: "How should the first release be scoped?",
       blocks: [
-        {
-          type: "p",
-          text: "supplier onboarding and profile: a way for suppliers to represent themselves and what they're offering. this should be genuinely good, suppliers are your most important early users and their experience determines whether you have supply.",
-        },
-        {
-          type: "p",
-          text: "a way for buyers to request or browse: not a full search and filter system, a simple listing or a form that captures what a buyer needs. the sophistication comes later when you understand what buyers actually search for.",
-        },
-        {
-          type: "p",
-          text: "payment infrastructure: this is not optional, even in v1. the moment money moves through your platform, even manually. You need proper payment rails. stripe connect or equivalent. do not build a marketplace MVP that collects payment outside the platform. it creates trust problems that are very hard to undo.",
-        },
-        {
-          type: "p",
-          text: "communication between sides: a way for suppliers and buyers to coordinate before and after a match. not a full messaging system, email notifications work in v1. what matters is that communication happens on record, not in text messages between parties who found each other through your platform.",
-        },
-        {
-          type: "p",
-          text: "an operations view for you: not an analytics dashboard, a simple way to see every open request, every active match, every pending payment. you need this so you can do the manual matching and catch the things that fall through. this is often the thing that gets cut because founders think of it as an internal tool. it's actually how the marketplace runs in the first phase.",
-        },
+        { type: "p", text: "Use a single core workflow as the boundary. Include the states required to complete that workflow, the minimum administration needed to operate it and the checks needed to release it safely. Move secondary audiences, speculative automation and convenience features into a later decision queue." },
+        { type: "p", text: "The scope should also say what happens when the ideal path fails. Empty states, invalid input, permission errors, unavailable integrations and manual recovery are part of the product. Leaving them unnamed does not remove the work; it only postpones the decision." }
       ],
     },
     {
-      heading: "the mistake of over-engineering trust mechanisms",
+      heading: "What are the common warning signs?",
       blocks: [
         {
-          type: "p",
-          text: "reviews, verification badges, identity checks, dispute resolution flows, these exist to solve trust problems at scale. at the MVP stage, trust is personal. your early suppliers know you reached out to them directly. your early buyers know you're responsive and accountable.",
+          type: "list",
+          items: [
+            "The proposal promises an outcome without defining acceptance evidence.",
+            "The schedule is fixed while the workflow, roles or integrations remain unclear.",
+            "The buyer will not control the repository, deployment accounts or essential third-party services.",
+            "Quality is described as a final testing phase instead of checks attached to each important behaviour.",
+            "The handover depends on one person's memory rather than accessible documentation and accounts.",
+          ],
         },
-        {
-          type: "p",
-          text: "the review system is a v2 feature. the dispute resolution flow is a v3 feature. build them when you have enough volume that personal trust doesn't scale. building them in v1 delays the launch by weeks for features that early users won't notice.",
-        },
+        { type: "p", text: "None of these signals automatically makes a provider or tool unsuitable. They mean the buyer needs a clearer answer before treating the plan as dependable." }
       ],
     },
     {
-      heading: "what to build at ApexStack for a marketplace MVP",
+      heading: "How should a founder choose the next step?",
       blocks: [
-        {
-          type: "p",
-          text: "at ApexStack, marketplace MVPs follow this architecture: supplier onboarding, basic listing or profile display, a buyer-side request form, stripe connect for payment, email-based communication, and a simple admin view for manual matching and operations. that's a 4-6 week build at our launch sprint price.",
-        },
-        {
-          type: "p",
-          text: "the matching algorithm, the full review system, the mobile experience, those come after you've learned enough from real transactions to build them correctly. every marketplace that's scaled has a version of this story: they launched something simpler than what they imagined, and the transactions they generated taught them what to build next.",
-        },
-        {
-          type: "p",
-          text: "if you're planning a marketplace and want to talk through what your v1 scope actually needs. That's a conversation worth having before you spec anything out. the scoping decisions for a marketplace have more long-term consequences than for most other product types.",
-        },
-        {
-          type: "p",
-          text: "which side of your marketplace is harder to acquire?",
-        },
+        { type: "p", text: "Choose the next step that produces decision-quality evidence. That may be a product blueprint, a technical review, a prototype or a tightly scoped launch sprint. The right choice depends on what is still unknown, not on how many features can be placed in a proposal." },
+        { type: "p", text: "Bring the current brief, constraints, existing assets and non-negotiable integrations to the first conversation. A useful partner should be able to separate confirmed requirements from assumptions and explain what must be learned before a larger commitment." }
       ],
     },
   ],
   faqs: [
-
+    {
+      question: "What should be decided first?",
+      answer: "Decide who the primary user is, which single workflow matters most, what is excluded and what evidence will show that the release is acceptable.",
+    },
+    {
+      question: "How can a buyer reduce delivery risk?",
+      answer: "Use a written scope, verify account and code ownership, attach acceptance checks to important behaviour and include failure states and handover in the delivery plan.",
+    },
+    {
+      question: "When should the scope expand?",
+      answer: "Expand only after the core workflow has produced evidence that the next feature, role or integration is necessary. A longer wish list is not evidence.",
+    },
   ],
 };

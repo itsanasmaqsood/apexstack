@@ -57,6 +57,11 @@ if (migrationSlugsCombined.length !== 90) {
     `Expected 90 provenance records in the DreamLaunch migration ledger, found ${migrationSlugsCombined.length}.`,
   );
 }
+if (pendingMigrations.length !== 0) {
+  throw new Error(
+    `The corpus-wide originality migration is incomplete: ${pendingMigrations.length} mirror-derived posts remain pending.`,
+  );
+}
 
 const completedSet = new Set(completedMigrations);
 const completedClaimRisks = [
@@ -65,8 +70,14 @@ const completedClaimRisks = [
   /retention (?:by )?15%/i,
   /ranked #?1/i,
   /definitive (?:pick|choice)/i,
-  /DreamLaunch/i,
+  /\bwe (?:built|shipped|helped|rescued)\b/i,
+  /\bour client\b/i,
 ];
+const globallyForbiddenNames = [/DreamLaunch/i, /Harshil(?: Tomar)?/i, /Waseem/i];
+const unsupportedProjectSlugs = new Set([
+  "daily-rise-wellness-app-case-study",
+  "zypa-on-demand-delivery-platform-case-study",
+]);
 
 function record(file, message) {
   errors.push(`${path.basename(file)}: ${message}`);
@@ -80,6 +91,7 @@ for (const file of files) {
   const robots = root.querySelector('meta[name="robots"]')?.getAttribute("content") ?? "";
   const title = root.querySelector("title")?.text.trim();
   const article = root.querySelector("article");
+  const articleText = article?.text ?? "";
 
   if (!title) record(file, "missing document title");
   if (!description) record(file, "missing meta description");
@@ -92,6 +104,14 @@ for (const file of files) {
   }
   if (/noindex/i.test(robots)) record(file, "contains an accidental noindex directive");
   if (!article) record(file, "missing article element");
+  if (unsupportedProjectSlugs.has(slug)) {
+    record(file, "unsupported project case study is still publicly generated");
+  }
+  for (const pattern of globallyForbiddenNames) {
+    if (pattern.test(articleText)) {
+      record(file, `article contains prohibited name/source pattern ${pattern}`);
+    }
+  }
   if (!article?.querySelector("time[datetime]")) record(file, "missing visible publication date");
   if (!article?.text.includes("The short answer")) record(file, "missing answer-first summary");
 
@@ -140,10 +160,6 @@ for (const file of files) {
   }
 
   if (completedSet.has(slug)) {
-    if (!article?.querySelector("section#sources")) {
-      record(file, "completed mirror rewrite has no visible source ledger");
-    }
-    const articleText = article?.text ?? "";
     for (const pattern of completedClaimRisks) {
       if (pattern.test(articleText)) {
         record(file, `completed mirror rewrite still matches claim-risk pattern ${pattern}`);

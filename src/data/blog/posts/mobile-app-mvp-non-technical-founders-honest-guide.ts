@@ -4,7 +4,7 @@ export const post: BlogPost = {
   slug: "mobile-app-mvp-non-technical-founders-honest-guide",
   title: "Mobile App MVP for Non-Technical Founders: The Honest Guide",
   seoTitle: "Mobile App MVP for Non-Technical Founders: The Honest Guide",
-  description: "Building a mobile app MVP without a technical background is genuinely possible in 2026. Here's what the process actually looks like, and what to avoid.",
+  description: "Building a mobile app MVP without a technical background is possible. See what the process looks like, the decisions involved and what to avoid.",
   excerpt: "if you're non-technical and trying to build a mobile app MVP, this is the honest picture of what the process looks like, what trips founders up, and what you can do to make it faster.",
   category: "MVP & Startups",
   primaryKeyword: "mobile app mvp non technical founders honest guide",

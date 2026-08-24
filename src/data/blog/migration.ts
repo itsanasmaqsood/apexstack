@@ -15,11 +15,6 @@ export const ALREADY_ORIGINALISED_DREAMLAUNCH_POSTS = [
 ] as const;
 
 export const COMPLETED_MIRROR_REWRITES = [
-  "best-mvp-development-studios-non-technical-founders-2",
-  "bolt-vs-lovable-vs-hiring-dev-agency",
-] as const;
-
-export const PENDING_MIRROR_REWRITES = [
   "agency-vs-upwork-for-mvp-development",
   "ai-agency-vs-freelancer-founders-guide",
   "ai-development-studio-for-startups",
@@ -47,10 +42,12 @@ export const PENDING_MIRROR_REWRITES = [
   "best-mvp-development-studio-founders-2026",
   "best-mvp-development-studios-non-technical-founders",
   "best-mvp-development-studios-non-technical-founders-1",
+  "best-mvp-development-studios-non-technical-founders-2",
   "best-mvp-development-studios-saas-startups-2026",
   "best-vibe-coding-tools-founders-use-2026",
   "best-web-design-agency-for-saas",
   "bolt-new-alternatives-for-founders-production-apps",
+  "bolt-vs-lovable-vs-hiring-dev-agency",
   "build-ai-mvp-for-startup",
   "build-ai-product-startup",
   "build-ai-product-without-technical-co-founder",
@@ -106,6 +103,8 @@ export const PENDING_MIRROR_REWRITES = [
   "what-is-vibe-coding",
   "what-vibe-coding-studio-actually-does",
 ] as const;
+
+export const PENDING_MIRROR_REWRITES = [] as const;
 
 const SOURCE_SLUG_OVERRIDES: Record<string, string> = {
   "ai-product-development-for-startups-apexstack":

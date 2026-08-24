@@ -3,111 +3,97 @@ import type { BlogPost } from "@/data/blog/types";
 export const post: BlogPost = {
   slug: "vibe-coding-for-startups",
   title: "Vibe Coding for Startups: What It Is and When It Works",
-  seoTitle: "Vibe Coding for Startups: What It Is and When It Works",
-  description: "A founder's honest guide to vibe coding for startups: what it actually is, where it breaks, and how to use it to ship faster without burning your runway.",
-  excerpt: "not a scam. not a revolution.",
+  seoTitle: "Vibe Coding for Startups: What It Is and When It | ApexStack",
+  description: "A practical guide to vibe coding for startups, covering scope, evidence, ownership, delivery risk and the next decision for founders.",
+  excerpt: "A buyer-focused guide to vibe coding for startups: define the decision, request useful evidence and keep the first release accountable.",
   category: "AI Engineering",
   primaryKeyword: "vibe coding for startups",
   secondaryKeywords: [
-    "anything that needs to scale",
-    "anything youll need to maintain",
-    "honest version its good at",
-    "where it breaks it does break",
+    "vibe coding for startups checklist",
+    "vibe coding for startups scope",
+    "vibe coding for startups risks",
   ],
   published: "2026-06-27",
+  updated: "2026-08-24",
   authorId: "leadership-01",
   serviceSlug: "product-engineering",
-  keyTakeaway: "andrej karpathy named it in february 2025: describe what you want in plain english, let the AI write the code, run it, see what happens, iterate. you're the director. the model is the one typing.",
+  keyTakeaway: "Treat the first release as a controlled learning step: one narrow workflow, explicit quality checks and clear ownership after launch. The scope should address model limits, code ownership, data access, evaluation and a maintainable handover. For the buyer question “Vibe Coding for Startups: What It Is and When It Works”, define one core workflow, explicit exclusions, acceptance evidence, account ownership and a handover plan before committing to implementation.",
   sections: [
     {
-      heading: "The short version",
+      heading: "What is the practical answer?",
       blocks: [
-        {
-          type: "p",
-          text: "a founder i talked to last month shipped his first prototype in 72 hours. no technical co-founder. no agency. just him, cursor, and claude. he was proud of it, until the app broke the moment his second user signed up simultaneously.",
-        },
-        {
-          type: "p",
-          text: "that story is vibe coding in 2025, exactly as it is.",
-        },
-        {
-          type: "p",
-          text: "not a scam. not a revolution. something more specific, and more useful, than either of those takes.",
-        },
+        { type: "p", text: "Treat the first release as a controlled learning step: one narrow workflow, explicit quality checks and clear ownership after launch. The scope should address model limits, code ownership, data access, evaluation and a maintainable handover." },
+        { type: "p", text: "Separate confirmed requirements from assumptions before implementation. The team can then test the risky assumptions while keeping the first release small enough to understand and operate." }
       ],
     },
     {
-      heading: "what vibe coding actually is",
+      heading: "Which decisions should be made before work begins?",
       blocks: [
+        { type: "p", text: "A written decision record keeps planning the first useful release from becoming a chain of assumptions. It should be short enough to review and specific enough that design, engineering and the buyer are discussing the same outcome." },
         {
-          type: "p",
-          text: "andrej karpathy named it in february 2025: describe what you want in plain english, let the AI write the code, run it, see what happens, iterate. you're the director. the model is the one typing.",
-        },
-        {
-          type: "p",
-          text: "that's it. there's no certification. no specific tool. the definition is that loose.",
-        },
-        {
-          type: "p",
-          text: "what matters for founders is what sits underneath the definition. vibe coding flips the assumption that building software requires a person who can read and write code fluently. for most of the last 30 years, that assumption was basically correct. right now, it isn't, not entirely.",
-        },
-        {
-          type: "p",
-          text: "i'm not saying engineers are obsolete. i'll come back to that. but the gap between \"i have an idea\" and \"i have a working thing i can show someone\" has compressed from months to days for a specific class of product. that compression is real and it changes what's possible for a non-technical founder with limited runway.",
-        },
+          type: "list",
+          ordered: true,
+          items: [
+            "Write down the primary user, their trigger and the outcome the product must support.",
+            "Define what is deliberately excluded from the first release.",
+            "Agree how access, data, failures and exceptions will be handled.",
+            "Make repository, hosting, domain and third-party account ownership explicit.",
+            "Choose acceptance evidence before implementation begins.",
+            "Review model limits, code ownership, data access, evaluation and a maintainable handover before approving the delivery plan.",
+          ],
+        }
       ],
     },
     {
-      heading: "the honest version of what it's good at",
+      heading: "What evidence should a buyer request?",
       blocks: [
-        {
-          type: "p",
-          text: "vibe coding is fast when the problem is contained.",
-        },
-        {
-          type: "p",
-          text: "landing pages, internal tools, simple CRUD apps, early prototypes you're showing to 10 potential customers. These are the right contexts. the AI understands the scope. the iteration loop is short. you describe a change, you see it, you move on.",
-        },
-        {
-          type: "p",
-          text: "at apexstack, we use AI-assisted development across almost every project we take on. it's not that we hand everything to an LLM and walk away. it's that the right AI tooling, used by someone who understands the architecture, compresses the timeline on well-defined work in a way that would've been impossible three years ago. that's how we get a production-ready MVP out in 4 to 6 weeks instead of 4 to 6 months.",
-        },
-        {
-          type: "p",
-          text: "the distinction matters. vibe coding as a practice isn't \"let AI build everything.\" it's \"use AI to close the gap between intent and working software, faster than before.\"",
-        },
+        { type: "p", text: "A dependable proposal makes its reasoning inspectable. It identifies exclusions, acceptance evidence, account ownership and the material assumptions behind the estimate." },
+        { type: "p", text: "Where a tool or platform is central, verify export, account access and operating responsibilities in the actual setup. A demonstration is useful only when it exercises the important path and its failure states; it should also show how the plan addresses model limits, code ownership, data access, evaluation and a maintainable handover." }
       ],
     },
     {
-      heading: "where it breaks. And it does break",
+      heading: "How should the first release be scoped?",
+      blocks: [
+        { type: "p", text: "Use a single core workflow as the boundary. Include the states required to complete that workflow, the minimum administration needed to operate it and the checks needed to release it safely. Move secondary audiences, speculative automation and convenience features into a later decision queue." },
+        { type: "p", text: "The scope should also say what happens when the ideal path fails. Empty states, invalid input, permission errors, unavailable integrations and manual recovery are part of the product. Leaving them unnamed does not remove the work; it only postpones the decision." }
+      ],
+    },
+    {
+      heading: "What are the common warning signs?",
       blocks: [
         {
-          type: "p",
-          text: "i thought vibe coding meant founders could skip the technical layer entirely. i was wrong. it means the technical layer moves, not disappears.",
+          type: "list",
+          items: [
+            "The proposal promises an outcome without defining acceptance evidence.",
+            "The schedule is fixed while the workflow, roles or integrations remain unclear.",
+            "The buyer will not control the repository, deployment accounts or essential third-party services.",
+            "Quality is described as a final testing phase instead of checks attached to each important behaviour.",
+            "The handover depends on one person's memory rather than accessible documentation and accounts.",
+          ],
         },
-        {
-          type: "p",
-          text: "here's where it predictably fails:",
-        },
+        { type: "p", text: "None of these signals automatically makes a provider or tool unsuitable. They mean the buyer needs a clearer answer before treating the plan as dependable." }
+      ],
+    },
+    {
+      heading: "How should a founder choose the next step?",
+      blocks: [
+        { type: "p", text: "Choose the next step that produces decision-quality evidence. That may be a product blueprint, a technical review, a prototype or a tightly scoped launch sprint. The right choice depends on what is still unknown, not on how many features can be placed in a proposal." },
+        { type: "p", text: "Bring the current brief, constraints, existing assets and non-negotiable integrations to the first conversation. A useful partner should be able to separate confirmed requirements from assumptions and explain what must be learned before a larger commitment." }
       ],
     },
   ],
   faqs: [
     {
-      question: "anything that needs to scale",
-      answer: "AI writes code that works. it doesn't always write code that works for 10,000 users simultaneously. the database queries that look fine at 50 rows fall apart at 500,000. the architecture that made sense for a demo becomes a liability in production. this isn't theoretical. It's the exact failure mode i see founders hit when they vibe-coded their MVP and suddenly had traction they weren't prepared for.",
+      question: "What should be decided first?",
+      answer: "Decide who the primary user is, which single workflow matters most, what is excluded and what evidence will show that the release is acceptable.",
     },
     {
-      question: "security and auth",
-      answer: "an AI will implement authentication. it will also, without careful review, implement it in ways that leave serious vulnerabilities, exposed API keys, insufficient rate limiting, broken session handling. this isn't a knock on the models. it's a knock on the assumption that \"it generated code\" means \"the code is safe.\" it often isn't, not without someone who knows what to look for.",
+      question: "How can a buyer reduce delivery risk?",
+      answer: "Use a written scope, verify account and code ownership, attach acceptance checks to important behaviour and include failure states and handover in the delivery plan.",
     },
     {
-      question: "complex integrations",
-      answer: "connecting stripe is fine. connecting stripe + a third-party KYC provider + a custom webhook flow + a real-time notification system, where the state has to be consistent across all four. That's where vibe coding runs out of context window and patience simultaneously. the model loses track of what it built three prompts ago. the codebase becomes something nobody fully understands, including the AI.",
-    },
-    {
-      question: "anything you'll need to maintain",
-      answer: "code that was vibe-coded without structure tends to be code nobody wants to touch six months later. no documentation, no consistent patterns, logic scattered across files because that's how the prompts happened to go. if you're building something you plan to grow, the short-term speed of vibe coding can create a technical debt ceiling that kills you later.",
+      question: "When should the scope expand?",
+      answer: "Expand only after the core workflow has produced evidence that the next feature, role or integration is necessary. A longer wish list is not evidence.",
     },
   ],
 };

@@ -3,106 +3,97 @@ import type { BlogPost } from "@/data/blog/types";
 export const post: BlogPost = {
   slug: "ship-mvp-in-weeks-ai",
   title: "Ship Your MVP in Weeks With AI (Here's What It Actually Takes)",
-  seoTitle: "Ship Your MVP in Weeks With AI (Here's What It Actually",
-  description: "Want to ship an MVP in weeks using AI? Here's what the timeline actually looks like, what slows founders down, and how to avoid the traps.",
-  excerpt: "but here's the part nobody tells you: the five weeks wasn't the hard part. the hard part was the conversation we had before a single line of code got written.",
+  seoTitle: "Ship Your MVP in Weeks With AI (Here's What It | ApexStack",
+  description: "A practical guide to ship mvp in weeks ai, covering scope, evidence, ownership, delivery risk and the next decision for founders.",
+  excerpt: "A buyer-focused guide to ship mvp in weeks ai: define the decision, request useful evidence and keep the first release accountable.",
   category: "MVP & Startups",
   primaryKeyword: "ship mvp in weeks ai",
   secondaryKeywords: [
-    "1 what is the one thing that has to work",
-    "2 what model and why",
-    "3 where the human stays in the loop",
-    "weeks means practice",
+    "ship mvp in weeks ai checklist",
+    "ship mvp in weeks ai scope",
+    "ship mvp in weeks ai risks",
   ],
   published: "2026-06-21",
+  updated: "2026-08-24",
   authorId: "leadership-01",
   serviceSlug: "mvp-development",
-  keyTakeaway: "when founders search for this, they're usually hoping AI is the shortcut. like the technology itself compresses time. and it does, but not in the way most people think.",
+  keyTakeaway: "Treat the first release as a controlled learning step: one narrow workflow, explicit quality checks and clear ownership after launch. The scope should address buyer evidence, scope boundaries, ownership, acceptance criteria and a maintainable handover. For the buyer question “Ship Your MVP in Weeks With AI (Here's What It Actually Takes)”, define one core workflow, explicit exclusions, acceptance evidence, account ownership and a handover plan before committing to implementation.",
   sections: [
     {
-      heading: "The short version",
+      heading: "What is the practical answer?",
       blocks: [
-        {
-          type: "p",
-          text: "A founder emailed me on a tuesday. he had a pitch deck, a waitlist of 200 people, and a developer quote for $80,000 that would take four months. he wanted to know if there was another way.",
-        },
-        {
-          type: "p",
-          text: "there was. we shipped his core product in five weeks.",
-        },
-        {
-          type: "p",
-          text: "but here's the part nobody tells you: the five weeks wasn't the hard part. the hard part was the conversation we had before a single line of code got written.",
-        },
+        { type: "p", text: "Treat the first release as a controlled learning step: one narrow workflow, explicit quality checks and clear ownership after launch. The scope should address buyer evidence, scope boundaries, ownership, acceptance criteria and a maintainable handover." },
+        { type: "p", text: "A narrow release is easier to evaluate and hand over. Name the user, the trigger, the desired outcome and the acceptance evidence before deciding which secondary features belong in the plan." }
       ],
     },
     {
-      heading: "why \"ship MVP in weeks with AI\" is the right instinct, wrong assumption",
+      heading: "Which decisions should be made before work begins?",
       blocks: [
+        { type: "p", text: "A written decision record keeps planning the first useful release from becoming a chain of assumptions. It should be short enough to review and specific enough that design, engineering and the buyer are discussing the same outcome." },
         {
-          type: "p",
-          text: "when founders search for this, they're usually hoping AI is the shortcut. like the technology itself compresses time. and it does, but not in the way most people think.",
-        },
-        {
-          type: "p",
-          text: "AI doesn't make bad decisions faster. it makes good decisions executable faster.",
-        },
-        {
-          type: "p",
-          text: "what actually compresses a timeline from six months to six weeks is ruthless scope decisions made before development starts. AI tooling, LLM integrations, modern stacks. Those are multipliers. but you can only multiply a decision that's already been made clearly.",
-        },
-        {
-          type: "p",
-          text: "i've watched founders spend three weeks in discovery arguing about a feature that wasn't even in the MVP. that's where timelines die, not in the code.",
-        },
+          type: "list",
+          ordered: true,
+          items: [
+            "Write down the primary user, their trigger and the outcome the product must support.",
+            "Define what is deliberately excluded from the first release.",
+            "Agree how access, data, failures and exceptions will be handled.",
+            "Make repository, hosting, domain and third-party account ownership explicit.",
+            "Choose acceptance evidence before implementation begins.",
+            "Review buyer evidence, scope boundaries, ownership, acceptance criteria and a maintainable handover before approving the delivery plan.",
+          ],
+        }
       ],
     },
     {
-      heading: "what \"weeks\" actually means in practice",
+      heading: "What evidence should a buyer request?",
+      blocks: [
+        { type: "p", text: "Treat portfolios and demonstrations as starting points for questions. The project-specific evidence is the written scope, acceptance plan, ownership map and handover responsibility." },
+        { type: "p", text: "Where a tool or platform is central, verify export, account access and operating responsibilities in the actual setup. A demonstration is useful only when it exercises the important path and its failure states; it should also show how the plan addresses buyer evidence, scope boundaries, ownership, acceptance criteria and a maintainable handover." }
+      ],
+    },
+    {
+      heading: "How should the first release be scoped?",
+      blocks: [
+        { type: "p", text: "Use a single core workflow as the boundary. Include the states required to complete that workflow, the minimum administration needed to operate it and the checks needed to release it safely. Move secondary audiences, speculative automation and convenience features into a later decision queue." },
+        { type: "p", text: "The scope should also say what happens when the ideal path fails. Empty states, invalid input, permission errors, unavailable integrations and manual recovery are part of the product. Leaving them unnamed does not remove the work; it only postpones the decision." }
+      ],
+    },
+    {
+      heading: "What are the common warning signs?",
       blocks: [
         {
-          type: "p",
-          text: "let me be specific, because vague promises are everywhere in this space.",
+          type: "list",
+          items: [
+            "The proposal promises an outcome without defining acceptance evidence.",
+            "The schedule is fixed while the workflow, roles or integrations remain unclear.",
+            "The buyer will not control the repository, deployment accounts or essential third-party services.",
+            "Quality is described as a final testing phase instead of checks attached to each important behaviour.",
+            "The handover depends on one person's memory rather than accessible documentation and accounts.",
+          ],
         },
-        {
-          type: "p",
-          text: "at ApexStack, our standard MVP engagement runs four to six weeks. that's not a marketing number. It's what happens when the scope is locked before week one starts. the breakdown looks roughly like this:",
-        },
-        {
-          type: "p",
-          text: "week 1: finalise the one core workflow. not the roadmap. not v2. the single thing a user does that proves your product has value. this is harder than it sounds.",
-        },
-        {
-          type: "p",
-          text: "weeks 2-4: build the core loop. for AI-powered products this means the prompt architecture, the retrieval logic if you're doing RAG, the UX that makes the AI output feel trustworthy. we're not decorating a product with AI here. We're engineering the AI as the product.",
-        },
-        {
-          type: "p",
-          text: "week 5: internal testing with real, messy inputs. AI features fail in interesting ways. a user doesn't type clean, formatted queries. they ask weird questions, give partial context, and expect the product to handle it. this week is about breaking things before your users do.",
-        },
-        {
-          type: "p",
-          text: "week 6: launch to a small cohort. not the world. not Product Hunt. ten to fifty real people who have the problem you're solving.",
-        },
-        {
-          type: "p",
-          text: "that's the honest shape of it. anyone promising a production-ready AI product in 72 hours is either building something with no real logic, or setting you up for a painful month of post-launch fixes.",
-        },
+        { type: "p", text: "None of these signals automatically makes a provider or tool unsuitable. They mean the buyer needs a clearer answer before treating the plan as dependable." }
+      ],
+    },
+    {
+      heading: "How should a founder choose the next step?",
+      blocks: [
+        { type: "p", text: "Choose the next step that produces decision-quality evidence. That may be a product blueprint, a technical review, a prototype or a tightly scoped launch sprint. The right choice depends on what is still unknown, not on how many features can be placed in a proposal." },
+        { type: "p", text: "Bring the current brief, constraints, existing assets and non-negotiable integrations to the first conversation. A useful partner should be able to separate confirmed requirements from assumptions and explain what must be learned before a larger commitment." }
       ],
     },
   ],
   faqs: [
     {
-      question: "1. what is the one thing that has to work",
-      answer: "not three things. not a list. one thing.",
+      question: "What should be decided first?",
+      answer: "Decide who the primary user is, which single workflow matters most, what is excluded and what evidence will show that the release is acceptable.",
     },
     {
-      question: "2. what model, and why",
-      answer: "this is a decision most guides skip over, and it matters more than people realise.",
+      question: "How can a buyer reduce delivery risk?",
+      answer: "Use a written scope, verify account and code ownership, attach acceptance checks to important behaviour and include failure states and handover in the delivery plan.",
     },
     {
-      question: "3. where the human stays in the loop",
-      answer: "this is the one nobody wants to talk about because it feels like admitting the AI isn't good enough.",
+      question: "When should the scope expand?",
+      answer: "Expand only after the core workflow has produced evidence that the next feature, role or integration is necessary. A longer wish list is not evidence.",
     },
   ],
 };

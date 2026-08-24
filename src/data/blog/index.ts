@@ -73,7 +73,6 @@ import { post as ctoAsAServiceAiStartup } from "@/data/blog/posts/cto-as-a-servi
 import { post as cursorClaudeVsHiringDevAgency } from "@/data/blog/posts/cursor-claude-vs-hiring-dev-agency";
 import { post as crmErpAccountingIntegrationScope } from "@/data/blog/posts/crm-erp-accounting-integration-scope";
 import { post as customCrmVsSalesforceVsHubspot } from "@/data/blog/posts/custom-crm-vs-salesforce-vs-hubspot";
-import { post as dailyRiseWellnessAppCaseStudy } from "@/data/blog/posts/daily-rise-wellness-app-case-study";
 import { post as deRiskingASoftwareRewrite } from "@/data/blog/posts/de-risking-a-software-rewrite";
 import { post as decorlyAiRoomRedesignAppCaseStudy } from "@/data/blog/posts/decorly-ai-room-redesign-app-case-study";
 import { post as fastestWayToBuildStartupPrototype } from "@/data/blog/posts/fastest-way-to-build-startup-prototype";
@@ -159,7 +158,6 @@ import { post as whatIsVibeCoding } from "@/data/blog/posts/what-is-vibe-coding"
 import { post as whatVibeCodingStudioActuallyDoes } from "@/data/blog/posts/what-vibe-coding-studio-actually-does";
 import { post as whoOwnsTheCode } from "@/data/blog/posts/who-owns-the-code";
 import { post as whySoftwareProjectsFail } from "@/data/blog/posts/why-software-projects-fail";
-import { post as zypaOnDemandDeliveryPlatformCaseStudy } from "@/data/blog/posts/zypa-on-demand-delivery-platform-case-study";
 
 /** Newest first. Ties broken alphabetically so the order is stable across builds. */
 export const POSTS: readonly BlogPost[] = [
@@ -222,7 +220,6 @@ export const POSTS: readonly BlogPost[] = [
   cursorClaudeVsHiringDevAgency,
   crmErpAccountingIntegrationScope,
   customCrmVsSalesforceVsHubspot,
-  dailyRiseWellnessAppCaseStudy,
   deRiskingASoftwareRewrite,
   decorlyAiRoomRedesignAppCaseStudy,
   fastestWayToBuildStartupPrototype,
@@ -308,7 +305,6 @@ export const POSTS: readonly BlogPost[] = [
   whatVibeCodingStudioActuallyDoes,
   whoOwnsTheCode,
   whySoftwareProjectsFail,
-  zypaOnDemandDeliveryPlatformCaseStudy,
 ].sort((a, b) =>
   a.published === b.published
     ? a.title.localeCompare(b.title)

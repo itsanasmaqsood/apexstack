@@ -3,164 +3,97 @@ import type { BlogPost } from "@/data/blog/types";
 export const post: BlogPost = {
   slug: "mistakes-non-technical-founders-hiring-dev-agency",
   title: "7 Mistakes Non-Technical Founders Make When Hiring a Dev Agency",
-  seoTitle: "7 Mistakes Non-Technical Founders Make When Hiring a Dev",
-  description: "The mistakes founders make when hiring a development agency are almost always the same seven.",
-  excerpt: "the seven mistakes below are the ones that show up most consistently in the post-mortems. knowing them before you hire doesn't guarantee a good outcome.",
+  seoTitle: "7 Mistakes Non-Technical Founders Make When | ApexStack",
+  description: "A practical guide to mistakes non technical founders hiring dev agency, covering scope, evidence, ownership, delivery risk and the next decision for f",
+  excerpt: "A buyer-focused guide to mistakes non technical founders hiring dev agency: define the decision, request useful evidence and keep the first release accountable.",
   category: "Choosing a Partner",
   primaryKeyword: "mistakes non technical founders hiring dev agency",
   secondaryKeywords: [
-    "choosing price alone",
-    "agreeing hourly billing without scope cap",
-    "skipping discovery scoping phase",
-    "not asking they handle scope changes",
+    "mistakes non technical founders hiring dev agency checklist",
+    "mistakes non technical founders hiring dev agency scope",
+    "mistakes non technical founders hiring dev agency risks",
   ],
   published: "2026-06-27",
+  updated: "2026-08-24",
   authorId: "leadership-01",
   serviceSlug: "product-engineering",
-  keyTakeaway: "the cheapest proposal is almost never the best value. development is a domain where you pay for experience, and inexperienced teams charge less because their output requires more revision, more oversight, and more time to get right.",
+  keyTakeaway: "The safest way to approach reducing avoidable delivery risk is to remove uncertainty before adding features. The first review should cover buyer evidence, scope boundaries, ownership, acceptance criteria and a maintainable handover. For the buyer question “7 Mistakes Non-Technical Founders Make When Hiring a Dev Agency”, define one core workflow, explicit exclusions, acceptance evidence, account ownership and a handover plan before committing to implementation.",
   sections: [
     {
-      heading: "The short version",
+      heading: "What is the practical answer?",
       blocks: [
-        {
-          type: "p",
-          text: "i've talked to more than 200 founders who've hired development agencies.",
-        },
-        {
-          type: "p",
-          text: "the mistakes are almost always the same seven.",
-        },
-        {
-          type: "p",
-          text: "not because founders are careless, most of them thought carefully about the decision. but hiring a dev agency when you're non-technical is genuinely hard. you're evaluating expertise you can't directly assess, trusting proposals you can't fully verify, and making a decision that will shape the next six months of your company.",
-        },
-        {
-          type: "p",
-          text: "the seven mistakes below are the ones that show up most consistently in the post-mortems. knowing them before you hire doesn't guarantee a good outcome. not knowing them almost guarantees a bad one.",
-        },
+        { type: "p", text: "The safest way to approach reducing avoidable delivery risk is to remove uncertainty before adding features. The first review should cover buyer evidence, scope boundaries, ownership, acceptance criteria and a maintainable handover." },
+        { type: "p", text: "The first useful artefact is a decision record, not a longer feature list. It should identify the user, the core journey, the release boundary and the evidence that will be reviewed before more scope is approved." }
       ],
     },
     {
-      heading: "1. choosing on price alone",
+      heading: "Which decisions should be made before work begins?",
       blocks: [
+        { type: "p", text: "A written decision record keeps reducing avoidable delivery risk from becoming a chain of assumptions. It should be short enough to review and specific enough that design, engineering and the buyer are discussing the same outcome." },
         {
-          type: "p",
-          text: "the cheapest proposal is almost never the best value. development is a domain where you pay for experience, and inexperienced teams charge less because their output requires more revision, more oversight, and more time to get right.",
-        },
-        {
-          type: "p",
-          text: "the cost of a rewrite: which is what you often end up doing with under-priced work, is almost always higher than the difference in initial price. compare proposals on evidence of comparable work, not on the number at the bottom of the document.",
-        },
+          type: "list",
+          ordered: true,
+          items: [
+            "Write down the primary user, their trigger and the outcome the product must support.",
+            "Define what is deliberately excluded from the first release.",
+            "Agree how access, data, failures and exceptions will be handled.",
+            "Make repository, hosting, domain and third-party account ownership explicit.",
+            "Choose acceptance evidence before implementation begins.",
+            "Review buyer evidence, scope boundaries, ownership, acceptance criteria and a maintainable handover before approving the delivery plan.",
+          ],
+        }
       ],
     },
     {
-      heading: "2. not asking to see comparable products they've shipped",
+      heading: "What evidence should a buyer request?",
       blocks: [
-        {
-          type: "p",
-          text: "portfolios show what agencies want you to see. asking specifically for \"the last three products you shipped at this scope and price point\" shows you something different: what they actually produce under constraints similar to yours.",
-        },
-        {
-          type: "p",
-          text: "if the agency can't point to at least two products that are live, have real users, and were built within a comparable budget and timeline. That's a meaningful signal. it doesn't mean they're bad. it means you don't have evidence they're not bad.",
-        },
+        { type: "p", text: "Confidence is not evidence. Look for a traceable connection between the buyer problem, planned behaviour, quality checks, deployment ownership and the final handover." },
+        { type: "p", text: "Where a tool or platform is central, verify export, account access and operating responsibilities in the actual setup. A demonstration is useful only when it exercises the important path and its failure states; it should also show how the plan addresses buyer evidence, scope boundaries, ownership, acceptance criteria and a maintainable handover." }
       ],
     },
     {
-      heading: "3. agreeing to hourly billing without a scope cap",
+      heading: "How should the first release be scoped?",
       blocks: [
-        {
-          type: "p",
-          text: "hourly billing is the default model for most agencies. it's also the model that creates misaligned incentives at every step: scope changes benefit the agency financially, delays extend the engagement, and your inexperience in specifying requirements becomes a revenue opportunity.",
-        },
-        {
-          type: "p",
-          text: "if you're going to work on an hourly basis, set a cap, a maximum total before the engagement needs to be re-evaluated. better still, find an agency that offers fixed-scope, fixed-price engagements. the constraint of a fixed price forces the agency to scope carefully upfront, which is actually good for the product.",
-        },
-        {
-          type: "p",
-          text: "at ApexStack, our launch sprint is fixed scope and fixed price, $6,500, 4-6 weeks. that model exists because we believe it produces better outcomes for both parties.",
-        },
+        { type: "p", text: "Use a single core workflow as the boundary. Include the states required to complete that workflow, the minimum administration needed to operate it and the checks needed to release it safely. Move secondary audiences, speculative automation and convenience features into a later decision queue." },
+        { type: "p", text: "The scope should also say what happens when the ideal path fails. Empty states, invalid input, permission errors, unavailable integrations and manual recovery are part of the product. Leaving them unnamed does not remove the work; it only postpones the decision." }
       ],
     },
     {
-      heading: "4. not defining what \"done\" looks like before you start",
+      heading: "What are the common warning signs?",
       blocks: [
         {
-          type: "p",
-          text: "the most common source of disappointment in agency engagements isn't bad work. It's misaligned expectations about what the work was supposed to produce.",
+          type: "list",
+          items: [
+            "The proposal promises an outcome without defining acceptance evidence.",
+            "The schedule is fixed while the workflow, roles or integrations remain unclear.",
+            "The buyer will not control the repository, deployment accounts or essential third-party services.",
+            "Quality is described as a final testing phase instead of checks attached to each important behaviour.",
+            "The handover depends on one person's memory rather than accessible documentation and accounts.",
+          ],
         },
-        {
-          type: "p",
-          text: "before you sign anything, write down in plain language what a successful engagement looks like. what does the product do? what does it not do? what does the user experience look like at the end? what does handoff include?",
-        },
-        {
-          type: "p",
-          text: "a good agency will have opinions on this document and will push back on parts of it. that's a positive sign. an agency that accepts your definition of done without any discussion is either very experienced at managing client expectations or not experienced enough to know what questions to ask.",
-        },
+        { type: "p", text: "None of these signals automatically makes a provider or tool unsuitable. They mean the buyer needs a clearer answer before treating the plan as dependable." }
       ],
     },
     {
-      heading: "5. hiring an agency that doesn't also do design",
+      heading: "How should a founder choose the next step?",
       blocks: [
-        {
-          type: "p",
-          text: "development-only agencies produce code. code without design decisions produces something that works technically but doesn't feel like a product.",
-        },
-        {
-          type: "p",
-          text: "for non-technical founders especially, design and development need to be in the same team: not because you can't manage two vendors, but because the product decisions that happen at the intersection of design and engineering are where most of the important choices get made. if those conversations happen between two separate vendors that don't talk to each other, the product pays the cost.",
-        },
-        {
-          type: "p",
-          text: "look for agencies where design and engineering work together from the start, not agencies that do development and bring in a designer when you ask.",
-        },
-      ],
-    },
-    {
-      heading: "6. skipping the discovery or scoping phase",
-      blocks: [
-        {
-          type: "p",
-          text: "agencies that move straight to \"send us your specs and we'll build\" are asking you to do the hardest part of the job without the expertise to do it well.",
-        },
-        {
-          type: "p",
-          text: "a proper discovery or scoping phase, even a short one, is where the agency applies their product experience to your idea and surfaces things you hadn't thought of. what's the core loop? what should be cut from v1? what technical decisions will constrain future features if made wrong?",
-        },
-        {
-          type: "p",
-          text: "if an agency skips this, you're paying them to execute your assumptions rather than improve them. for non-technical founders, that's a high-risk model.",
-        },
-      ],
-    },
-    {
-      heading: "7. not asking how they handle scope changes",
-      blocks: [
-        {
-          type: "p",
-          text: "scope will change. it always does. the question isn't whether it will happen. It's what the agency's response will be when it does.",
-        },
-        {
-          type: "p",
-          text: "ask this explicitly before you sign: \"what happens when i change my mind about a feature mid-build?\" the answer tells you everything about how the relationship will work when things get difficult.",
-        },
-        {
-          type: "p",
-          text: "reasonable answers: \"we evaluate the change and adjust scope or timeline accordingly\" or \"we have a change order process that's transparent and fair.\" unreasonable answers: silence, defensiveness, or a reference to the contract. an agency that gets rigid about scope changes hasn't built enough products to know that scope always changes.",
-        },
-        {
-          type: "p",
-          text: "if you want a direct view on how ApexStack handles these questions, ask us. we'd rather you understand our process before you sign than discover it after something unexpected happens.",
-        },
-        {
-          type: "p",
-          text: "which of these seven is the one you're most worried about getting wrong?",
-        },
+        { type: "p", text: "Choose the next step that produces decision-quality evidence. That may be a product blueprint, a technical review, a prototype or a tightly scoped launch sprint. The right choice depends on what is still unknown, not on how many features can be placed in a proposal." },
+        { type: "p", text: "Bring the current brief, constraints, existing assets and non-negotiable integrations to the first conversation. A useful partner should be able to separate confirmed requirements from assumptions and explain what must be learned before a larger commitment." }
       ],
     },
   ],
   faqs: [
-
+    {
+      question: "What should be decided first?",
+      answer: "Decide who the primary user is, which single workflow matters most, what is excluded and what evidence will show that the release is acceptable.",
+    },
+    {
+      question: "How can a buyer reduce delivery risk?",
+      answer: "Use a written scope, verify account and code ownership, attach acceptance checks to important behaviour and include failure states and handover in the delivery plan.",
+    },
+    {
+      question: "When should the scope expand?",
+      answer: "Expand only after the core workflow has produced evidence that the next feature, role or integration is necessary. A longer wish list is not evidence.",
+    },
   ],
 };

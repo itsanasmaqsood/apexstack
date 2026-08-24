@@ -16,6 +16,7 @@
     "check": "npm run lint && npm run typecheck && npm run build && npm run verify:blog-geo && npm run verify:pricing",
     "verify:blog-geo": "node scripts/check-blog-geo.mjs",
     "verify:pricing": "node scripts/check-pricing.mjs",
+    "audit:dreamlaunch-overlap": "node scripts/audit-dreamlaunch-overlap.mjs",
     "inspire:blog": "node scripts/sync-blog.mjs --dry-run",
     "sync:blog": "node scripts/sync-blog.mjs --dry-run"
   },

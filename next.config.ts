@@ -61,6 +61,21 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
 
+  async redirects() {
+    return [
+      {
+        source: "/blog/daily-rise-wellness-app-case-study",
+        destination: "/blog/build-mobile-app-mvp-without-tech-co-founder",
+        permanent: true,
+      },
+      {
+        source: "/blog/zypa-on-demand-delivery-platform-case-study",
+        destination: "/blog/how-to-build-marketplace-mvp-that-doesnt-die",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       // Plain `:path*` wildcards only. path-to-regexp v8, which Next 16 uses,

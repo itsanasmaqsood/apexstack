@@ -3,163 +3,97 @@ import type { BlogPost } from "@/data/blog/types";
 export const post: BlogPost = {
   slug: "ai-features-that-make-startup-mvps-fail",
   title: "6 AI Features That Actually Make Startup MVPs Fail Faster",
-  seoTitle: "6 AI Features That Actually Make Startup MVPs Fail Faster",
-  description: "AI features don't fix a broken product. They amplify whatever's already there, including the problems.",
-  excerpt: "these are the six AI features i see most often on MVPs that fail: not because the AI was bad, but because it was solving the wrong problem, or solving the right problem at the wrong stage.",
+  seoTitle: "6 AI Features That Actually Make Startup MVPs | ApexStack",
+  description: "A practical guide to ai features that make startup mvps fail, covering scope, evidence, ownership, delivery risk and the next decision for founders.",
+  excerpt: "A buyer-focused guide to ai features that make startup mvps fail: define the decision, request useful evidence and keep the first release accountable.",
   category: "MVP & Startups",
   primaryKeyword: "ai features that make startup mvps fail",
   secondaryKeywords: [
-    "recommendations before theres data",
-    "ai search product no search problem",
-    "ai summarisation content users arent reading",
+    "ai features that make startup mvps fail checklist",
+    "ai features that make startup mvps fail scope",
+    "ai features that make startup mvps fail risks",
   ],
   published: "2026-06-27",
+  updated: "2026-08-24",
   authorId: "leadership-01",
   serviceSlug: "mvp-development",
-  keyTakeaway: "founders add chatbots to products that haven't yet confirmed users want the underlying product. the chatbot answers questions about features that users haven't discovered. it automates a workflow that users haven't adopted.",
+  keyTakeaway: "The safest way to approach reducing avoidable delivery risk is to remove uncertainty before adding features. The first review should cover model limits, code ownership, data access, evaluation and a maintainable handover. For the buyer question “6 AI Features That Actually Make Startup MVPs Fail Faster”, define one core workflow, explicit exclusions, acceptance evidence, account ownership and a handover plan before committing to implementation.",
   sections: [
     {
-      heading: "The short version",
+      heading: "What is the practical answer?",
       blocks: [
-        {
-          type: "p",
-          text: "AI features don't make bad products good.",
-        },
-        {
-          type: "p",
-          text: "they make bad products fail faster.",
-        },
-        {
-          type: "p",
-          text: "the acceleration works in both directions: the right AI feature on a product with real users can dramatically increase engagement and retention. the wrong AI feature on a product that hasn't found its core value yet compounds the confusion and costs more to fix than to have built right the first time.",
-        },
-        {
-          type: "p",
-          text: "these are the six AI features i see most often on MVPs that fail: not because the AI was bad, but because it was solving the wrong problem, or solving the right problem at the wrong stage.",
-        },
+        { type: "p", text: "The safest way to approach reducing avoidable delivery risk is to remove uncertainty before adding features. The first review should cover model limits, code ownership, data access, evaluation and a maintainable handover." },
+        { type: "p", text: "Separate confirmed requirements from assumptions before implementation. The team can then test the risky assumptions while keeping the first release small enough to understand and operate." }
       ],
     },
     {
-      heading: "1. the AI chatbot that replaces a workflow nobody's using yet",
+      heading: "Which decisions should be made before work begins?",
       blocks: [
+        { type: "p", text: "A written decision record keeps reducing avoidable delivery risk from becoming a chain of assumptions. It should be short enough to review and specific enough that design, engineering and the buyer are discussing the same outcome." },
         {
-          type: "p",
-          text: "founders add chatbots to products that haven't yet confirmed users want the underlying product. the chatbot answers questions about features that users haven't discovered. it automates a workflow that users haven't adopted. it provides assistance for a journey that users aren't taking.",
-        },
-        {
-          type: "p",
-          text: "AI chatbots create value when they accelerate a workflow that already has momentum. before the workflow exists, they're a sophisticated way to confirm that the product doesn't yet have one.",
-        },
-        {
-          type: "p",
-          text: "the test: can you describe the specific manual thing the chatbot replaces, in a product where users are doing that thing today? if yes, the chatbot belongs. if no, the workflow needs to come first.",
-        },
+          type: "list",
+          ordered: true,
+          items: [
+            "Write down the primary user, their trigger and the outcome the product must support.",
+            "Define what is deliberately excluded from the first release.",
+            "Agree how access, data, failures and exceptions will be handled.",
+            "Make repository, hosting, domain and third-party account ownership explicit.",
+            "Choose acceptance evidence before implementation begins.",
+            "Review model limits, code ownership, data access, evaluation and a maintainable handover before approving the delivery plan.",
+          ],
+        }
       ],
     },
     {
-      heading: "2. recommendations before there's data",
+      heading: "What evidence should a buyer request?",
       blocks: [
-        {
-          type: "p",
-          text: "recommendation systems are data products. they require user behaviour data to make recommendations that are meaningfully better than random. in the first weeks of an MVP, you have almost no data, certainly not enough to train recommendations that users will find useful.",
-        },
-        {
-          type: "p",
-          text: "founders build recommendation engines before they have users, train them on synthetic data or small datasets, and launch a feature that recommends with high confidence from almost no information. users receive recommendations that feel arbitrary (because they are), trust the product less, and the \"AI-powered\" label actively hurts rather than helps.",
-        },
-        {
-          type: "p",
-          text: "the test: do you have at least a few hundred active users with meaningful interaction data? if not, use manual curation or simple heuristics that you can reason about. AI recommendations come later.",
-        },
+        { type: "p", text: "A dependable proposal makes its reasoning inspectable. It identifies exclusions, acceptance evidence, account ownership and the material assumptions behind the estimate." },
+        { type: "p", text: "Where a tool or platform is central, verify export, account access and operating responsibilities in the actual setup. A demonstration is useful only when it exercises the important path and its failure states; it should also show how the plan addresses model limits, code ownership, data access, evaluation and a maintainable handover." }
       ],
     },
     {
-      heading: "3. AI-generated content as a substitute for product-market fit",
+      heading: "How should the first release be scoped?",
       blocks: [
-        {
-          type: "p",
-          text: "some founders use AI content generation: AI that writes, summarises, or produces content inside the product, as a way to make a thin product feel fuller. if users aren't engaging deeply, add AI-generated content. if the core loop feels empty, fill it with AI output.",
-        },
-        {
-          type: "p",
-          text: "this approach delays the discovery that the core product isn't working. users get more content, but it doesn't address the underlying problem: they're not coming back because the product doesn't do something valuable enough, not because there's insufficient content.",
-        },
-        {
-          type: "p",
-          text: "AI-generated content is a useful feature for products that already have engaged users who need more of something. it's not a substitute for figuring out why users aren't engaged.",
-        },
+        { type: "p", text: "Use a single core workflow as the boundary. Include the states required to complete that workflow, the minimum administration needed to operate it and the checks needed to release it safely. Move secondary audiences, speculative automation and convenience features into a later decision queue." },
+        { type: "p", text: "The scope should also say what happens when the ideal path fails. Empty states, invalid input, permission errors, unavailable integrations and manual recovery are part of the product. Leaving them unnamed does not remove the work; it only postpones the decision." }
       ],
     },
     {
-      heading: "4. AI search on a product with no search problem",
+      heading: "What are the common warning signs?",
       blocks: [
         {
-          type: "p",
-          text: "semantic search and AI-powered search are genuinely impressive technologies. they're also unnecessary for most MVP-stage products, where the content or data being searched is small enough that standard keyword search works fine.",
+          type: "list",
+          items: [
+            "The proposal promises an outcome without defining acceptance evidence.",
+            "The schedule is fixed while the workflow, roles or integrations remain unclear.",
+            "The buyer will not control the repository, deployment accounts or essential third-party services.",
+            "Quality is described as a final testing phase instead of checks attached to each important behaviour.",
+            "The handover depends on one person's memory rather than accessible documentation and accounts.",
+          ],
         },
-        {
-          type: "p",
-          text: "founders add AI search because it sounds good in a demo and on a feature list. users don't experience it as AI-powered. They experience it as \"search that works\" or \"search that doesn't.\" whether it's powered by vector embeddings or a simple LIKE query doesn't affect user experience when the dataset is small.",
-        },
-        {
-          type: "p",
-          text: "the test: do users have a search problem today? are they typing queries and not finding things they expect to be there? if no, there's no search problem to solve, AI-powered or otherwise.",
-        },
+        { type: "p", text: "None of these signals automatically makes a provider or tool unsuitable. They mean the buyer needs a clearer answer before treating the plan as dependable." }
       ],
     },
     {
-      heading: "5. autonomous AI agents before you trust simple AI responses",
+      heading: "How should a founder choose the next step?",
       blocks: [
-        {
-          type: "p",
-          text: "agents, AI that takes actions on behalf of users, not just responds to them, are one of the highest-risk AI features to build at MVP stage. they send emails, create records, modify data, make decisions with downstream consequences. when they go wrong, they go wrong in ways that are hard to undo and directly visible to users.",
-        },
-        {
-          type: "p",
-          text: "founders want agents because they're powerful. the problem is that getting agents right requires deep understanding of the failure modes: which requires running the simpler, read-only version first and learning from how it behaves in production before you give it the ability to take action.",
-        },
-        {
-          type: "p",
-          text: "build the read-only version first. understand how the AI behaves on your actual user data. then, incrementally, add the lowest-risk actions. never give an AI agent the ability to do something irreversible before you've seen how it handles the reversible cases.",
-        },
-      ],
-    },
-    {
-      heading: "6. AI summarisation of content users aren't reading",
-      blocks: [
-        {
-          type: "p",
-          text: "if users aren't reading the full content, making the AI summarise it doesn't solve the problem. It confirms that the content isn't valuable enough to read. the summary is slightly more accessible, but the underlying issue (content that doesn't serve user needs) remains.",
-        },
-        {
-          type: "p",
-          text: "AI summarisation is a useful feature when: users have long content they need to read, they're currently reading it and finding it slow, and a shorter version would help them act on it faster. those are very specific conditions. building AI summarisation as a default \"AI feature\" without those conditions produces a feature that users ignore in a slightly more sophisticated way.",
-        },
-      ],
-    },
-    {
-      heading: "the question worth asking before any AI feature",
-      blocks: [
-        {
-          type: "p",
-          text: "what is the user currently doing manually that this AI will do instead? if the answer is specific, observable, and confirmed by real user behaviour, build the feature. if the answer is vague, hypothetical, or based on what you think users should be doing, find out what users are actually doing first.",
-        },
-        {
-          type: "p",
-          text: "at ApexStack, we push back on AI features that don't meet this test. not because AI is expensive. It's not, but because building the wrong AI feature delays learning what the right one is.",
-        },
-        {
-          type: "p",
-          text: "if you want to talk through whether a specific AI feature you're planning makes sense for your stage, that conversation usually takes 30 minutes and produces a clear answer.",
-        },
-        {
-          type: "p",
-          text: "what's the manual behaviour in your product that you're hoping AI will replace?",
-        },
+        { type: "p", text: "Choose the next step that produces decision-quality evidence. That may be a product blueprint, a technical review, a prototype or a tightly scoped launch sprint. The right choice depends on what is still unknown, not on how many features can be placed in a proposal." },
+        { type: "p", text: "Bring the current brief, constraints, existing assets and non-negotiable integrations to the first conversation. A useful partner should be able to separate confirmed requirements from assumptions and explain what must be learned before a larger commitment." }
       ],
     },
   ],
   faqs: [
-
+    {
+      question: "What should be decided first?",
+      answer: "Decide who the primary user is, which single workflow matters most, what is excluded and what evidence will show that the release is acceptable.",
+    },
+    {
+      question: "How can a buyer reduce delivery risk?",
+      answer: "Use a written scope, verify account and code ownership, attach acceptance checks to important behaviour and include failure states and handover in the delivery plan.",
+    },
+    {
+      question: "When should the scope expand?",
+      answer: "Expand only after the core workflow has produced evidence that the next feature, role or integration is necessary. A longer wish list is not evidence.",
+    },
   ],
 };
