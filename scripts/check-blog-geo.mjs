@@ -4,6 +4,13 @@ import path from "node:path";
 import { parse } from "node-html-parser";
 
 const outputDirectory = path.join(process.cwd(), ".next", "server", "app", "blog");
+const migrationFile = path.join(
+  process.cwd(),
+  "src",
+  "data",
+  "blog",
+  "migration.ts",
+);
 
 if (!fs.existsSync(outputDirectory)) {
   throw new Error("Missing built blog output. Run `npm run build` before this check.");
@@ -21,11 +28,52 @@ if (files.length === 0) {
 const errors = [];
 const canonicals = new Map();
 
+function migrationSlugs(source, exportName) {
+  const match = source.match(
+    new RegExp(`export const ${exportName} = \\[(.*?)\\] as const;`, "s"),
+  );
+  if (!match) throw new Error(`Could not read ${exportName} from ${migrationFile}.`);
+  return [...match[1].matchAll(/"([a-z0-9-]+)"/g)].map((item) => item[1]);
+}
+
+const migrationSource = fs.readFileSync(migrationFile, "utf8");
+const pendingMigrations = migrationSlugs(migrationSource, "PENDING_MIRROR_REWRITES");
+const completedMigrations = migrationSlugs(migrationSource, "COMPLETED_MIRROR_REWRITES");
+const originalisedImports = migrationSlugs(
+  migrationSource,
+  "ALREADY_ORIGINALISED_DREAMLAUNCH_POSTS",
+);
+const migrationSlugsCombined = [
+  ...pendingMigrations,
+  ...completedMigrations,
+  ...originalisedImports,
+];
+
+if (new Set(migrationSlugsCombined).size !== migrationSlugsCombined.length) {
+  throw new Error("The DreamLaunch migration ledger contains a duplicate slug.");
+}
+if (migrationSlugsCombined.length !== 90) {
+  throw new Error(
+    `Expected 90 provenance records in the DreamLaunch migration ledger, found ${migrationSlugsCombined.length}.`,
+  );
+}
+
+const completedSet = new Set(completedMigrations);
+const completedClaimRisks = [
+  /\$6,500/i,
+  /under 48 hours/i,
+  /retention (?:by )?15%/i,
+  /ranked #?1/i,
+  /definitive (?:pick|choice)/i,
+  /DreamLaunch/i,
+];
+
 function record(file, message) {
   errors.push(`${path.basename(file)}: ${message}`);
 }
 
 for (const file of files) {
+  const slug = path.basename(file, ".html");
   const root = parse(fs.readFileSync(file, "utf8"));
   const canonical = root.querySelector('link[rel="canonical"]')?.getAttribute("href");
   const description = root.querySelector('meta[name="description"]')?.getAttribute("content")?.trim();
@@ -90,6 +138,23 @@ for (const file of files) {
       record(file, `FAQ schema has ${schemaFaqCount} questions but the page shows ${visibleFaqCount}`);
     }
   }
+
+  if (completedSet.has(slug)) {
+    if (!article?.querySelector("section#sources")) {
+      record(file, "completed mirror rewrite has no visible source ledger");
+    }
+    const articleText = article?.text ?? "";
+    for (const pattern of completedClaimRisks) {
+      if (pattern.test(articleText)) {
+        record(file, `completed mirror rewrite still matches claim-risk pattern ${pattern}`);
+      }
+    }
+  }
+}
+
+const builtSlugs = new Set(files.map((file) => path.basename(file, ".html")));
+for (const slug of migrationSlugsCombined) {
+  if (!builtSlugs.has(slug)) record(migrationFile, `migration slug ${slug} has no built article`);
 }
 
 if (errors.length > 0) {
@@ -97,5 +162,7 @@ if (errors.length > 0) {
   for (const error of errors) console.error(`- ${error}`);
   process.exitCode = 1;
 } else {
-  console.log(`Blog GEO verification passed for ${files.length} prerendered articles.`);
+  console.log(
+    `Blog GEO verification passed for ${files.length} prerendered articles; mirror migration ${completedMigrations.length} completed, ${pendingMigrations.length} pending.`,
+  );
 }

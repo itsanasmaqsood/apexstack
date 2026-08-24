@@ -60,6 +60,7 @@ const columns: FooterColumn[] = [
       { label: "Portfolio", href: "/portfolio" },
       { label: "Team & Leadership", href: "/team" },
       { label: "How We Work", href: "/process" },
+      { label: "Pricing", href: "/pricing" },
       { label: "Industries", href: "/industries" },
       { label: "All Services", href: "/services" },
       { label: "Blog", href: "/blog" },

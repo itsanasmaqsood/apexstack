@@ -50,7 +50,8 @@ const EMPTY: FormValues = {
 
 const BUDGETS = [
   "Not sure yet",
-  "$1,000 – $5,000",
+  "$1,000 – $2,499",
+  "$2,500 – $5,000",
   "$5,000 – $10,000",
   "$10,000 – $25,000",
   "$25,000 – $50,000",
@@ -454,7 +455,11 @@ export default function ContactForm() {
           {status === "submitting" ? "Sending…" : "Send Enquiry"}
         </button>
         <p className="text-sm text-white/40">
-          Starter engagements can begin at US$1,000 when the scope is tightly defined.
+          See the{" "}
+          <Link href="/pricing" className="text-white/70 underline underline-offset-4 hover:text-white">
+            US$1,000 Product Blueprint and US$2,500 Launch Sprint
+          </Link>
+          .
         </p>
       </div>
     </form>

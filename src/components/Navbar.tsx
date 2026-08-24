@@ -17,12 +17,12 @@ interface NavLink {
 }
 
 /**
- * Three links only. Industries and Careers still exist and are still reachable
- * from the footer and the sitemap — they are simply not competing for attention
- * in the top bar.
+ * Commercial routes stay in the top bar; lower-frequency company routes remain
+ * in the footer and sitemap.
  */
 const NAV_LINKS: NavLink[] = [
   { label: "Services", href: "/services" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Products", href: "/products" },
   { label: "How We Work", href: "/process" },
   { label: "Blog", href: "/blog" },

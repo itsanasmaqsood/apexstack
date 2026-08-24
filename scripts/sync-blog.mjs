@@ -1,36 +1,21 @@
 /**
- * Pull newly published posts from the DreamLaunch archive into this blog.
+ * Report newly published DreamLaunch posts as inspiration candidates.
  *
- * WHY THIS EXISTS: the DreamLaunch listing is the same company's earlier brand,
- * and posts are still being published there. Re-importing the whole archive on
- * every change would rewrite 87 files to add one, so this syncs incrementally:
- * it reads what is live, subtracts what this repo already has, and only fetches
- * the difference.
+ * WHY THIS EXISTS: DreamLaunch is a related agency and still publishes posts.
+ * ApexStack no longer mirrors that copy. This script reads the public index,
+ * subtracts source posts already represented locally and reports the remaining
+ * topics for independent buyer-intent research.
  *
- * WHAT IT DOES TO THE COPY, and nothing beyond it:
- *   - swaps the brand, including the domain and two slugs that carried the old
- *     name;
- *   - preserves the published wording and punctuation;
- *   - reads the structure Apple and the CMS already published (headings, lists,
- *     tables, FAQ blocks) into this repo's `BlogPost` shape.
+ * The extractor still checks whether a candidate has a substantial body and
+ * records its source date and structure. It never writes source copy, creates a
+ * post module, rebrands text or changes the blog registry.
  *
- * WHAT IT WILL NOT DO: invent a field. `seoTitle`, `excerpt` and `keyTakeaway`
- * have no equivalent in the source, so they are derived from the post's own
- * sentences. They are drafts. A post that matters commercially deserves a human
- * pass over those three, and `keyTakeaway` most of all: it is the passage an
- * answer engine quotes.
- *
- * SAFETY: it only ever writes files whose slug does not already exist, and it
- * regenerates `src/data/blog/index.ts` from the directory listing. It never
- * edits a post that is already here, so a local edit cannot be clobbered by a
- * later sync.
+ * A reported topic may still be skipped when ApexStack already owns the intent,
+ * the foundation file adds no useful angle, or primary evidence does not support
+ * an original article.
  *
  * Usage:
- *   node scripts/sync-blog.mjs            # fetch and write
- *   node scripts/sync-blog.mjs --dry-run  # report what it would add
- *
- * Then run `npm run check` before committing. The script deliberately does not
- * build, commit or push: publishing is a decision, not a side effect.
+ *   node scripts/sync-blog.mjs --dry-run
  */
 
 import { readdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
@@ -44,7 +29,9 @@ const INDEX_FILE = "src/data/blog/index.ts";
 const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36";
 
-const DRY = process.argv.includes("--dry-run");
+// Deliberately immutable: the former write path remains unreachable while the
+// migration is in progress, including when somebody omits `--dry-run`.
+const DRY = true;
 
 /**
  * Slugs renamed on import because they carried the old brand. Listed so the
@@ -428,6 +415,10 @@ const get = async (url) => {
 async function main() {
   if (!existsSync(POSTS_DIR)) throw new Error(`run this from the repo root; ${POSTS_DIR} not found`);
 
+  if (!process.argv.includes("--dry-run")) {
+    console.log("report-only mode: DreamLaunch copy is never imported into ApexStack");
+  }
+
   const [index, sitemap] = await Promise.all([
     get(`${ORIGIN}/blog`),
     get(`${ORIGIN}/sitemap.xml`).catch(() => ""),
@@ -488,7 +479,7 @@ async function main() {
     added.push(`${slug} (${p.sections.length} sections, ${p.faqs.length} faqs, ${p.published})`);
   }
 
-  console.log(`\n${DRY ? "would add" : "added"} ${added.length}:`);
+  console.log(`\ninspiration candidates ${added.length}:`);
   for (const a of added) console.log("  + " + a);
   if (skipped.length) {
     console.log(`\nskipped ${skipped.length}:`);

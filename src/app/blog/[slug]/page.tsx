@@ -324,6 +324,12 @@ export default async function BlogPostPage({
                     {service.name}
                   </Link>
                 )}
+                <Link
+                  href="/pricing"
+                  className="inline-flex items-center px-5 py-3 text-sm font-medium text-white border border-white/30 rounded-[2px] hover:border-white/60 transition-colors"
+                >
+                  View starting prices
+                </Link>
               </div>
             </div>
           </article>
