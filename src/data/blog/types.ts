@@ -2,9 +2,9 @@
  * The content model for the blog.
  *
  * WHY THIS IS STRUCTURED RATHER THAN MARKDOWN: every field here does a job that
- * plain prose cannot. `keyTakeaway` is the self-contained paragraph an answer
- * engine lifts when it cites us. `faqs` become a `FAQPage` graph. `table` blocks
- * are the single format AI Overviews quote most often for comparison queries.
+ * plain prose cannot. `keyTakeaway` is the self-contained answer-first paragraph.
+ * Non-empty `faqs` become a matching `FAQPage` graph, and `table` blocks make
+ * genuine comparisons easier for readers and crawlers to understand.
  * `primaryKeyword` keeps the target visible at the point of writing instead of
  * living in a spreadsheet nobody opens. Markdown would let all of that drift.
  *
@@ -57,9 +57,8 @@ export interface ListBlock {
 }
 
 /**
- * A comparison table. Disproportionately valuable: comparison and cost queries
- * are what convert for high-consideration purchases, and a real table is what
- * answer engines quote back.
+ * A comparison table for information that is genuinely clearer in rows and
+ * columns. Do not force prose into a table merely for search presentation.
  */
 export interface TableBlock {
   type: "table";
@@ -111,6 +110,15 @@ export interface BlogFaq {
   answer: string;
 }
 
+export interface BlogSource {
+  /** Descriptive title of the cited primary or authoritative source. */
+  title: string;
+  /** Public HTTPS URL. Never use a search-results URL or tracking redirect. */
+  url: `https://${string}`;
+  /** Organisation responsible for the source, when it is not clear from title. */
+  publisher?: string;
+}
+
 export interface BlogPost {
   /** URL segment. Lowercase, hyphenated, no dates, never changes once published. */
   slug: string;
@@ -160,16 +168,19 @@ export interface BlogPost {
   authorId: string;
 
   /**
-   * The answer to the title, in two or three sentences, standing entirely on its
-   * own. This is the passage an AI Overview or a Perplexity answer will quote,
-   * so it must make sense with zero surrounding context.
+   * The direct answer to the primary question, standing entirely on its own.
+   * Aim for 45–100 useful words; the first section may complete the answer within
+   * roughly 160 words. Clarity is the gate, not an exact word count.
    */
   keyTakeaway: string;
 
   sections: BlogSection[];
 
-  /** Becomes a `FAQPage` node. Three to six entries. */
+  /** Optional visible FAQs. A non-empty array becomes a matching `FAQPage` node. */
   faqs: BlogFaq[];
+
+  /** Visible primary or authoritative sources used for external factual claims. */
+  sources?: BlogSource[];
 
   /**
    * Slugs of related posts. Left empty by the author and filled in by the

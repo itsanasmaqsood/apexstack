@@ -19,7 +19,7 @@ import { CLUSTER_IMAGE } from "@/data/blog/imagery";
 import { bookingLinkProps } from "@/data/company";
 import { ALL_SERVICES } from "@/data/services";
 import { LEADERSHIP } from "@/data/team";
-import { pageMetadata } from "@/lib/metadata";
+import { OG_IMAGE, pageMetadata } from "@/lib/metadata";
 
 /**
  * One page per blog post.
@@ -89,9 +89,8 @@ export default async function BlogPostPage({
   /**
    * `BlogPosting` carries its own `@id` and points at the `WebPage` node that
    * `PageLayout` emits, rather than competing with it for the same identity.
-   * `FAQPage` is a separate node because the questions are separately citable —
-   * and every one of them is rendered visibly further down, which is the
-   * condition Google places on marking them up at all.
+   * `FAQPage` is added only when the post has visible questions and answers.
+   * Empty or universal FAQ markup describes content that is not on the page.
    */
   const graph: Record<string, unknown>[] = [
     {
@@ -103,6 +102,7 @@ export default async function BlogPostPage({
       keywords: [post.primaryKeyword, ...post.secondaryKeywords].join(", "),
       datePublished: post.published,
       dateModified: post.updated ?? post.published,
+      image: `${SITE_URL}${clusterImage?.src ?? OG_IMAGE.url}`,
       wordCount: post.sections.reduce(
         (sum, section) =>
           sum +
@@ -122,15 +122,19 @@ export default async function BlogPostPage({
       publisher: { "@id": `${SITE_URL}/#organization` },
       ...(author ? { author: { "@id": `${SITE_URL}/team#${author.id}` } } : {}),
     },
-    {
-      "@type": "FAQPage",
-      "@id": `${url}#faq`,
-      mainEntity: post.faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: { "@type": "Answer", text: faq.answer },
-      })),
-    },
+    ...(post.faqs.length > 0
+      ? [
+          {
+            "@type": "FAQPage",
+            "@id": `${url}#faq`,
+            mainEntity: post.faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: { "@type": "Answer", text: faq.answer },
+            })),
+          },
+        ]
+      : []),
   ];
 
   return (
@@ -184,14 +188,26 @@ export default async function BlogPostPage({
                       </a>
                     </li>
                   ))}
-                  <li>
-                    <a
-                      href="#faq"
-                      className="text-white/55 hover:text-white text-[13px] leading-[1.5] block transition-colors"
-                    >
-                      Frequently asked questions
-                    </a>
-                  </li>
+                  {post.faqs.length > 0 && (
+                    <li>
+                      <a
+                        href="#faq"
+                        className="text-white/55 hover:text-white text-[13px] leading-[1.5] block transition-colors"
+                      >
+                        Frequently asked questions
+                      </a>
+                    </li>
+                  )}
+                  {post.sources && post.sources.length > 0 && (
+                    <li>
+                      <a
+                        href="#sources"
+                        className="text-white/55 hover:text-white text-[13px] leading-[1.5] block transition-colors"
+                      >
+                        Sources
+                      </a>
+                    </li>
+                  )}
                 </ol>
               </nav>
             </div>
@@ -237,24 +253,48 @@ export default async function BlogPostPage({
 
             <BlogBody sections={post.sections} />
 
+            {post.sources && post.sources.length > 0 && (
+              <section id="sources" className="scroll-mt-28 pt-4 mb-11">
+                <h2 className="text-white text-[24px] md:text-[30px] font-medium leading-[125%] mb-6">
+                  Sources
+                </h2>
+                <ul className="space-y-3">
+                  {post.sources.map((source) => (
+                    <li key={source.url} className="text-[rgba(207,207,207,0.9)] leading-[1.7]">
+                      <a
+                        href={source.url}
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-4 hover:text-white transition-colors"
+                      >
+                        {source.title}
+                      </a>
+                      {source.publisher ? ` — ${source.publisher}` : ""}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
             {/* ------------------------------------------------------------- FAQ */}
-            <section id="faq" className="scroll-mt-28 pt-4">
-              <h2 className="text-white text-[24px] md:text-[30px] font-medium leading-[125%] mb-6">
-                Frequently asked questions
-              </h2>
-              <dl className="space-y-6">
-                {post.faqs.map((faq) => (
-                  <div key={faq.question} className="border-b border-white/10 pb-6">
-                    <dt className="text-white text-[17px] md:text-[18px] font-medium mb-2.5">
-                      {faq.question}
-                    </dt>
-                    <dd className="text-[rgba(207,207,207,0.9)] text-base leading-[1.7]">
-                      {faq.answer}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </section>
+            {post.faqs.length > 0 && (
+              <section id="faq" className="scroll-mt-28 pt-4">
+                <h2 className="text-white text-[24px] md:text-[30px] font-medium leading-[125%] mb-6">
+                  Frequently asked questions
+                </h2>
+                <dl className="space-y-6">
+                  {post.faqs.map((faq) => (
+                    <div key={faq.question} className="border-b border-white/10 pb-6">
+                      <dt className="text-white text-[17px] md:text-[18px] font-medium mb-2.5">
+                        {faq.question}
+                      </dt>
+                      <dd className="text-[rgba(207,207,207,0.9)] text-base leading-[1.7]">
+                        {faq.answer}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            )}
 
             {/* --------------------------------------------------------- the ask */}
             <div className="mt-12 border border-white/20 rounded-[2px] p-6 md:p-8">

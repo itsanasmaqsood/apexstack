@@ -9,8 +9,7 @@ import type { BlogBlock, BlogSection } from "@/data/blog/types";
  * markdown.
  *
  * Headings carry `id`s derived from their text so the table of contents can link
- * into them and so a reader can deep-link to a section. That anchor also gives
- * an answer engine a stable target when it cites one part of a long page.
+ * into them and so a reader or crawler can address one part of a long page.
  */
 
 export const ACCENT = "#B4CC04";
