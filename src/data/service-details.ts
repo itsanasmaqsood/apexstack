@@ -544,37 +544,37 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
 
   "technical-consulting": {
     problem:
-      "A decision is about to be made that is expensive to reverse, and the people making it are the same people who proposed it.",
+      "A product, investment or architecture decision depends on technical claims that have not yet been connected to inspectable evidence.",
     challenges: [
-      "Technology chosen for reasons that were never written down",
-      "Due diligence needed on a system before an acquisition or investment",
-      "Internal disagreement with no neutral party to resolve it",
-      "Architecture decisions with no clear owner",
+      "Architecture and tech-stack choices with assumptions that were never recorded",
+      "Due diligence evidence spread across repositories, cloud accounts and documents",
+      "Security, ownership and operational claims stated more confidently than the evidence supports",
+      "Findings listed without buyer context, ownership or a way to verify closure",
     ],
     approach: [
-      "We assess against your stated goals and constraints, not against fashion, and we write down the reasoning so it can be challenged.",
-      "Where we review code or architecture, we quantify risk rather than listing preferences.",
-      "We give a recommendation, including when the recommendation is to change nothing.",
+      "We define the decision, assumptions, scope, access boundaries and evidence request before reviewing the system.",
+      "We trace material claims through repositories, deployed architecture, dependencies, controls, operations and account ownership.",
+      "We record observations, uncertainty and buyer-specific impact, then attach an owner and verification method to each recommended action.",
     ],
     outcomes: [
-      "Decisions documented with their trade-offs",
-      "Risk identified before it becomes expensive",
-      "A neutral view when internal opinion is split",
-      "Total cost of ownership modelled, not guessed",
+      "An evidence index tied to the reviewed versions and systems",
+      "Architecture, data-flow and account-control gaps made explicit",
+      "A buyer-readable findings register with scope limitations",
+      "A prioritised action plan with closure evidence",
     ],
     technologies: ["Architecture review", "Technical due diligence", "Cost modelling", "Security review", "Team assessment"],
     faqs: [
       {
         q: "Will you recommend we hire you to do the work?",
-        a: "Only if we are genuinely the right team. A consulting engagement that exists to sell a build is worth nothing to you, and we would rather keep the relationship.",
+        a: "The review separates findings from any implementation proposal. If follow-on work is discussed, the scope and decision stay distinct so you can use the evidence with ApexStack, your internal team or another qualified supplier.",
       },
       {
         q: "Can you do technical due diligence for an acquisition?",
-        a: "Yes — codebase quality, architecture risk, key-person dependency, security posture and the real cost of ownership.",
+        a: "We can review the technical evidence for repositories, architecture, dependencies, controls, operations, cost and knowledge concentration. Legal ownership, licence, privacy and transaction conclusions remain with qualified counsel and specialist advisers.",
       },
       {
         q: "How long does a review take?",
-        a: "It depends on the size of the estate. We scope it after an initial conversation and give you a fixed price.",
+        a: "It depends on the buyer’s questions, product and entity scope, repositories and environments, evidence quality, access constraints and specialist-review needs. We define those boundaries before proposing a schedule or price.",
       },
     ],
     related: ["digital-transformation", "cloud-devops", "mvp-development"],

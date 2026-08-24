@@ -122,10 +122,10 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
       "Modernise the systems your operation depends on without stopping it. Staged migrations, measurable checkpoints and a plan for the legacy you cannot switch off.",
   },
   "technical-consulting": {
-    title: "Technical Consulting & Software Architecture | ApexStack",
-    h1: "Technical Consulting & Software Architecture",
+    title: "Technical Due Diligence & Architecture | ApexStack",
+    h1: "Technical Due Diligence and Architecture Consulting",
     description:
-      "Independent technical review, architecture and due diligence. We tell you what will break, what it costs to fix, and what you can safely leave alone.",
+      "Test tech-stack and software claims against repository, architecture, security, ownership, recovery, cost and remediation evidence.",
   },
   "ui-ux-design": {
     title: "UI/UX Design & Product Engineering Services | ApexStack",

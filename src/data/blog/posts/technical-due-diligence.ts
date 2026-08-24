@@ -2,259 +2,285 @@ import type { BlogPost } from "@/data/blog/types";
 
 export const post: BlogPost = {
   slug: "technical-due-diligence",
-  title: "Technical Due Diligence: What Gets Examined and Why",
-  seoTitle: "Technical Due Diligence Checklist for Startups",
+  title: "Technical Due Diligence: A Software Buyer’s Checklist",
+  seoTitle: "Technical Due Diligence Checklist for Software Buyers",
   description:
-    "What investors and acquirers actually look at in a technical review, what raises concern, and how to prepare without pretending.",
+    "Evaluate software through repository, architecture, security, SBOM, recovery, ownership and remediation evidence—not assertions.",
   excerpt:
-    "Technical due diligence is not a code-quality inspection. It is an assessment of how much risk sits between the product today and the product the deal assumes.",
-  category: "MVP & Startups",
+    "A buyer-focused checklist for connecting product and growth claims to code, deployed systems, control evidence, ownership records and a costed path through the gaps.",
+  category: "Choosing a Partner",
   primaryKeyword: "technical due diligence",
   secondaryKeywords: [
     "technical due diligence checklist",
     "software due diligence for investors",
-    "tech due diligence startup",
-    "code audit before acquisition",
+    "technology due diligence acquisition",
+    "technical audit startup",
   ],
   published: "2026-08-13",
+  updated: "2026-08-24",
   authorId: "leadership-02",
   serviceSlug: "technical-consulting",
   keyTakeaway:
-    "Technical due diligence assesses whether the technology can support the plan the deal is priced on — not whether the code is elegant. Reviewers concentrate on four things: key-person risk, whether the architecture can carry the projected growth, legal exposure through licensing and intellectual property, and security and compliance posture. Messy code rarely kills a deal. A single engineer who is the only person who understands the system, an unresolved IP assignment, or a copyleft licence in a proprietary product frequently does.",
+    "Technical due diligence should let a buyer trace product, growth and operating claims to inspectable evidence across the repository, deployed architecture, software supply chain, security controls, data flows, recovery tests, ownership records and team practices. Where evidence is incomplete, record the uncertainty and its effect on the buyer’s decision instead of assigning a universal deal label.",
   sections: [
     {
-      heading: "What the reviewer is actually assessing",
+      heading: "What should technical due diligence answer?",
       blocks: [
         {
           type: "p",
-          text: "There is a persistent misconception that technical due diligence is a code review with higher stakes — that somebody senior reads your repository and grades it. That is a small part of it, and rarely the part that decides anything.",
+          text: "Technical due diligence tests whether a software asset can support the assumptions under review. Those assumptions may concern product capability, growth, integration, security, operating cost, ownership or the ability of another team to run the system. The review connects each material claim to evidence and records what remains uncertain.",
         },
         {
           type: "p",
-          text: "The reviewer has a narrower question: the deal is priced on a plan, and the plan assumes the technology can do certain things by certain dates. Can it? And what would have to be true for it not to?",
-        },
-        {
-          type: "p",
-          text: "That reframing explains most of what follows. Ugly code that ships reliably and is understood by four people is a smaller risk than beautiful code that only its author can modify. Technical debt with a known shape and a rough cost is a line item; technical debt nobody has measured is an unknown, and unknowns are what get priced against you.",
+          text: "That makes the work broader than a code-quality score. Source code matters, but so do the deployed architecture, cloud and SaaS accounts, dependency chain, data flows, access controls, release process, incident history, recovery tests, contributor agreements and the people who can operate critical paths.",
         },
         {
           type: "callout",
-          text: "Diligence does not ask whether the technology is good. It asks what it would cost to keep the promise the deal is built on.",
+          text: "A useful review does not ask whether the technology is good in the abstract. It asks which buyer assumption is being tested, what evidence supports it and what decision follows if the evidence is missing or contradictory.",
         },
       ],
     },
     {
-      heading: "The four areas that carry real weight",
+      heading: "How should the buyer set the review scope?",
       blocks: [
         {
-          type: "h3",
-          text: "Key-person risk",
-        },
-        {
           type: "p",
-          text: "Usually the first thing a reviewer probes and the most common serious finding in a young company. If one engineer is the only person who can deploy, or who understands the billing logic, or who knows why a particular service exists, then the value of the asset is partly a function of that person's employment contract.",
+          text: "Begin with the decision, not a generic checklist. An investor testing whether the current product can support a funding plan needs a different depth from an acquirer planning to merge identity, data and operations. A buyer of a small SaaS product may care most about account ownership, dependency maintenance and whether the system can be operated without its founder.",
         },
         {
-          type: "p",
-          text: "It is tested indirectly. Reviewers look at commit distribution across the team, ask who has deployed to production in the last quarter, and ask what happens if a named person is unavailable for a month. The answers are easy to give honestly and impossible to fake under follow-up.",
-        },
-        {
-          type: "h3",
-          text: "Whether the architecture supports the plan",
-        },
-        {
-          type: "p",
-          text: "Not whether it scales in the abstract — whether it scales to the specific numbers in the forecast. A system handling two hundred customers that the plan says will handle twenty thousand gets examined for the things that break at two orders of magnitude: single-tenant assumptions baked into the data model, synchronous work that should be queued, queries with no index that are fine at current row counts, and anything that requires manual intervention per customer.",
-        },
-        {
-          type: "h3",
-          text: "Legal exposure",
-        },
-        {
-          type: "p",
-          text: "This is where deals genuinely stall, and it is the area founders are least prepared for. Two issues recur.",
-        },
-        {
-          type: "p",
-          text: "The first is open-source licensing. Strong copyleft licences such as the GPL family can, depending on how the component is used and distributed, carry obligations that are incompatible with shipping proprietary software. Most companies do not know their full dependency tree, and a transitive dependency five levels deep counts.",
-        },
-        {
-          type: "p",
-          text: "The second is intellectual property assignment. Every contractor, every agency, every founder who wrote code before the company existed, every intern — did each of them sign an assignment? A gap here means the company does not fully own the thing being bought, and that is not a discount, it is a condition precedent.",
-        },
-        {
-          type: "h3",
-          text: "Security and compliance posture",
-        },
-        {
-          type: "p",
-          text: "Proportionate to what the company handles. For consumer software with no sensitive data, a light review. For anything touching health records, payments or European personal data, a serious one — covering encryption, access control, audit logging, data retention, subprocessor agreements and whether the deletion mechanism actually deletes.",
-        },
-      ],
-    },
-    {
-      heading: "What gets flagged, and how badly",
-      blocks: [
-        {
-          type: "table",
-          caption: "Common findings by severity",
-          head: ["Finding", "Severity", "Why it lands there"],
-          rows: [
-            [
-              "Unassigned IP from a past contractor",
-              "Deal-blocking",
-              "The company may not own what is being sold; must be cured before completion",
-            ],
-            [
-              "Strong copyleft licence in the product",
-              "Deal-blocking or costly",
-              "May require releasing source, or replacing the component",
-            ],
-            [
-              "One engineer is the only deployer",
-              "Serious",
-              "Concentrates operational risk in a person, not an asset",
-            ],
-            [
-              "No automated tests at all",
-              "Serious",
-              "Every future change carries unbounded regression risk",
-            ],
-            [
-              "Customer data unencrypted at rest",
-              "Serious",
-              "Regulatory and breach exposure, often contractual too",
-            ],
-            [
-              "No disaster recovery ever tested",
-              "Moderate",
-              "Backups that have never been restored are a hypothesis",
-            ],
-            [
-              "Significant but documented technical debt",
-              "Minor",
-              "A known cost is a line item, not a risk",
-            ],
-            [
-              "Inconsistent code style",
-              "Cosmetic",
-              "Noted, almost never material",
-            ],
+          type: "list",
+          items: [
+            "The transaction or investment assumptions the technology must support",
+            "The products, repositories, environments, entities and time period inside scope",
+            "Customer, regulatory and contractual commitments relevant to the review",
+            "Evidence the reviewer may access, how sensitive material will be protected and when access ends",
+            "Specialist questions that belong with legal, privacy, financial or security advisers",
+            "The buyer’s impact criteria and the people authorised to accept residual risk",
           ],
         },
         {
           type: "p",
-          text: "The gap between the bottom two rows and the top two is the point. Founders tend to worry about the cosmetic end and arrive unprepared for the legal end, which is where the transaction risk actually is.",
+          text: "Access should be proportionate and controlled. Read-only, least-privilege and time-bounded access is often enough for source, cloud, monitoring and security evidence. Record which systems could not be inspected so the report does not silently treat an access gap as a positive finding.",
         },
       ],
     },
     {
-      heading: "What happens when something serious is found",
+      heading: "Which claims need an evidence trail?",
+      blocks: [
+        {
+          type: "table",
+          caption: "Map business claims to technical evidence",
+          head: ["Claim under review", "Evidence to inspect", "Question to resolve"],
+          rows: [
+            [
+              "The product supports a critical user journey",
+              "Deployed walkthrough, architecture and data flow, test results, known defects",
+              "Does the implemented system perform the complete journey under the conditions the buyer expects?",
+            ],
+            [
+              "The platform can support planned demand",
+              "Production telemetry, limits, load evidence, bottlenecks, scaling and failure behaviour",
+              "Which specific assumption is tested, and what remains extrapolation?",
+            ],
+            [
+              "Security controls are operating",
+              "Identity configuration, scan coverage, change records, alerts, incidents and remediation",
+              "Is the control only documented, or is there dated evidence that it operates in scope?",
+            ],
+            [
+              "The company controls the product",
+              "Repository, cloud, domain, DNS, registry, billing and recovery-contact ownership",
+              "Can authorised company personnel access and transfer every critical account?",
+            ],
+            [
+              "The software can recover from data loss",
+              "Backup scope, restore runbook, recent restore result and integrity checks",
+              "Was recoverability demonstrated against the required recovery targets?",
+            ],
+            [
+              "Another team can operate the system",
+              "Role map, runbooks, review history, on-call coverage and practical demonstrations",
+              "Which actions depend on one person, and has a backup operator performed them?",
+            ],
+          ],
+        },
+      ],
+    },
+    {
+      heading: "What should a repository and architecture review cover?",
       blocks: [
         {
           type: "p",
-          text: "A serious finding is rarely the end of a transaction. It changes the shape of one, and knowing the available shapes is useful because the response is usually negotiated rather than imposed.",
+          text: "Repository evidence should show how changes move from a contributor to a released artefact. Inspect default-branch protections, review and code-owner rules, required checks, bypass permissions, build and deployment workflows, test results, release history and rollback evidence. A written policy is weaker than the configuration that enforces it.",
+        },
+        {
+          type: "p",
+          text: "Architecture diagrams should match the deployed estate. Reconcile them with cloud resources, data stores, queues, external services, trust boundaries and manual operating steps. When a forecast assumes higher load or new integration patterns, ask for telemetry, load evidence and explicit system limits that address that assumption rather than a broad claim that the architecture scales.",
+        },
+        {
+          type: "list",
+          items: [
+            "Repository inventory, active branches, archived code and ownership boundaries",
+            "Traceability from reviewed commit through build, deployment and running version",
+            "Architecture decisions, known constraints and unsupported or end-of-life components",
+            "Critical synchronous paths, scheduled work, queues and manual interventions",
+            "Environment separation, secrets handling and infrastructure configuration",
+            "Tests and operational observations relevant to the buyer’s specific assumptions",
+          ],
+        },
+      ],
+    },
+    {
+      heading: "How do you review dependencies and open-source software?",
+      blocks: [
+        {
+          type: "p",
+          text: "Start with an inventory that reflects what is built and deployed. A software bill of materials can record components, versions, identifiers, hashes, licences and dependency relationships, but its coverage and generation context matter. Reconcile it with manifests, lockfiles, container images, hosted services and the release path, and state any known unknowns.",
+        },
+        {
+          type: "p",
+          text: "An SBOM is not proof that every vulnerability is exploitable or that every licence obligation has been met. Review component origin, actual use, maintenance state, known vulnerabilities, licence expression and distribution context. Automated licence and vulnerability results are triage inputs; qualified counsel should interpret ownership and licence obligations for the actual product and transaction.",
         },
         {
           type: "table",
-          caption: "Typical outcomes",
-          head: ["Outcome", "When it is used", "What it means for you"],
+          caption: "Software supply-chain evidence",
+          head: ["Evidence", "What it establishes", "What it does not establish"],
           rows: [
             [
-              "Condition precedent",
-              "The issue must be fixed before completion — usually an IP gap",
-              "The deal proceeds once you cure it; timing pressure sits with you",
+              "SBOM with generation context",
+              "Recorded components and relationships for the covered build or environment",
+              "Complete deployed coverage unless the generation and reconciliation support it",
             ],
             [
-              "Price adjustment",
-              "The issue has a quantifiable remediation cost",
-              "The valuation drops by roughly what the fix costs, sometimes more",
+              "Dependency and lock files",
+              "Declared and resolved package versions for that ecosystem",
+              "Every runtime service, image, copied asset or hosted dependency",
             ],
             [
-              "Escrow or holdback",
-              "The cost is uncertain rather than unknown",
-              "Part of the consideration is held pending resolution",
+              "Vulnerability scan",
+              "Known matches in the scanned scope at that point in time",
+              "Exploitability, business impact or absence of undisclosed weaknesses",
             ],
             [
-              "Warranty or indemnity",
-              "Low likelihood, high impact — a licensing question, say",
-              "You carry the risk contractually rather than in price",
+              "Licence scan",
+              "Detected licence data that can be reviewed and corrected",
+              "A legal conclusion about obligations, ownership or compatibility",
             ],
-            [
-              "Post-completion plan",
-              "Real but not urgent, such as documented technical debt",
-              "Becomes a commitment in the integration plan",
-            ],
-            [
-              "Withdrawal",
-              "Rare; typically ownership that cannot be cured",
-              "The asset is not what the deal assumed",
-            ],
+          ],
+        },
+      ],
+    },
+    {
+      heading: "What security and data evidence should the buyer request?",
+      blocks: [
+        {
+          type: "p",
+          text: "Use the product’s data sensitivity, customer commitments and threat model to set the expected depth. A control map can organise the review, but names and certifications do not replace evidence from the systems in scope. Compare documented responsibilities with current identity, repository, cloud, logging and incident records.",
+        },
+        {
+          type: "list",
+          items: [
+            "Privileged identities, MFA or SSO enforcement, access reviews and recovery ownership",
+            "Code, dependency and secret-scanning coverage with triage and remediation records",
+            "Change approvals, deployment logs and separation of critical duties where required",
+            "Incident-response plan, incident register, post-incident actions and their current status",
+            "Log sources, retention, alert ownership and a sample path from alert to resolution",
+            "Data categories, purposes, storage, regions, processors, access, retention, deletion and backups",
           ],
         },
         {
           type: "p",
-          text: "The pattern worth noticing is that quantified problems get priced and unquantified problems get treated as worse than they probably are. A finding you can attach a number and a plan to almost always lands in one of the middle rows. The same finding with a shrug attached tends to drift towards the harsher end, because the other side has to assume the worst case.",
-        },
-        {
-          type: "callout",
-          text: "You cannot control what diligence finds. You can control whether each finding arrives with a number next to it.",
+          text: "Reconcile the data inventory with production schemas, object stores, analytics, logs, support tools and vendor configuration. Record unverified areas instead of asserting compliance. Jurisdiction- or sector-specific conclusions for health, payment, employment, consumer or international data require the appropriate privacy, security and legal specialists.",
         },
       ],
     },
     {
-      heading: "How to prepare, honestly",
+      heading: "How do you test operations, recovery and cloud cost?",
       blocks: [
         {
           type: "p",
-          text: "There is a temptation to tidy up in the weeks before a review — write a burst of documentation, add some tests, clean the repository history. Experienced reviewers read this as clearly as anyone reads a house that was painted the week before a survey, and it costs credibility precisely when credibility is doing the most work.",
+          text: "Backup existence and recoverability are different findings. Ask for the backup scope, exclusions, retention, relevant separation, restore runbook, most recent restore record, integrity checks and actual results against the required recovery objectives. If only backup configuration is visible, state that restoration was not evidenced.",
         },
         {
           type: "p",
-          text: "A far better position is to know your own weaknesses and be able to price them. Disclosure of a problem you have already assessed reads as competence. Discovery of the same problem by the reviewer reads as either ignorance or concealment, and neither is helpful.",
+          text: "For cloud cost, request recent invoices and exports mapped to products, environments and major services. Identify commitments, egress, licences, manual operations and resources without clear ownership. Spend alone does not establish efficiency; compare it with workload volume and the reliability, security and performance requirements the system must meet.",
         },
+        {
+          type: "list",
+          items: [
+            "Service objectives or internal targets and the telemetry used to assess them",
+            "Monitoring coverage, alert ownership, incident history and unresolved follow-up",
+            "Backup and restore evidence for data and dependencies that source code cannot recreate",
+            "Release, rollback and emergency-access procedures with recent execution evidence",
+            "Cloud account, billing, domain, DNS, registry and recovery-contact control",
+            "Cost model, major drivers and trade-offs attached to proposed reductions",
+          ],
+        },
+      ],
+    },
+    {
+      heading: "How do you assess ownership and key-person concentration?",
+      blocks: [
+        {
+          type: "p",
+          text: "Build a provenance schedule that maps material repositories and assets to founders, employees, contractors, agencies and third-party components. Pair it with the relevant agreements and transfer records for qualified counsel to review. Missing or unclear documentation creates an ownership question; its legal effect depends on facts, jurisdiction and contract language.",
+        },
+        {
+          type: "p",
+          text: "Repository contribution graphs and code-owner files can show concentration, but they do not measure understanding. Test operational knowledge through demonstrations and interviews. Can more than one authorised person deploy, restore, rotate credentials, explain critical data flows and respond to an alert? Distinguish one primary owner from a critical action with no tested backup operator.",
+        },
+        {
+          type: "callout",
+          text: "Do not convert a missing document or concentrated contribution history into a universal transaction outcome. Describe the observed condition, the question it creates, the evidence still needed and who is qualified to resolve it.",
+        },
+      ],
+    },
+    {
+      heading: "How should findings be rated and reported?",
+      blocks: [
+        {
+          type: "p",
+          text: "Rate findings against the buyer’s objectives, not a universal list of deal breakers. Each finding should connect an observed condition to the affected business assumption, systems and data, likelihood and impact rationale, existing controls, residual risk and a verification method for any proposed fix.",
+        },
+        {
+          type: "table",
+          caption: "A buyer-readable finding record",
+          head: ["Field", "What to record"],
+          rows: [
+            ["Observation", "The exact condition and dated evidence, including scope limitations"],
+            ["Decision link", "The claim, control, integration or business assumption affected"],
+            ["Exposure", "Affected systems, data, users and the path by which harm or constraint could arise"],
+            ["Assessment", "Likelihood and impact rationale, uncertainty, existing controls and residual risk"],
+            ["Action", "Recommended response, owner, dependencies and what completion means"],
+            ["Verification", "The test, document or observed result that will close or re-rate the finding"],
+          ],
+        },
+        {
+          type: "p",
+          text: "Keep vulnerability severity, business risk and transaction materiality separate. A vulnerability score can describe technical characteristics; the buyer still needs environment, exposure and business context. The report should also distinguish architecture constraints, operational gaps, ownership questions and missing documentation so the right person handles each one.",
+        },
+      ],
+    },
+    {
+      heading: "What should be in the final evidence package?",
+      blocks: [
         {
           type: "list",
           ordered: true,
           items: [
-            "Run a licence audit on your full dependency tree, including transitive dependencies. Tooling does this in an afternoon. Fix or replace anything with a copyleft obligation incompatible with your model.",
-            "Collect every IP assignment — employees, contractors, agencies, advisors, founders. Any missing signature is far cheaper to obtain now than during a transaction, when the counterparty knows you need it.",
-            "Write down the architecture and its known problems. Two or three pages, with the awkward parts named. This document does more for a reviewer's confidence than any amount of polish.",
-            "Reduce single points of knowledge. Have someone other than the usual person deploy, and let a second engineer walk through each critical subsystem so they can answer questions about it.",
-            "Restore a backup to a fresh environment and note how long it took. An untested backup is a claim, not a control.",
-            "Prepare a technical debt register with rough effort estimates. Being able to say \"we know, it is about six weeks, here is the plan\" converts an unknown into a number.",
+            "A scope statement tying the review to the buyer’s decision and assumptions",
+            "An evidence index with source, date, owner, access limitation and reviewed version",
+            "Current architecture, data-flow and account-ownership maps reconciled with deployed systems",
+            "Repository, delivery, dependency, security, privacy, recovery and cost evidence",
+            "A contributor and component-provenance schedule for specialist legal review",
+            "A findings register with uncertainty, buyer-specific priority, owner and verification criteria",
+            "A remediation plan that separates pre-decision questions from post-decision improvement work",
+            "A list of matters not concluded and the legal, financial, privacy or security specialist required",
           ],
         },
         {
           type: "p",
-          text: "That list is worth working through even if no transaction is planned. It is the same list that reduces your own operating risk, which is why the companies that come through diligence smoothly are usually the ones that never treated it as an event.",
-        },
-      ],
-    },
-    {
-      heading: "What the process looks like from the inside",
-      blocks: [
-        {
-          type: "p",
-          text: "For an early-stage company the review typically runs one to two weeks and involves a small number of activities. Knowing the shape removes most of the anxiety.",
-        },
-        {
-          type: "list",
-          items: [
-            "A document request: architecture notes, dependency list, security policies, org chart of who owns what, incident history.",
-            "Read-only repository access, usually time-boxed. Reviewers look at structure, test coverage, commit distribution and dependency health rather than reading everything.",
-            "Interviews with two or three engineers, deliberately not only the CTO. Junior engineers are often the most informative people in the process, because they describe how things actually work rather than how they were designed.",
-            "A live walkthrough of deployment and monitoring — how a change reaches production, what alerts exist, what happened during the last outage.",
-            "A findings report, usually shared with you before it goes to the investment committee, with an opportunity to respond.",
-          ],
-        },
-        {
-          type: "p",
-          text: "That final step matters more than it sounds. Most findings have context that changes their severity, and reviewers generally want to be accurate. Respond substantively rather than defensively, and a serious finding often becomes a moderate one.",
-        },
-        {
-          type: "p",
-          text: "If you are heading into a raise or a sale and want a rehearsal — the same review, run by someone whose report goes only to you — that is a short engagement and it is much cheaper to hear it first from your own side.",
+          text: "ApexStack can scope a technical evidence-readiness review, test selected controls and produce a buyer-readable findings register through its technical consulting service. The engagement does not replace legal, financial or investment advice, and IP, licence or compliance conclusions may require qualified counsel and specialist assessors.",
         },
       ],
     },
@@ -263,27 +289,37 @@ export const post: BlogPost = {
     {
       question: "What is technical due diligence?",
       answer:
-        "An assessment, usually commissioned by an investor or acquirer, of whether a company's technology can support the plan the deal is priced on. It covers key-person risk, architecture against projected growth, legal exposure through licensing and IP assignment, and security and compliance posture. It is not primarily a judgement of code quality.",
+        "Technical due diligence is a scoped review that tests claims about a software asset against repositories, deployed architecture, dependencies, security and data controls, operations, ownership records and team practices. It records supported conclusions, contradictory evidence and unresolved uncertainty for the buyer’s decision.",
+    },
+    {
+      question: "Is technical due diligence the same as a code review?",
+      answer:
+        "No. Code and repository controls are part of the evidence, but the review also covers deployed systems, accounts, software dependencies, data handling, security operations, recovery, cost, provenance and whether authorised people can run critical processes.",
     },
     {
       question: "How long does technical due diligence take?",
       answer:
-        "For an early-stage company, typically one to two weeks: a document request, time-boxed read-only repository access, interviews with two or three engineers, a walkthrough of deployment and monitoring, and a findings report. Larger or regulated businesses take longer, mostly because the compliance review expands rather than the code review.",
+        "There is no standard duration. It depends on the buyer’s decision, product and entity scope, number of repositories and environments, data sensitivity, evidence quality, access constraints and whether specialist legal, privacy or security review is required. The scope should define the questions and evidence before setting a schedule.",
     },
     {
-      question: "Will messy code fail technical due diligence?",
+      question: "Does an SBOM complete the dependency review?",
       answer:
-        "Rarely on its own. Reviewers care far more about whether the system is understood by several people, whether it can reach the numbers in the forecast, and whether there is legal exposure. Documented technical debt with a rough cost is treated as a line item. What causes real problems is unassigned intellectual property, incompatible open-source licences, and knowledge concentrated in one person.",
+        "No. An SBOM is inventory evidence for its stated coverage and generation context. Reviewers should reconcile it with manifests, lockfiles, images, services and the deployed estate, then assess actual use, maintenance, vulnerabilities, licence data and unknown coverage.",
     },
     {
-      question: "What is the most common serious finding?",
+      question: "Can a technical reviewer decide who owns the source code?",
       answer:
-        "Key-person risk — one engineer being the only person who can deploy, or the only person who understands a critical subsystem. It is common in young companies and it is tested indirectly through commit distribution and questions about who has deployed recently, so it is not something that can be presented around.",
+        "A reviewer can map contributors, repositories, components and available agreements, and can flag missing or unclear provenance. Ownership and licence conclusions depend on facts, jurisdiction and contract language, so qualified counsel should make the legal assessment.",
     },
     {
-      question: "Should I tidy up the codebase before a review?",
+      question: "What makes a technical due diligence finding useful?",
       answer:
-        "Do the substantive work — licence audit, IP assignments, reducing single points of knowledge, testing a backup restore — and skip the cosmetic work. Experienced reviewers recognise a last-minute clean-up and it costs credibility. Disclosing a problem you have already assessed and priced reads far better than having the reviewer find it.",
+        "It states the observed condition and evidence, links it to a buyer assumption, explains affected systems and uncertainty, assesses likelihood and impact in the buyer’s context, and names an action and verification method. A label without that trail is difficult to use or challenge.",
     },
+  ],
+  related: [
+    "choosing-a-tech-stack-for-your-mvp",
+    "de-risking-a-software-rewrite",
+    "who-owns-the-code",
   ],
 };
