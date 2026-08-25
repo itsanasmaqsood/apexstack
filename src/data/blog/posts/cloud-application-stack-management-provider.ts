@@ -2,21 +2,22 @@ import type { BlogPost } from "@/data/blog/types";
 
 export const post: BlogPost = {
   slug: "cloud-application-stack-management-provider",
-  title: "What Should a Cloud Application Stack Provider Actually Manage?",
-  seoTitle: "Cloud Application Stack Provider: Scope Checklist",
+  title: "Cloud Application Stack Management: What Should a Provider Own?",
+  seoTitle: "Cloud Application Stack Management Checklist",
   description:
-    "Compare cloud application stack providers by ownership, operating evidence, recovery planning and handover—not a vague managed-service label.",
+    "Define cloud application stack management by ownership, operating evidence, recovery planning and handover—not a vague managed-service label.",
   excerpt:
     "A buyer's checklist for defining who operates each cloud application layer, what evidence they provide and where responsibility stays with your team.",
   category: "Choosing a Partner",
-  primaryKeyword: "cloud app stack provider",
+  primaryKeyword: "cloud application stack management",
   secondaryKeywords: [
+    "cloud app stack provider",
     "cloud app stack services",
-    "cloud application stack management",
     "cloud app stack solution",
     "managed cloud application stack",
   ],
   published: "2026-08-18",
+  updated: "2026-08-25",
   authorId: "leadership-02",
   serviceSlug: "cloud-devops",
   keyTakeaway:
@@ -180,15 +181,70 @@ export const post: BlogPost = {
       ],
     },
     {
-      heading: "What can a US$1,000 starting engagement cover?",
+      heading: "What should a monthly cloud operations report contain?",
       blocks: [
         {
           type: "p",
-          text: "At ApexStack, an engagement can start at US$1,000 when the first outcome is tightly constrained. For a cloud application stack, that might be an architecture and ownership review, a deployment audit, a recovery-readiness assessment or one focused pipeline or observability improvement. It is not a blanket price for operating or rebuilding a complete production estate.",
+          text: "A monthly operations report should show decisions and evidence, not a wall of unprioritised metrics. The exact contents depend on the workload, but the report should let a buyer connect changes, incidents, recovery readiness, access, capacity and spend to the people responsible for the next action.",
+        },
+        {
+          type: "table",
+          caption: "A practical cloud application stack management report",
+          head: ["Reporting area", "What to include", "Decision it should support"],
+          rows: [
+            [
+              "Changes and releases",
+              "Material releases, configuration changes, failed changes and rollback evidence",
+              "Whether the release process is controlled and where corrective work is needed",
+            ],
+            [
+              "Incidents and alerts",
+              "Material incidents, recurring alerts, impact, response and tracked corrective actions",
+              "Which failure patterns need engineering work rather than more notifications",
+            ],
+            [
+              "Recovery readiness",
+              "Backup status, restore or recovery exercises, findings and unresolved gaps",
+              "Whether the documented recovery path has current evidence behind it",
+            ],
+            [
+              "Identity and access",
+              "Privileged-access changes, removals, reviews and unresolved exceptions",
+              "Whether access still matches current roles and approved operational needs",
+            ],
+            [
+              "Workload health and capacity",
+              "Signals tied to application health, capacity constraints and meaningful trends",
+              "Whether the workload needs a configuration, architecture or capacity change",
+            ],
+            [
+              "Cost",
+              "Spend by workload, budget exceptions, anomalies and approved optimisation decisions",
+              "Which cost change has an owner and whether it reflects useful demand or waste",
+            ],
+            [
+              "Known risks and maintenance",
+              "Upcoming upgrades, expiring dependencies, open risks and ownership decisions",
+              "What must be approved or scheduled before it becomes urgent",
+            ],
+          ],
         },
         {
           type: "p",
-          text: "A useful first phase should end with something your team can inspect: a responsibility map, prioritised risk register, tested change, working dashboard or recovery finding. Wider implementation is scoped only after the application, hosting model, access boundary and operational risks are understood.",
+          text: "Microsoft's Azure Well-Architected guidance treats observability as a separate workload capability that collects metrics, logs, traces and events across infrastructure, application health, and build and release processes. Google Cloud's operational-excellence guidance likewise connects monitoring, capacity planning, incident management and change management. Those practices support a report that explains workload health and action, rather than one built around whichever charts are easiest to export.",
+        },
+      ],
+    },
+    {
+      heading: "How can ApexStack scope the first engagement?",
+      blocks: [
+        {
+          type: "p",
+          text: "ApexStack's Product Blueprint starts from US$1,000 for a bounded planning and de-risking outcome. For a cloud application stack, that could be an architecture and ownership review, a deployment audit or a recovery-readiness assessment. It is not a production build or a blanket price for operating a complete cloud estate.",
+        },
+        {
+          type: "p",
+          text: "A Launch Sprint starts from US$2,500 and covers planning, UX direction, implementation, testing and deployment for one tightly scoped first release or core workflow. Authentication, billing, mobile applications, complex AI, multiple integrations, compliance work and extensive administration can increase the quote. Wider cloud operations are scoped only after the workload, access boundary, recovery needs and operational risks are understood.",
         },
       ],
     },
@@ -214,6 +270,12 @@ export const post: BlogPost = {
       answer:
         "Give each provider the same architecture outline and ask for a layer-by-layer responsibility matrix, exclusions, approval path, evidence pack and exit process. Compare those boundaries alongside price and technology fit.",
     },
+  ],
+  sources: [
+    { title: "Shared responsibility", url: "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/shared-responsibility.html", publisher: "Amazon Web Services" },
+    { title: "Shared responsibility in the cloud", url: "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility", publisher: "Microsoft Azure" },
+    { title: "Architecture strategies for designing a monitoring system", url: "https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/observability", publisher: "Microsoft Azure" },
+    { title: "Operational excellence pillar", url: "https://docs.cloud.google.com/architecture/framework/operational-excellence", publisher: "Google Cloud" },
   ],
   related: [
     "cloud-cost-optimisation",
