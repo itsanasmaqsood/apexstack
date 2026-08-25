@@ -2,308 +2,253 @@ import type { BlogPost } from "@/data/blog/types";
 
 export const post: BlogPost = {
   slug: "taking-over-an-existing-codebase",
-  title: "Taking Over a Codebase From Another Developer",
-  seoTitle: "Taking Over a Codebase From Another Developer",
+  title: "Developer Disappeared Mid-Project? Recover Your MVP",
+  seoTitle: "Developer Disappeared? Recover Your MVP Codebase",
   description:
-    "How to hand a system to a new team without losing months — what to collect before the old team leaves, and what a proper takeover looks like.",
+    "Secure access, rotate credentials, assess the codebase and decide whether to repair or rebuild after a developer disappears mid-project.",
   excerpt:
-    "Most of the pain in changing development partners is created in the two weeks before the old one leaves. Here is what to secure while you still have their attention.",
+    "A recovery checklist for founders who have lost contact with a developer: secure the business assets, preserve what exists and audit the product before accepting a rebuild quote.",
   category: "Legacy Modernisation",
-  primaryKeyword: "taking over an existing codebase",
+  primaryKeyword: "developer disappeared mid project",
   secondaryKeywords: [
-    "changing software development company",
-    "code handover checklist",
-    "inheriting a legacy codebase",
-    "switching development agency",
+    "freelancer disappeared with source code",
+    "recover abandoned software project",
+    "MVP codebase recovery",
+    "taking over an existing codebase",
   ],
   published: "2026-08-13",
+  updated: "2026-08-25",
   authorId: "leadership-02",
-  serviceSlug: "custom-software-development",
+  serviceSlug: "technical-consulting",
   keyTakeaway:
-    "The cost of moving a system to a new development team is decided almost entirely by what you secure before the old team disengages: repository access with full history, credentials to every account, a reproducible local environment, and a recorded walkthrough of the parts that would surprise someone. With those, a competent team is productive in two to four weeks. Without them, the same handover routinely takes two to three months, and most of that time is spent rediscovering things somebody already knew.",
+    "When a developer disappears mid-project, treat it as an asset-control and continuity problem before treating it as a delivery delay. Secure company accounts, preserve the repository and production data, remove unneeded access, and rotate any credentials the former contributor may know. Then ask an independent engineer to reproduce the build and deployment before deciding whether to repair, replace parts, or rebuild.",
   sections: [
     {
-      heading: "Where the cost really comes from",
+      heading: "What should you do when a developer disappears mid-project?",
       blocks: [
         {
           type: "p",
-          text: "When a takeover goes badly, the explanation offered is usually that the code was bad. Sometimes it is. But bad code is a known quantity — you can read it, measure it, and plan around it. It is rarely what makes a handover expensive.",
-        },
-        {
-          type: "p",
-          text: "What makes it expensive is undocumented context. Why does this service exist? What is the reason for the nightly job that appears to do nothing? Which of these three configuration files is the one that is actually loaded? Why is this customer's account special-cased? None of that is in the repository. It was in somebody's head, and that somebody has moved on.",
+          text: "Start by recording which company assets you can control today. Preserve repository history, production data, deployment settings and account records before making unreviewed changes. Removing a collaborator does not invalidate passwords or API keys they may already know, so revoke access and rotate exposed credentials as separate steps. Product work comes after control: a recovery assessment should prove that the system can be built, deployed and restored before anyone recommends a rewrite.",
         },
         {
           type: "callout",
-          text: "A new team can read every line you own and still not know which line matters.",
-        },
-        {
-          type: "p",
-          text: "The practical consequence is that the window in which you can cheaply extract that context is short — it is the notice period of the outgoing team, while they still have a contractual reason to answer questions. What you get during those weeks determines the following six months.",
+          text: "Secure the business assets first. Diagnose the software second. Choose a recovery path third.",
         },
       ],
     },
     {
-      heading: "What to secure before the old team disengages",
+      heading: "Which assets must you secure before changing anything?",
       blocks: [
         {
           type: "p",
-          text: "Work through this while the relationship is still functional. Every item is significantly harder to obtain after the final invoice is settled, and several become impossible.",
+          text: "Create a written inventory with the owner, recovery email, billing contact and current administrators for every service. Do not assume that access to the live website also means you own its code, domain, data or deployment account.",
         },
         {
           type: "table",
-          caption: "Handover checklist, in order of how much it hurts to miss",
-          head: ["Item", "Why it matters", "If you miss it"],
+          caption: "MVP recovery inventory",
+          head: ["Asset", "What to confirm", "What to preserve"],
           rows: [
-            [
-              "Repository with full commit history",
-              "History explains why the code is shaped the way it is",
-              "A zip of the final state; every decision is now unexplained",
-            ],
-            [
-              "Every credential and account",
-              "Cloud, DNS, registrar, certificates, app stores, third-party APIs",
-              "Recovery processes, vendor support tickets, sometimes lost domains",
-            ],
-            [
-              "A local environment someone has actually run",
-              "The new team cannot start until this works",
-              "Days to weeks of reconstruction from guesswork",
-            ],
-            [
-              "The deployment process",
-              "How a change safely reaches production",
-              "Nobody can ship, including for urgent fixes",
-            ],
-            [
-              "Environment variables and secrets, with meanings",
-              "Values alone are not enough — what each one does matters",
-              "Configuration becomes trial and error against production",
-            ],
-            [
-              "A recorded walkthrough",
-              "One hour of narration beats most documents",
-              "The single cheapest artefact, and the one most often skipped",
-            ],
-            [
-              "Known-issues list",
-              "What is broken, what is deliberate, what is feared",
-              "The new team rediscovers each one by breaking something",
-            ],
-            [
-              "Third-party contracts and renewal dates",
-              "Services silently expire",
-              "An outage on a renewal date nobody knew existed",
-            ],
+            ["Business identity", "Company email and identity-provider administrators", "User list, recovery methods and audit records"],
+            ["Source repository", "Organisation ownership, administrators and every active branch", "Full history, releases, issues and pull requests"],
+            ["Hosting and deployment", "Project owner, billing account and production domains", "Build settings, deployment history and environment names"],
+            ["Domain and DNS", "Registrar owner, renewal method and DNS provider", "Current DNS records and verification records"],
+            ["Database and storage", "Administrative access, region and retention settings", "A restorable backup or export made before intervention"],
+            ["Payments, email and authentication", "Company-controlled owners and recovery contacts", "Provider configuration, webhooks and authorised users"],
+            ["Mobile distribution", "Apple and Google organisation ownership where applicable", "Signing assets, package identifiers and release records"],
+            ["Design and product records", "Workspace ownership and licences", "Current designs, requirements, decisions and known issues"],
           ],
         },
-        {
-          type: "p",
-          text: "If you can only get two things, take the repository with full history and the recorded walkthrough. An hour of the outgoing lead engineer talking through the system, screen shared, unscripted, is worth more than a week of documentation written to a template — and it is far easier to ask for, because it costs them almost nothing.",
-        },
       ],
     },
     {
-      heading: "How a competent takeover actually runs",
+      heading: "How should access and credentials be changed safely?",
       blocks: [
         {
           type: "p",
-          text: "A new team that starts by rewriting is not doing a takeover, they are doing a rebuild with extra steps. The sequence below is what a disciplined handover looks like, and it is worth knowing so you can tell the difference.",
-        },
-        {
-          type: "h3",
-          text: "Week one: get it running and observable",
+          text: "Take snapshots or exports before removing access so the recovery team can distinguish an existing fault from a change made during containment. Then remove accounts that no longer need access, rotate passwords, deployment tokens, database credentials, API keys and signing secrets that may have been shared, and update the services that consume them.",
         },
         {
           type: "p",
-          text: "Nothing else can start until the system runs locally and the team can deploy a trivial change to production safely. The first commit should be something inconsequential — a typo fix — deployed end to end, purely to prove the pipeline works and to find out what is missing.",
-        },
-        {
-          type: "p",
-          text: "In parallel: error tracking and uptime monitoring, if they are not already there. You cannot assess a system you cannot see failing.",
-        },
-        {
-          type: "h3",
-          text: "Weeks two and three: map it, do not judge it",
-        },
-        {
-          type: "p",
-          text: "Trace the critical user journeys through the code. Produce an architecture note — components, data stores, external dependencies, what talks to what. Build the known-issues list. Resist the urge to fix anything not actively on fire; changes made before the system is understood are how takeovers introduce new problems while fixing old ones.",
-        },
-        {
-          type: "h3",
-          text: "Week four onward: stabilise, then change",
-        },
-        {
-          type: "p",
-          text: "Add tests around whatever you are about to touch first — not comprehensive coverage, which is a project of its own, but a safety net around the specific area. Bring the most urgent security updates current. Then start delivering the changes you actually hired them for.",
-        },
-        {
-          type: "p",
-          text: "A new team asking for two to four weeks before delivering features is behaving correctly. A team promising new features in week one is planning to skip the mapping, and you will pay for that in month three.",
-        },
-      ],
-    },
-    {
-      heading: "The rewrite question, early",
-      blocks: [
-        {
-          type: "p",
-          text: "Any incoming team will be tempted to recommend a rewrite. It is genuinely more pleasant to write new code than to understand old code, and the recommendation is not always self-serving — sometimes it is right. But it arrives before anyone knows enough to make it.",
-        },
-        {
-          type: "p",
-          text: "A useful rule: no rewrite recommendation should be accepted in the first month. If the system is still recommended for replacement after the team has mapped it, the recommendation now rests on evidence and is worth taking seriously.",
-        },
-        {
-          type: "table",
-          caption: "Reasons given for a rewrite, and how much weight to give them",
-          head: ["Stated reason", "Weight", "Better first step"],
-          rows: [
-            [
-              "The code is messy and hard to read",
-              "Low",
-              "Refactor the area you are about to change, not the whole system",
-            ],
-            [
-              "It uses an unfashionable framework",
-              "Very low",
-              "Nothing — fashion is not a cost",
-            ],
-            [
-              "The runtime is out of security support",
-              "High",
-              "Upgrade the runtime; this is usually far smaller than a rewrite",
-            ],
-            [
-              "The data model cannot represent what the business now does",
-              "High",
-              "Model the new domain and plan a migration path",
-            ],
-            [
-              "There are no tests",
-              "Medium",
-              "Add tests around active areas; this is incremental and cheap",
-            ],
-            [
-              "Nobody understands it",
-              "Medium",
-              "Map it first — this is a knowledge problem before it is a code problem",
-            ],
-          ],
-        },
-        {
-          type: "p",
-          text: "The two rows marked high are the ones that genuinely justify major work, and neither necessarily means starting from zero. A runtime upgrade and a data-model migration are both large, but both preserve the years of accumulated business logic that a rewrite throws away and then reimplements imperfectly.",
-        },
-      ],
-    },
-    {
-      heading: "What a takeover costs",
-      blocks: [
-        {
-          type: "p",
-          text: "The onboarding period is billable work that produces no new features, which makes it the part buyers most want to skip and the part that most determines what the following months cost. It is worth budgeting explicitly rather than hoping it is absorbed.",
-        },
-        {
-          type: "table",
-          caption: "Onboarding effort by handover quality — observed market ranges",
-          head: ["Handover quality", "Time to productive", "Typical cost", "What is missing"],
-          rows: [
-            [
-              "Complete",
-              "1–2 weeks",
-              "USD 3,000–8,000",
-              "Nothing — repo, credentials, environment, walkthrough all present",
-            ],
-            [
-              "Partial",
-              "3–5 weeks",
-              "USD 8,000–20,000",
-              "Usually the environment and the deployment process",
-            ],
-            [
-              "Code only",
-              "6–10 weeks",
-              "USD 20,000–45,000",
-              "Credentials, context, and any record of why things are as they are",
-            ],
-            [
-              "Team unreachable",
-              "8–14 weeks",
-              "USD 30,000–70,000",
-              "Account recovery runs in parallel with reverse-engineering",
-            ],
-          ],
-        },
-        {
-          type: "p",
-          text: "These are market ranges for the onboarding phase alone, before any new work, and they scale with system size. The gap between the first and third rows is the entire argument for spending an afternoon on a handover checklist while the outgoing team is still under contract.",
-        },
-        {
-          type: "callout",
-          text: "A day of handover during the notice period routinely saves a month of archaeology afterwards.",
-        },
-        {
-          type: "p",
-          text: "One further variable worth pricing: whether anyone from the previous team is available for paid questions afterwards. Even a few hours a month for the first quarter, agreed in advance, is disproportionately valuable — and much easier to arrange before the relationship ends than after.",
-        },
-      ],
-    },
-    {
-      heading: "If the old team has already gone",
-      blocks: [
-        {
-          type: "p",
-          text: "Often the handover checklist arrives too late — the relationship ended badly, or the developer simply stopped responding. This is recoverable more often than it feels, and there is a sensible order to the recovery.",
+          text: "OWASP treats secret revocation and rotation as separate lifecycle actions. GitHub also warns that removing an outside collaborator does not remove any local clone they already hold. This is why deleting a user is necessary but insufficient: known credentials must be invalidated, and future access should use individual identities with the least privilege required.",
         },
         {
           type: "list",
           ordered: true,
           items: [
-            "Establish what you can access right now: hosting, domain registrar, repository, app store accounts, payment provider. Make a list of what you hold and what you do not.",
-            "Prioritise the domain and DNS above everything. Losing control of a domain is one of the few genuinely unrecoverable outcomes, and registrars have account-recovery processes that reward evidence of ownership — company documents, original payment records.",
-            "Recover accounts through vendor support where access is missing. Cloud providers and app stores have processes for this; they are slow and they work, and they are much easier while the business relationship is only dormant rather than disputed.",
-            "If you have no code, check whether the running system can be extracted from the server, and whether any former engineer retains a fork they can legitimately return to you.",
-            "Have someone independent assess the system for a few days before deciding anything. Panic decisions after a bad separation are how a recoverable situation becomes a rebuild.",
+            "Record the current administrators, integrations and production state.",
+            "Create and test a data backup or export where the provider supports it.",
+            "Remove access that is no longer authorised without deleting shared business assets.",
+            "Rotate credentials that may have been exposed and update their consumers.",
+            "Review audit logs and recent changes for anything that needs investigation.",
+            "Store replacement secrets in a designated secrets manager rather than source files or chat messages.",
           ],
         },
+      ],
+    },
+    {
+      heading: "Can the source code and live product be recovered?",
+      blocks: [
         {
           type: "p",
-          text: "Worth saying plainly: this is the situation where an IP assignment clause proves its value. If ownership is documented, you are asking vendors to restore access to your property. If it is not, you are asking them to adjudicate a dispute, which they will decline to do.",
+          text: "Recovery depends on what the company controls and what the provider permits. GitHub requires administrative access to transfer a repository, and the receiving owner may need to accept it. Vercel documents team-to-team project transfers and a DNS-verification process for claiming a domain connected to an inaccessible account, but those routes have platform-specific requirements and do not guarantee recovery of every asset.",
+        },
+        {
+          type: "table",
+          caption: "What each recovery starting point can support",
+          head: ["Starting point", "What may be recoverable", "Important limit"],
+          rows: [
+            ["Company-owned repository", "Full code history, branches and repository records", "Hosting, secrets and data may still be owned elsewhere"],
+            ["Contractor-owned repository with an available administrator", "A documented transfer may preserve repository records", "The current administrator must have permission to transfer it"],
+            ["A local archive or zip", "A code snapshot can be assessed and placed in a new repository", "Commit history, branches and some build context are missing"],
+            ["A running deployment only", "Configuration and public behaviour can inform an assessment", "A deployment is not automatically a recoverable source repository"],
+            ["No source and disputed ownership", "Company-owned data and accounts can still be inventoried", "Preserve contracts and records, and seek qualified legal advice"],
+          ],
+        },
+      ],
+    },
+    {
+      heading: "What should an independent recovery audit prove?",
+      blocks: [
+        {
+          type: "p",
+          text: "A useful audit produces evidence another team can act on. It should not begin with a preferred framework or a rewrite proposal. It should establish whether the current artefacts form a reproducible, supportable system and identify the smallest safe decision that follows.",
+        },
+        {
+          type: "list",
+          items: [
+            "The repository can be checked out and built in a clean environment.",
+            "The deployed application can be mapped to a specific revision and configuration.",
+            "Production data has an understood backup and restoration path.",
+            "Dependencies, licences and supported runtime versions are recorded.",
+            "Repository history and deployment configuration have been checked for exposed secrets.",
+            "The critical user workflow can be exercised and its failures observed.",
+            "Tests, monitoring and known gaps are separated from assumptions.",
+            "The recommendation explains what to retain, repair, replace or rebuild, with the evidence for each choice.",
+          ],
+        },
+      ],
+    },
+    {
+      heading: "When should you repair, replace or rebuild the MVP?",
+      blocks: [
+        {
+          type: "p",
+          text: "Choose after the audit, not during the first anxious conversation. A difficult codebase can still contain working business rules and data that are expensive to recreate. Equally, a clean-looking repository is not useful if nobody can deploy it, restore its data or support its dependencies.",
+        },
+        {
+          type: "table",
+          caption: "Evidence for the recovery decision",
+          head: ["Decision", "Evidence that supports it", "First practical move"],
+          rows: [
+            ["Repair the current system", "It builds and deploys; critical flows work; faults are bounded", "Protect the affected area with tests, then fix the documented fault"],
+            ["Replace one component", "A specific dependency or service is unsupported or blocks delivery", "Define its interface and migrate that boundary without replacing unrelated parts"],
+            ["Rebuild in stages", "The existing system must stay available while high-risk parts change", "Move one verified workflow at a time and keep rollback possible"],
+            ["Rebuild the first release", "Usable source is absent, ownership permits a new build, and the required workflow is tightly defined", "Preserve data and requirements, then scope one testable release rather than recreating every screen"],
+          ],
+        },
+      ],
+    },
+    {
+      heading: "How do you prevent one developer becoming a single point of failure?",
+      blocks: [
+        {
+          type: "p",
+          text: "Put business-critical services in company-owned organisations and use role-based access for employees and contractors. GitHub recommends maintaining at least two organisation owners so an unreachable owner does not make projects inaccessible. AWS guidance likewise favours temporary credentials, multi-factor authentication and least-privilege permissions over shared long-term credentials.",
+        },
+        {
+          type: "list",
+          items: [
+            "Use a company-controlled email address, billing method and recovery contact for every critical service.",
+            "Maintain at least two trusted organisation owners where the platform permits it.",
+            "Give each contributor an individual account and only the permissions their work requires.",
+            "Document how to build, deploy, roll back and restore the product from a backup.",
+            "Keep an inventory of domains, repositories, cloud projects, data stores and third-party providers.",
+            "Review access when roles change and before a contract ends.",
+          ],
+        },
+      ],
+    },
+    {
+      heading: "How can ApexStack scope the first recovery step?",
+      blocks: [
+        {
+          type: "p",
+          text: "A Product Blueprint starts from US$1,000 and can define the asset inventory, technical risks and evidence needed for a repair-or-rebuild decision. It is a bounded planning and de-risking engagement, not a promise to recover or rebuild a production application for that price.",
         },
         {
           type: "p",
-          text: "We take over existing systems regularly, including ones where the previous team is unreachable. If you want an assessment before committing to anything, that is a few days of work and it will tell you whether you are looking at a takeover or a rebuild.",
+          text: "A Launch Sprint starts from US$2,500 and covers planning, UX direction, implementation, testing and deployment for one tightly scoped first release or core workflow. Authentication, billing, mobile applications, advanced AI, multiple integrations, data migration, compliance and extensive administration can increase the quote. The written scope identifies what can be recovered, what must change and what remains outside the first engagement.",
         },
       ],
     },
   ],
   faqs: [
     {
-      question: "How long does it take a new team to become productive on an existing codebase?",
+      question: "What is the first step when a developer disappears mid-project?",
       answer:
-        "Two to four weeks with a proper handover — repository with full history, working local environment, credentials, and a recorded walkthrough. Without those, two to three months is common, and most of that time is spent rediscovering context somebody already had. The variable is almost never code quality; it is how much undocumented knowledge left with the previous team.",
+        "Record and secure the company-controlled accounts, repository, domain, deployment, data stores and third-party services before changing the product. Preserve current artefacts and backups, remove access that is no longer authorised, and rotate credentials the former contributor may know. Only then commission a technical assessment.",
     },
     {
-      question: "What should I get from my current developer before switching?",
+      question: "Can GitHub recover or transfer a contractor-owned repository?",
       answer:
-        "Repository access with full commit history, every credential and account, a local environment someone has actually run, the deployment process, environment variables with explanations, a known-issues list, and third-party contracts with renewal dates. If you can only get two, take the full repository history and a recorded walkthrough — an unscripted hour of narration is worth more than a week of templated documentation.",
+        "GitHub documents repository transfers for administrators, and the receiving owner may need to accept the transfer. That does not guarantee a transfer from an inaccessible or disputed contractor account. Preserve contracts and payment records, use the provider's documented support route, and seek qualified legal advice when ownership is disputed.",
     },
     {
-      question: "Should I let a new team rewrite the system?",
+      question: "Should we rotate credentials after removing the former developer?",
       answer:
-        "Not in the first month. Any incoming team will be tempted, because writing new code is more pleasant than understanding old code, and the recommendation arrives before anyone knows enough to justify it. If the recommendation survives after they have mapped the system, it now rests on evidence. An out-of-support runtime or a data model that cannot represent the business are the reasons that genuinely carry weight.",
+        "Yes, when the former developer may know or retain them. Removing a user does not invalidate copied passwords, API keys, database credentials or deployment tokens. Revoke and replace exposed credentials, update the services that consume them, and store the replacements in a designated secrets manager.",
     },
     {
-      question: "What if my previous developer has disappeared?",
+      question: "How do we decide whether to repair or rebuild an abandoned MVP?",
       answer:
-        "Recoverable more often than it feels. Establish what you can currently access, prioritise the domain and DNS above everything else since losing a domain is one of the few unrecoverable outcomes, and use vendor account-recovery processes for the rest — they are slow but they work. A documented IP assignment makes this dramatically easier, because you are asking vendors to restore access to your property rather than to settle a dispute.",
+        "First test whether the available source can build in a clean environment, map it to production, restore its data, support its dependencies and run the critical workflow. Repair bounded faults, replace isolated blockers and reserve a rebuild for evidence that the current artefacts cannot support the agreed release safely.",
     },
     {
-      question: "Is it normal for a new team to spend weeks before delivering features?",
+      question: "How can a founder prevent the same handover problem?",
       answer:
-        "Yes, and it is a good sign. A disciplined takeover spends the first week getting the system running and deployable, the next two mapping the critical paths and cataloguing known issues, and only then starts changing things. A team promising new features in week one is skipping the mapping, and that shows up as new problems around month three.",
+        "Keep critical services in company-owned organisations, maintain more than one trusted owner where supported, use individual least-privilege accounts, and document the build, deployment, rollback and restoration paths. Review access before contracts end and keep a current inventory of every operational dependency.",
+    },
+  ],
+  sources: [
+    {
+      title: "Computer Security Incident Handling Guide, Revision 3",
+      url: "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+      publisher: "NIST",
+    },
+    {
+      title: "Secrets Management Cheat Sheet",
+      url: "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html",
+      publisher: "OWASP",
+    },
+    {
+      title: "Transferring a repository",
+      url: "https://docs.github.com/en/repositories/creating-and-managing-repositories/transferring-a-repository",
+      publisher: "GitHub Docs",
+    },
+    {
+      title: "Removing an outside collaborator from an organisation repository",
+      url: "https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/removing-an-outside-collaborator-from-an-organization-repository",
+      publisher: "GitHub Docs",
+    },
+    {
+      title: "Maintaining ownership continuity for your organisation",
+      url: "https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization",
+      publisher: "GitHub Docs",
+    },
+    {
+      title: "Transferring projects",
+      url: "https://vercel.com/docs/projects/transferring-projects",
+      publisher: "Vercel Docs",
+    },
+    {
+      title: "Claim domain ownership",
+      url: "https://vercel.com/docs/domains/working-with-domains/claim-domain-ownership",
+      publisher: "Vercel Docs",
+    },
+    {
+      title: "Security best practices in IAM",
+      url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+      publisher: "Amazon Web Services",
     },
   ],
 };
