@@ -1,28 +1,28 @@
 import type { BlogPost } from "@/data/blog/types";
 
 export const post: BlogPost = {
-  slug: "signs-mvp-scope-is-too-big",
-  title: "5 Signs Your MVP Scope Is Too Big Before You Pay Anyone",
-  seoTitle: "5 Signs Your MVP Scope Is Too Big Before You Pay | ApexStack",
-  description: "A practical guide to signs mvp scope is too big, covering scope, evidence, ownership, delivery risk and the next decision for founders.",
-  excerpt: "A buyer-focused guide to signs mvp scope is too big: define the decision, request useful evidence and keep the first release accountable.",
+  slug: "how-to-know-if-your-mvp-is-too-big",
+  title: "How to Know If Your MVP Scope Is Too Big",
+  seoTitle: "Is Your MVP Scope Too Big? 5 Warning Signs",
+  description: "Use five warning signs to identify an oversized MVP scope, cut secondary workflows and define evidence for a focused first release.",
+  excerpt: "Five practical warning signs that an MVP is trying to serve too many users, workflows or assumptions before the first release.",
   category: "MVP & Startups",
-  primaryKeyword: "signs mvp scope is too big",
+  primaryKeyword: "how to know if your MVP is too big",
   secondaryKeywords: [
-    "signs mvp scope is too big checklist",
-    "signs mvp scope is too big scope",
-    "signs mvp scope is too big risks",
+    "MVP scope too big",
+    "MVP scope warning signs",
+    "how to reduce MVP scope",
   ],
   published: "2026-06-27",
-  updated: "2026-08-24",
+  updated: "2026-08-25",
   authorId: "leadership-01",
   serviceSlug: "mvp-development",
-  keyTakeaway: "The safest way to approach reducing avoidable delivery risk is to remove uncertainty before adding features. The first review should cover buyer evidence, scope boundaries, ownership, acceptance criteria and a maintainable handover. For the buyer question “5 Signs Your MVP Scope Is Too Big Before You Pay Anyone”, define one core workflow, explicit exclusions, acceptance evidence, account ownership and a handover plan before committing to implementation.",
+  keyTakeaway: "Your MVP scope is probably too big when it serves several primary users, combines competing workflows, leaves exclusions undefined, postpones failure states or cannot be accepted with specific evidence. Reduce it to one core user journey, write down what version one will not include, keep repository and account ownership clear, and agree how the team will decide whether the release is useful before implementation begins.",
   sections: [
     {
-      heading: "What is the practical answer?",
+      heading: "How can you tell if your MVP scope is too big?",
       blocks: [
-        { type: "p", text: "The safest way to approach reducing avoidable delivery risk is to remove uncertainty before adding features. The first review should cover buyer evidence, scope boundaries, ownership, acceptance criteria and a maintainable handover." },
+        { type: "p", text: "An MVP is too big when the first release is expected to prove several products at once. Warning signs include multiple primary users, competing core workflows, undefined exclusions, acceptance criteria that cannot be tested and infrastructure needed only for hypothetical future scale." },
         { type: "p", text: "The first useful artefact is a decision record, not a longer feature list. It should identify the user, the core journey, the release boundary and the evidence that will be reviewed before more scope is approved." }
       ],
     },
@@ -59,7 +59,7 @@ export const post: BlogPost = {
       ],
     },
     {
-      heading: "What are the common warning signs?",
+      heading: "Which five warning signs show the MVP is too big?",
       blocks: [
         {
           type: "list",

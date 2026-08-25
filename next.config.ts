@@ -73,6 +73,16 @@ const nextConfig: NextConfig = {
         destination: "/blog/how-to-build-marketplace-mvp-that-doesnt-die",
         permanent: true,
       },
+      {
+        source: "/blog/ai-first-product-studio",
+        destination: "/blog/ai-product-studio-for-founders",
+        permanent: true,
+      },
+      {
+        source: "/blog/signs-mvp-scope-is-too-big",
+        destination: "/blog/how-to-know-if-your-mvp-is-too-big",
+        permanent: true,
+      },
     ];
   },
 

@@ -1,28 +1,28 @@
 import type { BlogPost } from "@/data/blog/types";
 
 export const post: BlogPost = {
-  slug: "ai-first-product-studio",
-  title: "What an AI-First Product Studio Actually Does for Founders",
-  seoTitle: "What an AI-First Product Studio Actually Does | ApexStack",
-  description: "A practical guide to ai first product studio, covering scope, evidence, ownership, delivery risk and the next decision for founders.",
-  excerpt: "A buyer-focused guide to ai first product studio: define the decision, request useful evidence and keep the first release accountable.",
+  slug: "ai-product-studio-for-founders",
+  title: "What Does an AI Product Studio Do for Founders?",
+  seoTitle: "AI Product Studio for Founders: Scope Checklist",
+  description: "Learn what an AI product studio should own, from discovery and model evaluation to deployment, code ownership and handover.",
+  excerpt: "A founder's checklist for defining an AI product studio's scope, operating evidence, account ownership and handover responsibilities.",
   category: "Choosing a Partner",
-  primaryKeyword: "ai first product studio",
+  primaryKeyword: "AI product studio for founders",
   secondaryKeywords: [
-    "ai first product studio checklist",
-    "ai first product studio scope",
-    "ai first product studio risks",
+    "what does an AI product studio do",
+    "AI product studio scope",
+    "AI product studio checklist",
   ],
   published: "2026-06-22",
-  updated: "2026-08-24",
+  updated: "2026-08-25",
   authorId: "leadership-01",
   serviceSlug: "ai-development",
-  keyTakeaway: "Choose a delivery partner by examining who owns discovery, technical decisions, quality checks, deployment and handover. The proposal should be explicit about model limits, code ownership, data access, evaluation and a maintainable handover. For the buyer question “What an AI-First Product Studio Actually Does for Founders”, define one core workflow, explicit exclusions, acceptance evidence, account ownership and a handover plan before committing to implementation.",
+  keyTakeaway: "An AI product studio should turn a founder's product question into a scoped, testable release. Its responsibilities may include discovery, user flows, interface design, software engineering, model evaluation, deployment and handover, but the proposal should name the exact boundary. Before implementation, define one core workflow, excluded features, acceptance evidence, code and account ownership, data access, model limitations and the handover plan.",
   sections: [
     {
-      heading: "What is the practical answer?",
+      heading: "What does an AI product studio do for founders?",
       blocks: [
-        { type: "p", text: "Choose a delivery partner by examining who owns discovery, technical decisions, quality checks, deployment and handover. The proposal should be explicit about model limits, code ownership, data access, evaluation and a maintainable handover." },
+        { type: "p", text: "An AI product studio can combine product discovery, user experience, software engineering and AI implementation within one delivery scope. The useful distinction is not the studio label; it is whether the proposal names who owns product decisions, model evaluation, quality checks, deployment, code, accounts and handover." },
         { type: "p", text: "A narrow release is easier to evaluate and hand over. Name the user, the trigger, the desired outcome and the acceptance evidence before deciding which secondary features belong in the plan." }
       ],
     },

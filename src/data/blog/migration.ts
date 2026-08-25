@@ -20,7 +20,7 @@ export const COMPLETED_MIRROR_REWRITES = [
   "ai-development-studio-for-startups",
   "ai-features-that-make-startup-mvps-fail",
   "ai-first-mvp-development",
-  "ai-first-product-studio",
+  "ai-product-studio-for-founders",
   "ai-generated-code-mistakes-pitfalls-bug-free",
   "ai-mvp-development-for-startups",
   "ai-mvp-fintech-what-to-build-what-to-skip",
@@ -91,7 +91,7 @@ export const COMPLETED_MIRROR_REWRITES = [
   "production-ready-mvp-development-service",
   "questions-to-ask-before-signing-development-agency",
   "ship-mvp-in-weeks-ai",
-  "signs-mvp-scope-is-too-big",
+  "how-to-know-if-your-mvp-is-too-big",
   "signs-you-need-a-rebrand",
   "startup-mvp-builder",
   "things-to-include-in-mvp-agencies-skip",
@@ -107,10 +107,12 @@ export const COMPLETED_MIRROR_REWRITES = [
 export const PENDING_MIRROR_REWRITES = [] as const;
 
 const SOURCE_SLUG_OVERRIDES: Record<string, string> = {
+  "ai-product-studio-for-founders": "ai-first-product-studio",
   "ai-product-development-for-startups-apexstack":
     "ai-product-development-for-startups-dreamlaunch",
   "apexstack-4-6-week-mvp-process-what-happens":
     "dreamlaunch-4-6-week-mvp-process-what-happens",
+  "how-to-know-if-your-mvp-is-too-big": "signs-mvp-scope-is-too-big",
 };
 
 export function dreamLaunchSourceUrl(slug: string): string {
@@ -121,4 +123,3 @@ export const MIRROR_PROVENANCE_COUNT =
   ALREADY_ORIGINALISED_DREAMLAUNCH_POSTS.length +
   COMPLETED_MIRROR_REWRITES.length +
   PENDING_MIRROR_REWRITES.length;
-
