@@ -2,249 +2,274 @@ import type { BlogPost } from "@/data/blog/types";
 
 export const post: BlogPost = {
   slug: "what-is-a-discovery-phase",
-  title: "What a Discovery Phase Is, and Why It Is Not a Delay",
-  seoTitle: "Software Discovery Phase: What It Is and Costs",
+  title: "Software Discovery Phase Cost: What Should You Pay For?",
+  seoTitle: "Software Discovery Phase Cost: What You Pay For",
   description:
-    "What a discovery phase produces, what it costs, and how to tell a real one from two weeks of workshops that end in a slide deck.",
+    "Compare software discovery pricing by scope, evidence and deliverables. See what a paid discovery should answer before implementation begins.",
   excerpt:
-    "The most common objection to discovery is that it delays the build. It usually does the opposite — and there is a straightforward test for whether the one you are being sold is real.",
+    "There is no useful universal percentage for discovery. Compare the unknowns being investigated, the evidence you will receive and the decision it enables.",
   category: "Choosing a Partner",
-  primaryKeyword: "software discovery phase",
+  primaryKeyword: "discovery phase price",
   secondaryKeywords: [
-    "discovery phase cost",
-    "what is a discovery phase in software",
-    "product discovery deliverables",
-    "software project scoping phase",
+    "software discovery phase cost",
+    "product discovery pricing",
+    "software discovery deliverables",
+    "paid discovery phase",
   ],
   published: "2026-08-13",
-  authorId: "leadership-03",
+  updated: "2026-08-26",
+  authorId: "leadership-01",
   serviceSlug: "technical-consulting",
   keyTakeaway:
-    "A discovery phase is a short, fixed-price engagement — typically one to three weeks and roughly five to twelve per cent of the expected build cost — that converts an idea into a specification, an architecture, a risk list and an estimate somebody can be held to. The test of a real one is portability: you should be able to take its output to a different development firm and get a comparable quote. If the deliverable only makes sense to the firm that produced it, you bought a sales document.",
+    "A software discovery phase has no reliable universal price or percentage of build cost. Compare proposals by the uncertainty they investigate, the people and systems involved, the evidence you will receive and the decision that evidence supports. ApexStack’s Product Blueprint starts from US$1,000 for one bounded product or technical question; it is a planning and de-risking engagement, not an application build.",
   sections: [
     {
-      heading: "What discovery is for",
+      heading: "How much does a software discovery phase cost?",
       blocks: [
         {
           type: "p",
-          text: "Estimating software is guessing about work nobody has done yet. The size of the guess depends almost entirely on how much is unknown, and at the point you first speak to a development firm, nearly everything is unknown — to them and, more often than anyone admits, to you.",
+          text: "The honest answer is that discovery pricing follows the evidence gap, not a fixed percentage of the future build. Reviewing one core workflow with known users and accessible systems is a different engagement from investigating several departments, undocumented legacy software, regulated data and disputed requirements. A useful proposal names that boundary before it gives a price.",
         },
         {
           type: "p",
-          text: "Discovery exists to shrink that unknown before anyone commits to a number. It is the difference between \"a customer portal, probably three to six months\" and \"these eleven screens, these four integrations, this data model, this many weeks, and here are the two things that could still move it.\"",
+          text: "ApexStack’s Product Blueprint starts from US$1,000 for one bounded product or technical question. The agreed output may be a workflow definition, feasibility review, prototype assessment or technical risk decision. It does not include a complete production application. If the question is broader, the written scope and quote must broaden with it.",
         },
+      ],
+    },
+    {
+      heading: "What should the discovery price be based on?",
+      blocks: [
         {
           type: "p",
-          text: "The objection is always the same: this delays the build by three weeks. It rarely does. Three weeks of specification typically removes considerably more than three weeks of building the wrong thing, and it removes them from the expensive end of the project where changes cost the most.",
+          text: "Ask the supplier to show which unknowns create the work. Team size and workshop count are inputs, but they do not tell you whether the engagement will produce a decision you can use.",
+        },
+        {
+          type: "table",
+          caption: "Discovery cost drivers that can be inspected before purchase",
+          head: ["Unknown to investigate", "Evidence required", "Why it changes the scope"],
+          rows: [
+            [
+              "User problem and current workflow",
+              "Research with the people doing the work, plus existing support or operational evidence",
+              "More user groups and channels create more journeys to understand",
+            ],
+            [
+              "Business rules and exceptions",
+              "A map of the normal path, failure states, approvals and manual workarounds",
+              "Hidden exceptions can change the product boundary",
+            ],
+            [
+              "Existing systems and data",
+              "Access to interfaces, exports, ownership records and integration documentation",
+              "Undocumented dependencies require technical investigation",
+            ],
+            [
+              "Security, privacy and compliance",
+              "Named obligations, data categories and responsible reviewers",
+              "Specialist review may be needed before a solution is feasible",
+            ],
+            [
+              "Solution uncertainty",
+              "Assumptions, technical options and the smallest test that could reject each option",
+              "A known implementation needs less exploration than an untested mechanism",
+            ],
+            [
+              "Decision and stakeholder access",
+              "A decision owner and access to the people who hold essential context",
+              "Unresolved ownership can leave the same questions open at the end",
+            ],
+          ],
+        },
+      ],
+    },
+    {
+      heading: "What should you receive from paid discovery?",
+      blocks: [
+        {
+          type: "p",
+          text: "The deliverables should preserve the evidence and the decisions, not merely record that meetings happened. GOV.UK’s Service Manual frames discovery as understanding the problem, users, constraints, improvement opportunities and measures of success before committing to build. It also treats stopping as a valid result when the evidence does not support further investment.",
+        },
+        {
+          type: "list",
+          items: [
+            "A problem statement that identifies the affected user, current behaviour and business consequence.",
+            "A map of the core workflow, including offline steps, exceptions and people who operate or support it.",
+            "A record of the evidence reviewed, the gaps that remain and the assumptions that still need testing.",
+            "A technical context map covering current systems, data, integrations, ownership and relevant constraints.",
+            "A risk and dependency list with an owner or next test for each material unknown.",
+            "A recommended next decision: stop, research further, test a prototype, buy an existing product or scope implementation.",
+            "If implementation is recommended, a bounded first release with exclusions and acceptance evidence.",
+          ],
         },
         {
           type: "callout",
-          text: "Every hour of ambiguity resolved on paper is several hours not spent resolving it in code that already exists.",
+          text: "A discovery deliverable is useful when another qualified team can understand the evidence, challenge the recommendation and price the next step.",
         },
       ],
     },
     {
-      heading: "What actually happens during it",
+      heading: "Does discovery include design or development?",
       blocks: [
         {
           type: "p",
-          text: "A real discovery phase is mostly interrogation, not workshops. The bulk of the value comes from a small number of uncomfortable questions being asked early enough to matter.",
-        },
-        {
-          type: "list",
-          items: [
-            "Problem definition. What is broken now, who feels it, and what do they currently do instead. If nobody has a workaround, the problem may not be real enough to pay for a solution.",
-            "User interviews with the people who will actually use the thing — not only the person commissioning it. These two groups want different software surprisingly often.",
-            "A technical audit of what already exists: systems to integrate with, data to migrate, the quality of that data, and who still understands it.",
-            "Data modelling. Sketching the core entities and their relationships surfaces more hidden complexity per hour than any other discovery activity.",
-            "The edge cases: permissions, failure states, what happens when two people act at once, what the regulator requires.",
-            "Prioritisation. Everything named gets sorted into the first release, the second, and the list of things that were mentioned but should not be built.",
-          ],
-        },
-        {
-          type: "p",
-          text: "Interface sketching happens too, but later and lighter than most people expect. Screens are easy to redraw. A data model that turns out to be wrong after four months of development is not.",
-        },
-      ],
-    },
-    {
-      heading: "What you should receive at the end",
-      blocks: [
-        {
-          type: "p",
-          text: "The deliverables are what separate discovery from a long sales process. Ask for these by name before agreeing to anything.",
+          text: "Discovery can include sketches, data checks or small technical experiments when they answer a named uncertainty. It should not quietly become the build. GOV.UK separates discovery, which investigates the problem, from alpha, where teams test possible solutions and their riskiest assumptions. That distinction helps buyers see whether they are purchasing evidence or implementation.",
         },
         {
           type: "table",
-          caption: "Discovery deliverables and what each is for",
-          head: ["Deliverable", "What it contains", "What it prevents"],
+          caption: "Evidence work and implementation work compared",
+          head: ["Activity", "Discovery when", "Implementation when"],
           rows: [
             [
-              "Functional specification",
-              "Every screen and behaviour, written so two people read it identically",
-              "The mid-project argument about whether something was in scope",
+              "Interface sketch",
+              "It helps a user or stakeholder react to a workflow assumption",
+              "It becomes a production design with states, accessibility and handoff detail",
             ],
             [
-              "Data model",
-              "Core entities, relationships, and the awkward ones",
-              "The expensive rewrite when the model does not fit reality",
+              "Technical prototype",
+              "It tests one feasibility risk and can be discarded",
+              "It must be maintained, secured, monitored and supported",
             ],
             [
-              "Architecture outline",
-              "Stack, hosting, integrations, and why each was chosen",
-              "Decisions being made silently by whoever starts first",
+              "Data sample",
+              "It reveals structure, quality or migration constraints",
+              "It becomes a repeatable migration with validation and rollback",
             ],
             [
-              "Risk register",
-              "What could go wrong, likelihood, and the plan for each",
-              "Surprises presented as inevitabilities",
-            ],
-            [
-              "Phased delivery plan",
-              "What ships first, second, and what is deferred",
-              "Building everything at once and launching nothing",
-            ],
-            [
-              "Estimate with ranges",
-              "Cost and time per phase, with the assumptions stated",
-              "A single number nobody can interrogate",
+              "Integration check",
+              "It confirms access, documentation and a critical capability",
+              "It handles production authentication, failures, limits and monitoring",
             ],
           ],
-        },
-        {
-          type: "h3",
-          text: "The portability test",
-        },
-        {
-          type: "p",
-          text: "Here is the one check worth applying to any discovery proposal. Ask: could I take these deliverables to another firm and get a comparable quote?",
-        },
-        {
-          type: "p",
-          text: "If yes, the output is real. It documents your product rather than the supplier's pitch, and it has value independent of who wrote it. If no — if the deliverable is a deck of themes, personas and a phased roadmap with no specification underneath — you have paid for a sales asset. That is the difference, and it is visible in the deliverables list before you sign.",
         },
       ],
     },
     {
-      heading: "What it costs, and what that buys",
+      heading: "How should you compare discovery proposals?",
       blocks: [
         {
           type: "p",
-          text: "As an observed market range, discovery runs at roughly five to twelve per cent of the expected build cost, or a fixed fee in the region of USD 3,000 to 25,000 depending on the size and messiness of the problem. Duration is typically one to three weeks; beyond four, the phase has usually stopped converging and started expanding.",
-        },
-        {
-          type: "table",
-          caption: "Typical shapes",
-          head: ["Project", "Discovery length", "Range", "Driven by"],
-          rows: [
-            [
-              "Single-platform MVP, greenfield",
-              "1 week",
-              "USD 3,000–8,000",
-              "Few integrations, no legacy data",
-            ],
-            [
-              "Multi-role product with integrations",
-              "2 weeks",
-              "USD 8,000–15,000",
-              "Permission matrix, third-party APIs",
-            ],
-            [
-              "Replacing a system in daily use",
-              "2–3 weeks",
-              "USD 12,000–25,000",
-              "Undocumented behaviour, data quality, migration",
-            ],
-            [
-              "Regulated domain",
-              "3 weeks+",
-              "USD 20,000+",
-              "Compliance scope must be established before architecture",
-            ],
-          ],
-        },
-        {
-          type: "p",
-          text: "These are market ranges rather than any single firm's rate card, and the variable that moves them most is not project size but how much nobody currently knows.",
-        },
-        {
-          type: "p",
-          text: "The fee should be fixed. Discovery is one of the few phases where scope genuinely is knowable in advance, because the deliverables are documents. A supplier who wants to run discovery on time and materials has not defined its output.",
-        },
-      ],
-    },
-    {
-      heading: "When you can skip it",
-      blocks: [
-        {
-          type: "p",
-          text: "Not every project needs one, and pretending otherwise is how discovery earned its reputation as a billing exercise.",
-        },
-        {
-          type: "list",
-          items: [
-            "You already have a written specification that another party could quote from. Then you have done discovery; do not pay for it twice.",
-            "The work is genuinely bounded and inspectable — one integration against a documented API, a migration between two systems you can both see.",
-            "The build is small enough that discovery would be a meaningful fraction of the total. Below roughly USD 15,000 of work, a long conversation and a written scope will usually do.",
-            "You are testing demand rather than building a product, and the honest next step is a landing page and some conversations rather than any software at all.",
-          ],
-        },
-        {
-          type: "p",
-          text: "Conversely, the case where skipping it is most tempting and most costly: replacing a system that people currently rely on. The behaviour of that system is not documented anywhere, it lives in the habits of the people using it, and finding that out after the replacement ships is how projects acquire a second budget.",
-        },
-      ],
-    },
-    {
-      heading: "Making it worth the money",
-      blocks: [
-        {
-          type: "p",
-          text: "Discovery is unusually sensitive to how the client participates. The same three weeks with the same firm produces very different documents depending on a few things you control.",
+          text: "Put the proposals side by side using the question each engagement will answer. A lower fee can be appropriate for a narrower question. It is not automatically cheaper if the supplier excludes the evidence needed for the next decision.",
         },
         {
           type: "list",
           ordered: true,
           items: [
-            "Put a decision-maker in the room. Discovery generates decisions faster than most organisations make them; someone with authority has to be present or the output fills with open questions.",
-            "Give access to real users, not proxies for them. An hour with someone who does the job daily beats a day of internal speculation about what they need.",
-            "Hand over the messy artefacts — the spreadsheet everyone actually uses, the exported data, the process document that is out of date. These are more informative than any brief.",
-            "Say the budget out loud. Discovery's job is to fit a solution to a constraint; withholding the constraint means the plan comes back unaffordable and has to be redone.",
-            "Argue with the draft. The specification is meant to be contested while it is cheap to change. Silent approval is the most expensive form of agreement in this process.",
+            "Write the decision you expect to make when discovery ends.",
+            "List the user groups, workflows, systems and constraints included in each proposal.",
+            "Ask who will gather evidence and who must be available from your organisation.",
+            "Ask which artefacts you will own and whether another supplier can use them.",
+            "Check whether assumptions, exclusions and unresolved questions will be visible.",
+            "Separate optional implementation from the discovery fee.",
+            "Confirm how the supplier will recommend stopping when further work is not justified.",
+          ],
+        },
+      ],
+    },
+    {
+      heading: "When can you skip a paid discovery phase?",
+      blocks: [
+        {
+          type: "p",
+          text: "Skip a separate discovery engagement when the important evidence already exists and the next unit of work is genuinely bounded. A documented change to a known system may need a technical review and written implementation scope rather than a broader product discovery.",
+        },
+        {
+          type: "list",
+          items: [
+            "The primary user, workflow, exclusions and acceptance checks are already agreed in writing.",
+            "The relevant repository, data, integrations and account ownership are accessible and understood.",
+            "The requested change does not depend on unresolved policy, compliance or cross-team decisions.",
+            "A qualified team can estimate the work without hiding major assumptions inside the quote.",
           ],
         },
         {
           type: "p",
-          text: "If you are considering a build and are not sure whether you need discovery or already have what it would produce, send us what you have written down. It is usually a short conversation to establish which of the two situations you are in.",
+          text: "Do not skip evidence work merely because a supplier offers a fixed implementation price. If the underlying workflow or technical boundary is unknown, the uncertainty still exists; it has only moved into contingency, change requests or delivery risk.",
+        },
+      ],
+    },
+    {
+      heading: "What should you ask before paying for discovery?",
+      blocks: [
+        {
+          type: "p",
+          text: "The best questions expose the boundary and the handover. They also reveal whether the supplier is prepared to reach an answer that does not create a larger project for them.",
+        },
+        {
+          type: "list",
+          items: [
+            "Which single decision is this engagement designed to support?",
+            "What evidence will you collect rather than assume?",
+            "Who must participate, and what access is required before the work starts?",
+            "Which systems, workflows, user groups and compliance questions are excluded?",
+            "What will I receive, in which format, and who owns it?",
+            "How will unresolved risks and disagreements be recorded?",
+            "Could the recommendation be to stop, buy or narrow the project?",
+            "What would make the discovery price change after acceptance?",
+          ],
+        },
+      ],
+    },
+    {
+      heading: "How does ApexStack scope a Product Blueprint?",
+      blocks: [
+        {
+          type: "p",
+          text: "The Product Blueprint starts from US$1,000 and turns one product or technical question into an evidence-based scope and next decision. Before work begins, the written proposal states the problem, the agreed output, the people or systems that must be accessible, the exclusions and the decision the output should support.",
+        },
+        {
+          type: "p",
+          text: "When the evidence supports implementation, a Launch Sprint starts from US$2,500 for one tightly scoped first release or core workflow, covering planning, UX direction, implementation, testing and deployment. Authentication, billing, mobile applications, advanced AI, multiple integrations, data migration, compliance and extensive administration can increase the quote.",
         },
       ],
     },
   ],
   faqs: [
     {
-      question: "How much does a software discovery phase cost?",
+      question: "What is a reasonable software discovery phase price?",
       answer:
-        "As an observed market range, roughly five to twelve per cent of the expected build cost — commonly USD 3,000 to 25,000 depending on complexity. It should be a fixed fee, because unlike a build, the deliverables of discovery are knowable in advance. The main cost driver is how much is currently undocumented rather than how large the eventual system will be.",
+        "There is no reliable universal amount or percentage. A reasonable price is tied to a written boundary: the user groups, workflows, systems and risks being investigated; the evidence and artefacts you will receive; and the decision they enable. ApexStack’s bounded Product Blueprint starts from US$1,000.",
     },
     {
-      question: "How long should discovery take?",
+      question: "Should discovery be fixed-price or time and materials?",
       answer:
-        "One to three weeks for most projects. Regulated domains or replacements of systems in daily use can justify longer. Past about four weeks, discovery has usually stopped converging on answers and started generating new questions, which is a sign the scope needs narrowing rather than the phase extending.",
+        "A fixed price can work when the question, access requirements, deliverables and exclusions are genuinely bounded. Time and materials can fit open-ended research, but it should still have a decision goal, review points and a spending boundary. The contract shape matters less than whether uncertainty is visible.",
     },
     {
-      question: "How do I know if a discovery phase is genuine?",
+      question: "How long should software discovery take?",
       answer:
-        "Apply the portability test: could you take the deliverables to a different development firm and get a comparable quote? A real discovery produces a functional specification, data model, architecture outline and estimate that stand on their own. If the output is a deck of personas, themes and a roadmap with no specification underneath, it documents the supplier's pitch rather than your product.",
+        "The purpose should determine the duration. Reviewing one known workflow can be smaller than researching a multi-channel service with legacy systems and regulatory constraints. Ask the supplier to connect the schedule to the evidence they need, rather than accepting a universal timeline.",
     },
     {
-      question: "Can I skip discovery to save time?",
+      question: "Is discovery part of the build cost?",
       answer:
-        "Sometimes. If you already have a specification another firm could quote from, or the work is genuinely bounded — one documented integration, a migration between two inspectable systems — then skip it. The case where skipping is most tempting and most expensive is replacing a system people currently rely on, because that system's real behaviour is undocumented and lives in its users' habits.",
+        "Discovery and implementation purchase different things. Discovery pays for evidence and a decision; implementation pays for a working, supportable release. A supplier may credit or package fees commercially, but the proposal should keep the deliverables and boundaries visible.",
     },
     {
-      question: "Should discovery be done by the firm that will build the software?",
+      question: "Can I take the discovery output to another development company?",
       answer:
-        "Usually yes, since the team that will build it absorbs context that is hard to transfer in a document. The risk is that discovery becomes a sales exercise for the build. Protect against it by insisting the deliverables pass the portability test, and by agreeing up front that you may take them elsewhere without penalty.",
+        "You should confirm that before buying. Useful outputs record evidence, decisions, assumptions, exclusions and technical context in formats another qualified team can review. Provider-specific tooling may still need access or export arrangements, so ownership and handover belong in the proposal.",
+    },
+  ],
+  sources: [
+    {
+      title: "How the discovery phase works",
+      url: "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works",
+      publisher: "GOV.UK Service Manual",
+    },
+    {
+      title: "User research in discovery",
+      url: "https://www.gov.uk/service-manual/user-research/user-research-in-discovery",
+      publisher: "GOV.UK Service Manual",
+    },
+    {
+      title: "Measuring the benefits of your service",
+      url: "https://www.gov.uk/service-manual/measuring-success/measuring-service-benefits",
+      publisher: "GOV.UK Service Manual",
+    },
+    {
+      title: "The Product Discovery handbook",
+      url: "https://support.atlassian.com/jira-product-discovery/docs/the-product-management-handbook/",
+      publisher: "Atlassian",
     },
   ],
 };
