@@ -184,14 +184,14 @@ export const CORE_ENGINEERING: ServiceItem[] = [
   },
   {
     slug: "technical-consulting",
-    name: "Technical Consulting",
+    name: "Tech Stack Consultancy",
     summary:
-      "Architecture review, technology selection, due diligence and a second opinion when a decision is expensive to reverse.",
+      "A tech stack consultancy engagement turns an expensive technical decision into an inspectable recommendation. ApexStack reviews the product goal, current architecture, team capability, security, ownership, operating constraints and total cost before recommending what to keep, change or test next. The output is written for the decision-maker, with assumptions, trade-offs, evidence gaps and a practical action sequence made explicit.",
     deliverables: [
-      "Written assessment with the trade-offs made explicit",
-      "Architecture or code review against your stated goals",
-      "Technology selection with total cost of ownership modelled",
-      "A recommendation, including when the answer is to do nothing",
+      "Decision brief defining the buyer question, constraints and evidence boundary",
+      "Current-state architecture, dependency and account-ownership assessment",
+      "Tech-stack options compared against delivery, operation and total cost",
+      "Written recommendation, risks and sequenced next actions—including when to keep the current stack",
     ],
   },
 ];

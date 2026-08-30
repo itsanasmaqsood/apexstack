@@ -544,37 +544,45 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
 
   "technical-consulting": {
     problem:
-      "A product, investment or architecture decision depends on technical claims that have not yet been connected to inspectable evidence.",
+      "A product, investment or architecture decision depends on a tech-stack recommendation, but the available options have not yet been tested against the product, team, operating model and evidence that matter to the buyer.",
     challenges: [
-      "Architecture and tech-stack choices with assumptions that were never recorded",
-      "Due diligence evidence spread across repositories, cloud accounts and documents",
-      "Security, ownership and operational claims stated more confidently than the evidence supports",
-      "Findings listed without buyer context, ownership or a way to verify closure",
+      "A framework, cloud or AI-platform choice driven by familiarity or fashion rather than constraints",
+      "A current stack whose cost, ownership, reliability and maintenance burden are not visible in one place",
+      "Vendor recommendations that omit migration effort, team capability or operating responsibility",
+      "Due-diligence findings without buyer context, decision priority or closure evidence",
     ],
     approach: [
-      "We define the decision, assumptions, scope, access boundaries and evidence request before reviewing the system.",
-      "We trace material claims through repositories, deployed architecture, dependencies, controls, operations and account ownership.",
-      "We record observations, uncertainty and buyer-specific impact, then attach an owner and verification method to each recommended action.",
+      "We begin with the decision: what must be chosen, why it matters now, which constraints are fixed and what evidence would change the answer.",
+      "We review the relevant product workflows, architecture, repositories, dependencies, data, security, deployment, vendor accounts, team capability and operating cost within the agreed boundary.",
+      "We compare viable options against the same criteria, record uncertainty and transition risk, and produce a recommendation with an owner, next action and verification method.",
     ],
     outcomes: [
-      "An evidence index tied to the reviewed versions and systems",
-      "Architecture, data-flow and account-control gaps made explicit",
-      "A buyer-readable findings register with scope limitations",
-      "A prioritised action plan with closure evidence",
+      "A defensible stack decision tied to the product and operating constraints",
+      "Assumptions, evidence gaps and architecture risks visible before implementation",
+      "Migration and ownership implications included in the option comparison",
+      "A sequenced action plan that can be used with ApexStack, an internal team or another supplier",
     ],
-    technologies: ["Architecture review", "Technical due diligence", "Cost modelling", "Security review", "Team assessment"],
+    technologies: ["Tech-stack selection", "Architecture review", "Technical due diligence", "Total-cost modelling", "Security and ownership review"],
     faqs: [
       {
-        q: "Will you recommend we hire you to do the work?",
-        a: "The review separates findings from any implementation proposal. If follow-on work is discussed, the scope and decision stay distinct so you can use the evidence with ApexStack, your internal team or another qualified supplier.",
+        q: "What does a tech stack consultancy service include?",
+        a: "The scope is built around one decision. It can include product and workflow constraints, current architecture, repositories, dependencies, data, security, cloud and vendor accounts, team capability, operating cost, option comparison and migration risk. The written recommendation records what was reviewed, what remains uncertain and what should happen next.",
       },
       {
-        q: "Can you do technical due diligence for an acquisition?",
-        a: "We can review the technical evidence for repositories, architecture, dependencies, controls, operations, cost and knowledge concentration. Legal ownership, licence, privacy and transaction conclusions remain with qualified counsel and specialist advisers.",
+        q: "Can you review a proposed stack before development starts?",
+        a: "Yes. We can test a proposed stack against the core workflow, data and integration needs, team capability, security, deployment, ownership, operating model and likely change path. The aim is not to select the newest tools; it is to identify the simplest defensible option for the stated constraints.",
       },
       {
-        q: "How long does a review take?",
-        a: "It depends on the buyer’s questions, product and entity scope, repositories and environments, evidence quality, access constraints and specialist-review needs. We define those boundaries before proposing a schedule or price.",
+        q: "Can you provide technical due diligence for an acquisition?",
+        a: "We can review technical evidence for repositories, architecture, dependencies, controls, operations, cost, account ownership and knowledge concentration. Legal ownership, licensing, privacy and transaction conclusions remain with qualified counsel and relevant specialist advisers.",
+      },
+      {
+        q: "How does a technical consulting engagement start?",
+        a: "A Product Blueprint starts from US$1,000 when one bounded planning or de-risking question can be answered without production implementation. A Launch Sprint starts from US$2,500 for one tightly scoped first release or core workflow. A broader estate review, migration, acquisition review or specialist assessment is scoped from the systems, evidence and access required.",
+      },
+      {
+        q: "Will the recommendation require ApexStack to implement it?",
+        a: "No. Findings and recommendations remain separate from any implementation proposal. You can use the written evidence with ApexStack, your internal team or another qualified supplier, including when the recommendation is to retain the current stack and make no platform change.",
       },
     ],
     related: ["digital-transformation", "cloud-devops", "mvp-development"],
