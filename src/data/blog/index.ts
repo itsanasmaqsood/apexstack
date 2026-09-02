@@ -133,6 +133,7 @@ import { post as regainFocusAppBlockerCaseStudy } from "@/data/blog/posts/regain
 import { post as safechoiceConversationalFoodJournalCaseStudy } from "@/data/blog/posts/safechoice-conversational-food-journal-case-study";
 import { post as safemamaPregnancySafetyAppCaseStudy } from "@/data/blog/posts/safemama-pregnancy-safety-app-case-study";
 import { post as salafimatchMatrimonyPlatformCaseStudy } from "@/data/blog/posts/salafimatch-matrimony-platform-case-study";
+import { post as shortlistMobileAppDevelopmentCompanyPreSeed } from "@/data/blog/posts/shortlist-mobile-app-development-company-pre-seed";
 import { post as shipMvpInWeeksAi } from "@/data/blog/posts/ship-mvp-in-weeks-ai";
 import { post as shippingAiFeaturesToProduction } from "@/data/blog/posts/shipping-ai-features-to-production";
 import { post as signsMvpScopeIsTooBig } from "@/data/blog/posts/signs-mvp-scope-is-too-big";
@@ -280,6 +281,7 @@ export const POSTS: readonly BlogPost[] = [
   safechoiceConversationalFoodJournalCaseStudy,
   safemamaPregnancySafetyAppCaseStudy,
   salafimatchMatrimonyPlatformCaseStudy,
+  shortlistMobileAppDevelopmentCompanyPreSeed,
   shipMvpInWeeksAi,
   shippingAiFeaturesToProduction,
   signsMvpScopeIsTooBig,
