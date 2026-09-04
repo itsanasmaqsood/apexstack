@@ -13,6 +13,7 @@
  */
 
 import type { BlogBlock, BlogCategory, BlogPost } from "@/data/blog/types";
+import { post as androidAppDevelopmentCompanyPreSeedChecklist } from "@/data/blog/posts/android-app-development-company-pre-seed-checklist";
 import { post as mobileAppInvestorDemoVsCustomerPilot } from "@/data/blog/posts/mobile-app-investor-demo-vs-customer-pilot";
 
 import { post as agencyVsUpworkForMvpDevelopment } from "@/data/blog/posts/agency-vs-upwork-for-mvp-development";
@@ -163,6 +164,7 @@ import { post as whySoftwareProjectsFail } from "@/data/blog/posts/why-software-
 
 /** Newest first. Ties broken alphabetically so the order is stable across builds. */
 export const POSTS: readonly BlogPost[] = [
+  androidAppDevelopmentCompanyPreSeedChecklist,
   mobileAppInvestorDemoVsCustomerPilot,
   agencyVsUpworkForMvpDevelopment,
   aiAgencyVsFreelancerFoundersGuide,
