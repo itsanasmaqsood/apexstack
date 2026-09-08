@@ -152,6 +152,7 @@ export default function ContactForm() {
       track("Contact Enquiry Sent", {
         service: values.service,
         budget: values.budget || "Not provided",
+        article: window.sessionStorage.getItem("apexstack_blog_origin") ?? "none",
       });
     } catch (error) {
       setStatus("error");

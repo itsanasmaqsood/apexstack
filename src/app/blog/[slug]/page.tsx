@@ -8,6 +8,7 @@ import BlogBanner from "@/components/BlogBanner";
 import BlogBody, { ACCENT, headingId } from "@/components/BlogBody";
 import PageLayout from "@/components/PageLayout";
 import Section from "@/components/Section";
+import { TrackedBlogLink } from "@/components/TrackedBlogLink";
 import {
   POSTS,
   formatPostDate,
@@ -16,7 +17,6 @@ import {
   relatedPosts,
 } from "@/data/blog";
 import { CLUSTER_IMAGE } from "@/data/blog/imagery";
-import { bookingLinkProps } from "@/data/company";
 import { ALL_SERVICES } from "@/data/services";
 import { LEADERSHIP } from "@/data/team";
 import { OG_IMAGE, pageMetadata } from "@/lib/metadata";
@@ -299,37 +299,48 @@ export default async function BlogPostPage({
             {/* --------------------------------------------------------- the ask */}
             <div className="mt-12 border border-white/20 rounded-[2px] p-6 md:p-8">
               <h2 className="text-white text-[22px] md:text-[26px] font-medium leading-[130%] mb-3">
-                {service
-                  ? `Talking about ${service.name.toLowerCase()}?`
-                  : "Working on something like this?"}
+                {post.conversion?.heading ??
+                  (service
+                    ? `How ApexStack can help with ${service.name.toLowerCase()}`
+                    : "How ApexStack can help")}
               </h2>
               <p className="text-[rgba(207,207,207,0.9)] text-base leading-[1.7] mb-6 max-w-xl">
-                {service
-                  ? service.summary
-                  : "We design, build and scale custom software from the business problem through to production."}
+                {post.conversion?.description ??
+                  (service
+                    ? `${service.summary} Share the decision, constraint or workflow behind your project and we will help you define a sensible next step.`
+                    : "We design, build and scale custom software from the business problem through to production. Share what you are deciding and we will help you define a sensible next step.")}
               </p>
               <div className="flex flex-wrap gap-3">
-                <a
-                  {...bookingLinkProps()}
+                <TrackedBlogLink
+                  href={`/contact?source=blog&article=${post.slug}${post.serviceSlug ? `&service=${post.serviceSlug}` : ""}`}
+                  postSlug={post.slug}
+                  destination="contact"
+                  serviceSlug={post.serviceSlug}
+                  accent
                   className="inline-flex items-center px-5 py-3 text-sm font-medium text-black rounded-[2px] transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: ACCENT }}
                 >
-                  Book a discovery call
-                </a>
+                  {post.conversion?.primaryLabel ?? "Discuss your project"}
+                </TrackedBlogLink>
                 {service && (
-                  <Link
+                  <TrackedBlogLink
                     href={`/services/${service.slug}`}
+                    postSlug={post.slug}
+                    destination="service"
+                    serviceSlug={service.slug}
                     className="inline-flex items-center px-5 py-3 text-sm font-medium text-white border border-white/30 rounded-[2px] hover:border-white/60 transition-colors"
                   >
                     {service.name}
-                  </Link>
+                  </TrackedBlogLink>
                 )}
-                <Link
+                <TrackedBlogLink
                   href="/pricing"
+                  postSlug={post.slug}
+                  destination="pricing"
+                  serviceSlug={post.serviceSlug}
                   className="inline-flex items-center px-5 py-3 text-sm font-medium text-white border border-white/30 rounded-[2px] hover:border-white/60 transition-colors"
                 >
                   View starting prices
-                </Link>
+                </TrackedBlogLink>
               </div>
             </div>
           </article>

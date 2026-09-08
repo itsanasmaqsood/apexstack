@@ -19,6 +19,12 @@ export const post: BlogPost = {
   published: "2026-09-08",
   authorId: "leadership-01",
   serviceSlug: "mobile-app-development",
+  conversion: {
+    heading: "How to include ApexStack in your supplier comparison",
+    description:
+      "Send ApexStack the same release brief and evidence matrix you give every other shortlisted company. We can respond with the proposed scope, responsibilities, account-ownership model, testing and acceptance evidence, handover boundary and explicit exclusions for your product. Compare that response on the same terms as every alternative; the useful next step is a fit decision, not a claim that one company is universally best.",
+    primaryLabel: "Ask ApexStack to assess your brief",
+  },
   keyTakeaway:
     "Compare app development companies in the USA by giving every candidate the same release brief and scoring primary evidence, not list position. Define the user journey, platforms, integrations, sensitive data, acceptance evidence and exclusions first. Use directories to discover candidates, record sponsorship and methodology, then verify the proposed team, entity, security boundary, account ownership, release responsibility and handover. There is no defensible universal ‘best’ company without a defined product and operating model.",
   sections: [

@@ -119,6 +119,15 @@ export interface BlogSource {
   publisher?: string;
 }
 
+export interface BlogConversion {
+  /** Intent-specific close. New and materially refreshed posts must supply it. */
+  heading: string;
+  /** Explain the relevant ApexStack fit without superiority or outcome claims. */
+  description: string;
+  /** Action language matched to the reader's decision stage. */
+  primaryLabel: string;
+}
+
 export interface BlogPost {
   /** URL segment. Lowercase, hyphenated, no dates, never changes once published. */
   slug: string;
@@ -181,6 +190,9 @@ export interface BlogPost {
 
   /** Visible primary or authoritative sources used for external factual claims. */
   sources?: BlogSource[];
+
+  /** Intent-matched route from useful information to a qualified ApexStack enquiry. */
+  conversion?: BlogConversion;
 
   /**
    * Slugs of related posts. Left empty by the author and filled in by the

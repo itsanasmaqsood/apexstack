@@ -19,6 +19,12 @@ export const post: BlogPost = {
   published: "2026-09-08",
   authorId: "leadership-01",
   serviceSlug: "ai-development",
+  conversion: {
+    heading: "How ApexStack can help with your LLM integration",
+    description:
+      "ApexStack can turn one existing product workflow into a bounded implementation plan, then build the model, retrieval, evaluation, permission, monitoring and fallback layers needed for that scope. Bring the workflow, available data and decision the feature must support; we will help you choose a Product Blueprint or a tightly scoped Launch Sprint without treating an API connection as a finished product.",
+    primaryLabel: "Scope your LLM integration",
+  },
   keyTakeaway:
     "LLM integration services should turn one existing product workflow into a measurable, operable feature—not merely connect a model API. A credible scope defines the user outcome, permitted data, model and retrieval boundaries, representative evaluations, output validation, failure and human-review paths, production monitoring and handover. Ask for acceptance evidence before launch. If a supplier cannot explain how quality, permissions and provider failure will be measured, the integration is still closer to a demonstration than a dependable product feature.",
   sections: [

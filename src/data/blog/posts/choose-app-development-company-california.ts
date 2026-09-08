@@ -19,6 +19,12 @@ export const post: BlogPost = {
   published: "2026-09-08",
   authorId: "leadership-01",
   serviceSlug: "mobile-app-development",
+  conversion: {
+    heading: "How ApexStack can support your California app project",
+    description:
+      "ApexStack can define the release boundary, named responsibilities, account ownership, privacy implementation inputs, testing evidence and handover before committing to a build. If local presence is material, include the exact workshop, access or collaboration requirement in your enquiry. We will respond against that requirement and make the proposed delivery model explicit rather than relying on a location label.",
+    primaryLabel: "Discuss your app requirements",
+  },
   keyTakeaway:
     "Choose an app development company in California by separating local presence from delivery capability. Decide whether you genuinely need in-person work, California working-hour overlap or local procurement. Then verify the legal entity, proposed delivery team, scope, privacy responsibilities, product-account ownership, testing evidence and handover. A California address can support a specific operating need, but it does not prove who will build the app or whether the release will meet your acceptance criteria.",
   sections: [

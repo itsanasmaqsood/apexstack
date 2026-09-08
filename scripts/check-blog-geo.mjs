@@ -73,6 +73,7 @@ const completedClaimRisks = [
   /\bwe (?:built|shipped|helped|rescued)\b/i,
   /\bour client\b/i,
 ];
+const conversionGateStart = "2026-09-08";
 const globallyForbiddenNames = [/DreamLaunch/i, /Harshil(?: Tomar)?/i, /Waseem/i];
 const unsupportedProjectSlugs = new Set([
   "daily-rise-wellness-app-case-study",
@@ -142,6 +143,26 @@ for (const file of files) {
   const posting = postings[0];
   for (const property of ["headline", "datePublished", "dateModified", "author", "image"]) {
     if (!posting?.[property]) record(file, `BlogPosting is missing ${property}`);
+  }
+
+  const conversionRequired =
+    posting?.datePublished >= conversionGateStart || posting?.dateModified >= conversionGateStart;
+  if (conversionRequired) {
+    const conversionHeading = headings.find((heading) =>
+      /^(?:how (?:can )?apexstack|how to include apexstack)/i.test(heading.text.trim()),
+    );
+    if (!conversionHeading) {
+      record(file, "missing an intent-specific ApexStack conversion section");
+    }
+    if (!article?.querySelector('a[href^="/contact?source=blog&article="]')) {
+      record(file, "missing a tracked article-to-contact conversion path");
+    }
+    if (!article?.querySelector('a[href="/pricing"]')) {
+      record(file, "missing a pricing conversion path");
+    }
+    if (!article?.querySelector('a[href^="/services/"]')) {
+      record(file, "missing a mapped service conversion path");
+    }
   }
 
   const visibleFaqCount = article?.querySelectorAll("section#faq dt").length ?? 0;
