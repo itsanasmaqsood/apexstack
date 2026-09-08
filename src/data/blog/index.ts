@@ -71,6 +71,8 @@ import { post as choosingATechStackForYourMvp } from "@/data/blog/posts/choosing
 import { post as cloudApplicationStackManagementProvider } from "@/data/blog/posts/cloud-application-stack-management-provider";
 import { post as cloudCostOptimisation } from "@/data/blog/posts/cloud-cost-optimisation";
 import { post as complianceRequirementsForCustomSoftware } from "@/data/blog/posts/compliance-requirements-for-custom-software";
+import { post as compareAppDevelopmentCompaniesUsa } from "@/data/blog/posts/compare-app-development-companies-usa";
+import { post as chooseAppDevelopmentCompanyCalifornia } from "@/data/blog/posts/choose-app-development-company-california";
 import { post as ctoAsAServiceAiStartup } from "@/data/blog/posts/cto-as-a-service-ai-startup";
 import { post as cursorClaudeVsHiringDevAgency } from "@/data/blog/posts/cursor-claude-vs-hiring-dev-agency";
 import { post as crmErpAccountingIntegrationScope } from "@/data/blog/posts/crm-erp-accounting-integration-scope";
@@ -103,6 +105,7 @@ import { post as iqraQuranAppCaseStudy } from "@/data/blog/posts/iqra-quran-app-
 import { post as launchMvpIn2Weeks } from "@/data/blog/posts/launch-mvp-in-2-weeks";
 import { post as legacySystemModernisationCost } from "@/data/blog/posts/legacy-system-modernisation-cost";
 import { post as llmFeatureProductionCost } from "@/data/blog/posts/llm-feature-production-cost";
+import { post as llmIntegrationServicesForExistingProducts } from "@/data/blog/posts/llm-integration-services-for-existing-products";
 import { post as lovableAlternativesForStartupsProduction } from "@/data/blog/posts/lovable-alternatives-for-startups-production";
 import { post as lovableVsBoltVsAgency } from "@/data/blog/posts/lovable-vs-bolt-vs-agency";
 import { post as mistakesNonTechnicalFoundersHiringDevAgency } from "@/data/blog/posts/mistakes-non-technical-founders-hiring-dev-agency";
@@ -221,6 +224,8 @@ export const POSTS: readonly BlogPost[] = [
   cloudApplicationStackManagementProvider,
   cloudCostOptimisation,
   complianceRequirementsForCustomSoftware,
+  compareAppDevelopmentCompaniesUsa,
+  chooseAppDevelopmentCompanyCalifornia,
   ctoAsAServiceAiStartup,
   cursorClaudeVsHiringDevAgency,
   crmErpAccountingIntegrationScope,
@@ -253,6 +258,7 @@ export const POSTS: readonly BlogPost[] = [
   launchMvpIn2Weeks,
   legacySystemModernisationCost,
   llmFeatureProductionCost,
+  llmIntegrationServicesForExistingProducts,
   lovableAlternativesForStartupsProduction,
   lovableVsBoltVsAgency,
   mistakesNonTechnicalFoundersHiringDevAgency,
