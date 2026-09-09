@@ -20,6 +20,7 @@ import { post as agencyVsUpworkForMvpDevelopment } from "@/data/blog/posts/agenc
 import { post as aiAgencyVsFreelancerFoundersGuide } from "@/data/blog/posts/ai-agency-vs-freelancer-founders-guide";
 import { post as aiAgentArchitecturePatterns } from "@/data/blog/posts/ai-agent-architecture-patterns";
 import { post as aiAgentsForBusinessOperations } from "@/data/blog/posts/ai-agents-for-business-operations";
+import { post as chooseAiAgentDevelopmentCompany } from "@/data/blog/posts/choose-ai-agent-development-company";
 import { post as aiDevelopmentStudioForStartups } from "@/data/blog/posts/ai-development-studio-for-startups";
 import { post as aiFeaturesThatMakeStartupMvpsFail } from "@/data/blog/posts/ai-features-that-make-startup-mvps-fail";
 import { post as aiFirstMvpDevelopment } from "@/data/blog/posts/ai-first-mvp-development";
@@ -173,6 +174,7 @@ export const POSTS: readonly BlogPost[] = [
   aiAgencyVsFreelancerFoundersGuide,
   aiAgentArchitecturePatterns,
   aiAgentsForBusinessOperations,
+  chooseAiAgentDevelopmentCompany,
   aiDevelopmentStudioForStartups,
   aiFeaturesThatMakeStartupMvpsFail,
   aiFirstMvpDevelopment,
