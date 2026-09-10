@@ -66,6 +66,7 @@ import { post as buildMobileAppMvpWithoutTechCoFounder } from "@/data/blog/posts
 import { post as buildMvpWithAi } from "@/data/blog/posts/build-mvp-with-ai";
 import { post as buildSaasMvpFasterWithAi } from "@/data/blog/posts/build-saas-mvp-faster-with-ai";
 import { post as buildingAiChatbotForProductWithoutCto } from "@/data/blog/posts/building-ai-chatbot-for-product-without-cto";
+import { post as scopeCustomChatbotDevelopmentServices } from "@/data/blog/posts/scope-custom-chatbot-development-services";
 import { post as buildingSaasMvpWhatFoundersGetWrong } from "@/data/blog/posts/building-saas-mvp-what-founders-get-wrong";
 import { post as businessProcessAutomationCost } from "@/data/blog/posts/business-process-automation-cost";
 import { post as choosingATechStackForYourMvp } from "@/data/blog/posts/choosing-a-tech-stack-for-your-mvp";
@@ -220,6 +221,7 @@ export const POSTS: readonly BlogPost[] = [
   buildMvpWithAi,
   buildSaasMvpFasterWithAi,
   buildingAiChatbotForProductWithoutCto,
+  scopeCustomChatbotDevelopmentServices,
   buildingSaasMvpWhatFoundersGetWrong,
   businessProcessAutomationCost,
   choosingATechStackForYourMvp,
