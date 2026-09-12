@@ -17,9 +17,15 @@ export const post: BlogPost = {
     "ai agency evaluation checklist",
   ],
   published: "2026-07-28",
-  updated: "2026-08-22",
+  updated: "2026-09-12",
   authorId: "leadership-01",
   serviceSlug: "ai-development",
+  conversion: {
+    heading: "How ApexStack can test your AI product brief",
+    description:
+      "Send ApexStack one priority workflow, the approved data boundary, the unacceptable outcomes and the evidence you expect before release. We can turn them into a bounded evaluation, architecture and ownership plan that you can use to compare suppliers. A Product Blueprint can resolve the riskiest product and technical decisions before a larger build, while a tightly scoped Launch Sprint can take one agreed workflow through implementation and deployment.",
+    primaryLabel: "Assess your AI product workflow",
+  },
   keyTakeaway:
     "Choose an AI product development agency by the evidence it can produce for your workflow: a representative evaluation set, measured quality and failure modes, documented data handling, cost and latency observations, human review boundaries, production monitoring and a usable handover. A polished model demo or a list of framework names does not show that the resulting product will behave acceptably on your users' data.",
   sections: [
@@ -88,6 +94,10 @@ export const post: BlogPost = {
           type: "p",
           text: "The evaluation set is a maintained product asset, not a one-off presentation. The scope should say who owns it, who can approve a change to acceptance thresholds and how production feedback becomes a reviewed test case without silently teaching the system from every user interaction.",
         },
+        {
+          type: "p",
+          text: "OpenAI's evaluation guidance recommends task-specific tests, logging and continuous evaluation as an application changes. For a buyer, that makes the evaluation set, scoring method, failed cases and release decision inspectable delivery artefacts rather than a supplier's private demonstration process.",
+        },
       ],
     },
     {
@@ -112,6 +122,10 @@ export const post: BlogPost = {
         {
           type: "p",
           text: "Do not accept 'we anonymise the data' as a complete answer. Ask which fields are removed or transformed, where that happens, what can still be inferred, whether the original is retained and how the transformed output is tested for the product task.",
+        },
+        {
+          type: "p",
+          text: "NIST's Generative AI Profile organises risk work around governing, mapping, measuring and managing a system across its lifecycle. OWASP separately identifies risks such as prompt injection, sensitive-information disclosure, improper output handling and excessive agency. Neither source supplies a universal architecture, but both help a buyer require named controls, tests, owners and operating responses for the risks that apply to the workflow.",
         },
       ],
     },
@@ -214,6 +228,10 @@ export const post: BlogPost = {
           type: "p",
           text: "Give shortlisted teams the same narrow workflow and ask for the same evidence. This makes exclusions and judgement visible. Comparing framework lists, model partnerships or an agency's own unverified success statistics does not answer whether it can build your product responsibly.",
         },
+        {
+          type: "callout",
+          text: "If shortlisted agencies are responding to different assumptions, send ApexStack the same workflow, data boundary and acceptance cases. We can map the missing product, evaluation, ownership and operating decisions before you compare implementation proposals.",
+        },
       ],
     },
     {
@@ -230,15 +248,15 @@ export const post: BlogPost = {
       ],
     },
     {
-      heading: "What can a US$1,000 starting engagement cover?",
+      heading: "Which ApexStack starting engagement fits the decision?",
       blocks: [
         {
           type: "p",
-          text: "At ApexStack, an engagement can start at US$1,000 when the first outcome is tightly constrained. For an AI product, that may suit one workflow definition, an evaluation-plan workshop, a feasibility test against a small approved sample or a technical review of an existing prototype. It is not a blanket price for a complete production AI MVP.",
+          text: "A Product Blueprint starts from US$1,000 for one bounded planning and de-risking decision. For an AI product, that may define one workflow, an evaluation plan, an approved data boundary, a feasibility test or a technical review of an existing prototype. It is not a production-ready AI MVP or an unlimited audit of an entire product.",
         },
         {
           type: "p",
-          text: "A useful first phase should reduce a named uncertainty and leave an inspectable artefact: test cases, measured results, a data-flow map, an architecture decision or a prioritised risk list. Authentication, billing, production interfaces, complex retrieval, several integrations, regulated data, mobile applications, administration and ongoing operation can materially expand the quote.",
+          text: "A Launch Sprint starts from US$2,500 for planning, UX direction, implementation, testing and deployment of one tightly scoped first release or core workflow. Authentication, billing, mobile apps, advanced AI, multiple integrations, data migration, compliance and extensive administration can increase the quote. The wider build should be estimated only after the workflow and acceptance boundary are understood.",
         },
       ],
     },
@@ -268,6 +286,23 @@ export const post: BlogPost = {
       question: "What should we own when the engagement ends?",
       answer:
         "The contract should name the repositories, application code, prompts, evaluation data and results, provider and cloud accounts, deployment configuration, documentation, runbooks and design assets you will receive. It should also define licence exceptions and how supplier access is removed or transferred.",
+    },
+  ],
+  sources: [
+    {
+      title: "Working with evals",
+      url: "https://developers.openai.com/api/docs/guides/evals",
+      publisher: "OpenAI",
+    },
+    {
+      title: "Artificial Intelligence Risk Management Framework: Generative AI Profile",
+      url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      publisher: "NIST",
+    },
+    {
+      title: "OWASP Top 10 for LLM Applications",
+      url: "https://genai.owasp.org/initiatives/top-10-for-llm-and-genai/",
+      publisher: "OWASP",
     },
   ],
   related: [
