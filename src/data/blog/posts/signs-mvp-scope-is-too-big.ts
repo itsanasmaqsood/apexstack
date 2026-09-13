@@ -14,9 +14,14 @@ export const post: BlogPost = {
     "how to reduce MVP scope",
   ],
   published: "2026-06-27",
-  updated: "2026-08-25",
+  updated: "2026-09-13",
   authorId: "leadership-01",
   serviceSlug: "mvp-development",
+  conversion: {
+    heading: "How can ApexStack turn an oversized MVP into one fundable release?",
+    description: "Send ApexStack your current feature list, target user and non-negotiable integrations. We can separate the core workflow from later scope, define acceptance evidence and recommend whether a bounded Product Blueprint or Launch Sprint is the sensible next commitment.",
+    primaryLabel: "Review your MVP scope",
+  },
   keyTakeaway: "Your MVP scope is probably too big when it serves several primary users, combines competing workflows, leaves exclusions undefined, postpones failure states or cannot be accepted with specific evidence. Reduce it to one core user journey, write down what version one will not include, keep repository and account ownership clear, and agree how the team will decide whether the release is useful before implementation begins.",
   sections: [
     {
@@ -78,7 +83,15 @@ export const post: BlogPost = {
       heading: "How should a founder choose the next step?",
       blocks: [
         { type: "p", text: "Choose the next step that produces decision-quality evidence. That may be a product blueprint, a technical review, a prototype or a tightly scoped launch sprint. The right choice depends on what is still unknown, not on how many features can be placed in a proposal." },
-        { type: "p", text: "Bring the current brief, constraints, existing assets and non-negotiable integrations to the first conversation. A useful partner should be able to separate confirmed requirements from assumptions and explain what must be learned before a larger commitment." }
+        { type: "p", text: "Bring the current brief, constraints, existing assets and non-negotiable integrations to the first conversation. A useful partner should be able to separate confirmed requirements from assumptions and explain what must be learned before a larger commitment." },
+        { type: "callout", text: "If the feature list is still growing, send ApexStack the user journey and constraints before asking for another build estimate. We can turn them into a release boundary that every delivery option can price and accept against the same evidence." }
+      ],
+    },
+    {
+      heading: "Which ApexStack starting engagement fits an oversized MVP?",
+      blocks: [
+        { type: "p", text: "A Product Blueprint starts from US$1,000 when the immediate need is one bounded planning or de-risking decision. For an oversized MVP, that may mean selecting the core user journey, documenting exclusions, mapping a difficult integration or defining acceptance evidence. It is not a production-ready MVP or an unlimited product audit." },
+        { type: "p", text: "A Launch Sprint starts from US$2,500 and covers planning, UX direction, implementation, testing and deployment for one tightly scoped first release or core workflow. Authentication, billing, mobile apps, advanced AI, multiple integrations, data migration, compliance and extensive administration can increase the quote. Review the current pricing, then use the contact route to share the same scope you would give any shortlisted team." }
       ],
     },
   ],
