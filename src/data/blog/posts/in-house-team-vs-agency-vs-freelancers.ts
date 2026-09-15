@@ -2,296 +2,274 @@ import type { BlogPost } from "@/data/blog/types";
 
 export const post: BlogPost = {
   slug: "in-house-team-vs-agency-vs-freelancers",
-  title: "In-House Team vs Agency vs Freelancers: The Real Cost Comparison",
-  seoTitle: "In-House Team vs Development Agency vs Freelancers",
+  title: "In-House Team vs Agency vs Freelancers: Which Fits the Work?",
+  seoTitle: "In-House Team vs Agency vs Freelancers",
   description:
-    "In-house team vs development agency vs freelancers: what each really costs, how fast each starts, and when hiring an agency is the wrong call.",
+    "Compare in-house teams, agencies and freelancers by scope, ownership, continuity, review and total responsibility—not headline rates.",
   excerpt:
-    "A three-way comparison of in-house hiring, agencies and freelancers on fully loaded cost, speed to start, retention risk and quality control — including the situations where each one is the wrong answer.",
-  category: "MVP & Startups",
+    "A practical framework for choosing a software delivery model without relying on unsupported rate cards or one-size-fits-all claims.",
+  category: "Choosing a Partner",
   primaryKeyword: "in-house team vs development agency",
   secondaryKeywords: [
-    "cost of hiring an in-house developer",
-    "software development agency cost vs employee",
-    "when to hire freelancers instead of an agency",
-    "fully loaded cost of employment for engineers",
-    "outsourcing software development pros and cons",
+    "development agency vs freelancer",
+    "in-house software team vs agency",
+    "who should build a startup product",
+    "software delivery model comparison",
   ],
   published: "2026-08-12",
+  updated: "2026-09-15",
   authorId: "leadership-01",
   serviceSlug: "product-engineering",
+  conversion: {
+    heading: "How can ApexStack help you compare the three delivery models?",
+    description:
+      "Send ApexStack one release brief, the capabilities already available inside your company and the responsibilities you need covered. We can map the same scope across an in-house hire, individual specialist and accountable product team so the proposals become comparable.",
+    primaryLabel: "Compare your delivery options",
+  },
   keyTakeaway:
-    "In-house team vs development agency is not a salary-versus-rate comparison: a permanent engineer costs roughly 1.25–1.4x base salary once employer taxes, benefits, equipment, licences and recruitment fees are added, and that cost continues through holidays, notice periods and gaps between projects. Agencies cost more per hour but only for the hours you use, and they arrive as a formed team, so they win on bounded work with a deadline. Freelancers are cheapest and fastest for a single well-specified task, and carry the highest quality variance and the highest risk of walking away mid-build.",
+    "Choose an in-house team when software is a continuing core capability that needs long-term product context. Choose a freelancer for one bounded task when your organisation can define, review and integrate the work. Choose an agency when a defined release needs coordinated product, design and engineering responsibility that you do not already have. Compare the three against the same scope, acceptance criteria, ownership rules and operating duties—not salary, day rate or project quote alone.",
   sections: [
     {
-      heading: "What does an in-house engineer actually cost beyond the salary line?",
+      heading: "When does each software delivery model fit?",
       blocks: [
         {
           type: "p",
-          text: "The figure in the offer letter is the smallest number in the calculation. Most in-house team vs development agency comparisons fail at the first step, when someone sets a $140,000 salary against a $22,000 monthly invoice and concludes the agency is expensive. One is a wage; the other is a delivered-capacity price with employment costs, management and tooling already inside it.",
-        },
-        {
-          type: "p",
-          text: "The statutory portion is not negotiable and it is knowable. A US employer pays 6.2% Social Security on wages up to the annual cap, 1.45% Medicare uncapped, federal unemployment tax at an effective 0.6% on the first $7,000 in most states, and state unemployment insurance that varies by state and by claims history. A UK employer pays National Insurance at 15% above the £5,000 secondary threshold, plus pension auto-enrolment of at least 3% of qualifying earnings.",
+          text: "An in-house team fits recurring product decisions and continuous delivery. A freelancer fits a specific discipline or deliverable inside a system your company already manages. An agency fits a bounded outcome that needs several disciplines and one party responsible for coordinating them. None is automatically cheaper or safer: the result depends on which responsibilities are included and which remain with the buyer.",
         },
         {
           type: "table",
-          caption: "Cost lines on top of an engineering salary. Ranges are observed market practice, not a quotation.",
-          head: ["Cost line", "United States", "United Kingdom"],
+          caption: "Start with the nature of the work, then compare suppliers.",
+          head: ["Buyer situation", "Likely fit", "Responsibility the buyer keeps"],
           rows: [
             [
-              "Statutory employer contributions",
-              "6.2% Social Security to the wage cap, 1.45% Medicare uncapped, ~0.6% effective FUTA, plus state unemployment insurance",
-              "National Insurance at 15% above the £5,000 secondary threshold",
+              "Software is a permanent source of product advantage",
+              "Build and retain an in-house core",
+              "Hiring, management, standards, release and operations",
             ],
             [
-              "Retirement",
-              "401(k) match where offered, commonly 3–6% of salary",
-              "Auto-enrolment pension, minimum 3% of qualifying earnings",
+              "One specialist task has a clear definition of done",
+              "Engage a qualified freelancer",
+              "Product direction, technical review, integration and continuity",
             ],
             [
-              "Healthcare",
-              "Employer-paid premiums, often the second largest line after salary",
-              "Usually optional private cover; a far smaller line",
+              "One release spans product, UX and engineering",
+              "Compare accountable agency teams",
+              "Business decisions, access control and supplier governance",
             ],
             [
-              "Recruitment",
-              "Contingency fees commonly 15–25% of first-year base",
-              "Same range; retained search more common at lead level",
-            ],
-            [
-              "Equipment and licences",
-              "Laptop refresh, IDE, CI minutes, observability, design seats",
-              "Same, at similar per-seat pricing",
-            ],
-            [
-              "Paid time off",
-              "Salary paid for weeks in which nothing ships",
-              "Statutory minimum leave is higher, so the effect is larger",
+              "The problem or buyer is still uncertain",
+              "Run discovery or a bounded Product Blueprint first",
+              "Evidence, priorities and the decision to build",
             ],
           ],
-        },
-        {
-          type: "p",
-          text: "Add those together and you reach the multiplier most finance teams already use: total cost of employment runs about 1.25 to 1.4 times base salary before any management overhead. On a $140,000 salary that is roughly $175,000 to $196,000 a year, plus a one-off fee of $21,000 to $35,000 in year one if a contingency recruiter found the candidate.",
-        },
-      ],
-    },
-    {
-      heading: "Why a contract rate and a salary are not comparable numbers",
-      blocks: [
-        {
-          type: "p",
-          text: "An employee is paid for 52 weeks. Subtract annual leave, public holidays, sick days, onboarding, company meetings and the hours spent interviewing other candidates, and productive engineering weeks land somewhere in the mid-forties. That is the denominator that matters, and it is the one nobody puts in the spreadsheet.",
-        },
-        {
-          type: "p",
-          text: "The second missing line is bench time. Headcount is a standing commitment: when a project ends, the developer who built your iOS app stays on payroll while you work out what they do next. Over two years those gaps are often the largest single source of waste in an in-house team, and they never appear as a cost because they look like a planning failure.",
-        },
-        {
-          type: "p",
-          text: "The third is management — one-to-ones, performance reviews, hiring loops, cover for parental leave. Real work, expensive work, and in the agency model it sits inside the rate rather than inside your calendar.",
-        },
-        {
-          type: "p",
-          text: "Contract pricing varies enormously by geography and specialism. As observed market ranges, not anyone’s rate card: independent contractors doing product engineering in the US or UK commonly sit between $60 and $150 an hour; onshore agencies in those markets between $120 and $250; nearshore firms in Latin America or Eastern Europe between $45 and $90; offshore firms in South and Southeast Asia between $25 and $60. What pushes a project to the top of a band is consistent — regulated data, a hard deadline, a team of five rather than two, deep integration with systems you do not control, and changes of direction after the architecture is set.",
         },
         {
           type: "callout",
-          text: "A salary is a wage; a day rate is a price. The comparison only becomes honest when you divide fully loaded annual cost by productive engineering weeks and set that against the rate times the weeks you actually need.",
+          text: "A delivery model is a responsibility decision before it is a price decision. Define who owns product choices, technical review, security, deployment and support before comparing totals.",
         },
       ],
     },
     {
-      heading: "In-house team vs development agency vs freelancers, side by side",
+      heading: "How should you compare the real cost of each option?",
       blocks: [
         {
+          type: "p",
+          text: "Use one release boundary and one time horizon. An employee salary, a freelancer estimate and an agency proposal measure different things, so placing them in adjacent spreadsheet cells creates a false comparison. Add every cost and responsibility required to reach the same accepted, deployed and supportable outcome.",
+        },
+        {
           type: "table",
-          caption: "How the three models behave on the dimensions that decide the choice.",
-          head: ["Dimension", "In-house team", "Development agency", "Freelancers"],
+          caption: "Build a like-for-like cost model from evidence supplied in each proposal.",
+          head: ["Cost or responsibility", "Question to answer", "Evidence to request"],
           rows: [
             [
-              "How cost behaves",
-              "Fixed and continuous: ~1.25–1.4x salary, paid through leave, notice and bench time",
-              "Higher per hour, but only for hours consumed; management and tooling included",
-              "Lowest per hour, no employment costs, no included management, QA or cover",
+              "Product and scope",
+              "Who turns the business goal into testable release behaviour?",
+              "Named owner, scope assumptions and acceptance criteria",
             ],
             [
-              "Time to first useful commit",
-              "Two to four months from decision, then a ramp before net-positive output",
-              "One to four weeks; the team is formed and shares a pipeline and review culture",
-              "Days if you know someone; one to three weeks screening from scratch",
+              "Delivery capacity",
+              "Which roles and availability are included for this release?",
+              "Named roles, allocation and substitution terms",
             ],
             [
-              "Retention risk",
-              "Moderate; domain knowledge leaves permanently on resignation",
-              "Low during the engagement, but substitution is the agency’s call unless the contract names people",
-              "Highest; a better-paying client mid-sprint leaves you a half-finished branch",
+              "Review and quality",
+              "Who reviews changes and verifies the agreed behaviour?",
+              "Review workflow, test plan and release gate",
             ],
             [
-              "Quality variance",
-              "Narrow once your review standards are set, because you control hiring",
-              "Narrow within a firm, wide between firms; the firm’s standards decide it",
-              "Widest; two contractors at the same rate can differ by an order of magnitude",
+              "Tools and infrastructure",
+              "Which licences, environments and services are additional?",
+              "Itemised exclusions and account ownership map",
             ],
             [
-              "Knowledge retention",
-              "Strongest if it survives the individual; documentation discipline decides that",
-              "Transferable if you insist on handover, decision records and repo ownership",
-              "Weakest; context usually leaves with the person",
+              "Management",
+              "Who resolves dependencies, priorities and blocked decisions?",
+              "Decision cadence and escalation owner",
             ],
             [
-              "Best fit",
-              "The capability customers pay you for, built continuously for years",
-              "Bounded scope with a deadline, or a capability you do not want permanently",
-              "One specified task in one discipline: an integration, a migration, an audit",
+              "Handover and operation",
+              "Who deploys, observes, supports and transfers the system?",
+              "Runbook, access-removal plan and handover acceptance test",
             ],
           ],
         },
-      ],
-    },
-    {
-      heading: "In-house team vs development agency: which one starts faster?",
-      blocks: [
         {
           type: "p",
-          text: "Speed decides this more often than cost does. Hiring runs through a job specification, sourcing, screening, two or three interview loops, an offer that may be countered, then a notice period — two weeks under US at-will employment, one to three months in the UK and much of Europe. Two to four months from decision to first commit is a realistic plan, and that is before ramp.",
-        },
-        {
-          type: "p",
-          text: "Ramp is a separate cost, and the honest measure of it is the first independent change to production, not the first pull request. In an unfamiliar domain and codebase, four to eight weeks is normal, and throughout it the new hire consumes attention from people who are already productive.",
-        },
-        {
-          type: "p",
-          text: "An agency’s advantage here is not that its people are better. The forming cost has already been paid by somebody else: the pairs have worked together, review conventions exist, CI is a template rather than a decision, and someone already knows how to wire up the observability stack. You are buying a team, not individuals who will become one on your budget.",
+          text: "For an in-house option, use your organisation's actual payroll, benefits, recruitment, equipment, management and availability assumptions. For a freelancer or agency, use the written proposal and list the work your own team must still perform. Do not rely on generic salary multipliers, regional rate cards or promised start dates as if they were quotations for your project.",
         },
       ],
     },
     {
-      heading: "What happens when the person who knew everything leaves?",
+      heading: "What should remain under your company's control?",
       blocks: [
         {
           type: "p",
-          text: "Every model has a bus factor problem and each one fails differently. In-house, the knowledge leaves permanently and the replacement starts from the code. With an agency, continuity is contractual, but the agency’s own attrition is invisible to you until it is not — the person who designed your event model can be rotated onto another account unless the contract names individuals. With freelancers the risk is highest: no bench, no cover, no colleague who read the code last week.",
-        },
-        {
-          type: "p",
-          text: "The mitigations are identical across all three models, cost almost nothing to insist on at the start, and are close to impossible to retrofit at the end.",
+          text: "Your company should normally control the source repository, domain, cloud tenancy, database, payment account and other essential production services. Give each contributor only the access required for the assigned work. GitHub documents granular repository roles from read through admin, which lets an organisation match access to a person's function rather than granting blanket control.",
         },
         {
           type: "list",
           items: [
-            "Require every non-trivial decision to land in an architecture decision record in the repository, not in a chat thread that expires with the retention policy.",
-            "Own the cloud accounts, DNS, repositories, CI provider and app store listings yourself from day one — never in a vendor’s or contractor’s name.",
-            "Define infrastructure in Terraform, Pulumi or CloudFormation so that no individual laptop is the deployment mechanism.",
-            "Verify quarterly that CI can build, test and deploy from a clean checkout with no undocumented local steps. This single test surfaces most hidden knowledge.",
-            "Contract for a paid handover window rather than relying on goodwill after the final invoice.",
-            "Have two people review anything load-bearing, so that no subsystem has exactly one reader.",
+            "Create production accounts in the buyer's organisation, not a supplier's personal account.",
+            "Record who can administer code, hosting, data, DNS and third-party integrations.",
+            "Require reviewable changes and keep important decisions with the code or operating documentation.",
+            "Test that another authorised person can build, deploy and recover the system.",
+            "Remove access at the end of a task and verify that the company retains every required asset.",
           ],
         },
-      ],
-    },
-    {
-      heading: "When is hiring an agency the wrong choice?",
-      blocks: [
         {
           type: "p",
-          text: "There are situations where bringing in a firm — including ours — is the worse decision, and saying so is more useful than pretending otherwise. The clearest is when the software is the company. If the product is what customers pay for and will be built continuously for the next five years, the compounding value of domain knowledge held by permanent staff beats any rate arbitrage.",
-        },
-        {
-          type: "p",
-          text: "The second is when you cannot yet articulate what you want. A firm will happily run a discovery process and bill for it, but if the specification changes materially every week because the business model is still moving, the contract converts that churn into invoices.",
-        },
-        {
-          type: "p",
-          text: "The third is small, continuous work. A few hours a week of maintenance is badly matched to minimum team sizes, retainer floors and the cost of context-switching a shared team into your codebase. A part-time contractor who already knows the system is cheaper for both sides.",
-        },
-        {
-          type: "p",
-          text: "The fourth is regulatory. Some environments require named, vetted, geographically constrained personnel, or prohibit third-party access to production data outright. No commercial argument overrides that.",
-        },
-        {
-          type: "callout",
-          text: "If your only reason for hiring an agency is that hiring is difficult, you are deferring the problem at a premium. You will still have to hire eventually, and by then you will be recruiting people to maintain a codebase they did not write.",
+          text: "Account ownership does not replace intellectual-property, confidentiality or data-processing terms. Have appropriate advisers review the agreement for the countries, data and relationship involved. Technical access and contractual rights are separate controls, and both need an accountable owner.",
         },
       ],
     },
     {
-      heading: "Where freelancers win and where they quietly fail",
+      heading: "How do you compare engineering and security discipline?",
       blocks: [
         {
           type: "p",
-          text: "Freelancers are the best value in the market for bounded, specified, single-discipline work. Implementing a design system in an existing component library. A Stripe integration including webhooks, proration and dunning. A one-off data migration with a verification script. An accessibility audit against WCAG with a remediation list. In each case you can describe done and evaluate the result without having to trust the process.",
+          text: "Ask every option to demonstrate the same development controls. NIST's Secure Software Development Framework is designed as a common vocabulary for software producers and purchasers; it covers practices that can be integrated into a software development lifecycle. Use relevant controls to frame supplier questions rather than treating a company label as proof of secure delivery.",
+        },
+        {
+          type: "list",
+          items: [
+            "How are requirements and security expectations recorded before implementation?",
+            "Who reviews code, dependencies and infrastructure changes before release?",
+            "Which automated and manual checks support the acceptance decision?",
+            "How are findings recorded, prioritised, fixed and retested?",
+            "Who can deploy, observe production and execute the recovery path?",
+            "What documentation and operating evidence must pass before handover?",
+          ],
         },
         {
           type: "p",
-          text: "They fail on the inverse. Work spanning backend, frontend, mobile and infrastructure at once becomes an integration problem you now own, because nobody else holds the whole picture. And the review step quietly disappears: an individual merges their own work, so the second pair of eyes that catches the concurrency bug or the missing index does not exist unless you supply it.",
-        },
-        {
-          type: "p",
-          text: "That is why quality variance is widest in this model. There is no institutional standard behind the person and no colleague who will refuse to approve the pull request. Two contractors quoting the same rate can produce work that differs by a factor most buyers would not believe.",
+          text: "A freelancer can work inside a strong buyer-owned system, an agency can have weak controls, and an in-house team can accumulate undocumented practices. Evaluate the visible workflow and evidence. The delivery model tells you how responsibility is organised; it does not certify the quality of the work.",
         },
       ],
     },
     {
-      heading: "A decision rule you can apply this week",
+      heading: "Does contractor status change the decision?",
       blocks: [
         {
           type: "p",
-          text: "Work through these in order and stop at the first clear answer. Most teams find they were arguing about cost when the binding constraint was calendar or accountability.",
+          text: "Yes, because calling someone a freelancer does not by itself determine their legal or tax status. The US Internal Revenue Service says businesses must consider the whole relationship, including behavioural control, financial control and the type of relationship; it states that no single factor decides the classification. In the UK, GOV.UK explains that employment status affects rights and employer responsibilities, and that tax-law status can differ from employment-law status.",
+        },
+        {
+          type: "p",
+          text: "Before designing a long-running individual engagement, obtain jurisdiction-specific advice and document the working arrangement. This article is a product-delivery framework, not employment or tax advice. An agency contract may change the commercial relationship, but it does not remove the need to check access, data, intellectual property and supplier obligations.",
+        },
+      ],
+    },
+    {
+      heading: "What should a paid comparison exercise include?",
+      blocks: [
+        {
+          type: "p",
+          text: "Give shortlisted options the same bounded release brief. Include the user outcome, current assets, important failure states, constraints, acceptance evidence and responsibilities that must be covered. A short paid discovery or representative task can expose assumptions without granting production access or asking candidates to perform unpaid product work.",
         },
         {
           type: "list",
           ordered: true,
           items: [
-            "Will customers still be paying for this capability in three years? If yes, its core belongs in-house whatever else you decide.",
-            "Does the work have a defined end date? If yes, permanent headcount is the wrong instrument — a fixed cost against a variable need.",
-            "Can anyone internally judge the output technically? If not, an agency with a named architect accountable for quality beats individuals who each grade their own work.",
-            "Is the scope one discipline or four? One is a contractor. Four is a team, and assembling one from contractors makes you the integrator.",
-            "What does a month of delay cost in revenue, runway or a missed contractual date? If that number is large, the agency premium is the cheapest part of the decision.",
+            "Define one user outcome and the conditions that count as accepted.",
+            "List the product, design, engineering, security and operating roles the release needs.",
+            "Mark which roles already exist internally and which the proposal must supply.",
+            "Ask each option to state assumptions, exclusions, dependencies and required buyer time.",
+            "Compare the route from brief to reviewed change, deployment, operation and handover.",
+            "Select the model whose responsibility boundary matches the work—not the proposal with the fewest visible lines.",
           ],
         },
+      ],
+    },
+    {
+      heading: "Which ApexStack starting point fits this decision?",
+      blocks: [
         {
           type: "p",
-          text: "Most companies do not pick one model and hold it. The arrangement that works is a small permanent core owning product decisions and the differentiating parts of the system, an agency team for surge capacity, and contractors for bounded tasks. A common sequence is an agency building version one against a fixed scope while you recruit, then a structured handover into permanent hires it helped onboard.",
+          text: "A Product Blueprint starts from US$1,000 for a bounded planning and de-risking engagement. For this decision, it can define the release boundary, responsibility map, acceptance criteria and comparison brief. It is not a production-ready MVP and does not replace legal, employment or tax advice.",
         },
         {
           type: "p",
-          text: "We work both ends of that arrangement, and if you are weighing the three models against a specific build, it is worth a conversation about which one your constraints actually point to.",
+          text: "A Launch Sprint starts from US$2,500 and covers planning, UX direction, implementation, testing and deployment for one tightly scoped first release or core workflow. Authentication, billing, mobile apps, advanced AI, multiple integrations, data migration, compliance and extensive administration can increase the quote. Review the current pricing and send the same brief you plan to use for other options so ApexStack can respond against a comparable scope.",
+        },
+        {
+          type: "callout",
+          text: "If your company already has strong product direction and technical review, a specialist may be enough. If those responsibilities are missing, include them explicitly before comparing an ApexStack product team with another option.",
         },
       ],
     },
   ],
   faqs: [
     {
-      question: "Is it cheaper to hire an in-house developer or a development agency?",
+      question: "Is an in-house developer cheaper than a development agency?",
       answer:
-        "Per hour, an in-house developer is cheaper. Per unit of delivered work on a project with an end date, the agency often wins. A permanent engineer costs roughly 1.25–1.4x salary once employer taxes, benefits, equipment and licences are counted, plus a recruitment fee of 15–25% of first-year salary, and you pay that through leave, notice periods and gaps between projects. An agency bills only for weeks consumed.",
+        "Not necessarily for the same delivered outcome. Compare your actual employment, management, tooling and availability costs with the agency's proposal, then add the product, review, deployment and support work excluded from either option. A salary and a project quote are not like-for-like measures.",
     },
     {
-      question: "How much more than salary does an in-house engineer really cost?",
+      question: "When should a startup hire a freelancer instead of an agency?",
       answer:
-        "Plan on 25–40% above base salary before management overhead. That covers statutory employer contributions, retirement contributions, healthcare where the employer pays it, equipment, and per-seat licences for the IDE, CI, observability and design tools. Add a one-off recruitment fee in year one if you used a contingency recruiter, commonly 15–25% of first-year base. Bench time between projects is a further cost most models omit entirely.",
+        "Use a freelancer when the task is bounded, one discipline can complete it, your team can judge the result and your company can integrate and operate the change. Compare an agency when the release needs coordinated responsibility across several disciplines or those buyer-side capabilities are absent.",
     },
     {
-      question: "When should a startup use freelancers instead of an agency?",
+      question: "Should a startup eventually build an in-house product team?",
       answer:
-        "When the work is bounded, specified, and sits inside one discipline — a payments integration, a data migration, an accessibility audit, a build pipeline fix. You can define done, evaluate the output without trusting the process, and the engagement ends cleanly. Avoid freelancers for multi-discipline builds, for anything running beyond a few months, and for work where the absence of a code reviewer would let serious defects through unnoticed.",
+        "An in-house core is a strong fit when software is a continuing source of product advantage and the company needs to retain product context and delivery capability. External specialists or teams can still support bounded releases, reviews or temporary capability gaps around that core.",
     },
     {
-      question: "What happens to my code and infrastructure if the agency relationship ends?",
+      question: "Who should own the code when an agency or freelancer builds it?",
       answer:
-        "That depends entirely on what you set up at the start. Own the cloud accounts, DNS, source repositories, CI provider and app store listings in your own name from day one, require architecture decision records in the repository rather than in chat, keep infrastructure defined as code, and contract for a paid handover window. With those in place a transition takes weeks. Without them it can take longer than the original build.",
+        "The buyer should normally control the repository and essential production accounts, grant role-appropriate access and test that access can be removed without losing the build or deployment path. Contractual ownership and licensing also need explicit review for the specific engagement.",
     },
     {
-      question: "Can I start with an agency and move development in-house later?",
+      question: "Can an agency build the first release and hand it to an in-house team?",
       answer:
-        "Yes, and it is the most common successful sequence. The agency builds version one against a fixed scope while you recruit without deadline pressure, then hands over to permanent hires it helped onboard against the code it wrote. Make the handover an explicit contractual phase with a defined exit test — typically that your team can build, test and deploy from a clean checkout with no vendor involvement.",
+        "Yes, if the transition is designed into the engagement. Define buyer-owned accounts, documentation, review participation, operating runbooks and a handover acceptance test before delivery starts. Do not assume a final archive or walkthrough creates an operable transfer.",
+    },
+  ],
+  sources: [
+    {
+      title: "Independent contractor (self-employed) or employee?",
+      url: "https://www.irs.gov/businesses/small-businesses-self-employed/independent-contractor-self-employed-or-employee",
+      publisher: "Internal Revenue Service",
     },
     {
-      question: "How long does it take to hire an in-house engineer versus starting with an agency?",
-      answer:
-        "From decision to first commit, hiring realistically takes two to four months: sourcing, interview loops, an offer that may be countered, and a notice period of two weeks in the US or one to three months in the UK and Europe. Then four to eight weeks of ramp before the hire is independently productive. An agency team typically starts within one to four weeks and arrives already formed.",
+      title: "Employment status: overview",
+      url: "https://www.gov.uk/employment-status",
+      publisher: "GOV.UK",
     },
+    {
+      title: "Repository roles for an organisation",
+      url: "https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization",
+      publisher: "GitHub",
+    },
+    {
+      title: "Secure Software Development Framework Version 1.1",
+      url: "https://csrc.nist.gov/pubs/sp/800/218/final",
+      publisher: "National Institute of Standards and Technology",
+    },
+  ],
+  related: [
+    "agency-vs-upwork-for-mvp-development",
+    "questions-to-ask-before-signing-development-agency",
+    "hire-vibe-coder-for-startup",
   ],
 };
