@@ -3,292 +3,300 @@ import type { BlogPost } from "@/data/blog/types";
 export const post: BlogPost = {
   slug: "mvp-development-cost",
   title: "How Much Does It Cost to Build an MVP?",
-  seoTitle: "MVP Development Cost: Real Market Ranges & Drivers",
+  seoTitle: "MVP Development Cost: Build a Defensible Budget",
   description:
-    "MVP development cost, broken down: observed market ranges by complexity, what really drives them, and the line items founders forget to budget for.",
+    "Estimate MVP development cost from scope, risk and operating needs, then compare proposals against one release boundary.",
   excerpt:
-    "A cost breakdown for founders scoping their first build: what moves the number, what simple, moderate and complex MVPs go for on the open market, and why the lowest quote usually ends up the dearest.",
+    "A practical way to define an MVP budget without relying on a generic price range that hides scope, ownership and launch costs.",
   category: "MVP & Startups",
   primaryKeyword: "MVP development cost",
   secondaryKeywords: [
     "how much does an MVP cost",
-    "cost to build an MVP app",
-    "MVP development pricing",
-    "minimum viable product budget",
-    "startup app development cost",
+    "MVP cost breakdown",
+    "MVP development budget",
+    "startup MVP pricing",
+    "MVP development quote",
   ],
   published: "2026-08-12",
+  updated: "2026-09-16",
   authorId: "leadership-01",
   serviceSlug: "mvp-development",
   keyTakeaway:
-    "On the open market, MVP development cost usually falls between USD 20,000 and USD 300,000: roughly USD 20,000–50,000 for a single-platform product with off-the-shelf auth and payments, USD 50,000–120,000 once you add several integrations and multiple user roles, and USD 120,000–300,000 or more for multi-platform, real-time or regulated builds. The figure is driven far more by platform count, integration count, compliance scope and how much of the product is genuinely custom than by the hourly rate on the proposal. A quote that omits QA, infrastructure, third-party fees and post-launch iteration is not cheaper — it is incomplete.",
+    "There is no responsible universal price for an MVP because the same label can describe a clickable prototype, one working workflow or a multi-role production product. Build the budget from the release boundary: users, platforms, integrations, data, verification, deployment and post-launch ownership. ApexStack's Product Blueprint starts from US$1,000 for one bounded planning question; a Launch Sprint starts from US$2,500 for one tightly scoped first release or core workflow.",
   sections: [
     {
-      heading: "What actually drives MVP development cost?",
+      heading: "What determines the cost of an MVP?",
       blocks: [
         {
           type: "p",
-          text: "Two competent teams can quote the same idea and land USD 60,000 apart without either being dishonest. MVP development cost is not a price tag attached to a concept; it is the sum of a small set of variables, and the ones that move it hardest are rarely the ones discussed on the first call. Founders argue about feature lists. Estimators count platforms, integrations and permission rules.",
+          text: "MVP cost is determined by the smallest release that can test a real business assumption, plus the work required to make that release safe and usable in its intended setting. A quote is only meaningful when it names the core workflow, user roles, platforms, integrations, data, acceptance evidence, deployment responsibility and support boundary.",
         },
         {
           type: "p",
-          text: "Feature count matters far less than feature depth. “User can upload a document” is a two-day story if it means putting a file in object storage and rendering a link, and a six-week epic if it means virus scanning, OCR, versioning, per-field redaction and an audit trail. Scope written in user-facing language hides that difference. The variables that move a number, roughly in order of impact:",
-        },
-        {
-          type: "list",
-          items: [
-            "Platform count. Responsive web is one codebase; web plus native iOS and Android is three builds, three release processes and three QA passes. React Native collapses part of that, never all of it.",
-            "Integrations, weighted by counterparty. Stripe has documentation, a sandbox and predictable webhooks, so the work is measurable. A regional bank’s SOAP endpoint with a PDF specification and no test environment is unbounded. Estimate the API, not the logo.",
-            "User roles. Two roles is a conditional; five with organisation-level scoping is an authorisation system with its own tests, and each role multiplies the QA surface.",
-            "Compliance. HIPAA, SOC 2 readiness, PCI scope or GDPR data-subject rights add encryption, audit logging, retention jobs, export and deletion, plus process work no code review catches. The largest single step change in any budget.",
-            "Design fidelity and live state. Theming a component library costs a fraction of bespoke interaction design; CRUD costs a fraction of collaboration, presence and conflict resolution. The second of each pair changes architecture, not screens.",
-            "Data you already have. Migrating from spreadsheets, a legacy database or another SaaS product is its own project, and cleaning the data takes longer than moving it.",
-          ],
-        },
-        {
-          type: "p",
-          text: "Team composition sits underneath all of it. Every build pays for product definition, design, engineering, QA and deployment — the question is only whether that is five people or two generalists wearing five hats. At MVP scale, two experienced generalists are frequently faster and cheaper than six specialists, because coordination overhead is real and it is billed.",
-        },
-      ],
-    },
-    {
-      heading: "What do simple, moderate and complex MVPs cost?",
-      blocks: [
-        {
-          type: "p",
-          text: "The figures below are observed market ranges for engaging an outside product team, in USD — not a rate card, and not what any single firm charges. They cover discovery, design, engineering, QA and launch, and exclude your own salary, marketing and ongoing third-party fees.",
-        },
-        {
-          type: "table",
-          caption: "Observed market ranges for outsourced MVP builds, by complexity tier",
-          head: [
-            "Tier",
-            "Market range (USD)",
-            "Realistically in scope",
-            "Team and duration",
-            "Not included",
-          ],
-          rows: [
-            [
-              "Clickable prototype",
-              "5,000 – 15,000",
-              "Information architecture, high-fidelity screens, a linked prototype for user testing or a raise. No working software.",
-              "One designer, part-time product, 2–4 weeks",
-              "Any code, backend or data",
-            ],
-            [
-              "Simple MVP",
-              "20,000 – 50,000",
-              "One platform, one or two roles, off-the-shelf auth and payments, a themed component library, one or two integrations, one core workflow done properly.",
-              "Two engineers, part-time design and product, 6–10 weeks",
-              "Native mobile, offline mode, real admin tooling",
-            ],
-            [
-              "Moderate MVP",
-              "50,000 – 120,000",
-              "Web plus one mobile platform, or a multi-role web product: three to six integrations, background jobs, notifications, reporting, admin tooling, a real test suite.",
-              "Three to four engineers, dedicated design, part-time QA, 10–16 weeks",
-              "Certification, ML pipelines, multi-region infrastructure",
-            ],
-            [
-              "Complex or regulated MVP",
-              "120,000 – 300,000+",
-              "Multi-platform, real-time or collaborative features, a model-serving or data pipeline component, SSO, audit logging, field-level encryption, HIPAA or SOC 2 evidence.",
-              "Five to eight people including infrastructure and QA, 16–28 weeks",
-              "The audit itself, penetration testing, compliance tooling",
-            ],
-          ],
-        },
-        {
-          type: "p",
-          text: "What moves a project from the floor of a band to its ceiling is almost always one of four things: an extra platform, an integration with a counterparty you do not control, a compliance requirement discovered halfway through, or a design process that never converges. The first three are foreseeable at scoping. The fourth is a discipline problem, and it quietly eats the contingency.",
-        },
-      ],
-    },
-    {
-      heading: "Why comparing hourly rates across regions is misleading",
-      blocks: [
-        {
-          type: "p",
-          text: "Blended agency rates cluster by geography: broadly USD 120–250 per hour in North America and Western Europe, USD 50–100 in Central and Eastern Europe, USD 45–90 in Latin America, USD 25–60 across South and Southeast Asia. Those bands are real, they are the first thing procurement compares, and they are the least predictive number in the exercise.",
-        },
-        {
-          type: "p",
-          text: "Rate varies by roughly five times across those markets. Hours to deliver the same scope vary by more, because hours depend on how well the problem was understood before anyone opened an editor, how much gets rebuilt after review, and how much time goes into clarifying a specification across a twelve-hour gap.",
-        },
-        {
-          type: "code",
-          lang: "text",
-          code: "effective_cost =\n      blended_rate x build_hours          # the only term on the proposal\n    + blended_rate x rework_hours         # scope misread, review rejected, defects\n    + blended_rate x coordination_hours   # clarification, handover, timezone lag\n    + weekly_burn  x weeks_late           # your carrying cost while you wait\n\n# Rate spread across regions:      ~5x\n# Hours spread for the same scope: unbounded",
-        },
-        {
-          type: "p",
-          text: "The useful comparison is cost per shipped, working feature across the whole engagement. Before signing, the closest approximation is what a team has delivered before, how they scoped it, and whether their estimate acknowledges the rework term at all. A proposal with a named contingency is more honest than one without, not more expensive.",
-        },
-      ],
-    },
-    {
-      heading: "Which costs do founders forget to budget for?",
-      blocks: [
-        {
-          type: "p",
-          text: "The build quote is typically 70–85% of what leaves your account in year one. The rest is unglamorous, largely fixed and almost never in the proposal. Vendor figures below are published prices at the time of writing.",
-        },
-        {
-          type: "list",
-          items: [
-            "Store and platform licences. The Apple Developer Program is USD 99 per year; Google Play charges a one-off USD 25. Both are trivial; review is not. Apple’s rules on account deletion, sign-in options and data disclosure cause rejections that cost a week each.",
-            "Payment processing. Stripe’s published standard rate for online domestic card payments in the US is 2.9% plus USD 0.30 per transaction. Revenue-linked rather than a build cost, and it belongs in your model from day one.",
-            "Metered third-party APIs. Email, SMS, mapping, identity verification and model inference are per-unit. Amazon SES publishes USD 0.10 per 1,000 outbound emails; LLM inference is billed per million tokens and is the line most likely to surprise you once a feature that felt free in testing meets real usage.",
-            "Infrastructure. Managed Postgres, an application host, object storage, a CDN, logging and error tracking commonly run USD 200–800 a month before traffic is meaningful, and staging adds to it. Backups and alerting are not optional.",
-            "Quality assurance. Cutting QA defers the cost into support and rework at a worse exchange rate. Budget it, including one accessibility and one cross-browser pass.",
-            "Post-launch iteration. The eight weeks after launch generate more change than the eight before it, because that is when real users first touch the product. Reserve 20–30% of the build budget for it; a team that disappears at launch leaves you the least valuable version of the product.",
-          ],
+          text: "Two proposals can both say “MVP” while buying different outcomes. One may cover a prototype for a sales conversation. Another may include authenticated users, payments, production data and an operational handover. Comparing their totals before normalising the deliverables creates false certainty rather than a useful budget.",
         },
         {
           type: "callout",
-          text: "Budget the build at 100 and the first year at 130. The extra 30 is not overrun — it is infrastructure, licences, metered APIs and the iteration that turns a launched product into a used one.",
+          text: "Ask for the release boundary and evidence of completion before asking whether the price is competitive.",
         },
       ],
     },
     {
-      heading: "Why is the cheapest quote usually the most expensive outcome?",
+      heading: "What must be defined before requesting an MVP quote?",
       blocks: [
         {
           type: "p",
-          text: "This is a mechanism, not a moral claim about cheap suppliers. A fixed-price bid is a bet on scope, and the lowest bidder has usually made the most optimistic reading of an ambiguous specification — not out of malice, but because pessimistic readings lose bids. That reading meets reality in week four. The supplier can then absorb the loss, staff the work with whoever is cheapest and available, or raise change orders. The first is rare.",
+          text: "A supplier cannot produce a defensible estimate from an idea statement alone. Define the decision the first release must support, then make the following inputs explicit enough for every supplier to price the same work.",
+        },
+        {
+          type: "list",
+          items: [
+            "One primary user and the end-to-end workflow that user must complete.",
+            "The web, mobile or desktop surfaces included in the first release.",
+            "User roles, permissions and approval steps that affect behaviour.",
+            "External systems, APIs, payments, identity providers or model providers that must connect.",
+            "The data entering the product, where it is stored and which failure states require recovery.",
+            "The acceptance evidence required before launch, including testing, review and operational checks.",
+            "Who owns the repository, production accounts, deployment, monitoring and post-launch decisions.",
+          ],
         },
         {
           type: "p",
-          text: "The compounding damage is technical. Under margin pressure the first things to go are the ones with no visible output that week: tests, error handling, database indexes, input validation, structured logging, deployment automation. The product demos correctly and is expensive to change from that day on. Six months later a feature that should take a week takes a month, because nothing can be modified with confidence and no test suite will tell you what broke.",
+          text: "Unknowns do not disappear when they are omitted from a brief. They return later as assumptions, change requests or production risk. A short definition engagement can be more economical than asking several suppliers to price different interpretations of the same idea.",
         },
       ],
     },
     {
-      heading: "How do you reduce MVP development cost without gutting the product?",
+      heading: "Which work layers belong in an MVP budget?",
       blocks: [
         {
           type: "p",
-          text: "There are two ways to spend less. One is to cut quality, a loan at a punishing rate of interest. The other is to stop rebuilding commodities: almost every MVP contains half a dozen components that already exist as products, and building any of them should require an explicit argument.",
+          text: "A useful budget separates the work needed to decide what to build from the work needed to release and operate it. This prevents implementation from absorbing responsibilities that were never priced or assigned.",
         },
         {
           type: "table",
-          caption: "Commodity components: what to buy, and the narrow cases for building",
-          head: [
-            "Capability",
-            "Typical build effort",
-            "Off-the-shelf options",
-            "What buying costs",
-            "Build it yourself only when",
-          ],
+          caption: "The work layers behind a complete first-release estimate.",
+          head: ["Layer", "What it should cover", "Evidence to request"],
           rows: [
             [
-              "Authentication and sessions",
-              "2–4 weeks: login, password reset, MFA, sessions",
-              "Auth0, Clerk, Supabase Auth, AWS Cognito, WorkOS",
-              "Per monthly active user; free or near-free at MVP volumes",
-              "You have an unusual identity model, or a regulator forbids third-party custody of credentials",
+              "Definition",
+              "User, problem, workflow, constraints, exclusions and release decision",
+              "Written release boundary and prioritised acceptance criteria",
             ],
             [
-              "Payments and subscriptions",
-              "4–8 weeks: cards, subscriptions, dunning, invoices, tax",
-              "Stripe, Adyen, Paddle, Lemon Squeezy",
-              "A percentage of revenue plus a per-transaction fee",
-              "Essentially never at MVP stage",
+              "UX direction",
+              "Critical screens, states, responsive behaviour and interaction decisions",
+              "Reviewable flow covering success, empty, loading and failure states",
             ],
             [
-              "Admin and support tooling",
-              "2–5 weeks for a usable back office",
-              "Retool, Forest Admin, Django Admin, Metabase",
-              "A seat licence, usually low double digits per user monthly",
-              "Your operations workflow is the product you sell",
+              "Implementation",
+              "Application code, data model, integrations and environment configuration",
+              "Buyer-accessible repository and working release increments",
             ],
             [
-              "Transactional email",
-              "1–2 weeks including deliverability",
-              "Resend, Postmark, Amazon SES",
-              "Per message; SES publishes USD 0.10 per 1,000 emails",
-              "Never",
+              "Verification",
+              "Review, testing, security requirements and release acceptance",
+              "Passing checks, documented findings and demonstrated behaviour",
             ],
             [
-              "Search",
-              "2–6 weeks depending on relevance needs",
-              "Postgres full-text, Typesense, Meilisearch",
-              "Free with Postgres, otherwise per record",
-              "Ranking quality is your differentiator",
+              "Deployment and handover",
+              "Production release, access, operating notes and recovery path",
+              "Buyer-owned accounts, deployment record and current documentation",
+            ],
+            [
+              "Operation and iteration",
+              "Monitoring, support boundary, vendor charges and the next learning cycle",
+              "Named owner, escalation route and prioritised follow-up work",
             ],
           ],
         },
         {
           type: "p",
-          text: "Four other decisions move the total more than anything else. Ship one platform and let usage tell you whether the second is warranted — responsive web reaches every device and skips both app stores. Cut user roles before you cut features. Spend the design budget on the two or three screens users live in rather than on all forty. And write the specification as workflows a named user completes end to end, because feature lists are what estimators pad and workflows are what they can size.",
-        },
-        {
-          type: "p",
-          text: "One thing not to cut: the deployment pipeline. A day on automated deploys, environment parity and a rollback path pays for itself before launch, because every later change is cheaper and every failed release recoverable in minutes.",
+          text: "NIST's Secure Software Development Framework describes a common set of secure development practices that can be integrated into a software lifecycle and used by producers and purchasers. Security is therefore not a single line item added after implementation; its requirements and evidence should appear in the relevant work layers from definition through release.",
         },
       ],
     },
     {
-      heading: "How to pressure-test the quote in front of you",
+      heading: "Which scope decisions increase MVP development cost?",
       blocks: [
         {
           type: "p",
-          text: "You can assess an estimate long before you can assess a team. A number on its own is a guess with a currency symbol in front of it; anything credible also contains:",
+          text: "Cost increases when the release contains more behaviour, more surfaces or more ways to fail. The following drivers matter because each adds decisions, implementation paths, verification work or operating responsibility.",
+        },
+        {
+          type: "table",
+          caption: "Scope drivers and the work they introduce.",
+          head: ["Scope driver", "Why it changes the estimate", "A useful first-release constraint"],
+          rows: [
+            [
+              "Multiple user roles",
+              "Permissions, navigation, data visibility and approval paths must be designed and tested",
+              "Include only the roles required to complete the core workflow",
+            ],
+            [
+              "Web and mobile clients",
+              "Each surface needs interface decisions, implementation, testing and release management",
+              "Start with the surface used at the decisive moment",
+            ],
+            [
+              "Authentication and billing",
+              "Identity, access recovery, subscription state and payment failures introduce sensitive paths",
+              "Use established providers where they fit and define the required states",
+            ],
+            [
+              "External integrations",
+              "Supplier limits, errors, credentials, webhooks and version changes require handling",
+              "Connect only the system required to prove the first outcome",
+            ],
+            [
+              "Advanced AI",
+              "Model choice, context, evaluation, permissions, fallback behaviour and usage cost need supervision",
+              "Bound one task and define how a human verifies the result",
+            ],
+            [
+              "Data migration or compliance",
+              "Legacy data, retention, auditability and regulatory obligations can change architecture and acceptance",
+              "Confirm the evidence and data boundary before implementation",
+            ],
+          ],
+        },
+      ],
+    },
+    {
+      heading: "How can you compare MVP development proposals fairly?",
+      blocks: [
+        {
+          type: "p",
+          text: "Give every supplier the same release brief and require each proposal to state assumptions, exclusions and buyer responsibilities. A fixed total without those boundaries is not comparable to a proposal that includes definition, design, review, deployment and handover.",
         },
         {
           type: "list",
           ordered: true,
           items: [
-            "Scope broken into workflows, each with its own range. Ranges are honest; single figures are marketing.",
-            "The assumptions it rests on — which APIs have sandboxes, who supplies content, which browsers are supported, who signs off and how quickly.",
-            "An exclusions list. What is deliberately not in the price is more informative than what is.",
-            "Team composition by role and allocation, so you can see whether QA and infrastructure are real line items or someone’s spare afternoon.",
-            "A change-control process: how a mid-build change is priced, who approves it, what it does to the date.",
-            "What you own at the end — repositories, cloud accounts, design sources, domain and store listings — in your name from day one.",
+            "Confirm the exact workflow and platforms included in the first release.",
+            "Map product, design, engineering, review, testing, deployment and support responsibilities to named owners.",
+            "Ask which assumptions can change the scope and how changes will be approved.",
+            "Define acceptance with demonstrations, automated checks or other inspectable evidence.",
+            "Confirm source-code, production-account, data and intellectual-property ownership before work begins.",
+            "Separate one-off delivery work from recurring services and post-launch iteration.",
           ],
         },
         {
           type: "p",
-          text: "Then do three things with the number. Add the year-one costs above and check the total still works. Ask the supplier to name the riskiest item in the scope and how they would reduce that risk in the first fortnight — the answer says more about their judgement than any portfolio. Then ask what they would remove if your budget were 30% lower: a team that can sequence a product answers immediately, and a team that cannot offers a discount.",
+          text: "A proposal becomes useful when a decision-maker can trace the price to the release and the evidence required to accept it. If a lower total moves essential responsibilities to the buyer, include those responsibilities in the comparison rather than treating them as free.",
+        },
+      ],
+    },
+    {
+      heading: "Which costs can sit outside an MVP development quote?",
+      blocks: [
+        {
+          type: "p",
+          text: "The delivery quote may not include hosting, databases, email, analytics, model usage, payment processing, app-store accounts, monitoring or ongoing support. These charges depend on the chosen providers, country, product and usage, so record them as named assumptions instead of hiding them inside a generic contingency.",
         },
         {
           type: "p",
-          text: "The right MVP budget puts a real workflow in front of real users while you still have runway to act on what they tell you. If you are scoping a first build and want a second opinion on the figure you have been given, we are happy to walk through the scope and say where we think it sits in these ranges and why.",
+          text: "Apple publishes its current developer membership options and regional enrolment details, while Stripe publishes pricing by product and market. Use the official pages for the accounts and services in your architecture, then assign billing ownership and alert thresholds before launch. The same rule applies to cloud, AI and communications providers.",
+        },
+        {
+          type: "list",
+          items: [
+            "Production hosting, storage, backups and data transfer",
+            "Third-party APIs, AI models, email, messaging and observability",
+            "Payment processing and marketplace or app-store accounts",
+            "Domains, certificates and other business-controlled infrastructure",
+            "Post-launch support, incident handling and product iteration",
+          ],
+        },
+      ],
+    },
+    {
+      heading: "How can a founder reduce MVP cost without hiding risk?",
+      blocks: [
+        {
+          type: "p",
+          text: "Reduce cost by removing behaviour that is not needed to test the first business assumption, not by removing ownership, verification or recovery from behaviour that remains. The aim is a smaller complete release rather than a larger unfinished one.",
+        },
+        {
+          type: "list",
+          items: [
+            "Choose one primary audience, one painful problem and one measurable release decision.",
+            "Keep one end-to-end workflow and defer secondary roles, dashboards and configuration screens.",
+            "Use established services where their trade-offs fit the product instead of rebuilding commodity infrastructure.",
+            "Provide decisions, content and access on time so the delivery team is not pricing prolonged uncertainty.",
+            "Make acceptance criteria explicit before implementation and review working increments early.",
+            "Keep source and production accounts under buyer control so handover does not become a separate rescue project.",
+          ],
+        },
+      ],
+    },
+    {
+      heading: "Which ApexStack starting point fits your MVP budget decision?",
+      blocks: [
+        {
+          type: "p",
+          text: "A Product Blueprint starts from US$1,000 for one bounded planning and de-risking question. It can define a core workflow, expose material assumptions and turn an idea or existing prototype into a comparable release brief. It is not a production-ready MVP, unlimited discovery engagement or delivery guarantee.",
+        },
+        {
+          type: "p",
+          text: "A Launch Sprint starts from US$2,500 and covers planning, UX direction, implementation, testing and deployment for one tightly scoped first release or core workflow. Authentication, billing, mobile applications, advanced AI, multiple integrations, data migration, compliance and extensive administration can increase the quote. Bring the user, workflow, constraints and current assets to ApexStack so the first conversation can identify the appropriate starting point.",
         },
       ],
     },
   ],
   faqs: [
     {
-      question: "How much does it cost to build an MVP in 2026?",
+      question: "Can an MVP start at US$2,500?",
       answer:
-        "Working with an outside product team, most MVPs land between USD 20,000 and USD 300,000. A single-platform product with off-the-shelf auth and payments typically sits at USD 20,000–50,000, a multi-role product with several integrations at USD 50,000–120,000, and anything multi-platform, real-time or subject to HIPAA or SOC 2 at USD 120,000 upwards. These are market ranges, not any one firm’s prices.",
+        "An ApexStack Launch Sprint starts from US$2,500 for one tightly scoped first release or core workflow. Authentication, billing, mobile applications, advanced AI, multiple integrations, data migration, compliance and extensive administration can increase the quote.",
     },
     {
-      question: "Can you build an MVP for $10,000?",
+      question: "Is US$1,000 enough for a complete MVP?",
       answer:
-        "Sometimes, but only for a genuinely narrow product: one platform, one user role, no custom backend logic beyond CRUD, off-the-shelf authentication and payments, and a component library instead of bespoke design. At that budget you are buying a few weeks of one or two people. If the scope includes native mobile, several integrations or any compliance requirement, USD 10,000 buys a prototype rather than a product.",
+        "No. ApexStack's Product Blueprint starts from US$1,000 for one bounded planning and de-risking question. It is not a production-ready MVP. It can clarify the workflow, assumptions and release boundary before implementation is quoted.",
     },
     {
-      question: "Why do MVP quotes vary so much between agencies?",
+      question: "Why do MVP development quotes vary so much?",
       answer:
-        "Mostly because they are pricing different products. Vague specifications let each team choose its own reading of depth, and the optimistic reading always quotes lower. Team composition matters too — whether QA, infrastructure and design are real allocations or absorbed by developers. Hourly rate explains less of the spread than founders expect; assumed hours explain most of it. Compare the assumptions and exclusions, not the totals.",
+        "Quotes vary because suppliers may include different workflows, platforms, roles, integrations, data responsibilities, verification, deployment and support. Compare them against the same release brief, assumptions, exclusions and acceptance evidence.",
     },
     {
-      question: "What hidden costs should I budget for after the MVP is built?",
+      question: "What costs can sit outside an MVP build quote?",
       answer:
-        "Infrastructure of roughly USD 200–800 a month for a small production footprint, store licences (USD 99 a year for Apple, USD 25 once for Google Play), metered third-party APIs for email, SMS and model inference, payment processing as a percentage of revenue, and post-launch iteration. Reserve 20–30% of the build budget for the first three months after launch, when real usage generates the most change.",
+        "Hosting, storage, backups, third-party APIs, AI-model usage, payment processing, app-store or developer accounts, monitoring, support and later iterations may sit outside the delivery quote. Name each expected service, billing owner and assumption before approval.",
     },
     {
-      question: "Is it cheaper to hire freelancers or an agency for an MVP?",
+      question: "How should I compare two MVP proposals?",
       answer:
-        "Freelancers have a lower rate and no overhead, which works well when the scope is small, well-defined and needs one skill set. An agency costs more per hour but supplies design, engineering, QA and deployment as a coordinated unit, and absorbs the risk of someone leaving mid-build. The deciding factor is usually who owns integration between the parts — with freelancers, that is you.",
+        "Give both suppliers the same bounded workflow and compare role coverage, assumptions, exclusions, acceptance evidence, account ownership, deployment, handover and support. A lower total may exclude responsibilities that still need an owner and budget.",
+    },
+  ],
+  sources: [
+    {
+      title: "Secure Software Development Framework Version 1.1",
+      url: "https://csrc.nist.gov/pubs/sp/800/218/final",
+      publisher: "National Institute of Standards and Technology",
     },
     {
-      question: "How long does an MVP take to build?",
-      answer:
-        "A simple single-platform MVP typically takes 6–10 weeks, a moderate one 10–16 weeks, and a complex or regulated build 16–28 weeks. Timeline and cost move together because the dominant cost is people multiplied by weeks, so compressing a schedule by adding people rarely reduces the total and often increases it through coordination overhead.",
+      title: "Choosing a Membership",
+      url: "https://developer.apple.com/support/compare-memberships/",
+      publisher: "Apple Developer",
     },
+    {
+      title: "Pricing and fees",
+      url: "https://stripe.com/pricing",
+      publisher: "Stripe",
+    },
+  ],
+  conversion: {
+    heading: "How can ApexStack turn your MVP brief into a scoped starting point?",
+    description:
+      "Share the core user, workflow, constraints and any existing prototype. ApexStack can help identify whether the next useful step is a bounded Product Blueprint or a tightly scoped Launch Sprint.",
+    primaryLabel: "Scope your MVP starting point",
+  },
+  related: [
+    "how-to-know-if-your-mvp-is-too-big",
+    "what-is-a-discovery-phase",
+    "agency-vs-upwork-for-mvp-development",
   ],
 };
