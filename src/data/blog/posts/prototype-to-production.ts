@@ -2,304 +2,295 @@ import type { BlogPost } from "@/data/blog/types";
 
 export const post: BlogPost = {
   slug: "prototype-to-production",
-  title: "From Prototype to Production: What Breaks First",
-  seoTitle: "Taking a Prototype to Production: What Breaks First",
+  title: "How to Take a Software Prototype to Production",
+  seoTitle: "Prototype to Production: A Readiness Framework",
   description:
-    "Taking a prototype to production breaks things in a predictable order. The failure modes, when each surfaces, the blast radius, and the fix.",
+    "Turn a software prototype into a production release by defining risks, controls, acceptance evidence, ownership and handover.",
   excerpt:
-    "Auth, indexes, rate limits, uploads, backups and race conditions fail in a reliable sequence once real users arrive. Here is the order, and what each one costs you.",
+    "A practical framework for deciding what to harden, what to rebuild and what evidence a prototype needs before real users depend on it.",
   category: "MVP & Startups",
-  primaryKeyword: "taking a prototype to production",
+  primaryKeyword: "prototype to production",
   secondaryKeywords: [
-    "how to make an MVP production ready",
+    "how to make a prototype production ready",
     "production readiness checklist for startups",
     "prototype vs production code",
-    "why prototypes fail in production",
-    "MVP technical debt",
+    "harden or rebuild a prototype",
+    "MVP production readiness",
   ],
   published: "2026-08-12",
+  updated: "2026-09-17",
   authorId: "leadership-02",
   serviceSlug: "product-engineering",
   keyTakeaway:
-    "Taking a prototype to production breaks things in a predictable order: authentication and object-level authorisation fail on the first real user, missing indexes and N+1 queries fail as the data grows, and race conditions, unbounded uploads and absent rate limits fail as concurrency arrives. Sequence the work by blast radius rather than by effort — authorisation, secrets, backups and error tracking before launch; rate limits, idempotency, indexes and migrations in the first month. The two fixes that get dramatically more expensive with time are how you store money and how you store time, because both eventually require a backfill across live data.",
+    "Take a prototype to production by replacing demo assumptions with explicit operating controls. Define the real users and permissions, move secrets into managed configuration, protect data with tested recovery, bound expensive inputs and external actions, enforce concurrency rules, add observable release checks and document ownership. Do not choose a rewrite merely because the code is untidy. First test whether the current data model, security boundary and core workflow can support the intended release.",
   sections: [
     {
-      heading: "What actually changes when a prototype meets real users",
+      heading: "What changes when a prototype becomes a production product?",
       blocks: [
         {
           type: "p",
-          text: "A prototype answers one question: can this be built at all. It runs on a laptop, for one user who knows which buttons not to press, against a few dozen hand-typed rows. Taking a prototype to production invalidates all three conditions in a week.",
+          text: "A prototype demonstrates a workflow under controlled conditions. A production product must keep that workflow dependable when users have different permissions, inputs are incomplete or hostile, data grows, requests overlap, external services fail and the original developer is unavailable. Production readiness is therefore an evidence and ownership problem, not a cosmetic code-cleanup exercise.",
         },
         {
           type: "p",
-          text: "The failures then arrive in a reliable order, sequenced by how much traffic and data each needs to surface. Authorisation breaks on day one: the first real user is the first person who is not you. Query performance breaks around month two, when a table passes the point at which a sequential scan stops being free. Concurrency bugs break the moment two people click the same button inside the same second. None of this indicts the prototype — one that handled it all would have cost four times as much and answered the same question.",
+          text: "The transition is complete only when the team can explain who may perform each action, how failures are detected, what happens to partial work, how data is recovered, who owns the accounts and how another qualified person can operate the release. A successful demonstration proves the happy path. It does not establish those controls.",
         },
         {
-          type: "p",
-          text: "Every item here has a known cause and fix. What makes them dangerous is that a prototype gives no signal any of them exist — it passes every test you thought to run, because you wrote them and you were the only user.",
+          type: "callout",
+          text: "Define the intended production boundary before hardening the code. A private pilot, a public self-service product and an internal tool require different controls and acceptance evidence.",
         },
       ],
     },
     {
-      heading: "What breaks first when taking a prototype to production: identity and access",
+      heading: "Should you harden the prototype or rebuild it?",
       blocks: [
         {
           type: "p",
-          text: "Prototype auth takes one of three shapes: a hard-coded user, a JWT signed with a secret that also lives in the repository, or a token in localStorage with no expiry. When a token cannot expire or be revoked, the only way to end a session is rotating the signing secret, which logs everyone out — so nobody does it, and the offboarded employee keeps access. A token in localStorage is readable by any script on the page, turning one compromised dependency into account takeover.",
-        },
-        {
-          type: "p",
-          text: "The dangerous half is the part prototypes almost never have. A prototype checks whether someone is logged in; production must check whether this actor may touch this record. When it does not, a customer who edits an integer in a URL sees another customer’s invoice. Broken object-level authorisation sits at the top of the OWASP API Security Top 10 for good reason: it is discoverable by incrementing a number, and unlike a slow query it gives no warning first.",
-        },
-        {
-          type: "p",
-          text: "The fix is structural rather than a bigger library: every read and write passes through one check taking both actor and resource, close to the data rather than scattered across route handlers. Row-level security or a scoped query builder works; remembering to add the tenant filter to each new endpoint does not.",
-        },
-      ],
-    },
-    {
-      heading: "Why the database is fine at 50 rows and dead at 500,000",
-      blocks: [
-        {
-          type: "p",
-          text: "Postgres will scan a fifty-row table faster than it would use an index on it, and the planner is right to do so, so a prototype gives you no feedback about missing indexes. Once the working set outgrows cache the application does not degrade gracefully: slow queries hold connections, the pool empties, and unrelated requests start timing out.",
-        },
-        {
-          type: "p",
-          text: "Two problems get conflated. One is missing indexes on the columns you filter, sort and join by — foreign keys are the usual omission, since Postgres indexes the primary key automatically but not the referencing side. The other is the N+1, where an ORM issues one query for a list and one more per row. Over a local socket, 201 queries at a fraction of a millisecond each are invisible; across an availability zone boundary at a few milliseconds each, the same page takes over a second to render.",
-        },
-        {
-          type: "code",
-          lang: "sql",
-          code: "EXPLAIN ANALYZE\nSELECT * FROM invoices\nWHERE organisation_id = $1\nORDER BY created_at DESC\nLIMIT 50;\n--  Seq Scan on invoices  ->  Filter: (organisation_id = $1)\n--  Rows Removed by Filter: 498   -- cheap now, linear later\n\n-- CONCURRENTLY: an index build, not an outage.\nCREATE INDEX CONCURRENTLY invoices_org_created_idx\n  ON invoices (organisation_id, created_at DESC);",
-        },
-        {
-          type: "list",
-          items: [
-            "Set log_min_duration_statement to a threshold you would be embarrassed by, so slow queries announce themselves rather than arriving as complaints.",
-            "Enable pg_stat_statements and read it fortnightly. It ranks by total time, which is the number that matters, not worst single execution.",
-            "Assert query counts in tests for busy endpoints. Almost nothing else catches an N+1 reintroduced by a refactor.",
-            "Cap page size server-side, and prefer keyset pagination to OFFSET on long lists — OFFSET 10000 makes the database walk ten thousand rows to discard them.",
-          ],
-        },
-      ],
-    },
-    {
-      heading: "The failure order, with blast radius and fix",
-      blocks: [
-        {
-          type: "p",
-          text: "In the order they surface; blast radius decides the sequencing.",
+          text: "Harden the prototype when its data model can represent the business, its core workflow behaves correctly and its architecture allows important controls to be added without bypasses. Consider rebuilding a bounded part only when evidence shows that the current foundation cannot enforce the required behaviour or would make every future change depend on fragile workarounds.",
         },
         {
           type: "table",
-          caption: "Failure modes in the order they surface",
-          head: [
-            "Failure mode",
-            "When it surfaces",
-            "Blast radius",
-            "The fix",
-          ],
+          caption: "Evidence for choosing targeted hardening or a bounded rebuild.",
+          head: ["Decision area", "Evidence that supports hardening", "Evidence that may justify rebuilding a boundary"],
           rows: [
             [
-              "No object-level authorisation",
-              "First customer who edits an ID in a URL",
-              "Cross-tenant data exposure; a reportable breach",
-              "One check on actor plus resource, in the data layer",
+              "Core workflow",
+              "Representative users can complete it and failures are localised",
+              "The workflow cannot be made correct without changing its underlying state model",
             ],
             [
-              "Secrets in the repository",
-              "First fork, offboarded contractor, lost laptop",
-              "Full compromise of every connected system",
-              "Secret manager, rotate everything committed, scanning in CI",
+              "Data model",
+              "Required entities, relationships and invariants can be expressed and migrated",
+              "The schema loses information the business must preserve or cannot enforce essential invariants",
             ],
             [
-              "No error tracking",
-              "Immediately — you just cannot see it",
-              "Broken paths stay broken; you learn from a churned customer",
-              "Exception capture with release context, alerts on new signatures",
+              "Permissions",
+              "One consistent authorisation layer can cover every protected read and write",
+              "Access decisions are inseparable from duplicated or contradictory application paths",
             ],
             [
-              "Backups absent or never restored",
-              "First bad migration or DELETE without WHERE",
-              "Total data loss; frequently terminal",
-              "Snapshots, point-in-time recovery, a rehearsed and timed restore",
+              "Dependencies",
+              "Supported versions and replacements can be introduced incrementally",
+              "A critical abandoned dependency blocks security updates or the required platform",
             ],
             [
-              "Tokens that never expire",
-              "First offboarding or stolen device",
-              "Indefinite access; the only revocation logs everyone out",
-              "Short-lived access tokens, rotating refresh tokens, revocation list",
-            ],
-            [
-              "No rate limiting",
-              "First scraper or client retry storm",
-              "Metered bills, exhausted quotas, denial of service",
-              "Per-IP and per-identity limits at the edge, plus idempotency keys",
-            ],
-            [
-              "Missing indexes",
-              "As the working set outgrows cache",
-              "Everything slows; pool exhausts; unrelated endpoints fail",
-              "pg_stat_statements; index filter, sort and foreign-key columns CONCURRENTLY",
-            ],
-            [
-              "N+1 queries",
-              "When a list page exceeds a screenful",
-              "Latency scales with page size; one endpoint saturates the DB",
-              "Eager loading or a batching loader; query-count assertions in tests",
-            ],
-            [
-              "Unbounded file uploads",
-              "First 4 GB video or decompression bomb",
-              "Disk and memory exhaustion; malware on your domain",
-              "Proxy size limits, real content-type checks, presigned uploads elsewhere",
-            ],
-            [
-              "Race conditions on writes",
-              "Two users acting in the same second",
-              "Duplicate charges, double-booked slots, negative stock",
-              "Unique constraints, row locks or version columns, idempotency keys",
-            ],
-            [
-              "Naive timestamps, float money",
-              "First overseas customer; first penny that will not reconcile",
-              "Wrong reports and billing; corruption predating discovery",
-              "timestamptz in UTC plus IANA zone; integer minor units and currency code",
-            ],
-            [
-              "No migration path",
-              "First divergence between developers or environments",
-              "Environments drift; deploys become manual and unrepeatable",
-              "Versioned forward-only migrations; expand-then-contract for breaks",
+              "Verification",
+              "Important behaviour can be placed behind acceptance and regression checks",
+              "The current boundary cannot be exercised or observed without replacing it",
             ],
           ],
         },
-      ],
-    },
-    {
-      heading: "What the open internet does to an unprotected endpoint",
-      blocks: [
         {
           type: "p",
-          text: "Obscurity stopped being a control years ago: every publicly trusted TLS certificate is written to public, searchable Certificate Transparency logs, so a hostname is discoverable minutes after you issue its certificate. Scanners follow, and nothing needs to link to your endpoint for it to receive traffic.",
-        },
-        {
-          type: "p",
-          text: "Rate limiting pays for itself fastest, because unauthenticated traffic now converts directly into money. Any route triggering a metered call on your behalf — a model inference, an SMS, a geocoding lookup — is a route where someone else spends your budget in a loop. Limit per identity as well as per IP: an IP limit falls to a proxy pool, an identity limit to repeated signups.",
-        },
-        {
-          type: "p",
-          text: "File uploads combine three failure modes. The size limit belongs at the reverse proxy, so a 4 GB body is rejected before your process buffers it. Content-Type and extension are client-supplied, so validate the bytes and re-encode images. And serving user content from your own domain means an uploaded HTML file executes with your cookies in scope; a separate domain or a signed object-storage URL removes that.",
-        },
-        {
-          type: "callout",
-          text: "Deleting a secret from the current commit does not remove it. Treat anything ever committed as public and rotate it. Rewriting history is cleanup, not remediation.",
+          text: "Avoid a full rewrite by default. Preserve working product knowledge and replace only the boundary that fails an explicit requirement. Record the decision, migration path and rollback plan so the new implementation does not become a second unverified prototype.",
         },
       ],
     },
     {
-      heading: "Why you hear about the outage from a customer, not a dashboard",
+      heading: "Which production-readiness controls should be reviewed first?",
       blocks: [
         {
           type: "p",
-          text: "A prototype’s error handling is a person watching a terminal. Production removes the person: the exception happens in a background worker at three in the morning, and the only trace is a customer who abandoned the signup form. Teams debate observability tooling for a fortnight and ship none of it, when the useful minimum is a day.",
+          text: "Review controls by consequence, not by which task is easiest. Protect access, credentials and recoverable data before optimising performance. Then bound resources and external actions, verify concurrent behaviour and add the operating evidence needed to release and recover safely.",
+        },
+        {
+          type: "table",
+          caption: "A consequence-led production-readiness review.",
+          head: ["Control area", "Question to answer", "Acceptance evidence"],
+          rows: [
+            [
+              "Identity and authorisation",
+              "Can every protected action verify both the actor and the specific resource?",
+              "Role and object-level tests include permitted and denied cases",
+            ],
+            [
+              "Secrets and configuration",
+              "Are credentials outside source history, scoped to the environment and replaceable?",
+              "Secret scan, rotated exposed keys and documented configuration ownership",
+            ],
+            [
+              "Data and recovery",
+              "Can the team restore required data within the business's recovery boundary?",
+              "A completed restore rehearsal with recorded result and owner",
+            ],
+            [
+              "Inputs and resource limits",
+              "Can one request exhaust storage, compute, a vendor quota or the budget?",
+              "Server-enforced size, rate, spend and retry limits with failure tests",
+            ],
+            [
+              "Concurrency and external actions",
+              "Can retries or overlapping requests create duplicate or contradictory outcomes?",
+              "Database constraints, transaction tests and idempotency for consequential writes",
+            ],
+            [
+              "Observability and release",
+              "Can the team detect, diagnose and reverse a failed release?",
+              "Structured logs, monitored critical journey, release record and tested rollback path",
+            ],
+            [
+              "Ownership and handover",
+              "Can another qualified person deploy, operate and change the product?",
+              "Buyer-controlled accounts, current environment inventory and handover rehearsal",
+            ],
+          ],
+        },
+        {
+          type: "p",
+          text: "NIST's Secure Software Development Framework treats secure practices as work integrated throughout the software lifecycle rather than a final audit. Use the same approach here: connect each production risk to a requirement, an owner and evidence that can be reviewed before release.",
+        },
+      ],
+    },
+    {
+      heading: "How should authorisation and secrets change before launch?",
+      blocks: [
+        {
+          type: "p",
+          text: "Authentication proves an identity; authorisation decides whether that identity may perform a specific action on a specific resource. OWASP's API Security guidance says every endpoint using a client-supplied object identifier should check whether the logged-in user may act on that record. Apply the rule server-side to reads and writes rather than trusting a hidden button, route name or unpredictable identifier.",
         },
         {
           type: "list",
           items: [
-            "Exception capture carrying release, tenant and request, alerting on the first occurrence of a new error signature rather than on volume — volume alerts miss the bug hitting only the twelve customers who matter.",
-            "Structured logs with a request identifier propagated through every service and queued job, so one identifier reconstructs the path.",
-            "Four alerts, not forty: error rate, p95 latency, queue depth or replication lag, and a synthetic check of the journey that produces revenue.",
-            "An uptime check running outside your own infrastructure — a health check hosted on the thing that is down reports nothing at all.",
-            "Point-in-time recovery plus one rehearsed, timed restore.",
+            "List user and service roles, then default protected actions to denied unless explicitly granted.",
+            "Test cross-account and cross-tenant access with identifiers belonging to another authorised user.",
+            "Make sessions expire and provide a controlled way to revoke access when a device, credential or role changes.",
+            "Remove working credentials from source, logs and client bundles; rotate any credential that may have been exposed.",
+            "Scope production credentials to the minimum actions and environments required by the workload.",
           ],
         },
         {
-          type: "callout",
-          text: "A backup you have never restored is a hypothesis. The rehearsal is the deliverable: it tells you the restore works, how long it takes, and which credentials nobody can find at 2am.",
+          type: "p",
+          text: "GitHub documents push protection as a way to block detected secrets before they enter a repository. It is a preventive layer, not remediation for an exposed key. If a credential reached source history or another untrusted location, revoke or rotate it and inspect its use; deleting the current line alone does not make the old value safe.",
         },
       ],
     },
     {
-      heading: "Concurrency, time zones and money: the quiet correctness bugs",
+      heading: "How do data, concurrency and performance become testable?",
       blocks: [
         {
           type: "p",
-          text: "Race conditions never appear in logs as errors, because nothing errored. Check-then-act is the pattern: the handler queries for an existing booking, finds none, inserts one. Two requests milliseconds apart both find nothing and both insert. Application code cannot fix this alone, since the requests may be in different processes on different machines. The invariant must live where all writers converge.",
+          text: "Use production-shaped data and simultaneous requests to test assumptions that a small single-user demo cannot expose. The goal is not to predict one universal traffic threshold. It is to identify the product's important invariants, observe the expensive paths and prove how the system behaves when work overlaps or a dependency responds slowly.",
         },
         {
-          type: "code",
-          lang: "sql",
-          code: "-- The constraint is the control; application logic is convenience.\nALTER TABLE bookings\n  ADD CONSTRAINT bookings_slot_unique UNIQUE (resource_id, starts_at);\n\nINSERT INTO bookings (resource_id, starts_at, customer_id)\nVALUES ($1, $2, $3)\nON CONFLICT (resource_id, starts_at) DO NOTHING\nRETURNING id;\n-- Zero rows means somebody else won the race.",
+          type: "list",
+          items: [
+            "Restore a backup into a controlled environment and verify the application against the restored data.",
+            "Exercise the busiest reads with representative row counts, filters and permission rules.",
+            "Run overlapping requests against bookings, balances, stock, subscriptions or other shared state.",
+            "Place invariants in database constraints or transactions where all writers converge.",
+            "Use idempotency keys or an equivalent deduplication record when a retry could repeat a payment, message or vendor action.",
+            "Set bounded timeouts and retry policies; record partial failure rather than silently repeating forever.",
+          ],
         },
         {
           type: "p",
-          text: "For anything reaching outside your database — charging a card, sending a message — the control is a caller-generated idempotency key, which is why Stripe accepts an Idempotency-Key header on writes. A client retrying after a timeout otherwise cannot know whether the first attempt succeeded, and a retry storm becomes a billing incident.",
-        },
-        {
-          type: "p",
-          text: "Time and money are where prototypes make the decisions that are expensive to reverse. Store timestamps as timestamptz in UTC and keep the IANA zone when the zone is part of the intent: a recurring nine o’clock meeting is a local time plus a zone, not an instant, and collapsing it to UTC moves it by an hour twice a year. Money as a float is worse, since IEEE 754 cannot represent 0.1 exactly and errors compound across sums. Store integer minor units with an ISO 4217 code, and note that not every currency has two decimals: JPY has none, KWD three.",
+          text: "PostgreSQL's EXPLAIN command exposes the execution plan selected for a statement, while pg_stat_statements can aggregate planning and execution statistics when the extension is enabled. Those tools can support an evidence-led query review. They do not replace application-level measurement, realistic data or a platform-specific operating plan.",
         },
       ],
     },
     {
-      heading: "How to sequence taking a prototype to production without stalling the roadmap",
+      heading: "What evidence should a production release include?",
       blocks: [
         {
           type: "p",
-          text: "Hardening gets deferred because it arrives as one undifferentiated block called technical debt, which competes badly against features. Split it by blast radius and most becomes schedulable.",
+          text: "A release should produce evidence that the intended workflow works, important denials and failures behave correctly, the team can observe the system and the buyer retains control. Passing a build is necessary but insufficient when it does not exercise permissions, data recovery or production configuration.",
         },
         {
           type: "list",
           ordered: true,
           items: [
-            "Before the first external user: the authorisation check, secrets out of the repository and rotated, backups with one rehearsed restore, exception tracking, body size limits at the edge. Here the downside is unrecoverable rather than embarrassing.",
-            "In the first fortnight: rate limiting on public and metered routes, idempotency keys on external writes, slow query logging, request identifiers in logs, migrations under version control.",
-            "In the first ninety days: an index audit driven by pg_stat_statements rather than intuition, N+1 removal with query-count assertions, and the money and time representations corrected while the tables are still small enough to backfill in one maintenance window.",
+            "A written release boundary naming users, workflow, exclusions and production dependencies.",
+            "Acceptance cases for success, denied access, invalid input, dependency failure and interrupted work.",
+            "Passing automated checks plus a recorded demonstration of the critical user journey.",
+            "A current environment and account inventory with production access under buyer control.",
+            "A completed backup restore or other recovery rehearsal appropriate to the product's data.",
+            "A deployment record, monitored health signal, escalation owner and rollback decision path.",
+            "Known limitations and follow-up work prioritised by consequence rather than hidden as generic technical debt.",
           ],
         },
         {
           type: "p",
-          text: "The last two get more expensive every week they wait, for a reason worth stating: money and time representation are not code changes, they are data migrations. Altering a column takes an afternoon; backfilling four million rows whose original currency was never recorded takes a project, and some of that information may no longer exist.",
+          text: "If you already have a working prototype, send ApexStack the same release boundary and acceptance cases you would give an internal engineering lead. That makes the first discussion a concrete assessment of what can be preserved, what requires evidence and which production risks need a named owner.",
+        },
+      ],
+    },
+    {
+      heading: "How should prototype hardening be scoped with ApexStack?",
+      blocks: [
+        {
+          type: "p",
+          text: "A Product Blueprint starts from US$1,000 for one bounded planning and de-risking question. For an existing prototype, that can mean mapping the release boundary, reviewing one critical workflow and producing a prioritised readiness plan with explicit assumptions. It is not a production-readiness certification, unlimited audit or production-ready MVP.",
         },
         {
           type: "p",
-          text: "For most prototypes the first two groups are a fortnight of focused work, not a quarter. If you have something customers are about to touch and want a second pair of eyes over the list first, a hardening pass is straightforward to scope — we are happy to talk through what that looks like on your stack.",
+          text: "A Launch Sprint starts from US$2,500 and covers planning, UX direction, implementation, testing and deployment for one tightly scoped first release or core workflow. Authentication, billing, mobile applications, advanced AI, multiple integrations, data migration, compliance and extensive administration can increase the quote. ApexStack can assess the current prototype first so implementation is limited to the production boundary the release actually needs.",
         },
       ],
     },
   ],
   faqs: [
     {
-      question: "What breaks first when a prototype goes live to real users?",
+      question: "What is the difference between a prototype and production software?",
       answer:
-        "Authentication and authorisation, almost always. The first real user is the first person who is not the developer, which exposes missing object-level checks, tokens that never expire, and sessions that cannot be revoked. Performance problems follow weeks later as data accumulates, and concurrency bugs follow those once two people act at the same moment. Sequence fixes by blast radius: data exposure before latency.",
+        "A prototype demonstrates a workflow under controlled conditions. Production software must enforce permissions, handle invalid and overlapping work, protect and recover data, bound resource use, expose failures, support repeatable releases and remain operable by someone other than the original developer.",
+    },
+    {
+      question: "Should a startup rewrite its prototype before launch?",
+      answer:
+        "Not by default. Harden it when the core workflow and data model are sound and important controls can be added consistently. Rebuild only the boundary that cannot meet an explicit production requirement, and require a migration and rollback plan for that replacement.",
+    },
+    {
+      question: "What should be checked before real users access a prototype?",
+      answer:
+        "Check object-level authorisation, credential handling, data recovery, input and resource limits, concurrent writes, consequential external actions, observability, deployment rollback and buyer-controlled ownership. Connect each risk to an owner and inspectable acceptance evidence.",
     },
     {
       question: "How long does it take to make a prototype production ready?",
       answer:
-        "For a prototype built by a competent developer, the pre-launch essentials — authorisation, secrets rotation, backups with a rehearsed restore, error tracking and edge limits — are typically a week of focused work. Rate limiting, idempotency, query logging and migrations add roughly another week. Deeper work such as index audits and correcting money or timestamp storage is better treated as a ninety-day programme running alongside features.",
+        "There is no responsible universal duration. It depends on the intended release boundary, current data model, permissions, dependencies, migration needs, verification and operating requirements. Begin with a bounded assessment, then estimate only the controls and changes required for that specific release.",
     },
     {
-      question: "Should we rewrite the prototype or harden it?",
+      question: "Does a passing test suite prove production readiness?",
       answer:
-        "Harden it, unless the data model is wrong. Rewrites are justified when the schema cannot represent what the business actually does, because that flaw propagates into every layer above it. Bad routing, missing tests, tangled components and absent monitoring are all repairable in place, and a rewrite discards the working knowledge embedded in the prototype while adding months before the next customer-visible change.",
+        "No. The suite must cover the important workflow, denied access, invalid input, concurrent behaviour and failure handling, while separate evidence verifies production configuration, recovery, monitoring, account ownership, deployment and rollback. A green build cannot prove controls it does not exercise.",
+    },
+  ],
+  sources: [
+    {
+      title: "Secure Software Development Framework Version 1.1",
+      url: "https://csrc.nist.gov/pubs/sp/800/218/final",
+      publisher: "National Institute of Standards and Technology",
     },
     {
-      question: "What is the minimum monitoring a small team needs at launch?",
-      answer:
-        "Exception capture with release and user context, structured logs carrying a request identifier through every service, and four alerts: error rate, p95 latency, queue depth or replication lag, and a synthetic check of the journey that generates revenue. Add an uptime check running outside your own infrastructure. That set is about a day of configuration and covers most incidents you would otherwise hear about from a customer.",
+      title: "API1:2023 Broken Object Level Authorization",
+      url: "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/",
+      publisher: "OWASP",
     },
     {
-      question: "Do we need load testing before launching an MVP?",
-      answer:
-        "Rarely a formal load test, but you do need two numbers: how many queries your busiest page issues, and how each behaves against production-sized data rather than seed data. Copy a realistic volume into a staging database and run the top endpoints. Most launch-day performance incidents are a missing index or an N+1, and that exercise finds both in an hour.",
+      title: "Push protection",
+      url: "https://docs.github.com/en/code-security/concepts/secret-security/push-protection",
+      publisher: "GitHub Docs",
     },
     {
-      question: "How do we stop secrets ending up in the repository again?",
-      answer:
-        "Rotate everything ever committed, since git history should be treated as public, then remove the possibility rather than relying on discipline. Add secret scanning to continuous integration so a commit containing a key fails the build, load configuration from a secret manager at runtime, and keep an example environment file with empty values so nobody commits a working one as documentation.",
+      title: "EXPLAIN",
+      url: "https://www.postgresql.org/docs/current/sql-explain.html",
+      publisher: "PostgreSQL Documentation",
     },
+    {
+      title: "pg_stat_statements",
+      url: "https://www.postgresql.org/docs/current/pgstatstatements.html",
+      publisher: "PostgreSQL Documentation",
+    },
+  ],
+  conversion: {
+    heading: "How can ApexStack assess your prototype before production?",
+    description:
+      "Share the intended users, core workflow, current stack and release constraints. ApexStack can map what should be preserved, which controls need evidence and whether the next step is a bounded readiness plan or implementation sprint.",
+    primaryLabel: "Assess your production boundary",
+  },
+  related: [
+    "production-ready-mvp-development-service",
+    "ai-generated-code-mistakes-pitfalls-bug-free",
+    "what-is-a-discovery-phase",
   ],
 };
