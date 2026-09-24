@@ -17,9 +17,15 @@ export const post: BlogPost = {
     "managed cloud application stack",
   ],
   published: "2026-08-18",
-  updated: "2026-08-25",
+  updated: "2026-09-24",
   authorId: "leadership-02",
   serviceSlug: "cloud-devops",
+  conversion: {
+    heading: "Where should ApexStack start with your cloud stack?",
+    description:
+      "Send the current architecture, the team responsible for releases and incidents, and the one ownership gap that worries you most. ApexStack can scope a bounded review of that boundary, identify the evidence needed for a handover, and discuss an implementation path if a specific gap needs engineering work. A Product Blueprint starts from US$1,000 for planning and de-risking; a Launch Sprint starts from US$2,500 for one tightly scoped first release or core workflow. Wider operations, multiple integrations, data migration, compliance and extensive administration may increase the quote.",
+    primaryLabel: "Review your cloud ownership boundary",
+  },
   keyTakeaway:
     "A cloud application stack provider should operate the customer-controlled layers named in the agreement, not simply provision a cloud account. The scope should map ownership for identity, networking, runtime, data, delivery, observability, recovery, incidents and cost, with evidence for each layer and a clear boundary with both your team and the cloud platform.",
   sections: [
@@ -236,6 +242,41 @@ export const post: BlogPost = {
       ],
     },
     {
+      heading: "What should the first cloud-stack engagement deliver?",
+      blocks: [
+        {
+          type: "p",
+          text: "Start with the ownership gap that creates the next decision, rather than asking a provider to take over the entire stack at once. Give each prospective provider the same architecture outline and ask for a bounded deliverable with an acceptance test. That makes the proposed work comparable and leaves your team with a usable artefact even if you choose a different long-term operator.",
+        },
+        {
+          type: "table",
+          caption: "Choose a first deliverable from the ownership gap you need to resolve.",
+          head: ["If the uncertainty is…", "Ask for…", "Accept it when…"],
+          rows: [
+            [
+              "No one can name who owns each production layer",
+              "A responsibility map covering the application, platform, internal team and proposed operator",
+              "Every material layer has an owner, an approver, an exclusion and a handover route",
+            ],
+            [
+              "The release path depends on one person or undocumented access",
+              "A release and access review using the current pipeline and account roles",
+              "The team can show who approves, deploys, reverses and removes access for a change",
+            ],
+            [
+              "Backups exist but recovery is uncertain",
+              "A recovery-readiness review of the workload's data and dependencies",
+              "The team has agreed recovery objectives, named responders and evidence from a representative restore exercise",
+            ],
+          ],
+        },
+        {
+          type: "p",
+          text: "A review is not the same as ongoing cloud operation. Ask which findings the provider will implement, which remain with your team and what separate agreement would govern incident response or maintenance. The responsibility boundary should stay legible after the first deliverable is complete.",
+        },
+      ],
+    },
+    {
       heading: "How can ApexStack scope the first engagement?",
       blocks: [
         {
@@ -244,7 +285,7 @@ export const post: BlogPost = {
         },
         {
           type: "p",
-          text: "A Launch Sprint starts from US$2,500 and covers planning, UX direction, implementation, testing and deployment for one tightly scoped first release or core workflow. Authentication, billing, mobile applications, complex AI, multiple integrations, compliance work and extensive administration can increase the quote. Wider cloud operations are scoped only after the workload, access boundary, recovery needs and operational risks are understood.",
+          text: "A Launch Sprint starts from US$2,500 and covers planning, UX direction, implementation, testing and deployment for one tightly scoped first release or core workflow. Authentication, billing, mobile applications, complex AI, multiple integrations, data migration, compliance work and extensive administration can increase the quote. Wider cloud operations are scoped only after the workload, access boundary, recovery needs and operational risks are understood. If you are comparing providers, send ApexStack the same architecture outline and acceptance criteria you send them; we can assess whether a bounded review or one implementation task is the right first step.",
         },
       ],
     },
