@@ -3,7 +3,7 @@ import type { BlogPost } from "@/data/blog/types";
 export const post: BlogPost = {
   slug: "hire-vibe-coders-for-startup",
   title: "Hire Vibe Coders for Your Startup (Without Getting Burned)",
-  seoTitle: "Hire Vibe Coders for Your Startup (Without | ApexStack",
+  seoTitle: "Hiring Vibe Coders for a Startup: Scope and Handover",
   description: "A practical guide to hire vibe coders for startup, covering scope, evidence, ownership, delivery risk and the next decision for founders.",
   excerpt: "A buyer-focused guide to hire vibe coders for startup: define the decision, request useful evidence and keep the first release accountable.",
   category: "AI Engineering",
