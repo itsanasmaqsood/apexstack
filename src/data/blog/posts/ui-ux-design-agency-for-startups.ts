@@ -18,9 +18,15 @@ export const post: BlogPost = {
     "product design engineering partner",
   ],
   published: "2026-06-01",
-  updated: "2026-08-23",
+  updated: "2026-09-26",
   authorId: "leadership-01",
   serviceSlug: "ui-ux-design",
+  conversion: {
+    heading: "How can ApexStack help you compare design-and-build proposals?",
+    description:
+      "Send ApexStack the same core workflow, design constraints and acceptance questions you give other teams. A bounded Product Blueprint can clarify the user flow, design-to-code handoff and delivery scope before you commit to implementation. If one release is ready to build, we can scope a Launch Sprint covering planning, UX direction, implementation, testing and deployment. We will state what is included, excluded and owned by your team.",
+    primaryLabel: "Compare your project brief",
+  },
   keyTakeaway:
     "Bundling UI/UX design with full-cycle software development is useful when research, design, engineering and quality assurance share one backlog and one acceptance process. Compare partners by the evidence they will produce: user needs, tested flows, coded component states, accessibility results, working increments, ownership terms and a usable handover—not by the number of disciplines listed on a services page.",
   sections: [
@@ -266,7 +272,7 @@ export const post: BlogPost = {
         },
         {
           type: "p",
-          text: "A tightly scoped engagement can start from US$1,000 when the first step is a product-flow review, a small prototype, a design-to-engineering handoff audit or a blueprint for one core workflow. That is not a complete production-ready MVP. Authentication, billing, mobile applications, complex AI, multiple integrations, compliance work and extensive administration can expand the scope and quote.",
+          text: "A Product Blueprint starts from US$1,000 for bounded planning and de-risking, such as reviewing one product flow, an existing prototype or a design-to-engineering handoff and defining the next decision. It does not include building a production-ready MVP. A Launch Sprint starts from US$2,500 for planning, UX direction, implementation, testing and deployment of one tightly scoped first release or core workflow. Authentication, billing, mobile apps, advanced AI, multiple integrations, data migration, compliance and extensive administration can increase the quote.",
         },
       ],
     },
@@ -289,7 +295,7 @@ export const post: BlogPost = {
         },
         {
           type: "p",
-          text: "Use the answers to write the scope, not merely to score the sales call. A useful full-cycle agreement turns each important promise into an owner, a boundary and evidence you can inspect before accepting the work.",
+          text: "Use the answers to write the scope, not merely to score the sales call. A useful full-cycle agreement turns each important promise into an owner, a boundary and evidence you can inspect before accepting the work. If proposals answer these questions differently, send ApexStack the same brief to identify scope and ownership gaps before choosing a delivery partner.",
         },
       ],
     },
@@ -318,7 +324,7 @@ export const post: BlogPost = {
     {
       question: "Can an integrated design and development engagement start at US$1,000?",
       answer:
-        "A tightly constrained first step can, such as reviewing one core flow, building a small prototype, auditing a design handoff or producing a product blueprint. US$1,000 should not be read as the price of every production-ready MVP; authentication, billing, mobile apps, complex AI, multiple integrations, compliance and extensive administration can increase the quote.",
+        "Not as a complete build. A Product Blueprint starts from US$1,000 for bounded planning and de-risking, such as reviewing a core flow, an existing prototype or a design handoff. A Launch Sprint starts from US$2,500 for one tightly scoped first release or core workflow and covers planning, UX direction, implementation, testing and deployment. Authentication, billing, mobile apps, advanced AI, multiple integrations, data migration, compliance and extensive administration may increase the quote.",
     },
     {
       question: "Who owns the design files and source code?",
