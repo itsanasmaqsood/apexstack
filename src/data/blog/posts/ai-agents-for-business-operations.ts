@@ -5,9 +5,9 @@ export const post: BlogPost = {
   title: "AI Agents for Business Operations: What They Actually Automate",
   seoTitle: "AI Agents for Business Operations: What They Automate",
   description:
-    "What AI agents for business operations genuinely automate today, where they still fail silently, and how to bound their authority before go-live.",
+    "Assess where an AI agent fits an operations workflow, what to test, and which actions need explicit limits or human approval.",
   excerpt:
-    "A working definition of an agent, the five operational jobs they do well, the ones they still do badly, and how to bound an agent’s authority so a wrong answer stays cheap.",
+    "A buyer's framework for choosing an agent, a simpler workflow or human review for an operational task.",
   category: "Automation & Internal Tools",
   primaryKeyword: "AI agents for business operations",
   secondaryKeywords: [
@@ -18,33 +18,40 @@ export const post: BlogPost = {
     "AI document processing automation",
   ],
   published: "2026-08-12",
+  updated: "2026-09-27",
   authorId: "leadership-02",
   serviceSlug: "ai-development",
+  conversion: {
+    heading: "How can ApexStack help assess your first operations agent?",
+    description:
+      "Send ApexStack one current process, its input and output, the systems it touches and the action a person must approve. We can map a bounded Product Blueprint for the workflow and its acceptance tests before deciding whether an agent, a classifier or a scripted integration is appropriate. If one release is defined, we can scope planning, UX direction, implementation, testing and deployment through a Launch Sprint. Product Blueprint engagements start from US$1,000 for planning and de-risking; Launch Sprint engagements start from US$2,500 for a tightly scoped first release. Advanced AI, multiple integrations, data migration, compliance and extensive administration can raise the quote.",
+    primaryLabel: "Review your operations workflow",
+  },
   keyTakeaway:
-    "AI agents reliably automate operational work that is high volume, tolerant of a small error rate, and cheap for a human to check: extracting fields from documents, classifying and routing inbound requests, drafting from a template, running multi-step research, and flagging where two systems disagree. They remain unsuitable for tasks needing exact precision, long unsupervised decision chains, or any action where a wrong answer is expensive and hard to detect. The design work is not making the agent cleverer — it is deciding how much authority it holds and who checks the output before it becomes a fact in a production system.",
+    "Use an AI agent for an operations task only when its variable steps justify tool-using decisions that a simpler workflow cannot handle. Candidate tasks include document triage, draft preparation and finding discrepancies across systems, but each needs representative tests and a clear review path. Keep consequential writes behind application-enforced limits or human approval. A scripted integration is often a better first choice when the steps and rules can be specified in advance.",
   sections: [
     {
       heading: "What is an AI agent, and how is it different from a chatbot?",
       blocks: [
         {
           type: "p",
-          text: "An AI agent is a language model given three things a chatbot does not have: tools it can call, a goal expressed in words rather than code, and a loop. It picks a tool, reads the result, decides what next, and repeats until the goal is met or a stop condition fires. That loop is the whole of the difference and the whole of the risk.",
+          text: "For this decision, an AI agent is a system that can choose among permitted tools while working towards a task. A chatbot may also use tools, so the label alone does not define risk. Record which data the system may read, which actions it may propose or take, and when it must stop or ask a person. OWASP's excessive-agency guidance ties harm to unnecessary functions, permissions and autonomy rather than to the word ‘agent’ itself.",
         },
         {
           type: "p",
-          text: "Buyers evaluating AI agents for business operations are usually being sold one of three things under the same name, and they carry very different supervision costs.",
+          text: "Compare these implementation patterns by the actions they can take and the evidence needed to review them:",
         },
         {
           type: "list",
           items: [
-            "A scripted workflow — a Zapier chain, an ETL job, a state machine — is deterministic. Somebody wrote every branch in advance, and when reality steps outside them it fails loudly and stops. Loud failure is a feature.",
-            "A chatbot answers and stops. No tools, no loop, nothing it can change. A person does the work and catches the mistakes.",
-            "An agent picks its own path through the tools you gave it. It handles cases nobody anticipated, which is why you want one, and it can take a path nobody anticipated, which is why you bound it. It fails quietly, in the tone it uses when correct.",
+            "A scripted workflow follows defined rules and branches. It still needs checks for unexpected inputs, integration failures and errors that do not surface automatically.",
+            "A conversational assistant may answer, retrieve information or call tools. Its access and approval boundary matter more than whether the interface looks like chat.",
+            "A tool-using agent can select steps within the tools you permit. That flexibility may help with variable cases, but it also requires limits, logs and tests for unintended paths.",
           ],
         },
         {
           type: "p",
-          text: "Much of what is marketed as agentic is a classifier inside a conventional pipeline. That is no criticism — it costs less and needs far less supervision. Reach for the loop only when the task branches in ways you cannot enumerate.",
+          text: "A classifier inside a conventional pipeline may be enough when the decision is narrow and the next step is fixed. Test the simpler design first; add agent-selected steps only when real cases show that fixed branches are insufficient.",
         },
       ],
     },
@@ -53,36 +60,36 @@ export const post: BlogPost = {
       blocks: [
         {
           type: "p",
-          text: "Five categories are past the demo stage and into routine production use.",
+          text: "The following are candidate processes, not a claim that an agent is already proven for your organisation. Compare each with your current manual process and a simpler scripted alternative.",
         },
         { type: "h3", text: "Document extraction and routing" },
         {
           type: "p",
-          text: "Pulling supplier names, line items, totals and purchase-order references out of invoices, delivery notes and claim forms. This used to need a template per layout, and maintaining them was most of the cost of ownership. A model reads a layout it has never seen, and the output is a fixed schema you can validate — totals must sum, the purchase-order number must exist. Anything failing validation routes to a person.",
+          text: "A model can propose supplier names, line items and purchase-order references from documents with varying layouts. Require a fixed output schema, check arithmetic and reference numbers outside the model, and route missing or conflicting fields to a reviewer before any payment or ledger write.",
         },
         { type: "h3", text: "Triage and classification" },
         {
           type: "p",
-          text: "Reading inbound email, tickets, security alerts or job applications and deciding where each goes and how urgent it is. Misclassification surfaces within hours because the receiving team notices, making this one of the few automations that supplies its own error signal.",
+          text: "Classifying incoming tickets or email can help a team route work. Test misroutes against historical cases and give the receiving team an easy correction path. Do not assume that a wrong route will be noticed quickly; measure delay and missed-item rates in the actual queue.",
         },
         { type: "h3", text: "Drafting from a template and context" },
         {
           type: "p",
-          text: "First-pass replies, statements of work, renewal notices, incident write-ups. A human still sends it, so the failure mode is wasted time rather than a wrong action. The economics work when editing a draft beats starting from an empty page — true for structured formats, false for short, high-stakes messages.",
+          text: "An agent may assemble a first draft from an approved template and permitted context. A person should check facts, tone, recipient and commitments before sending. Compare the time spent reviewing with the time spent writing the same document manually; a draft is useful only when that comparison favours it without raising risk.",
         },
         { type: "h3", text: "Multi-step research" },
         {
           type: "p",
-          text: "Vendor due diligence, pricing sweeps, assembling a customer’s history across a CRM, a helpdesk and a billing system before a renewal call. Agents are strong at breadth and weak at knowing what they missed, so they should cite sources inline and state what they could not retrieve.",
+          text: "An agent may gather records from a CRM, helpdesk and billing system for a defined review. Require source links, access checks and an explicit list of unavailable records. The reviewer still decides whether the collected material is complete enough for the business decision.",
         },
         { type: "h3", text: "Reconciling records across systems" },
         {
           type: "p",
-          text: "Two systems hold the same customer or order and disagree. An agent reads both sides, tolerates the formatting differences that break exact-match scripts, and lists the discrepancies with an explanation for each. It is much worse at judging which side is right, so that stays with a person or an explicit rule.",
+          text: "When customer or order records disagree, an agent can propose a discrepancy list for review. Do not let it decide which system is authoritative without a documented rule. Keep the proposed diff separate from the write operation so a person can inspect each change.",
         },
         {
           type: "callout",
-          text: "The pattern across all five: a person can check the output faster than they could have produced it. That ratio, not raw model capability, decides whether a task is worth handing to an agent.",
+          text: "For each candidate, time the full review and correction step. If checking the output is not easier than doing the task, the agent has not yet earned its place in the workflow.",
         },
       ],
     },
@@ -91,15 +98,15 @@ export const post: BlogPost = {
       blocks: [
         {
           type: "p",
-          text: "Three failure classes account for nearly every abandoned pilot we have been asked to look at. The first is anything needing exact precision. Language models produce plausible tokens, not calculated results. If a figure lands in an invoice, a filing or a payroll run, the model should assemble the inputs and a deterministic function should do the arithmetic. The same holds for checksums and for identifiers where one transposed digit routes money to a stranger.",
+          text: "Exact calculations and identifiers need independent checks. A model can extract inputs from an invoice or payroll document, but a deterministic function should calculate totals and validate account or reference numbers before they are used. This is a design precaution, not a claim about ApexStack client projects.",
         },
         {
           type: "p",
-          text: "The second is long unsupervised chains, because per-step reliability compounds. An agent whose steps are right 95% of the time completes a ten-step task correctly about 60% of the time, and a twenty-step task about 36% of the time. The remedy is not a better model but fewer steps, a mid-run checkpoint, and a hard cap on tool calls.",
+          text: "Long chains give errors more chances to propagate. Test complete tasks, not only individual model calls, and set a stop condition for missing evidence or repeated tool failure. A checkpoint can prevent an unreviewed intermediate result from becoming a production write. NIST's AI Risk Management Framework calls for evaluation and monitoring in the context where the system is used.",
         },
         {
           type: "p",
-          text: "The third, and the expensive one, is any task where a wrong answer is both costly and undetectable. If the agent updates a field nobody reads until quarter end, the error compounds silently. Ask what the symptom of a wrong answer would be and how long it would take to appear. No symptom means you automate the proposal and leave the commit to a person. Two specific failure modes recur across all three classes:",
+          text: "A wrong answer is especially risky when its effect is costly and hard to detect. Before allowing a write, ask what signal would reveal an error, who would see it and how the change could be reversed. If there is no timely signal, let the system propose a change and keep the commit with a person. Two failure cases deserve explicit tests:",
         },
         {
           type: "list",
@@ -115,54 +122,54 @@ export const post: BlogPost = {
       blocks: [
         {
           type: "p",
-          text: "Score a candidate on three axes before writing code: how well the work matches what models are good at, how much oversight it needs, and what a wrong answer costs. The last column usually decides it.",
+          text: "Compare candidate tasks by the input, the review burden and the consequence of a wrong output. The table is an illustrative decision aid, not a measured ranking of agent performance in your systems.",
         },
         {
           type: "table",
-          caption: "Operational tasks scored for agent suitability, oversight and failure cost",
+          caption: "Illustrative task choices to validate against your own data and controls",
           head: ["Operational task", "Agent suitability", "Oversight required", "Cost of a wrong answer"],
           rows: [
             [
               "Extracting fields from supplier invoices",
-              "High — fixed schema, checkable against the purchase order",
-              "Validation on every record, sampled review",
-              "Low if caught before payment, high if payment is automatic",
+              "Candidate for extraction with independent checks",
+              "Validate fields and totals before any payment",
+              "Potentially high if a wrong invoice reaches payment",
             ],
             [
               "Classifying and routing inbound email or tickets",
-              "High — the receiving team surfaces misroutes fast",
-              "Spot checks plus a one-click reclassify loop",
-              "Low — the cost is delay, not loss",
+              "Candidate for classification when routes are defined",
+              "Sample outcomes and make misroutes easy to correct",
+              "Depends on the urgency and sensitivity of missed work",
             ],
             [
               "Drafting a first-pass reply or document",
-              "High — a person edits and sends it",
+              "Candidate for drafts with reliable source context",
               "Full review before send, no external exceptions",
-              "Low while review holds; reputational once it lapses",
+              "Can be high if an unchecked claim or commitment is sent",
             ],
             [
               "Reconciling a CRM against a billing system",
-              "Medium — finds disagreements, poor at judging which side wins",
+              "Candidate for proposing discrepancies, not deciding authority",
               "Agent proposes a diff, a person approves each write",
-              "High — a silent wrong merge is hard to unpick",
+              "Potentially high if a wrong merge changes master data",
             ],
             [
               "Multi-step supplier or market research",
-              "Medium — strong recall, unaware of what it missed",
-              "Inline citations, reviewer checks two at random",
-              "Medium — a confident omission reads like a finding",
+              "Candidate for gathering records with visible source gaps",
+              "Source checks and completeness review",
+              "Depends on the decision made from an omission",
             ],
             [
               "Approving payments or refunds unattended",
-              "Low — irreversible, no downstream check",
-              "Per-item approval, or a hard value cap",
-              "Very high — direct cash loss",
+              "Keep outside unattended agent authority",
+              "Human approval and payment-system controls",
+              "Potential direct financial loss",
             ],
             [
               "Updating master data in production",
-              "Low — downstream effects invisible to it",
+              "Keep outside unattended agent authority",
               "Proposed as a diff, applied by a person",
-              "Very high — corrupts everything reading it",
+              "May affect other systems reading the changed record",
             ],
           ],
         },
@@ -173,21 +180,21 @@ export const post: BlogPost = {
       blocks: [
         {
           type: "p",
-          text: "Authority is a design decision, not a consequence of model quality, and it belongs in configuration where an auditor can read it. There are four rungs, and most production systems should sit on the second or third for a long while.",
+          text: "Authority is a design decision, not a reward for a better model. The following levels are a planning tool; choose one for each proposed action and enforce it in the application. OWASP recommends limiting functions and permissions and requiring approval for high-impact actions.",
         },
         {
           type: "list",
           ordered: true,
           items: [
-            "Read only. The agent gathers and summarises, so the worst case is a person acting on a bad summary.",
-            "Propose. The agent produces a concrete change — a draft, a diff, a populated form — and a person commits it. Most operational value sits here, and it should stay until the error rate is measured rather than assumed.",
-            "Act within bounds. The agent commits changes inside explicit limits: value caps, rate limits, an allowlist of record types. Anything outside escalates.",
-            "Act freely. Reserve this for reversible, low-value, high-volume actions where a mistake costs minutes.",
+            "Read only. The agent gathers and summarises; a person checks evidence before relying on the summary.",
+            "Propose. The agent prepares a draft, diff or populated form, and a person approves the consequential action.",
+            "Act within bounds. The application permits named actions within server-enforced limits and escalates exceptions.",
+            "Act without individual approval. Consider this only for reversible, low-impact actions after the complete task has been tested and monitoring is in place.",
           ],
         },
         {
           type: "p",
-          text: "Bounding authority means scoping each tool, not each agent. An agent that can call a generic database client has unlimited authority whatever its prompt says. An agent that can call three named functions, each with its own limits and approval requirement, is bounded in a way you can prove. Write it as a manifest the code enforces:",
+          text: "Scope each tool and its downstream credential. A general database client may expose more data or write operations than the task needs; a prompt cannot remove those permissions. This illustrative manifest names only the actions required for invoice intake. The limits and approval rules must be specified and enforced for the real system, not copied from a sample:",
         },
         {
           type: "code",
@@ -198,19 +205,19 @@ tools:
     scope: read
   - name: erp.create_draft_invoice
     scope: write
-    limits: { max_value_usd: 5000, max_per_hour: 40 }
+    limits: configured_by_finance_team
   - name: erp.post_invoice
     scope: write
     requires_approval: finance_reviewer
 escalate_when:
-  - extraction_confidence < 0.85
+  - required_field_missing_or_unverified
   - no matching purchase order
-  - supplier first seen within 30 days
-stop_after: 8 tool calls`,
+  - supplier outside approved records
+stop_after: configured_tool_call_limit`,
         },
         {
           type: "p",
-          text: "The human-in-the-loop question is then much easier: which tool calls need a signature, and who holds it. Blanket review destroys the economics, because a reviewer approving a hundred identical low-risk items stops reading by item fifteen.",
+          text: "Specify which tool calls need approval and who can give it. Review time is part of the operating cost, but reducing review cannot justify unattended high-impact actions. NIST's AI risk guidance calls for documenting oversight, exceptions and accountable decisions.",
         },
       ],
     },
@@ -219,7 +226,7 @@ stop_after: 8 tool calls`,
       blocks: [
         {
           type: "p",
-          text: "When something goes wrong — and it will — you need three answers quickly: what did the agent see, what did it decide, and who authorised the consequence. Debugging logs almost never answer the second. Treat the trail as a product requirement, not as observability.",
+          text: "An audit trail should let an operator reconstruct what the system received, which tools it used and who approved the consequential action. Define that trail before release; an application log that records only errors may not capture the decision path.",
         },
         {
           type: "list",
@@ -228,12 +235,12 @@ stop_after: 8 tool calls`,
             "Every tool call in order, with arguments and returned values, so the path can be replayed rather than reconstructed.",
             "Model identifier and prompt version — without both, you cannot tell a regression from a data change.",
             "The human decision: who approved or rejected, when, and what they changed.",
-            "Retention matching the regulatory life of the record, not your logging tier’s default.",
+            "A retention period set against the applicable data and legal requirements, rather than assumed from a logging default.",
           ],
         },
         {
           type: "p",
-          text: "Capture reviewer corrections structurally, not as free text. They are the only unbiased measurement of accuracy you get in production, and most teams throw them away.",
+          text: "Capture reviewer corrections in a form that can be counted and inspected. Corrections are one useful signal for evaluation, alongside sampled outcomes, missed cases and downstream incidents.",
         },
       ],
     },
@@ -242,19 +249,19 @@ stop_after: 8 tool calls`,
       blocks: [
         {
           type: "p",
-          text: "Build is a normal software estimate, and integration work dominates it. The model call is rarely more than a few days of the total; reliable access to the ERP, the document store and the ticket queue, plus a reviewer interface people will actually use, is the rest. As an observed market range, a well-scoped operational agent with two or three integrations, a review interface and an audit trail lands roughly between $25,000 and $90,000, with compliance and extra integrations pushing past the top.",
+          text: "Do not price an operations agent from a general market range. Ask for separate estimates for workflow mapping, integration and access control, reviewer interface, evaluation, deployment and support. The current ApexStack Product Blueprint starts from US$1,000 for bounded planning and de-risking; it does not buy a production agent. A Launch Sprint starts from US$2,500 for one tightly scoped first release or core workflow, including planning, UX direction, implementation, testing and deployment. Advanced AI, multiple integrations, data migration, compliance and extensive administration can raise the quote.",
         },
         {
           type: "p",
-          text: "Inference is arithmetic you can do before committing. Take your provider’s published per-million-token rates and work the unit economics. If a task sends 20,000 input tokens and returns 2,000 output, and the blended rate is — illustratively — $5 per million input and $15 per million output, that is about $0.13 per run before retries. Agent loops multiply that by the number of steps, and failed attempts are billed too, which is why a step cap is a cost control as much as a safety one.",
+          text: "Estimate model usage with the provider's current rate card and measured task traces: input and output tokens, tool calls, retries and failure paths. Recalculate after testing representative cases. A cap on steps helps control both spending and the number of actions a failed run can attempt.",
         },
         {
           type: "callout",
-          text: "Supervision decides whether the automation pays. An agent needing a two-minute check on every item has not removed the work — it has changed who does it and added an inference bill.",
+          text: "Include reviewer time, correction work and incident handling in the operating estimate. A model bill alone cannot tell you whether the workflow saves effort.",
         },
         {
           type: "p",
-          text: "If a process handles 500 items a day and 15% escalate for a three-minute check, that is roughly four hours of somebody’s day — a real number that belongs in the business case. Escalation rate is far more controllable than model accuracy: tighten the schema, add a deterministic pre-check, narrow the intake.",
+          text: "Use your own intake volume, escalation rate and observed review time to model the business case. If the result is unattractive, narrow the intake, add a deterministic pre-check or keep the process manual. Do not assume a benchmark from another organisation describes your queue.",
         },
       ],
     },
@@ -263,22 +270,22 @@ stop_after: 8 tool calls`,
       blocks: [
         {
           type: "p",
-          text: "Pick badly and you spend six months proving nothing. The first candidate should be a process where cost is measurable, output is checkable, and a mistake is embarrassing rather than expensive.",
+          text: "Choose a process with a measurable baseline, checkable output and a recoverable failure path. Keep payment, access and irreversible decisions outside the first unattended release.",
         },
         {
           type: "list",
           ordered: true,
           items: [
-            "Find work that is high volume and low variance. Twenty a day beats two, because you cannot measure an error rate on two.",
-            "Confirm the output has a schema. Without a validator for a correct answer you can neither run it unattended nor evaluate it.",
-            "Check that a wrong answer produces a symptom somebody notices within a day. No symptom means propose-only.",
-            "Build a labelled set of 50 to 100 real historical cases, the awkward ones included, before writing the agent.",
-            "Ship at propose-level authority, measure acceptance for a month, and widen the bounds where it holds up.",
+            "Write down the current manual steps, volume, review time and error consequences.",
+            "Define a checkable output, including what the system should do when information is missing or contradictory.",
+            "Prepare representative historical cases and difficult exceptions with expected outcomes before choosing the implementation.",
+            "Compare a scripted workflow, a classifier and an agent on the same cases and the same acceptance criteria.",
+            "Start with read-only or propose-level authority; widen access only after measured results and an approval design justify it.",
           ],
         },
         {
           type: "p",
-          text: "None of this depends on which model you use. The model improves on its own; the bounded authority, the validators and the audit trail are the parts you build, and they decide whether it survives a real operations team. If you are weighing up a specific process and want a straight answer on whether an agent, a classifier or a plain scripted workflow fits it, the engineering team at ApexStack is happy to work through it with you.",
+          text: "Model choice still affects cost and output quality, but the workflow boundary, validators and audit trail must be designed for the task you actually run. Send ApexStack the same process brief you would give another supplier: current steps, exceptions, systems, approval points and success measures. We can help decide whether a bounded Product Blueprint or a scoped implementation is the right next step; the service and pricing pages set out those offer boundaries.",
         },
       ],
     },
@@ -287,32 +294,41 @@ stop_after: 8 tool calls`,
     {
       question: "What is the difference between an AI agent and workflow automation?",
       answer:
-        "Workflow automation follows branches a developer wrote in advance, so it behaves identically every run and fails loudly when reality steps outside those branches. An AI agent is given tools and a goal and chooses its own path, which lets it handle cases nobody enumerated but also means it can fail quietly and confidently. Use automation when the paths are knowable, and an agent when they genuinely are not.",
+        "A scripted workflow follows defined rules and branches; it still needs error handling and monitoring. A tool-using agent may select steps within the actions it has been permitted to take. Test a simpler workflow first when the rules can be specified, and use an agent only if real cases justify that flexibility and its added review burden.",
     },
     {
       question: "What can AI agents actually automate in business operations right now?",
       answer:
-        "Five things are past the demo stage: extracting structured fields from documents such as invoices and contracts, classifying and routing inbound tickets or email, drafting documents and replies from a template plus context, running multi-step research across several systems, and reconciling records where two systems disagree. All five share one property — a person can verify the output faster than they could have produced it themselves.",
+        "Candidate tasks include document-field extraction, inbound-request routing, first-draft preparation, gathering records for research and proposing discrepancies across systems. None is automatically suitable. Test the complete task against your current process, including missing data, permission failures, review time and the consequence of an incorrect output.",
     },
     {
       question: "Do AI agents need a human in the loop?",
       answer:
-        "For most operational work, yes, but not on every item. Blanket review destroys the economics and reviewers stop reading after the first dozen identical approvals. Better practice is exception-based review: the agent acts inside explicit bounds — value caps, rate limits, an allowlist of record types — and escalates only on low confidence, missing references or anything outside those bounds. Reserve unattended action for reversible, low-value, high-volume tasks.",
+        "The approval design depends on the action and its consequences. Require a person to approve high-impact actions and enforce permissions in downstream systems, as OWASP recommends. Lower-impact tasks may use sampled review or exception handling after task-specific testing, provided failures remain observable and recoverable.",
     },
     {
       question: "How much does it cost to run an AI agent for operations?",
       answer:
-        "There are three lines. Build is a conventional software estimate dominated by integration work; observed market ranges for a single well-scoped operational agent with a few integrations, a review interface and an audit trail run from roughly $25,000 to $90,000. Inference is per-token and calculable in advance from your provider’s published rates. Supervision — the human review time per item — is usually the largest ongoing cost and the one most often left out.",
+        "Separate the scoped build quote from ongoing model usage, integration maintenance, reviewer time and incident handling. Calculate usage from the provider's current rate card and representative task traces, not a generic market band. ApexStack's Product Blueprint starts from US$1,000 for bounded planning; a Launch Sprint starts from US$2,500 for one tightly scoped first release, with complex AI and integrations potentially raising the quote.",
     },
     {
       question: "Why do AI agents fail on long multi-step tasks?",
       answer:
-        "Reliability compounds. An agent whose individual steps are correct 95% of the time will complete a ten-step task correctly about 60% of the time and a twenty-step task about 36% of the time, purely as arithmetic. A better model shifts the per-step figure but does not change the shape of the curve. The practical fixes are fewer steps, a human or deterministic checkpoint partway through, and a hard cap on tool calls per run.",
+        "An error in one step can affect later steps, so success on isolated model calls does not prove the full task works. Test complete runs with difficult cases, stop on missing evidence or repeated tool failure, and use checkpoints before consequential writes. Compare results after any model, prompt, tool or data-source change.",
     },
     {
       question: "How do you stop an AI agent from doing something damaging?",
       answer:
-        "Scope the tools, not the prompt. An agent with access to a generic database client has unlimited authority regardless of what its instructions say; an agent with three named functions, each carrying its own value cap, rate limit and approval requirement, is bounded in a way you can demonstrate to an auditor. Add a maximum number of tool calls per run and explicit escalation conditions, and enforce all of it in code rather than in the prompt.",
+        "Give the system only the functions and downstream permissions its task needs. Enforce authorisation, limits and approval checks in application and service code rather than relying on a prompt. Keep high-impact actions behind human approval and record what the system tried to do; OWASP identifies excessive functions, permissions and autonomy as core causes of damaging agent behaviour.",
     },
+  ],
+  sources: [
+    { title: "LLM06:2025 Excessive Agency", url: "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/", publisher: "OWASP" },
+    { title: "AI RMF Playbook: Measure", url: "https://airc.nist.gov/airmf-resources/playbook/measure/", publisher: "NIST" },
+  ],
+  related: [
+    "scope-custom-chatbot-development-services",
+    "how-to-evaluate-an-llm-feature",
+    "business-process-automation-cost",
   ],
 };
