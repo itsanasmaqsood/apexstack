@@ -3,11 +3,11 @@ import type { BlogPost } from "@/data/blog/types";
 export const post: BlogPost = {
   slug: "ai-product-development-process",
   title: "AI Product Development: From Demo to Dependable",
-  seoTitle: "AI Product Development Process: Demo to Dependable",
+  seoTitle: "AI Product Development Process: Demo to Release",
   description:
-    "How the AI product development process really runs: feasibility spike first, data before models, and an interface built for being sometimes wrong.",
+    "A practical AI product development process: choose one user task, test it on representative data, set review boundaries and release with evidence.",
   excerpt:
-    "The process for taking an AI product from a convincing demo to something a business can depend on — why the feasibility spike comes before the plan, and why data and interface decide the outcome more than the model does.",
+    "How to turn a promising AI demo into one testable product workflow, with data permissions, user controls and a clear release decision.",
   category: "AI Engineering",
   primaryKeyword: "AI product development process",
   secondaryKeywords: [
@@ -18,222 +18,140 @@ export const post: BlogPost = {
     "designing UX for AI uncertainty",
   ],
   published: "2026-08-12",
+  updated: "2026-09-28",
   authorId: "leadership-03",
   serviceSlug: "ai-development",
+  conversion: {
+    heading: "How can ApexStack plan your first AI product workflow?",
+    description:
+      "Send the user task, a few representative inputs, the systems involved and the action a person must approve. ApexStack can turn that into a bounded Product Blueprint with a data and evaluation plan before quoting implementation. If one release is ready to build, a Launch Sprint can cover planning, UX direction, implementation, testing and deployment. Product Blueprint engagements start from US$1,000 for planning and de-risking; Launch Sprint engagements start from US$2,500 for one tightly scoped first release or core workflow. Authentication, billing, mobile apps, advanced AI, multiple integrations, data migration, compliance and extensive administration can raise the quote.",
+    primaryLabel: "Discuss your first AI workflow",
+  },
   keyTakeaway:
-    "A dependable AI product development process starts with a two-to-four-week feasibility spike rather than a plan, because you cannot estimate work whose success rate nobody has measured yet. Choose a first use case where a wrong answer is cheap to correct and a right answer is visibly valuable, fix the data before touching the model, and design the interface to show confidence, allow correction and support undo. Perceived quality comes far more from how gracefully the product handles being wrong than from which model sits behind it.",
+    "Start AI product development with one user task, not a general-purpose demo. Define the current workflow, the information the feature may use, the output a user needs and the cost of a wrong result. Test representative cases against the current process before committing to a release. Then build the smallest end-to-end path with permission checks, review and recovery, and measure the complete task after launch. A fixed price or timeline cannot be inferred from the phrase ‘AI product’ alone.",
   sections: [
     {
-      heading: "Why does an AI product development process start with a spike, not a plan?",
+      heading: "Which AI product task should be tested first?",
       blocks: [
         {
           type: "p",
-          text: "Conventional software estimation works because the uncertainty sits in scope, not in whether the thing can be done. A payments integration is a known quantity; the question is how many edge cases the merchant’s data will throw at it. An AI feature inverts that. The question is whether a model can perform the task on your actual data at a quality level your users will accept, and nobody — not the vendor, not the team, not the person who saw an impressive demo last week — knows the answer until it has been measured on your documents, your tickets, your transcripts.",
+          text: "Choose a task already performed by a named user. Write down its trigger, input, decision and finished state, then ask where assistance would change the result. A support operator reviewing a draft reply is a different product from an assistant authorised to send one. The first option lets the operator correct mistakes before they reach a customer; the second needs a stronger evidence and approval boundary.",
+        },
+        {
+          type: "table",
+          caption: "A hypothetical support-workflow scope card, not an ApexStack client result.",
+          head: ["Decision", "First-release boundary", "Evidence to collect"],
+          rows: [
+            ["User task", "Suggest a reply inside the existing ticket screen", "Compare task completion with the current manual process"],
+            ["Context", "Current ticket and permitted knowledge articles", "Test missing, stale and access-denied material"],
+            ["Output", "Editable draft with inspectable source passages", "Reviewers can find and correct unsupported statements"],
+            ["Authority", "Operator decides whether to send", "No model-only external message is possible"],
+            ["Failure path", "Return control to the normal ticket workflow", "The operator can complete the task when AI is unavailable"],
+          ],
         },
         {
           type: "p",
-          text: "So the AI product development process begins with a feasibility spike: a short, deliberately unpolished piece of work whose only output is a number and a recommendation. Take fifty to two hundred real examples, have a domain expert label the correct answer for each, then run candidate approaches against them and record how often each gets it right. Two to four weeks is usually enough. What you get back is not a prototype; it is the accuracy figure that everything downstream depends on, plus a much sharper sense of where the errors cluster.",
-        },
-        {
-          type: "callout",
-          text: "A spike that concludes the task is not yet achievable has saved you a project. That is a successful outcome, not a failed one, and the budget should be framed that way before it starts.",
-        },
-        {
-          type: "p",
-          text: "The spike also changes the conversation about scope. Once you know a classifier gets eight of ten cases right and the two failures cluster in one document type, you can design around it: route that type to a human and ship the rest.",
+          text: "The scope card is useful because it makes the proposed release inspectable. A founder can use the same card to compare a hosted model, a simpler rules-based workflow and a manual improvement before deciding which technology to buy.",
         },
       ],
     },
     {
-      heading: "How do you choose a first AI use case that can survive being wrong?",
+      heading: "What should a feasibility test prove before a build plan?",
       blocks: [
         {
           type: "p",
-          text: "Two properties matter, and they pull in the same direction. The cost of an error should be low and recoverable, and the value of a correct answer should be immediately visible to the person receiving it. Anything with a cheap error and an invisible benefit is not worth the build. Anything with an expensive error and a visible benefit belongs in phase three, once you have earned the organisation’s confidence.",
+          text: "A feasibility test should answer whether a candidate approach improves this task under the buyer's actual conditions. Gather representative inputs, difficult exceptions and expected outcomes; choose the sample size from the task's variation and risk rather than a universal quota. Run the current manual or scripted process on the same cases. OpenAI's evaluation guidance recommends task-specific datasets, human expert labels where needed and repeated tests after system changes.",
         },
         {
           type: "list",
+          ordered: true,
           items: [
-            "Errors are caught by a human who was going to look at the output anyway — drafting, summarising, pre-filling, suggesting a category.",
-            "The work is currently done, badly or slowly, by someone whose time is measurable, so improvement is obvious without a research exercise.",
-            "There is existing ground truth: past decisions, past classifications, past resolved tickets. Without it you cannot evaluate anything.",
-            "The output is inspectable. A human can tell at a glance whether a summary is wrong; they cannot tell whether a risk score is wrong.",
-            "The volume is high enough that a modest accuracy figure still saves real hours.",
+            "Write acceptance criteria for the whole task, including what counts as a useful result and what must never happen.",
+            "Include routine inputs, ambiguous cases, missing information, permission failures and examples from different user groups.",
+            "Record review time and correction effort as well as output quality. A draft that takes longer to check than to write may not improve the workflow.",
+            "Decide whether to proceed, narrow the task, try a simpler implementation or stop. A failed feasibility test is a decision, not a production promise.",
           ],
         },
         {
-          type: "p",
-          text: "The use case to avoid first is the one with the most impressive slide. Autonomous decisioning against customer money, anything that emails a client without review, anything where being wrong is discovered by a regulator. Those may well be achievable eventually, but they demand a level of measured reliability that you have no basis for yet, and a failure there costs you the internal permission to try again.",
+          type: "callout",
+          text: "Do not turn a successful curated demo into an accuracy claim about production users. Keep the test cases, criteria and limitations alongside the decision they support.",
         },
       ],
     },
     {
-      heading: "Why is data readiness the blocker that stalls most AI projects?",
+      heading: "Which data and permission questions come before model choice?",
       blocks: [
         {
           type: "p",
-          text: "The model is rarely the constraint now. The constraint is that the knowledge the product needs is spread across a document management system nobody has curated since a migration, a shared drive with four versions of the same policy, a CRM where the field that matters is free text, and the head of operations who knows which of the four policies is current. None of that is an AI problem, and all of it has to be solved before an AI product can work.",
+          text: "List the records, documents and tools the proposed feature needs. For each source, name its owner, update path and access rule. If one document has been superseded or a user cannot see another customer's record, the retrieval layer must respect those facts before the model drafts an answer. A prompt cannot substitute for application-side authorisation.",
         },
         {
           type: "p",
-          text: "Three questions surface most of the trouble early. Where does the authoritative version of each piece of knowledge live, and who decides it is authoritative? Is there a record of past correct decisions that can serve as an evaluation set? And can the system tell, at retrieval time, whether a document is current, superseded or draft? A retrieval system that confidently cites a policy withdrawn eighteen months ago is worse than no system, because it is wrong in a way that looks authoritative.",
-        },
-        {
-          type: "p",
-          text: "Budget for this properly. On document-heavy products, consolidating sources, resolving duplicates, tagging currency and permissions and building an evaluation set frequently takes longer than the feature on top. It is also durable: the cleaned corpus keeps its value whichever model you use next year, which is more than can be said for the prompt work.",
+          text: "NIST's AI Risk Management Framework calls for mapping the use context and measuring performance in that context. For a product team, this means testing on data the feature is actually allowed to use and documenting how missing, conflicting or outdated sources affect the result. If the authoritative source is unclear, resolve ownership before treating model output as a business fact.",
         },
       ],
     },
     {
-      heading: "How do you design an interface for a system that is sometimes wrong?",
+      heading: "How should the interface handle a wrong or unavailable result?",
       blocks: [
         {
           type: "p",
-          text: "Deterministic software either works or throws an error. An AI feature has a third state — plausible and wrong — and the interface is the only place that state can be handled. Three affordances do most of the work: showing the system’s own uncertainty, making correction faster than starting over, and making every action reversible.",
+          text: "Place the suggestion where the user already completes the task. Show the source material when it matters, make the proposed action visible and provide a direct way to edit, reject or continue manually. Do not display a numerical confidence score unless it has been calibrated for the task and users can act on it. A polished answer with no inspection path is harder to trust than an editable draft with clear limits.",
         },
         {
           type: "p",
-          text: "Uncertainty should be expressed in the user’s terms, not the model’s. A percentage next to an answer means little to someone in accounts payable and is often poorly calibrated anyway. What works is behavioural: a low-confidence result presented in a different visual register, routed to a review queue, or shown with the source passage so it can be checked in two seconds rather than twenty.",
-        },
-        {
-          type: "p",
-          text: "Correction should be cheaper than doing the task manually. If fixing a wrong extraction means retyping the whole form, users will stop trusting the feature after the third mistake and go back to the old process, and no amount of accuracy improvement will bring them back. Inline editing, one-click rejection with a reason, and pre-filled fields the user can overwrite are the difference between a feature that survives contact with a real team and one that is quietly abandoned. Capture every correction: it is your best future evaluation data and the clearest signal of where the system actually fails.",
-        },
-        {
-          type: "p",
-          text: "Undo is non-negotiable anywhere the system writes. Every AI-originated write should be attributable, reversible and visible in an audit trail, and bulk actions should preview before they commit — ordinary product discipline, skipped surprisingly often because the demo did not need it.",
+          text: "Keep consequential writes behind product controls. The application should identify who approved a change, what was changed and how to reverse it where reversal is possible. NIST's Measure playbook explicitly calls for documenting human oversight, exceptions and go/no-go decisions; those controls belong in the operating workflow, not only in a policy document.",
         },
       ],
     },
     {
-      heading: "Why the interface decides perceived quality more than the model does",
+      heading: "What should each release stage decide?",
       blocks: [
         {
           type: "p",
-          text: "Two products can sit on identical models and be judged completely differently. The one that streams its answer, shows what it is doing, cites the paragraph it drew from and lets the user fix a mistake in one click reads as competent even when it is wrong. The one that spins for eleven seconds and returns a confident block of prose with no provenance reads as unreliable even when it is right, because the user has no way to verify it and no way to recover when it is not.",
-        },
-        {
-          type: "p",
-          text: "This has a direct budget implication. When quality feels insufficient, the instinct is to change model or spend on fine-tuning. Very often the cheaper and larger win is in the interaction: reduce time to first token so the wait feels shorter, show the retrieved sources so verification takes seconds, narrow the input so the user cannot ask a question the system was never going to answer well, and add a clear statement of what the feature does not cover. Those changes ship in days and move perceived quality more than a model upgrade usually does.",
-        },
-      ],
-    },
-    {
-      heading: "How should an AI product development process be phased?",
-      blocks: [
-        {
-          type: "p",
-          text: "Phase the work so that something useful lands before you take on the hard parts, and so that every phase ends in a decision rather than a handover. The point of the structure is that stopping is available at each boundary and costs only what has been spent so far.",
+          text: "A phase is valuable when it ends with evidence and a decision. The stages below describe work, not a promised duration. Some can overlap; the order of dependencies matters more than a calendar template.",
         },
         {
           type: "table",
-          caption:
-            "Each phase of an AI product build, what it is for, roughly how long it runs, and the decision it exists to produce.",
-          head: ["Phase", "Goal", "Typical duration", "Decision at the end"],
+          caption: "AI product stages and the decision each should support.",
+          head: ["Stage", "Evidence", "Decision"],
           rows: [
-            [
-              "Feasibility spike",
-              "Measure achievable accuracy on real data against a labelled set",
-              "2–4 weeks",
-              "Proceed, reshape the use case, or stop",
-            ],
-            [
-              "Data readiness",
-              "Consolidate sources, resolve currency and permissions, build the evaluation set",
-              "3–8 weeks, often parallel to design",
-              "Is the corpus good enough to build on, or does a source need fixing first",
-            ],
-            [
-              "Thin end-to-end slice",
-              "One workflow working for real users internally, with correction and audit built in",
-              "4–8 weeks",
-              "Does the workflow save measurable time in practice",
-            ],
-            [
-              "Assisted release",
-              "Ship to real users with a human confirming every output",
-              "4–8 weeks",
-              "Is the correction rate low enough to widen the scope",
-            ],
-            [
-              "Scope expansion",
-              "Add document types, edge cases and adjacent workflows the slice deliberately excluded",
-              "Ongoing, in increments",
-              "Which remaining cases justify their build cost",
-            ],
-            [
-              "Autonomy where earned",
-              "Remove the human from the steps whose measured error rate is acceptable",
-              "Incremental, per step",
-              "Which specific steps have earned unattended operation",
-            ],
+            ["Task and data boundary", "User journey, source owners, permissions and failure consequences", "Is this the right first task?"],
+            ["Feasibility comparison", "Representative cases, baseline, candidate outputs and review effort", "Build, narrow, change approach or stop?"],
+            ["End-to-end slice", "One real integration, user controls and tested recovery path", "Does the complete workflow work in its intended environment?"],
+            ["Assisted release", "Observed corrections, missed cases, usage and operating cost", "Keep, revise or expand the bounded release?"],
+            ["Scope expansion", "Evidence for another user, action or data source", "Does the added capability justify its risk and cost?"],
           ],
         },
         {
           type: "p",
-          text: "Note what is absent: a phase called integration at the end. Integration belongs in the thin slice. A demo reading from a spreadsheet export tells you nothing about whether the product can read the live system under real permissions, and that is not a discovery you want in month five.",
+          text: "Bring integration and permission tests into the end-to-end slice. A demo using a static export does not establish that the product can read live records under real user permissions. If access is not available yet, state that dependency in the plan instead of presenting the slice as production-ready.",
         },
       ],
     },
     {
-      heading: "What does an AI product build cost, and what moves the range?",
+      heading: "How should a founder budget the AI product development process?",
       blocks: [
         {
           type: "p",
-          text: "The figures below are market ranges observed across the AI product engineering market, not a quote from anyone. They are wide on purpose, because the same brief can sit at either end depending on data condition and compliance load.",
-        },
-        {
-          type: "table",
-          caption:
-            "Observed market ranges in USD for AI product work, and the factors that move a project up the range.",
-          head: ["Scope", "What it covers", "Observed market range (USD)", "What pushes it upward"],
-          rows: [
-            [
-              "Feasibility spike",
-              "Labelled evaluation set, candidate approaches tested, accuracy report and recommendation",
-              "$10,000 – $30,000",
-              "No existing ground truth, several data sources, specialist domain labelling",
-            ],
-            [
-              "Single-workflow assistant",
-              "One workflow end to end with correction, audit trail and evaluation harness",
-              "$50,000 – $150,000",
-              "Integration into a legacy system of record, SSO and per-tenant permissions",
-            ],
-            [
-              "AI feature inside an existing product",
-              "Feature shipped to production users with monitoring and rollback",
-              "$80,000 – $300,000",
-              "Multi-tenant isolation, existing scale, regulated data handling",
-            ],
-            [
-              "Multi-workflow AI platform",
-              "Several workflows, shared retrieval layer, admin tooling and evaluation infrastructure",
-              "$250,000 upwards",
-              "Data consolidation programme, SOC 2 or HIPAA scope, multi-region residency",
-            ],
-          ],
+          text: "Ask suppliers to separate planning, data preparation, integration, interface work, evaluation, deployment and ongoing operation. Compare quotes against the same user task and acceptance evidence. A broad market price table would hide the differences between an internal draft assistant, a customer-facing feature and a multi-system product; there is no verified universal range for this page to publish.",
         },
         {
           type: "p",
-          text: "The single largest swing factor is the state of the data. A client with one clean, well-governed source of truth and a searchable history of past decisions can reach a production feature for a fraction of what the same brief costs a client whose knowledge is spread across four systems and one very experienced person. Run the data audit early, because it changes the estimate more than any other input.",
+          text: "ApexStack's Product Blueprint starts from US$1,000 for one bounded planning and de-risking question, such as defining the first workflow or its evaluation plan. It is not a production-ready AI product. A Launch Sprint starts from US$2,500 and can cover planning, UX direction, implementation, testing and deployment of one tightly scoped first release or core workflow. Authentication, billing, mobile apps, advanced AI, multiple integrations, data migration, compliance and extensive administration can raise the quote. The written scope should state inclusions, exclusions and approval points before implementation begins.",
         },
       ],
     },
     {
-      heading: "What do you measure after launch, and what happens when it drifts?",
+      heading: "What should be measured after the first release?",
       blocks: [
         {
           type: "p",
-          text: "Keep a golden set — a fixed collection of real inputs with agreed correct answers — and run it on every prompt change, every model version and every retrieval change, before deployment. Without it you are shipping on impressions, and prompt edits that improve one case while quietly breaking three others are extremely common. Track four things in production: the correction rate, the abandonment rate on AI-suggested actions, cost per completed task, and latency at the 95th percentile.",
+          text: "Measure the complete task rather than only a model response. Keep representative test cases and rerun them when the prompt, model, retrieval source or tool permissions change. In production, inspect correction patterns, abandoned tasks, provider failures, review time and cost per completed task where those observations are available. OpenAI's evaluation guidance supports continuous evaluation; it does not supply a pass mark for every product.",
         },
         {
           type: "p",
-          text: "Drift is normal rather than exceptional. Providers deprecate model versions on published schedules, your users’ inputs change as the business changes, and your own corpus grows. Assume a periodic re-evaluation against the golden set is part of running the product, and give someone ownership of it. Products that degrade silently do so because nobody was assigned the job of noticing.",
-        },
-        {
-          type: "p",
-          text: "If you have a use case in mind and no idea yet whether it is achievable on your data, the feasibility spike is the right first conversation — that is where ApexStack usually starts an AI engagement, and it gives you a real number to plan against before anyone commits to a build.",
+          text: "Give one team member responsibility for reviewing failures and deciding whether the scope should change. If the first release is a draft assistant, do not silently turn it into an unattended sender because a few examples looked good. ApexStack can help turn the task brief, test cases and operating boundary into a Product Blueprint, then quote a bounded implementation only when the release decision is clear.",
         },
       ],
     },
@@ -242,32 +160,37 @@ export const post: BlogPost = {
     {
       question: "How long does it take to build an AI product?",
       answer:
-        "A feasibility spike runs two to four weeks. From there, a first workflow used by real internal users typically takes another two to four months, depending far more on the state of the data and the integration surface than on the AI work itself. Products that consolidate several data sources before they can start should expect several additional weeks for that alone.",
+        "There is no responsible universal duration. The task, state of the data, integrations, permission model, evaluation work and release obligations change the plan. Ask for a staged scope with decision points and a written quote for the first bounded release rather than adopting a generic timeline.",
     },
     {
-      question: "What is a feasibility spike in an AI project?",
+      question: "What is a feasibility test in an AI product project?",
       answer:
-        "A short piece of work whose only deliverable is a measured accuracy figure on your own data. You collect fifty to two hundred real examples, have a domain expert label the correct answers, test candidate approaches against them, and report how often each succeeds and where the failures cluster. It replaces guesswork with a number you can plan and budget against.",
+        "It is a comparison of candidate approaches on representative task cases, using defined success and failure criteria. Include difficult inputs and a current-process baseline, then record output quality, review effort and limitations. The result may justify building, narrowing the task, trying a simpler workflow or stopping.",
     },
     {
-      question: "Do we need machine learning engineers to build an AI product?",
+      question: "Does an AI product need a dedicated machine-learning engineer?",
       answer:
-        "For most products built on hosted foundation models, no. The work is product engineering — data pipelines, retrieval, evaluation harnesses, interface design and integration — with applied AI expertise for prompting, structured outputs and evaluation. Dedicated ML engineering becomes necessary when you are training or fine-tuning models on proprietary data, which is a smaller share of commercial AI projects.",
+        "That depends on the approach. An application using a hosted model still needs product engineering, data access, evaluation and interface work; training or serving a proprietary model can add specialist requirements. Decide the roles from the task and architecture rather than assuming every AI feature needs the same team.",
     },
     {
-      question: "How accurate does an AI feature need to be before we can ship it?",
+      question: "How accurate must an AI feature be before release?",
       answer:
-        "There is no universal threshold; it depends entirely on the cost of an error and who catches it. A drafting assistant reviewed by a human before sending can ship at a level that would be unacceptable for an unattended decision. Decide the acceptable error rate and the review model together, then measure against that target rather than against an abstract benchmark.",
+        "There is no universal threshold. Set acceptance criteria around the consequence of a wrong output, who reviews it, how failures are found and whether the user can recover. Test the complete task on representative cases before release and review production corrections afterwards.",
     },
     {
-      question: "Why do AI demos work but production AI products fail?",
+      question: "Should the first AI product use a hosted or self-hosted model?",
       answer:
-        "Demos run on curated inputs, with no permissions model, no audit trail, no correction path and no long tail of unusual cases. Production traffic supplies all of those on the first day. The gap is almost never model capability — it is data quality, integration into the real system of record, and an interface that gives users a way to recover when the system is wrong.",
+        "Compare the options against data rights, residency, control, expected usage, operating capacity and task quality. A hosted model can reduce infrastructure work for an early test, but it is not automatically suitable for every data boundary. Self-hosting also needs an operating and evaluation plan; neither option replaces task-specific testing.",
     },
-    {
-      question: "Should we build on a hosted model or run our own?",
-      answer:
-        "Start hosted. It removes infrastructure work from the riskiest phase and lets you find out whether the product is valuable before you invest in serving. Self-hosting becomes worth evaluating when data residency or contractual restrictions require it, or when volume is high and stable enough that inference cost outweighs the engineering and operational overhead of running the model yourself.",
-    },
+  ],
+  sources: [
+    { title: "Evaluation best practices", url: "https://developers.openai.com/api/docs/guides/evaluation-best-practices", publisher: "OpenAI" },
+    { title: "AI RMF Core", url: "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/", publisher: "NIST" },
+    { title: "AI RMF Playbook: Measure", url: "https://airc.nist.gov/airmf-resources/playbook/measure/", publisher: "NIST" },
+  ],
+  related: [
+    "how-to-evaluate-an-llm-feature",
+    "llm-feature-production-cost",
+    "scope-in-app-ai-copilot-saas",
   ],
 };
