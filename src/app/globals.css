@@ -179,6 +179,16 @@
   filter: grayscale(0%);
 }
 
+/* Keep native option menus legible alongside dark select fields. */
+.native-select-dark {
+  color-scheme: dark;
+}
+.native-select-dark option,
+.native-select-dark optgroup {
+  background-color: #171717;
+  color: #ffffff;
+}
+
 /*
  * Curriculum session images carry `transition-all duration-700 ease-in-out` in
  * the markup, but this rule is more specific (0,1,1 vs 0,1,0) and wins, so the

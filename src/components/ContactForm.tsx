@@ -307,7 +307,7 @@ export default function ContactForm() {
           </label>
           <select
             id={`${formId}-service`}
-            className={FIELD_CLASS}
+            className={`${FIELD_CLASS} native-select-dark`}
             value={values.service}
             onChange={(e) => update("service", e.target.value)}
             aria-invalid={Boolean(errors.service)}
@@ -343,7 +343,7 @@ export default function ContactForm() {
           </label>
           <select
             id={`${formId}-budget`}
-            className={FIELD_CLASS}
+            className={`${FIELD_CLASS} native-select-dark`}
             value={values.budget}
             onChange={(e) => update("budget", e.target.value)}
           >
@@ -362,7 +362,7 @@ export default function ContactForm() {
           </label>
           <select
             id={`${formId}-timeline`}
-            className={FIELD_CLASS}
+            className={`${FIELD_CLASS} native-select-dark`}
             value={values.timeline}
             onChange={(e) => update("timeline", e.target.value)}
           >

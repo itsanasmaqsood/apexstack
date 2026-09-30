@@ -126,7 +126,7 @@ function CurrencySelect() {
     <div className="currency-dropdown">
       <select
         aria-label="Select currency"
-        className="bg-black/50 border border-[#FFFFFF1A] p-2 rounded text-white opacity-70 hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50"
+        className="native-select-dark bg-black/50 border border-[#FFFFFF1A] p-2 rounded text-white opacity-70 hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50"
       >
         <option value="USD" className="bg-black text-white">
           USD
