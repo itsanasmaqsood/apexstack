@@ -6,6 +6,7 @@ import { useCallback, useId, useState } from "react";
 
 import { TurnstileWidget } from "@/components/TurnstileWidget";
 import { COMPANY } from "@/data/company";
+import { CONTACT_PAGE } from "@/data/contact";
 import { CORE_ENGINEERING, CREATIVE_SERVICES } from "@/data/services";
 
 /**
@@ -174,11 +175,14 @@ export default function ContactForm() {
         className="border border-[#B4CC04]/40 bg-[#B4CC04]/5 rounded-[2px] p-8 md:p-10"
       >
         <h3 className="text-white text-[24px] md:text-[30px] font-medium leading-[120%] mb-3">
-          Thanks — that has reached us.
+          {CONTACT_PAGE.successTitle}
         </h3>
         <p className="text-white/70 text-sm md:text-base mb-6 max-w-xl">
-          We read every enquiry ourselves and will review the details you shared. A confirmation
-          has also been sent to your email address.
+          {CONTACT_PAGE.successBody}{" "}
+          <a href={`mailto:${COMPANY.email}`} className="underline underline-offset-4">
+            {COMPANY.email}
+          </a>
+          .
         </p>
         <button
           type="button"

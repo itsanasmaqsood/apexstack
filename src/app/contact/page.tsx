@@ -6,79 +6,20 @@ import ContactForm from "@/components/ContactForm";
 import PageLayout from "@/components/PageLayout";
 import Section, { Eyebrow, SectionHeading } from "@/components/Section";
 import { COMPANY, isTodo } from "@/data/company";
+import {
+  CONTACT_ENQUIRY_TYPES,
+  CONTACT_FAQS,
+  CONTACT_NEXT_STEPS,
+  CONTACT_PAGE,
+} from "@/data/contact";
 import { pageMetadata } from "@/lib/metadata";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact ApexStack — Book a Discovery Call",
-  description:
-    "Talk to the engineers who would build your product. Tell us the business problem and we will explain what it would take to move forward.",
+  title: CONTACT_PAGE.seoTitle,
+  description: CONTACT_PAGE.seoDescription,
   path: "/contact",
 });
-
-const ENQUIRY_TYPES = [
-  {
-    title: "New project",
-    body: "You have a business problem and want to know whether software is the answer, what it would take, and what it would cost.",
-    routing: "Goes straight to an engineer, not a sales queue.",
-  },
-  {
-    title: "Business & partnerships",
-    body: "Enterprise engagements, dedicated teams, long-running retainers, vendor onboarding and procurement questions.",
-    routing: "Handled by the team who would run the engagement.",
-  },
-  {
-    title: "General enquiry",
-    body: "Careers, press, supplier questions, or anything that does not fit the other two.",
-    routing: "Reviewed daily and forwarded to the right person.",
-  },
-];
-
-const WHAT_HAPPENS = [
-  {
-    step: "01",
-    title: "We read it properly",
-    body: "Every enquiry is read by someone technical. You will not get an automated qualification sequence.",
-  },
-  {
-    step: "02",
-    title: "A practical reply",
-    body: "Either with questions, a suggested call, or an honest note that we are not the right fit for this one.",
-  },
-  {
-    step: "03",
-    title: "Discovery call",
-    body: "45 minutes. You describe the problem; we ask about users, constraints and the systems already in place.",
-  },
-  {
-    step: "04",
-    title: "A written next step",
-    body: "What a first phase would look like, what it would deliver, and what it would take. Yours to keep either way.",
-  },
-];
-
-const CONTACT_FAQS = [
-  {
-    q: "What should I have ready before the call?",
-    a: "Nothing formal. The problem in your own words is enough. If you already know your deadline, budget range, compliance requirements or the systems it must integrate with, bring those — they shape the answer more than a feature list does.",
-  },
-  {
-    q: "Do I need a specification?",
-    a: "No, and often it is better that you do not. A specification written before any user research usually encodes assumptions that turn out to be wrong. Discovery exists to turn the problem into a scope worth building.",
-  },
-  {
-    q: "Will I be speaking to a salesperson?",
-    a: "No. The first call is with someone who would actually work on the project. We do not put an account manager between you and the people making technical decisions.",
-  },
-  {
-    q: "What if you are not the right fit?",
-    a: "We will say so on the first call, and where we can we will point you toward someone better suited. A bad-fit engagement costs us more than it earns.",
-  },
-  {
-    q: "Will you sign an NDA?",
-    a: "Yes, before any detailed discussion of your product or data. Send yours across or ask us for one.",
-  },
-];
 
 /**
  * FAQPage for the five questions rendered further down this page.
@@ -128,8 +69,8 @@ export default function ContactPage() {
   return (
     <PageLayout
       eyebrow="CONTACT"
-      title="Tell us the problem. We will tell you what it takes."
-      intro="No obligation, no pitch deck. A conversation with the people who would build it."
+      title={CONTACT_PAGE.title}
+      intro={CONTACT_PAGE.intro}
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
       path="/contact"
       pageType="ContactPage"
@@ -212,7 +153,7 @@ export default function ContactPage() {
           Three kinds of enquiry
         </SectionHeading>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {ENQUIRY_TYPES.map((type) => (
+          {CONTACT_ENQUIRY_TYPES.map((type) => (
             <div key={type.title} className="border-t border-[#08090A]/20 pt-6">
               <h3 className="text-black text-base md:text-xl font-medium mb-3">
                 {type.title}
@@ -227,14 +168,12 @@ export default function ContactPage() {
       {/* ------------------------------------------------------ what happens next */}
       <Section theme="dark">
         <Eyebrow className="mb-4">WHAT HAPPENS NEXT</Eyebrow>
-        <SectionHeading className="mb-4">
-          From enquiry to a written next step
-        </SectionHeading>
+        <SectionHeading className="mb-4">{CONTACT_PAGE.nextHeading}</SectionHeading>
         <p className="text-white/50 text-sm md:text-base mb-12 max-w-2xl">
-          You should know exactly what you are signing up for when you press send.
+          {CONTACT_PAGE.nextIntro}
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {WHAT_HAPPENS.map((item) => (
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          {CONTACT_NEXT_STEPS.map((item) => (
             <div key={item.step}>
               <span className="text-[#B4CC04] text-sm font-medium">{item.step}</span>
               <h3 className="text-white text-base md:text-xl font-medium mt-3 mb-2">
