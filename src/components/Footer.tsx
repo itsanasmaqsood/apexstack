@@ -4,6 +4,7 @@ import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@/components/icons";
 import NewsletterForm from "@/components/NewsletterForm";
 import { COMPANY } from "@/data/company";
 import type { FooterColumn } from "@/types";
+import darkNativeSelect from "./DarkNativeSelect.module.css";
 
 /**
  * Site footer. Unlike the rest of the page this section is framed by a
@@ -126,7 +127,7 @@ function CurrencySelect() {
     <div className="currency-dropdown">
       <select
         aria-label="Select currency"
-        className="native-select-dark bg-black/50 border border-[#FFFFFF1A] p-2 rounded text-white opacity-70 hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50"
+        className={`${darkNativeSelect.select} bg-black/50 border border-[#FFFFFF1A] p-2 rounded text-white opacity-70 hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50`}
       >
         <option value="USD" className="bg-black text-white">
           USD

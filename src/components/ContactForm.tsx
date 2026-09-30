@@ -8,6 +8,7 @@ import { TurnstileWidget } from "@/components/TurnstileWidget";
 import { COMPANY } from "@/data/company";
 import { CONTACT_PAGE } from "@/data/contact";
 import { CORE_ENGINEERING, CREATIVE_SERVICES } from "@/data/services";
+import darkNativeSelect from "./DarkNativeSelect.module.css";
 
 /**
  * Enterprise enquiry form.
@@ -307,7 +308,7 @@ export default function ContactForm() {
           </label>
           <select
             id={`${formId}-service`}
-            className={`${FIELD_CLASS} native-select-dark`}
+            className={`${FIELD_CLASS} ${darkNativeSelect.select}`}
             value={values.service}
             onChange={(e) => update("service", e.target.value)}
             aria-invalid={Boolean(errors.service)}
@@ -343,7 +344,7 @@ export default function ContactForm() {
           </label>
           <select
             id={`${formId}-budget`}
-            className={`${FIELD_CLASS} native-select-dark`}
+            className={`${FIELD_CLASS} ${darkNativeSelect.select}`}
             value={values.budget}
             onChange={(e) => update("budget", e.target.value)}
           >
@@ -362,7 +363,7 @@ export default function ContactForm() {
           </label>
           <select
             id={`${formId}-timeline`}
-            className={`${FIELD_CLASS} native-select-dark`}
+            className={`${FIELD_CLASS} ${darkNativeSelect.select}`}
             value={values.timeline}
             onChange={(e) => update("timeline", e.target.value)}
           >
