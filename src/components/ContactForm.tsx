@@ -148,14 +148,6 @@ export default function ContactForm() {
       });
       const result = (await response.json()) as { error?: string };
       if (!response.ok) throw new Error(result.error || `Request failed with ${response.status}`);
-      setStatus("success");
-      setValues(EMPTY);
-      setTurnstileToken("");
-      track("Contact Enquiry Sent", {
-        service: values.service,
-        budget: values.budget || "Not provided",
-        article: window.sessionStorage.getItem("apexstack_blog_origin") ?? "none",
-      });
     } catch (error) {
       setStatus("error");
       setTurnstileResetKey((current) => current + 1);
@@ -164,7 +156,32 @@ export default function ContactForm() {
           ? error.message
           : `We could not send that. Please email ${COMPANY.email}.`,
       );
-      track("Contact Enquiry Failed");
+      try {
+        track("Contact Enquiry Failed");
+      } catch {
+        // Optional analytics must not replace the actual submission error.
+      }
+      return;
+    }
+
+    // The API accepted the enquiry. Attribution and analytics cannot undo it.
+    setStatus("success");
+    setValues(EMPTY);
+    setTurnstileToken("");
+    let article = "none";
+    try {
+      article = window.sessionStorage.getItem("apexstack_blog_origin") ?? "none";
+    } catch {
+      // Browsers can deny storage access; the enquiry still succeeded.
+    }
+    try {
+      track("Contact Enquiry Sent", {
+        service: values.service,
+        budget: values.budget || "Not provided",
+        article,
+      });
+    } catch {
+      // A tracking failure is not an enquiry delivery failure.
     }
   }
 

@@ -23,12 +23,20 @@ export function TrackedBlogLink({
   children,
 }: TrackedBlogLinkProps) {
   function recordIntent() {
-    window.sessionStorage.setItem("apexstack_blog_origin", postSlug);
-    track("Blog CTA Click", {
-      article: postSlug,
-      destination,
-      service: serviceSlug ?? "unmapped",
-    });
+    try {
+      window.sessionStorage.setItem("apexstack_blog_origin", postSlug);
+    } catch {
+      // Storage can be unavailable; tracking and navigation remain independent.
+    }
+    try {
+      track("Blog CTA Click", {
+        article: postSlug,
+        destination,
+        service: serviceSlug ?? "unmapped",
+      });
+    } catch {
+      // Optional analytics must never interrupt the reader's next step.
+    }
   }
 
   return (

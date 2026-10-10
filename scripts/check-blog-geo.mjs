@@ -65,7 +65,7 @@ if (pendingMigrations.length !== 0) {
 
 const completedSet = new Set(completedMigrations);
 const completedClaimRisks = [
-  /\$6,500/i,
+  /\$\s*(?:6(?:[,\s]\s*)?500(?:\.0+)?|6\.5\s*k)(?!\w|[.,]\d)/i,
   /under 48 hours/i,
   /retention (?:by )?15%/i,
   /ranked #?1/i,
@@ -92,7 +92,7 @@ for (const file of files) {
   const robots = root.querySelector('meta[name="robots"]')?.getAttribute("content") ?? "";
   const title = root.querySelector("title")?.text.trim();
   const article = root.querySelector("article");
-  const articleText = article?.text ?? "";
+  const articleText = article?.structuredText ?? "";
 
   if (!title) record(file, "missing document title");
   if (!description) record(file, "missing meta description");
@@ -145,6 +145,20 @@ for (const file of files) {
     if (!posting?.[property]) record(file, `BlogPosting is missing ${property}`);
   }
 
+  // Search/social metadata and schema must not retain claims removed from the body.
+  const publishedClaimText = [
+    articleText,
+    title,
+    ...root.querySelectorAll("meta[content]").map((meta) => meta.getAttribute("content")),
+    JSON.stringify(nodes),
+  ].join("\n");
+  if (
+    slug === "mvp-development-for-startups" &&
+    /\bship(?:ped|ping)?\s+in\s+4\s*(?:[-–—]|to)\s*6\s+weeks\b/i.test(publishedClaimText)
+  ) {
+    record(file, "contains the unsupported MVP delivery timeline");
+  }
+
   const conversionRequired =
     posting?.datePublished >= conversionGateStart || posting?.dateModified >= conversionGateStart;
   if (conversionRequired) {
@@ -182,7 +196,7 @@ for (const file of files) {
 
   if (completedSet.has(slug)) {
     for (const pattern of completedClaimRisks) {
-      if (pattern.test(articleText)) {
+      if (pattern.test(publishedClaimText)) {
         record(file, `completed mirror rewrite still matches claim-risk pattern ${pattern}`);
       }
     }
