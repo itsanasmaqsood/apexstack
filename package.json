@@ -13,7 +13,7 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "test": "node --test scripts/contact-form.test.mjs && node scripts/check-blog-claim-regressions.mjs && node scripts/check-select-contrast.mjs",
+    "test": "node --test scripts/contact-form.test.mjs scripts/sync-blog.test.mjs && node scripts/check-blog-claim-regressions.mjs && node scripts/check-select-contrast.mjs",
     "check": "npm run test && npm run lint && npm run typecheck && npm run build && npm run verify:blog-geo && npm run verify:pricing",
     "verify:blog-geo": "node scripts/check-blog-geo.mjs",
     "verify:pricing": "node scripts/check-pricing.mjs",
