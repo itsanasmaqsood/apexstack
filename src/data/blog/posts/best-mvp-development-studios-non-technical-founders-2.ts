@@ -17,9 +17,15 @@ export const post: BlogPost = {
     "mvp studio technical ownership",
   ],
   published: "2026-08-23",
-  updated: "2026-08-24",
+  updated: "2026-10-11",
   authorId: "leadership-01",
   serviceSlug: "mvp-development",
+  conversion: {
+    heading: "How can ApexStack help you compare the same MVP brief?",
+    description:
+      "Send ApexStack the same first-release brief and scorecard you give the other studios, with their open scope questions and the responsibilities you need to transfer. We can map the user outcome, exclusions, buyer-owned accounts, acceptance checks and handover into a bounded Product Blueprint before you choose an implementation. Product Blueprint engagements start from US$1,000 for planning and de-risking, not a production-ready MVP. A Launch Sprint starts from US$2,500 for planning, UX direction, implementation, testing and deployment of one tightly scoped first release or core workflow. Authentication, billing, mobile apps, advanced AI, multiple integrations, data migration, compliance and extensive administration can increase the quote.",
+    primaryLabel: "Send your MVP studio comparison brief",
+  },
   keyTakeaway:
     "A non-technical founder should choose an MVP studio by the decisions and evidence it makes visible: a narrow user outcome, written scope exclusions, buyer-owned accounts, named acceptance checks, a repeatable deployment and a usable handover. A polished portfolio or fixed price is not enough when the founder cannot independently inspect the architecture or supervise the build.",
   sections: [
@@ -128,6 +134,23 @@ export const post: BlogPost = {
               "Documentation and account transfer are postponed until the relationship ends",
             ],
           ],
+        },
+      ],
+    },
+    {
+      heading: "How can you compare the studios' answers without inspecting code?",
+      blocks: [
+        {
+          type: "p",
+          text: "Give each studio the same short acceptance exercise: describe one user completing the core task, one user who must not see another account's data, and one required integration being unavailable. Ask the studio to explain what the user sees, how you would verify the result and which account or document holds the evidence. Record unanswered points as open decisions, not implied inclusions.",
+        },
+        {
+          type: "p",
+          text: "For a hypothetical appointment-request MVP, the exercise might be a visitor requesting an available slot, a second visitor being unable to read that request, and the notification service failing. You do not need to prescribe the architecture. You do need agreement on whether the request is retained, what confirmation means and how the operator finds undelivered notifications. A screen demonstration alone cannot answer all of those questions.",
+        },
+        {
+          type: "callout",
+          text: "If the answers reveal different scopes, send ApexStack the same brief and unresolved scorecard items. A Product Blueprint can clarify the first release and acceptance evidence before you compare an implementation price; it is planning and de-risking, not a complete MVP build.",
         },
       ],
     },
